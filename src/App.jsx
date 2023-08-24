@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/project-drink-master" element={<SharedLayout />}>
+        <Route path="/project-drink-master/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
           <Route
             path="main"
