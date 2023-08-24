@@ -1,35 +1,85 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { SharedLayout } from "./components/SharedLayout/SharedLayout";
+import { RestrictedRoute } from "./components/RestrictedRoute";
+import { PrivateRoute } from "./components/PrivateRoute";
+import SignInPage from "./pages/SignInPage/SignInPage";
+import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import MainPage from "./pages/MainPage/MainPage";
+import DrinksPage from "./pages/DrinksPage/DrinksPage";
+import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
+import FavoritePage from "./pages/FavoritePage/FavoritePage";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Routes>
+        <Route path="/project-drink-master" element={<SharedLayout />}>
+          <Route index element={<MainPage />} />
+          <Route
+            path="main"
+            element={
+              <PrivateRoute redirectTo="/main" component={<MainPage />} />
+            }
+          />
+          <Route
+            path="drinks"
+            element={
+              <PrivateRoute
+                redirectTo="/project-drink-master/drinks"
+                component={<DrinksPage />}
+              />
+            }
+          />
+          <Route
+            path="add"
+            element={
+              <PrivateRoute
+                redirectTo="/project-drink-master/add"
+                component={<AddRecipePage />}
+              />
+            }
+          />
+          <Route
+            path="my"
+            element={
+              <PrivateRoute
+                redirectTo="/project-drink-master/my"
+                component={<MainPage />}
+              />
+            }
+          />
+          <Route
+            path="favorite"
+            element={
+              <PrivateRoute
+                redirectTo="/project-drink-master/favorite"
+                component={<FavoritePage />}
+              />
+            }
+          />
+          <Route
+            path="signin"
+            element={
+              <RestrictedRoute
+                redirectTo="/signin"
+                component={<SignInPage />}
+              />
+            }
+          />
+          <Route
+            path="signup"
+            element={
+              <RestrictedRoute
+                redirectTo="/signup"
+                component={<SignUpPage />}
+              />
+            }
+          />
+        </Route>
+      </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
