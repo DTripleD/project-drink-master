@@ -4,9 +4,9 @@ import { Navigate } from "react-router-dom";
 
 // export const RestrictedRoute = ({ component: Component, redirectTo = "/" }) => {
 // eslint-disable-next-line react/prop-types
-export const RestrictedRoute = ({ redirectTo = "/" }) => {
+export const RestrictedRoute = ({ componnent: Component, redirectTo = "/" }) => {
   //   const isLoggedIn = useSelector(selectIsLoggedIn);
-
+  const isLoggedIn = false;
   //   return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
-  return <Navigate to={redirectTo} />;
+  return isLoggedIn ? <Navigate to={redirectTo} /> : Component;
 };
