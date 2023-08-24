@@ -9,6 +9,7 @@ import MainPage from "./pages/MainPage/MainPage";
 import DrinksPage from "./pages/DrinksPage/DrinksPage";
 import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
+import WelcomePage from "./pages/WellcomPage/WellcomPage";
 
 function App() {
   return (
@@ -65,8 +66,17 @@ function App() {
               />
             }
           />
+           <Route
+            path="welcome"
+            element={
+              <RestrictedRoute
+                redirectTo="/welcome"
+                component={<WelcomePage />}
+              />
+            }
+          />
         </Route>
-      </Routes>
+       </Routes>
     </>
   );
 }
