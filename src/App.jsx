@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/project-drink-master/" element={<SharedLayout />}>
+        <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
           <Route
             path="main"
@@ -25,35 +25,24 @@ function App() {
           <Route
             path="drinks"
             element={
-              <PrivateRoute
-                redirectTo="/project-drink-master/drinks"
-                component={<DrinksPage />}
-              />
+              <PrivateRoute redirectTo="/drinks" component={<DrinksPage />} />
             }
           />
           <Route
             path="add"
             element={
-              <PrivateRoute
-                redirectTo="/project-drink-master/add"
-                component={<AddRecipePage />}
-              />
+              <PrivateRoute redirectTo="/add" component={<AddRecipePage />} />
             }
           />
           <Route
             path="my"
-            element={
-              <PrivateRoute
-                redirectTo="/project-drink-master/my"
-                component={<MainPage />}
-              />
-            }
+            element={<PrivateRoute redirectTo="/my" component={<MainPage />} />}
           />
           <Route
             path="favorite"
             element={
               <PrivateRoute
-                redirectTo="/project-drink-master/favorite"
+                redirectTo="/favorite"
                 component={<FavoritePage />}
               />
             }

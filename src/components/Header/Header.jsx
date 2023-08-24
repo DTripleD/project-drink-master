@@ -9,19 +9,11 @@ const Header = () => {
   return (
     <HeaderStyled>
       <nav>
-        <StyledLink to="/project-drink-master">Home</StyledLink>
-        {true && (
-          <StyledLink to="/project-drink-master/drinks">Drinks</StyledLink>
-        )}
-        {true && (
-          <StyledLink to="/project-drink-master/add">Add recipe</StyledLink>
-        )}
-        {true && (
-          <StyledLink to="/project-drink-master/my">My recipes</StyledLink>
-        )}
-        {true && (
-          <StyledLink to="/project-drink-master/favorite">Favorites</StyledLink>
-        )}
+        <StyledLink to="/">Home</StyledLink>
+        {true && <StyledLink to="/drinks">Drinks</StyledLink>}
+        {true && <StyledLink to="/add">Add recipe</StyledLink>}
+        {true && <StyledLink to="/my">My recipes</StyledLink>}
+        {true && <StyledLink to="/favorite">Favorites</StyledLink>}
       </nav>
       {/* {isLoggedIn ? <UserMenu /> : <WelcomePage />} */}
 
