@@ -2,7 +2,8 @@ import styled from "@emotion/styled";
 
 export const AppWrapper = styled.div`
   width: 100%;
-  /* background-color: #07070b; */
+
+  background-color: ${({ theme }) => theme.colors.black};
   /* padding-left: 20px;
   padding-right: 20px; */
   /* margin-left: auto;
