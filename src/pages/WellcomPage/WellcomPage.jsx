@@ -1,3 +1,13 @@
+import {
+  BaseDiv,
+  SummaryWrapper,
+  WelcomeTitle,
+  WelcomeText,
+  ButtonsBlock,
+  RegistrationNavLink,
+  SignInNavLink,
+} from './WelcomePage.styled';
+
 const WelcomePage = () => {
   return (
     <BaseDiv>

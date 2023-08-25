@@ -11,74 +11,69 @@ import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import WelcomePage from "./pages/WellcomPage/WellcomPage";
 
-function App() {
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<MainPage />} />
-          <Route
-            path="main"
-            element={
-              <PrivateRoute redirectTo="/main" component={<MainPage />} />
-            }
-          />
-          <Route
-            path="drinks"
-            element={
-              <PrivateRoute redirectTo="/drinks" component={<DrinksPage />} />
-            }
-          />
-          <Route
-            path="add"
-            element={
-              <PrivateRoute redirectTo="/add" component={<AddRecipePage />} />
-            }
-          />
-          <Route
-            path="my"
-            element={<PrivateRoute redirectTo="/my" component={<MainPage />} />}
-          />
-          <Route
-            path="favorite"
-            element={
-              <PrivateRoute
-                redirectTo="/favorite"
-                component={<FavoritePage />}
-              />
-            }
-          />
-          <Route
-            path="signin"
-            element={
-              <RestrictedRoute
-                redirectTo="/signin"
-                component={<SignInPage />}
-              />
-            }
-          />
-          <Route
-            path="signup"
-            element={
-              <RestrictedRoute
-                redirectTo="/signup"
-                component={<SignUpPage />}
-              />
-            }
-          />
-           <Route
-            path="welcome"
-            element={
-              <RestrictedRoute
-                redirectTo="/welcome"
-                component={<WelcomePage />}
-              />
-            }
-          />
-        </Route>
-       </Routes>
-    </>
-  );
+function App() { 
+  return ( 
+    <> 
+      <Routes> 
+        <Route path="/" element={<SharedLayout />}> 
+          <Route index element={<MainPage />} /> 
+          <Route 
+            path="main" 
+            element={ 
+              <PrivateRoute redirectTo="/welcome" component={<MainPage />} /> 
+            } 
+          /> 
+          <Route 
+            path="drinks" 
+            element={ 
+              <PrivateRoute redirectTo="/welcome" component={<DrinksPage />} /> 
+            } 
+          /> 
+          <Route 
+            path="add" 
+            element={ 
+              <PrivateRoute 
+                redirectTo="/welcome" 
+                component={<AddRecipePage />} 
+              /> 
+            } 
+          /> 
+          <Route 
+            path="my" 
+            element={ 
+              <PrivateRoute redirectTo="/welcome" component={<MainPage />} /> 
+            } 
+          /> 
+          <Route 
+            path="favorite" 
+            element={ 
+              <PrivateRoute 
+                redirectTo="/welcome" 
+                component={<FavoritePage />} 
+              /> 
+            } 
+          /> 
+          <Route 
+            path="signin" 
+            element={ 
+              <RestrictedRoute redirectTo="/main" component={<SignInPage />} /> 
+            } 
+          /> 
+          <Route 
+            path="signup" 
+            element={ 
+              <RestrictedRoute redirectTo="/main" component={<SignUpPage />} /> 
+            } 
+          /> 
+          <Route 
+            path="welcome" 
+            element={ 
+              <RestrictedRoute redirectTo="/main" component={<WelcomePage />} /> 
+            } 
+          /> 
+        </Route> 
+      </Routes> 
+    </> 
+  ); 
 }
-
 export default App;
