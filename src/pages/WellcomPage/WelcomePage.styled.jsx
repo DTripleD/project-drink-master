@@ -1,14 +1,14 @@
 import styled from "@emotion/styled";
-import { NavLink } from 'react-router-dom';
-import coctailImgMobile from '../../images/WelcomePage/cocktailMainMob.jpg';
-import coctailImgMobileR from '../../images/WelcomePage/cocktailMainMob@2x.jpg';
-import coctailImgTab from '../../images/WelcomePage/cocktailMainTab.jpg'
-import coctailImgTabR from '../../images/WelcomePage/cocktailMainTab@2x.jpg';
-import coctailImgDesc from '../../images/WelcomePage/cocktailMainDesc.jpg';
-import coctailImgDescR from '../../images/WelcomePage/cocktailMainDesc@2x.png';
+import { NavLink } from "react-router-dom";
+import coctailImgMobile from "../../images/WelcomePage/cocktailMainMob.jpg";
+import coctailImgMobileR from "../../images/WelcomePage/cocktailMainMob@2x.jpg";
+import coctailImgTab from "../../images/WelcomePage/cocktailMainTab.jpg";
+import coctailImgTabR from "../../images/WelcomePage/cocktailMainTab@2x.jpg";
+import coctailImgDesc from "../../images/WelcomePage/cocktailMainDesc.jpg";
+import coctailImgDescR from "../../images/WelcomePage/cocktailMainDesc@2x.png";
 
 export const BaseDiv = styled.div`
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   background-size: contain;
@@ -17,6 +17,7 @@ export const BaseDiv = styled.div`
   background-image: url(${coctailImgMobile});
   background-position: right;
   background-repeat: no-repeat;
+  background-color: #07070b;
   @media (-webkit-min-device-pixel-ratio: 2) {
     background-image: url(${coctailImgMobileR});
   }
@@ -31,7 +32,6 @@ export const BaseDiv = styled.div`
   }
   @media (min-width: 1440px) {
     background-image: url(${coctailImgDesc});
-    background-color: #07070b;
     justify-content: left;
     padding-left: 100px;
     @media (-webkit-min-device-pixel-ratio: 2) {
@@ -114,7 +114,7 @@ export const RegistrationNavLink = styled(NavLink)`
   padding: 14px 40px;
   border-radius: 42px;
   border: 1px solid rgba(243, 243, 243, 0.2);
-   color: #f3f3f3;
+  color: #f3f3f3;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -124,7 +124,7 @@ export const RegistrationNavLink = styled(NavLink)`
   &:focus {
     background-color: #0a0a11;
     color: #0a0a11;
-    }
+  }
   @media screen and (min-width: 768px) {
     font-size: 16px;
     line-height: 1.28;
