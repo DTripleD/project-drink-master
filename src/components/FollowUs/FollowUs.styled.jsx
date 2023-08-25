@@ -1,19 +1,6 @@
 import styled from "@emotion/styled";
 
-export const StyledTitle = styled.h3`
-  margin-bottom: 20px;
 
-  font-size: 18px;
-  font-weight: 500;
-  line-height: calc(24 / 18);
-
-  @media (min-width: 768px) {
-    margin-bottom: 24px;
-
-    font-size: 24px;
-    line-height: calc(32 / 24);
-  }
-`;
 
 export const StyledList = styled.ul`
   width: fit-content;

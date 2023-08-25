@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const StyledFooter = styled.footer`
   padding-top: 40px;
   padding-bottom: 18px;
-  border-top: 1px solid ${props => props.theme.borderColor};
+  border-top: 1px solid #F3F3F3;
 
   form {
     margin: 0 auto 80px auto ;
@@ -47,7 +47,7 @@ export const StyledBottomWrapper = styled.div`
     font-size: 12px;
     line-height: calc(16 / 12);
     letter-spacing: -0.24px;
-    color: ${props => props.theme.secondaryTextColor};
+    color: #F3F3F3;
   }
   @media (min-width: 768px) {
     display: flex;
