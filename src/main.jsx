@@ -24,7 +24,7 @@ const theme = {
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/project-drink-master">
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
