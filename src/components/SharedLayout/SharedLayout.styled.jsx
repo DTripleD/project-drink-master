@@ -28,5 +28,5 @@ export const SharedLayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1200px;
+  /* width: 1200px; */
 `;
