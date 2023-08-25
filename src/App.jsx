@@ -10,10 +10,11 @@ import DrinksPage from "./pages/DrinksPage/DrinksPage";
 import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
 import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import WelcomePage from "./pages/WellcomPage/WellcomPage";
+import { AppWrapper } from "./App.styled";
 
 function App() {
   return (
-    <>
+    <AppWrapper>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<MainPage />} />
@@ -66,7 +67,7 @@ function App() {
               />
             }
           />
-           <Route
+          <Route
             path="welcome"
             element={
               <RestrictedRoute
@@ -76,8 +77,8 @@ function App() {
             }
           />
         </Route>
-       </Routes>
-    </>
+      </Routes>
+    </AppWrapper>
   );
 }
 
