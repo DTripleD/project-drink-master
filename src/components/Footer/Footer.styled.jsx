@@ -2,20 +2,17 @@ import styled from "@emotion/styled";
 
 export const StyledFooter = styled.footer`
   padding-top: 40px;
-  padding-bottom: 18px;
+  padding-bottom: 20px;
   border-top: 1px solid #F3F3F3;
 
-  form {
-    margin: 0 auto 80px auto ;
-  }
+
+  
 
   @media(min-width: 768px) {
     padding-top: 80px;
     padding-bottom: 24px;
 
-    form {
-      margin: 0;
-    }
+    
   }
 `;
 
