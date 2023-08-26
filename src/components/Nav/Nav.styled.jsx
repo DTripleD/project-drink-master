@@ -61,6 +61,7 @@ export const StyledNavButton = styled.button`
 
 export const StyledListItem = styled.li`
   height: 23px;
+  list-style: none;
   &:not(:last-of-type) {
     margin-bottom: 14px;
     @media (min-width: 768px) {
