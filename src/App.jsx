@@ -13,6 +13,7 @@ import WelcomePage from "./pages/WellcomPage/WellcomPage";
 import { AppWrapper } from "./App.styled";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
+import MyCoctailsPage from "./pages/MyCoctailsPage/MyCoctailsPage";
 
 function App() {
   return (
@@ -50,7 +51,10 @@ function App() {
           <Route
             path="my"
             element={
-              <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
+              <PrivateRoute
+                redirectTo="/welcome"
+                component={<MyCoctailsPage />}
+              />
             }
           />
           <Route
