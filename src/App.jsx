@@ -12,6 +12,7 @@ import FavoritePage from "./pages/FavoritePage/FavoritePage";
 import WelcomePage from "./pages/WellcomPage/WellcomPage";
 import { AppWrapper } from "./App.styled";
 import RecipePage from "./pages/RecipePage/RecipePage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
               />
             }
           />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
         <Route
           path="signin"
