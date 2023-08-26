@@ -1,5 +1,5 @@
 import { NavLink, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import styled from "@emotion/styled";
 
 export const AuthNavigate = () => {
   const location = useLocation();
