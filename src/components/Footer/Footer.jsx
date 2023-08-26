@@ -2,7 +2,8 @@
 import React from 'react';
 import SubscribeForm from '../SubscribeForm/SubscribeForm';
 import Nav from '../Nav/Nav';
-// import FollowUs from '../FollowUs/FollowUs';
+import FollowUs from '../FollowUs/FollowUs';
+import FooterLogo from "./FooterLogo/FooterLogo"
 import {
   StyledBottomWrapper,
   StyledContainer,
@@ -16,7 +17,8 @@ const Footer = () => {
     <StyledFooter>
       <StyledWrapper>
         <StyledContainer>
-          {/* <FollowUs /> */}
+          <FooterLogo/>
+          <FollowUs /> 
           <Nav />
         </StyledContainer>
         <SubscribeForm />
@@ -39,8 +41,3 @@ export default Footer;
 
 
 
-// const Footer = () => {
-//   return <div>Footer</div>;
-// };
-
-// export default Footer;
