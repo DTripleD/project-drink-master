@@ -26,8 +26,8 @@ AddButton.propTypes = {
   text: PropTypes.string.isRequired,
 
   ariaLabel: PropTypes.string.isRequired,
-  marginbottom: PropTypes.isRequired,
+  marginbottom: PropTypes.number,
   onClick: PropTypes.func.isRequired,
-  type: PropTypes.isRequired,
-  margintop: PropTypes.isRequired,
+  type: PropTypes.func,
+  margintop: PropTypes.number,
 };

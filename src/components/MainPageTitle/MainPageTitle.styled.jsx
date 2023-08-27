@@ -19,7 +19,7 @@ import styled from "@emotion/styled";
 
 // export default MainTitle;
 
-export const MainTitle = styled.h1`
+const MainTitle = styled.h1`
   color: #f3f3f3;
   font-size: 32px;
   font-weight: 600;
@@ -40,3 +40,5 @@ export const MainTitle = styled.h1`
     margin-bottom: 62px;
   }
 `;
+
+export default MainTitle;

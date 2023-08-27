@@ -1,7 +1,22 @@
-import PropTypes from "prop-types";
-import { MainTitle } from "./MainPageTitle.styled";
+// import PropTypes from "prop-types";
+// import { MainTitle } from "./MainPageTitle.styled";
 
-export const MainPageTitle = ({ title }) => {
+// export const MainPageTitle = ({ title }) => {
+//   return (
+//     <div>
+//       <MainTitle>{title}</MainTitle>
+//     </div>
+//   );
+// };
+
+// MainPageTitle.propTypes = {
+//   title: PropTypes.string.isRequired,
+// };
+
+import PropTypes from "prop-types";
+import MainTitle from "./MainPageTitle.styled";
+
+const MainPageTitle = ({ title }) => {
   return (
     <div>
       <MainTitle>{title}</MainTitle>
@@ -13,4 +28,4 @@ MainPageTitle.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-// export default MainPageTitle;
+export default MainPageTitle;
