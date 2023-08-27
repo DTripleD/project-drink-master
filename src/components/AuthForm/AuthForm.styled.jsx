@@ -30,7 +30,7 @@ export const StyledTitle = styled.h2`
   }
 `;
 export const StyledInputWrap = styled.div`
-  width: 100%;
+width: 100%;
   position: relative;
 
   @media ${devices.tablet} {
@@ -63,7 +63,7 @@ export const StyledAiOutlineEyeInvisible = styled(AiOutlineEyeInvisible)`
 `;
 
 export const StyledInput = styled(Field)`
-  width: 100%;
+  width: 80%;
   height: 54px;
   border-radius: 200px;
   border: 1px solid rgba(243, 243, 243, 0.2);
@@ -109,7 +109,6 @@ export const StyledInput = styled(Field)`
 export const StyledButton = styled.button`
   width: 100%;
   height: 54px;
-  /* padding: 18px 141px; */
   border: none;
   justify-content: center;
   border-radius: 42px;
