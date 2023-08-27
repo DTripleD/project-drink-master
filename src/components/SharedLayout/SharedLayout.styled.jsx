@@ -30,6 +30,8 @@ export const SharedLayoutWrapper = styled.div`
   align-items: center;
   /* width: 1200px; */
   width: 100vw;
+  min-height: 100vh;
+  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
   margin-left: auto;
