@@ -1,21 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import instance from "../../shared/api/instance"
 
-axios.defaults.baseURL = "https://drink-master-backend.onrender.com";
+// axios.defaults.baseURL = "https://drink-master-backend.onrender.com";
 
 const setAuthHeader = (token) => {
-  axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
 const clearAuthHeader = () => {
-  axios.defaults.headers.common.Authorization = "";
+  instance.defaults.headers.common.Authorization = "";
 };
 
 export const signup = createAsyncThunk(
   "auth/signup",
   async (credentials, thunkAPI) => {
     try {
-      const response = await axios.post("/users/signup", credentials);
+      const response = await instance.post("/users/signup", credentials);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
@@ -28,7 +29,7 @@ export const signin = createAsyncThunk(
   "auth/signin",
   async (credentials, thunkAPI) => {
     try {
-      const response = await axios.post("/users/signin", credentials);
+      const response = await instance.post("/users/signin", credentials);
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
@@ -39,7 +40,7 @@ export const signin = createAsyncThunk(
 
 export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
-    await axios.post("/users/logout");
+    await instance.post("/users/logout");
     clearAuthHeader();
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -56,7 +57,7 @@ export const refreshUser = createAsyncThunk(
     }
     try {
       setAuthHeader(persistedToken);
-      const response = await axios.get("/users/current");
+      const response = await instance.get("/users/current");
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
