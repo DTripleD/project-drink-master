@@ -7,12 +7,31 @@ export const Container = styled.div`
 	gap: 40px;
 `;
 
+export const AddImageButtonContainer = styled.div`
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 18px;
+`;
+
+export const Image = styled.img`
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+`;
+
 export const StyledImageInput = styled.div`
+	position: relative;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
 	gap: 18px;
+	overflow: hidden;
 	border-radius: 8px;
 	background: rgba(22, 31, 55, 0.5);
 	width: 335px;
@@ -55,9 +74,9 @@ export const InputContainer = styled.div`
 export const StyledInput = styled.input`
 	width: 100%;
 	padding: 0;
-	position: relative;
+	padding-bottom: 14px;
 	background-color: transparent;
-	height: 34px;
+	min-height: 23px;
 	border: 0;
 	border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
 	:focus-visible {
@@ -65,9 +84,6 @@ export const StyledInput = styled.input`
 		box-shadow: 0;
 	}
 	::placeholder {
-		position: absolute;
-		left: 0;
-		top: 0;
 		color: rgba(243, 243, 243, 0.5);
 		font-family: Manrope;
 		font-size: 14px;
@@ -84,12 +100,15 @@ export const SelectContainer = styled.div`
 
 export const StyledSelect = styled(Select)`
 	.select__menu {
+		position: absolute;
+		right: -5px;
+		top: 35px;
+		width: 170px;
 		background-color: #161f37;
 		border-radius: 12px;
 		outline: 0;
 		border: 0;
 		margin-top: -10px;
-		z-index: 2;
 	}
 
 	.select__menu:hover {
@@ -98,9 +117,8 @@ export const StyledSelect = styled(Select)`
 
 	.select__menu-list {
 		padding: 0;
-
 		max-height: 185px;
-		scrollbar-width: 6px;
+		scrollbar-width: 4px;
 		overflow-x: hidden;
 	}
 
@@ -110,7 +128,7 @@ export const StyledSelect = styled(Select)`
 
 	.select__control {
 		position: relative;
-		width: 154px;
+		width: 190px;
 		height: 34px;
 		background-color: transparent;
 		color: #f3f3f3;
@@ -179,6 +197,10 @@ export const StyledSelect = styled(Select)`
 
 	.select__indicator {
 		padding: 0;
+
+		:hover {
+			translate-x: 180;
+		}
 	}
 
 	.select__value-container {
