@@ -15,8 +15,9 @@ export const StyledLink = styled(NavLink)`
 
 	&.active {
 		background-color: #161f37;
+		color: #f3f3f3;
 
-		&:hover {
+		& :hover {
 			color: #f3f3f3;
 		}
 	}
@@ -24,7 +25,7 @@ export const StyledLink = styled(NavLink)`
 
 export const Nav = styled.nav`
 	display: flex;
-	flex-direction: colum;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	gap: 16px;

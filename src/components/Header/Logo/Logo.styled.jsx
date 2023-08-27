@@ -10,6 +10,7 @@ export const LogoText = styled.p`
 	@media (min-width: 768px) {
 		font-size: 18px;
 		letter-spacing: 1.22;
+		width: 151px;
 	}
 `;
 
@@ -21,5 +22,15 @@ export const LogoWrapper = styled.div`
 
 	@media (min-width: 768px) {
 		gap: 14px;
+	}
+`;
+
+export const getStyledLogo = (component) => styled(component)`
+	width: 22px;
+	height: 22px;
+	fill: #f3f3f3;
+	@media (min-width: 768px) {
+		width: 28px;
+		height: 28px;
 	}
 `;
