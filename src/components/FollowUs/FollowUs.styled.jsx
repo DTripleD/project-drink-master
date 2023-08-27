@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 
 export const StyledList = styled.ul`
   width: fit-content;
+  padding: 0;
 
   display: flex;
   gap: 14px;
