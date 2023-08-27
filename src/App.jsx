@@ -14,22 +14,25 @@ import { AppWrapper } from "./App.styled";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import MyCoctailsPage from "./pages/MyCoctailsPage/MyCoctailsPage";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { refreshUser } from "./redux/auth/operations";
+import { selectIsRefreshing } from "./redux/auth/selectors";
 
 function App() {
   const dispatch = useDispatch();
-  // const isRefreshing = useSelector(selectIsRefreshing);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  return (
+  return isRefreshing ? (
+    <h2>Loading</h2>
+  ) : (
     <AppWrapper>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<MainPage />} />
+          {/* <Route index element={<MainPage />} /> */}
           <Route
             path="main"
             element={
@@ -52,7 +55,7 @@ function App() {
             }
           />
           <Route
-            path="detail"
+            path="recipe"
             element={
               <PrivateRoute redirectTo="/welcome" component={<RecipePage />} />
             }
