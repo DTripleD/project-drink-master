@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from "react-router-dom";
 import styled from "@emotion/styled";
 
 export const AuthNavigate = () => {
@@ -6,10 +6,10 @@ export const AuthNavigate = () => {
 
   return (
     <>
-      {location.pathname === '/singup' ? (
+      {location.pathname === "/signup" ? (
         <StyledNavLink to="/signin">Sign In</StyledNavLink>
       ) : (
-        <StyledNavLink to="/singup">Registration</StyledNavLink>
+        <StyledNavLink to="/signup">Registration</StyledNavLink>
       )}
     </>
   );

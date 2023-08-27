@@ -14,8 +14,17 @@ import { AppWrapper } from "./App.styled";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import MyCoctailsPage from "./pages/MyCoctailsPage/MyCoctailsPage";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { refreshUser } from "./redux/auth/operations";
 
 function App() {
+  const dispatch = useDispatch();
+  // const isRefreshing = useSelector(selectIsRefreshing);
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
   return (
     <AppWrapper>
       <Routes>
