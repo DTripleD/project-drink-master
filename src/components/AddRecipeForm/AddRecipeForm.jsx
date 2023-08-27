@@ -1,20 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
-import RecipeDescriptionFields from './RecipeDescriptionFields/RecipeDescriptionFields'
+import RecipeDescriptionFields from "./RecipeDescriptionFields/RecipeDescriptionFields";
 
-const AddRecipeForm = props => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+const AddRecipeForm = (props) => {
+	const { register, handleSubmit, control } = useForm();
+	const onSubmit = (data) => console.log(data);
 
-  return (
+	return (
 		<form onSubmit={handleSubmit(onSubmit)}>
-      <RecipeDescriptionFields register={register} />
+			<RecipeDescriptionFields register={register} control={control} />
 			<button type="submit">Add</button>
 		</form>
 	);
-}
+};
 
-AddRecipeForm.propTypes = {}
+AddRecipeForm.propTypes = {};
 
-export default AddRecipeForm
+export default AddRecipeForm;
