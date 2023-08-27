@@ -10,6 +10,8 @@ import {
   StyledFlexWrapper,
   StyledFooter,
   StyledWrapper,
+  StyledBox,
+  
 } from './Footer.styled';
 
 const Footer = () => {
@@ -17,14 +19,18 @@ const Footer = () => {
     <StyledFooter>
       <StyledWrapper>
         <StyledContainer>
+          <StyledBox>
           <FooterLogo/>
-          <FollowUs /> 
+            <FollowUs /> 
+          </StyledBox>
           <Nav />
         </StyledContainer>
         <SubscribeForm />
       </StyledWrapper>
       <StyledBottomWrapper>
-        <p>&#169;2023 Drink Master. All rights reserved.</p>
+        
+          <p>&#169;2023 Drink Master. All rights reserved.</p>
+       
         <StyledFlexWrapper>
           <p>Privacy Policy</p>
           <p>Terms of Service</p>
@@ -35,9 +41,4 @@ const Footer = () => {
 };
 
 export default Footer;
-
-
-
-
-
 

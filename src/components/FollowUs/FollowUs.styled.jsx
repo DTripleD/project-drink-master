@@ -11,15 +11,15 @@ export const StyledList = styled.ul`
 
   list-style: none;
 
-  @media(min-width: 768px) {
+  @media screen and(min-width: 768px) {
     gap: 16px;
   }
 `;
 
 export const StyledLink = styled.a`
-  width: 38px;
-  height: 38px;
-  padding: 7px;
+  width: 24px;
+  height: 24px;
+  padding: 8px;
 
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ export const StyledLink = styled.a`
     transform: translateY(-3px);
     
   }
-  @media (min-width: 768px) {
+  @media screen and(min-width: 768px) {
     width: 44px;
     height: 44px;
   }
@@ -45,7 +45,7 @@ export const getStyledIcon = component => styled(component)`
   width: 22px;
   height: 22px;
   fill: #F3F3F3;
-  @media (min-width: 768px) {
+  @media screen and(min-width: 768px) {
     width: 28px;
     height: 28px;
   }
