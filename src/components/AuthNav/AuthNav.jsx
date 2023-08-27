@@ -1,5 +1,5 @@
-import { NavLink, useLocation } from "react-router-dom";
-import styled from "@emotion/styled";
+import { useLocation } from "react-router-dom";
+import {StyledNavLink} from './AuthNav.styled';
 
 export const AuthNavigate = () => {
   const location = useLocation();
@@ -15,4 +15,4 @@ export const AuthNavigate = () => {
   );
 };
 
-export const StyledNavLink = styled(NavLink)``;
+
