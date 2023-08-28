@@ -19,3 +19,14 @@ export const getGlassesList = async () => {
 		return err.response.data.message;
 	}
 };
+
+//отримує список інгридієнтів
+export const getIngredientsList = async () => {
+	try {
+		const { data } = await instance.get("/ingredients/list");
+		const ingredients = data.map(ingredient => ingredient.title)
+		return ingredients;
+	} catch (err) {
+		return err.response.data.message;
+	}
+};
