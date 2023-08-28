@@ -1,8 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { SharedLayout } from "./components/SharedLayout/SharedLayout";
-import { RestrictedRoute } from "./components/RestrictedRoute";
-import { PrivateRoute } from "./components/PrivateRoute";
 import SignInPage from "./pages/SignInPage/SignInPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
 import MainPage from "./pages/MainPage/MainPage";
@@ -18,6 +16,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
+import PrivateRoute from "./components/PrivateRoute";
+import RestrictedRoute from "./components/RestrictedRoute";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,73 +31,52 @@ function App() {
   ) : (
     <AppWrapper>
       <Routes>
+        <Route
+          index
+          element={
+            <RestrictedRoute component={<WelcomePage />} redirectTo="/main" />
+          }
+        />
+        <Route
+          path="/signin"
+          element={
+            <RestrictedRoute component={<SignInPage />} redirectTo="/main" />
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            <RestrictedRoute component={<SignUpPage />} redirectTo="/main" />
+          }
+        />
+
         <Route path="/" element={<SharedLayout />}>
-          {/* <Route index element={<MainPage />} /> */}
           <Route
-            path="main"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<MainPage />} />
-            }
+            path="/main"
+            element={<PrivateRoute component={<MainPage />} />}
           />
           <Route
-            path="drinks"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<DrinksPage />} />
-            }
+            path="/drinks"
+            element={<PrivateRoute component={<DrinksPage />} />}
           />
           <Route
-            path="add"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<AddRecipePage />}
-              />
-            }
+            path="/add"
+            element={<PrivateRoute component={<AddRecipePage />} />}
           />
           <Route
-            path="recipe"
-            element={
-              <PrivateRoute redirectTo="/welcome" component={<RecipePage />} />
-            }
+            path="/recipe"
+            element={<PrivateRoute component={<RecipePage />} />}
           />
           <Route
-            path="my"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<MyCoctailsPage />}
-              />
-            }
+            path="/my"
+            element={<PrivateRoute component={<MyCoctailsPage />} />}
           />
           <Route
-            path="favorite"
-            element={
-              <PrivateRoute
-                redirectTo="/welcome"
-                component={<FavoritePage />}
-              />
-            }
+            path="/favorite"
+            element={<PrivateRoute component={<FavoritePage />} />}
           />
           <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route
-          path="signin"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<SignInPage />} />
-          }
-        />
-        <Route
-          path="signup"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<SignUpPage />} />
-          }
-        />
-        <Route
-          path="welcome"
-          element={
-            <RestrictedRoute redirectTo="/main" component={<WelcomePage />} />
-          }
-        />
       </Routes>
     </AppWrapper>
   );
