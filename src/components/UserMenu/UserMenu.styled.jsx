@@ -1,15 +1,16 @@
 import styled from "@emotion/styled";
 
-export const UserPhoto = styled.div`
+export const UserPhotoWrapper = styled.div`
 	width: 32px;
 	height: 32px;
 	border-radius: 50%;
-	background-color: green;
+	background: #fff;
 `;
 
 export const UserName = styled.p`
 	font-size: 14px;
 	margin: 0;
+	color: #f3f3f3;
 `;
 
 export const MenuWrapper = styled.div`
@@ -18,4 +19,9 @@ export const MenuWrapper = styled.div`
 	align-items: center;
 
 	gap: 8px;
+`;
+
+export const UserPhoto = styled.img`
+	width: 32px;
+	height: 32px;
 `;
