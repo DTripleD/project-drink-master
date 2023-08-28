@@ -7,7 +7,7 @@ const initialState = {
   user: { name: null, email: null, avatarURL: null },
   token: null,
   isLoggedIn: false,
-  isRefreshing: false,
+  isRefreshing: true,
   error: "",
 };
 
@@ -22,12 +22,12 @@ const handleRejected = (state, action) => {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers:{
-  handleEyeClick: state => {
+  reducers: {
+    handleEyeClick: (state) => {
       state.isClicked = !state.isClicked;
       const openPassword = () => {
-        const input = document.querySelector('#password');
-        input.type = input.type === 'password' ? 'text' : 'password';
+        const input = document.querySelector("#password");
+        input.type = input.type === "password" ? "text" : "password";
       };
       openPassword();
     },
@@ -43,11 +43,13 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addCase(logout.fulfilled, (state) => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
+        state.isRefreshing = false;
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
