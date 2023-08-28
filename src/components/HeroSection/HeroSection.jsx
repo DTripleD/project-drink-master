@@ -1,9 +1,6 @@
-// import { useSelector } from "react-redux";
-
 import { useNavigate } from "react-router";
 import { AddButton } from "../Button/AddButton/AddButton";
 import { Container } from "../Container/Container";
-// import MainTitle from "../MainPageTitle/MainPageTitle.styled";
 import MainPageTitle from "../MainPageTitle/MainPageTitle";
 
 import { Hero, Herodescription, Herowrapper } from "./Hero.styled";
