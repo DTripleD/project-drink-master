@@ -63,7 +63,8 @@ export const StyledAiOutlineEyeInvisible = styled(AiOutlineEyeInvisible)`
 `;
 
 export const StyledInput = styled(Field)`
-  width: 80%;
+  width: 100%;
+  box-sizing: border-box;
   height: 54px;
   border-radius: 200px;
   border: 1px solid rgba(243, 243, 243, 0.2);
