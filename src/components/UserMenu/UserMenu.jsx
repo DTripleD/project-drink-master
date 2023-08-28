@@ -1,29 +1,43 @@
 import { useDispatch, useSelector } from "react-redux";
 // import { logOut } from "redux/auth/operations";
-// import { selectUser } from "../../redux/auth/selectors/selectUser";
-import { MenuWrapper, UserName, UserPhoto } from "./UserMenu.styled";
-// import { Button } from "@mui/material";
-
+import { selectUser } from "../../redux/auth/selectors";
+import {
+	MenuWrapper,
+	UserName,
+	UserPhoto,
+	UserPhotoWrapper,
+} from "./UserMenu.styled";
+import { useState } from "react";
+import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
+import userDefaultPhoto from "../../images/user.png";
 const UserMenu = () => {
-  // const user = useSelector(selectUser);
+	const user = useSelector(selectUser);
+	const [showModal, setShowModal] = useState(false);
 
-  //   const dispatch = useDispatch();
+	const handleModalOpen = () => {
+		setShowModal(true);
+	};
 
-  //   const handleLogout = (event) => {
-  //     event.preventDefault();
-  //     dispatch(logOut());
-  //   };
+	const handleModalClose = () => {
+		setShowModal(false);
+	};
 
-  const handleOpenModal = () => {};
+	//   const dispatch = useDispatch();
 
-  return (
-    <MenuWrapper>
-      <UserPhoto onClick={handleOpenModal}>
-        <img src="" alt="" />
-      </UserPhoto>
-      <UserName>hello</UserName>
-    </MenuWrapper>
-  );
+	//   const handleLogout = (event) => {
+	//     event.preventDefault();
+	//     dispatch(logOut());
+	//   };
+
+	return (
+		<MenuWrapper onClick={handleModalOpen}>
+			<UserPhotoWrapper>
+				<UserPhoto src={userDefaultPhoto} alt="" />
+			</UserPhotoWrapper>
+			<UserName>{UserMenu.name}</UserName>
+			{showModal && <UserLogoModal handleModalClose={handleModalClose} />}
+		</MenuWrapper>
+	);
 };
 
 export default UserMenu;

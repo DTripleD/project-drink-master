@@ -37,9 +37,8 @@ export const BurgerMenu = () => {
 				<Menu
 					right
 					width={"100%"}
-					noOverlay
 					customBurgerIcon={<StyledOpenIcon />}
-					// onOpen={handleOpenMenu}
+					onOpen={handleOpenMenu}
 				>
 					<Navigation />
 				</Menu>
@@ -47,7 +46,6 @@ export const BurgerMenu = () => {
 				<Menu
 					right
 					width={"100%"}
-					noOverlay
 					customBurgerIcon={<StyledCloseIcon />}
 					// onClose={handleCloseMenu}
 				>

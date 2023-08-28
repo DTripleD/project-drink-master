@@ -18,6 +18,7 @@ export const getStyledCloseIcon = (component) => styled(component)`
 
 export const MenuWrepper = styled.div`
 	margin-left: 14px;
+	background-color: #0a0a11;
 
 	@media (min-width: 768px) {
 		margin-left: 24px;
