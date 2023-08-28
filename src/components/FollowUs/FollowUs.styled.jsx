@@ -5,6 +5,8 @@ import styled from "@emotion/styled";
 export const StyledList = styled.ul`
   width: fit-content;
   padding: 0;
+  margin: 0;
+  
 
   display: flex;
   gap: 14px;
@@ -13,6 +15,11 @@ export const StyledList = styled.ul`
 
   @media screen and(min-width: 768px) {
     gap: 16px;
+     
+    
+    
+	}
+    
   }
 `;
 
