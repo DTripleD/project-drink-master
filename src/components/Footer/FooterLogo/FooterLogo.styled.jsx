@@ -6,6 +6,7 @@ export const LogoText = styled.p`
 	font-weight: 600;
 	letter-spacing: 1.125;
 	margin: 0;
+	
 
 	@media (min-width: 768px) {
 		font-size: 18px;

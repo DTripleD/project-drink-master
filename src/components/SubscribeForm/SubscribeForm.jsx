@@ -4,12 +4,10 @@ import { fetchSubscribe } from '../../redux/subscribe/operations';
 import { toast } from 'react-hot-toast';
 import {
     FooterSubscribeWrapper,
-    FooterSubscribeTextWrap,
-    FooterSubscribeTitle,
     FooterSubscribetext,
     FooterSubscribeLabel,
     FooterSubscribeInput,
-    FooterSubscribeInputIcon,
+   
     FooterSubscribeButton,
 } from './SubscribeForm.styled';
 
@@ -27,13 +25,12 @@ import {
 
     return (
         <FooterSubscribeWrapper onSubmit={handleSubmitSubscribe}>
-            <FooterSubscribeTextWrap>
-                <FooterSubscribeTitle>Subscribe to our Newsletter</FooterSubscribeTitle>
+            
+               
                 <FooterSubscribetext>
-                    Subscribe up to our newsletter. Be in touch with latest news and
-                    special offers, etc.
+                Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.
                 </FooterSubscribetext>
-            </FooterSubscribeTextWrap>
+            
 
             <FooterSubscribeLabel>
                 <FooterSubscribeInput
@@ -43,7 +40,7 @@ import {
                     name="subscribeEmail"
                     placeholder="Enter the email "
                 />
-                <FooterSubscribeInputIcon />
+                
             </FooterSubscribeLabel>
 
             <FooterSubscribeButton type="submit" disabled={!subscribeState}>
