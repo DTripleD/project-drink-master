@@ -7,12 +7,12 @@ import { HeroSection } from "../../components/HeroSection/HeroSection";
 import { OtherDrinksButton } from "../../components/Button/OtherDrinksButton/OtherDrinks";
 
 const MainPage = () => {
-  //   const dispatch = useDispatch();
-  //   const category = useSelector(selectCoctails);
+  // const dispatch = useDispatch();
+  // const category = useSelector(selectCoctails);
 
-  //   const ordinaryDrink = category.filter((item) => {
-  //     return item.category === "Ordinary Drink";
-  //   });
+  // const ordinaryDrink = category.filter((item) => {
+  //   return item.category === "Ordinary Drink";
+  // });
 
   //   const cocktail = category.filter((item) => {
   //     return item.category === "Coctail";
@@ -26,10 +26,10 @@ const MainPage = () => {
   //     return item.category === "Other/Unknow";
   //   });
 
-  //   useEffect(() => {
-  //     if (category !== undefined && category.length === 0)
-  //       dispatch(getCocktailsByCategoryThunk());
-  //   }, []); //eslint-disable-line
+  // useEffect(() => {
+  //   if (category !== undefined && category.length === 0)
+  //     dispatch(getCocktailsByCategoryThunk());
+  // }, []); //eslint-disable-line
 
   useEffect(() => {
     window.scrollTo(0, 0);
