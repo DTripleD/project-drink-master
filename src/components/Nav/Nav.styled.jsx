@@ -8,7 +8,7 @@ export const StyledNavLink = styled(NavLink)`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.6;
-  text-align: left;
+  
 
   
   
@@ -31,8 +31,13 @@ export const StyledNavLink = styled(NavLink)`
   
   &:hover:after {
     width: 100%;
-    left: 0;
+    
   }
+
+  @media (min-width: 768px) {
+   
+    
+
 `;
 
 export const StyledNavButton = styled.button`
@@ -60,9 +65,10 @@ export const StyledListItem = styled.li`
   list-style: none;
   margin-bottom: 14px;
   
+  
   @media (min-width: 768px) {
     margin-bottom: 16px;
-    text-align: left;
+    margin-left: -40px;
     
     
     
@@ -70,5 +76,6 @@ export const StyledListItem = styled.li`
   
   @media (min-width: 1440px) {
     margin-bottom: 24px;
+    
   }
 `;
