@@ -1,4 +1,4 @@
-export const getIngridients = async (id) => { 
+ const getIngridients = async (id) => { 
     console.log(id); 
     try { 
       const { data } = await instance.get(`/recipes/${id}`); 
@@ -6,5 +6,7 @@ export const getIngridients = async (id) => {
     } catch (err) { 
       return err.response.data.message; 
     } 
-  }; 
+  };
+  
+  export default getIngridients;
   
