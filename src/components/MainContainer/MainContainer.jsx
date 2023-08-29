@@ -7,5 +7,5 @@ export const MainContainer = (props) => {
 };
 
 MainContainer.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.node,
 };

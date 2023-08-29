@@ -1,29 +1,32 @@
-// import  { useState } from 'react';
-// // import RecipePageTitle from './RecipePageTitle';
-// // import AddToFavorite from './AddToFavorite';
-// // import RemoveFromFavorite from './RemoveFromFavorite';
+// import { useState } from "react";
+// import AddToFavorite from "./AddToFavorite";
+// import RemoveFromFavorite from "./RemoveFromFavorite";
+import MainPageTitle from "../MainPageTitle/MainPageTitle";
 
 // const RecipePageHero = ({ recipeData, isFavorite, onToggleFavorite }) => {
-//   const [isInFavorite, setIsInFavorite] = useState(isFavorite);
 
-//   const handleToggleFavorite = () => {
-//     onToggleFavorite(recipeData.id);
-//     setIsInFavorite(!isInFavorite);
-//   };
+// eslint-disable-next-line react/prop-types
+const RecipePageHero = ({ ingridients: { drink } }) => {
+  //   const [isInFavorite, setIsInFavorite] = useState(isFavorite);
 
-//   return (
-//     <div className="recipe-page-hero">
-//       <RecipePageTitle title={recipeData.title} />
-//       <p className="recipe-description">{recipeData.description}</p>
-//       {isInFavorite ? (
-//         <RemoveFromFavorite onClick={handleToggleFavorite} />
-//       ) : (
-//         <AddToFavorite onClick={handleToggleFavorite} />
-//       )}
-//       <p className="serving">{recipeData.serving}</p>
-//       {/* Інші додаткові деталі */}
-//     </div>
-//   );
-// };
+  //   const handleToggleFavorite = () => {
+  //     onToggleFavorite(recipeData.id);
+  //     setIsInFavorite(!isInFavorite);
+  //   };
 
-// export default RecipePageHero;
+  return (
+    <div className="recipe-page-hero">
+      <MainPageTitle title={drink} />
+      {/* <p className="recipe-description">{recipeData.description}</p>  */}
+      {/* {isInFavorite ? (
+        <RemoveFromFavorite onClick={handleToggleFavorite} />
+      ) : (
+        <AddToFavorite onClick={handleToggleFavorite} />
+      )} */}
+      {/* <p className="serving">{recipeData.serving}</p> */}
+      {/* Інші додаткові деталі */}
+    </div>
+  );
+};
+
+export default RecipePageHero;
