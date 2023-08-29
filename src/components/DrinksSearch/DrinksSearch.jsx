@@ -9,7 +9,13 @@ import {
 } from "../../shared/api/addRecipePageQuery";
 import { useForm } from "react-hook-form";
 import { Controller } from "react-hook-form";
-import { StyledSelect } from "./DrinksSearch.styled";
+import {
+	StyledSelect,
+	Form,
+	Button,
+	InputContainer,
+	Input,
+} from "./DrinksSearch.styled";
 import { getDrinksList } from "../../shared/api/drinksSearch";
 
 const DrinksSearch = () => {
@@ -34,6 +40,16 @@ const DrinksSearch = () => {
 		getIngredients();
 	}, []);
 
+	useEffect(() => {
+		getDrinksList(searchParams)
+			.then((data) => {
+				setDrinks(data);
+			})
+			.catch((error) => {
+				seterror(error.message);
+			});
+	}, [searchParams]);
+
 	const optionCategories = categories.map((category) => ({
 		value: category.toLowerCase(),
 		label: category,
@@ -43,28 +59,6 @@ const DrinksSearch = () => {
 		value: ingredient.toLowerCase(),
 		label: ingredient,
 	}));
-
-	useEffect(() => {
-		getDrinksList(searchParams)
-			.then((data) => {
-				setDrinks(data);
-			})
-			.catch((error) => {
-				seterror(error.message);
-			});
-		console.log(drinks);
-	}, []);
-
-	useEffect(() => {
-		getDrinksList(searchParams)
-			.then((data) => {
-				setDrinks(data);
-			})
-			.catch((error) => {
-				seterror(error.message);
-			});
-		console.log(drinks);
-	}, [searchParams]);
 
 	const onSubmit = (data) => {
 		setSearchParams({
@@ -76,21 +70,23 @@ const DrinksSearch = () => {
 
 	return (
 		<>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<button type="submit">
-					<Search style={{ width: 20, height: 20 }} />
-				</button>
-				<input
-					type="text"
-					{...register("search")}
-					placeholder="Enter the text"
-				/>
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<InputContainer>
+					<Input
+						type="text"
+						{...register("search")}
+						placeholder="Enter the text"
+					/>
+					<Button type="submit">
+						<Search style={{ width: 20, height: 20 }} />
+					</Button>
+				</InputContainer>
 				<Controller
 					control={control}
 					name="category"
 					render={({ field: { onChange, value } }) => (
 						<StyledSelect
-							defaultValue={optionCategories[2]}
+							defaultValue={optionCategories[0]}
 							options={optionCategories}
 							value={value}
 							onChange={onChange}
@@ -111,8 +107,9 @@ const DrinksSearch = () => {
 						/>
 					)}
 				/>
-			</form>
-			<DrinksList drinks={drinks} />
+			</Form>
+			{error && <p>Sorry. {error} 😭</p>}
+			{drinks?.length !== 0 && <DrinksList drinks={drinks} />}
 		</>
 	);
 };
