@@ -32,7 +32,7 @@ const FavoritePage = () => {
       }
     };
     fetchData();
-  }, [favoriteRecipe]);
+  }, []);
 
   return (
     <>
