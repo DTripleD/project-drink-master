@@ -64,7 +64,7 @@ function App() {
             element={<PrivateRoute component={<AddRecipePage />} />}
           />
           <Route
-            path="/recipe"
+            path="/recipe/:recipeId"
             element={<PrivateRoute component={<RecipePage />} />}
           />
           <Route

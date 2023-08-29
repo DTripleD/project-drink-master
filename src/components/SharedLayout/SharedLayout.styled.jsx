@@ -24,36 +24,4 @@ export const StyledLink = styled(NavLink)`
   }
 `;
 
-export const SharedLayoutWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* width: 1200px; */
-  width: 100vw;
-  min-height: 100vh;
-  justify-content: space-between;
-  padding-left: 20px;
-  padding-right: 20px;
-  margin-left: auto;
-  margin-right: auto;
-
-  // phone screen
-  @media screen and (min-width: 375px) {
-    width: 375px;
-  }
-
-  // tablet
-  @media screen and (min-width: 768px) {
-    width: 768px;
-
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  // desktop
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-    padding-left: 24px;
-    padding-right: 24px;
-  }
-`;
+export const SharedLayoutWrapper = styled.div``;

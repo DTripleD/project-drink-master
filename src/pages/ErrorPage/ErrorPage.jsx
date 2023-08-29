@@ -1,12 +1,15 @@
-import glass from "../../images/porto-glass.jpg";
+// import glass from "../../images/porto-glass.jpg";
+import { ErrorText, ErrorPageWrapper, TextWrapper } from "./ErrorPage.styled";
 
 const ErrorPage = () => {
   return (
-    <div>
-      <h2>4</h2>
-      <img src={glass} alt="" />
-      <h2>4</h2>
-    </div>
+    <ErrorPageWrapper>
+      <TextWrapper>
+        <ErrorText>4</ErrorText>
+        <ErrorText>4</ErrorText>
+      </TextWrapper>
+      {/* <img src={glass} alt="" /> */}
+    </ErrorPageWrapper>
   );
 };
 
