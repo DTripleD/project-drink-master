@@ -60,9 +60,17 @@ const FavoritePage = () => {
                         width="100"
                         height="150"
                       />
+                      <SeeButton id={_id} />
 
-                      <SeeButton />
-                      <AddButton />
+                      <AddButton
+                        id={_id}
+                        text={"Delete"}
+                        ariaLabel={"button for click"}
+                        onClick={() => {
+                          console.log("delete");
+                        }}
+                        type={"button"}
+                      />
                     </li>
                   )
                 )}
