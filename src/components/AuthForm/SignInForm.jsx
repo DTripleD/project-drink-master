@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import  toast, { Toaster }  from 'react-hot-toast'; 
 import { useDispatch, useSelector } from 'react-redux';
 import {  signin, refreshUser } from '../../redux/auth/operations';
 import { AuthNavigate } from '../AuthNav/AuthNav';
@@ -22,6 +23,7 @@ import {
   StyledPasswordDiv,
 } from './AuthForm.styled';
 
+
 export const SignInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,7 +33,8 @@ export const SignInForm = () => {
     dispatch(handleEyeClick());
   };
 
-  return (
+    return (
+      <>
     <StyledForm
       initialValues={{
         email: '',
@@ -42,12 +45,19 @@ export const SignInForm = () => {
         dispatch(signin(values)).then(res => {
           if (res.payload && res.payload.status === 200) {
             navigate('/signin');
-            dispatch(refreshUser());
-          }
-        });
-      }}
-    >
-      {({ errors, touched, handleChange, setFieldTouched }) => (
+              dispatch(refreshUser());
+              toast.success('Authentication successful');
+              return;
+            }
+    
+         return toast.error('Authentication failed. Please check your email and password.');
+    
+  });
+          }}
+          
+      >
+        
+             {({ errors, touched, handleChange, setFieldTouched }) => (
         <StyledFormInsight>
           <StyledTitle>Sign In</StyledTitle>
           <StyledInnerDiv>
@@ -122,7 +132,31 @@ export const SignInForm = () => {
           <StyledButton type="submit">Sign In</StyledButton>
           <AuthNavigate />
         </StyledFormInsight>
-      )}
-    </StyledForm>
+          )}
+      </StyledForm>
+            <Toaster
+           toastOptions={{
+    success: {
+      style: {
+        background: '#66BB6A',
+        border: '1px solid ##66BB6A',
+        borderRadius: '4px',
+        color: 'white',
+      },
+      icon: () => null, 
+    },
+    error: {
+      style: {
+        background: '#E57373',
+        border: '1px solid #FF5733',
+        borderRadius: '4px',
+        color: 'white',
+      },
+      icon: () => null,
+    },
+  }}      />
+      </>
   );
 };
+
+
