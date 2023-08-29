@@ -10,10 +10,12 @@ import {
 } from "redux-persist";
 
 import { persistedAuthReducer } from "./auth/authSlice";
+import { subscribeReducer } from './subscribe/subscribeSlice';
 
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
+    subscribe: subscribeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
