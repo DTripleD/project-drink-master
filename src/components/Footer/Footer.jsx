@@ -3,7 +3,8 @@ import React from 'react';
 import SubscribeForm from '../SubscribeForm/SubscribeForm';
 import Nav from '../Nav/Nav';
 import FollowUs from '../FollowUs/FollowUs';
-import FooterLogo from "./FooterLogo/FooterLogo"
+import FooterLogo from "./FooterLogo/FooterLogo";
+
 import {
   StyledBottomWrapper,
   StyledContainer,
