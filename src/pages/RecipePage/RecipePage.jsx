@@ -3,7 +3,7 @@ import RecipeIngredientsList from "../../components/RecipeIngredientsList/Recipe
 import RecipePreparation from "../../components/RecipePreparation/RecipePreparation";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import getIngridients from "../../shared/api/addIngridients/addIngredients";
+import getIngredients from "../../shared/api/addIngrеdients/addIngredients";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
 
 const RecipePage = () => {
@@ -11,7 +11,7 @@ const RecipePage = () => {
   const [ingridients, setIngridients] = useState(null);
 
   useEffect(() => {
-    getIngridients(recipeId).then((data) => setIngridients(data));
+    getIngredients(recipeId).then((data) => setIngridients(data));
   }, [recipeId]);
 
   return (

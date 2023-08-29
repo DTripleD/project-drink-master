@@ -1,26 +1,22 @@
-// import { useEffect } from "react";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
-// import getIngredients from "../../shared/api/addIngridients/addIngredients.js";
-
-const RecipeIngredientsList = () => {
-  return (
-    <div className="recipe-ingredients-list">
-      {/* {ingredients.map((ingredient, index) => (
-        <div key={index} className="ingredient-item">
-          <img
-            src={ingredient.image || "placeholder-image-url"}
-            alt={ingredient.title}
-            className="ingredient-image"
-          />
-          <h3 className="ingredient-title">{ingredient.title}</h3>
-          {ingredient.description && (
-            <p className="ingredient-description">{ingredient.description}</p>
-          )}
-          <p className="ingredient-amount">{ingredient.amount}</p>
-        </div>
-      ))} */}
-    </div>
-  );
+const RecipeIngredientsList = ({ingridients}) => {
+  //  return (
+  //   <>
+  //     <ul>
+  //       {ingridients.map(({ _id, title, ingrеdientThumb }) => (
+  //         <li key={_id}>
+  //           <img src={ingrеdientThumb} alt={title} loading="lazy" />
+  //             <p>{title}</p>
+  //         </li>
+  //       ))}
+  //     </ul>
+  //   </>
+  // );
 };
+
+
 
 export default RecipeIngredientsList;

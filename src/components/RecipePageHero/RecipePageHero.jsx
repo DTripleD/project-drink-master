@@ -6,7 +6,7 @@ import MainPageTitle from "../MainPageTitle/MainPageTitle";
 // const RecipePageHero = ({ recipeData, isFavorite, onToggleFavorite }) => {
 
 // eslint-disable-next-line react/prop-types
-const RecipePageHero = ({ ingridients: { drink } }) => {
+const RecipePageHero = ({ ingridients: { drink,glass,drinkThumb } }) => {
   //   const [isInFavorite, setIsInFavorite] = useState(isFavorite);
 
   //   const handleToggleFavorite = () => {
@@ -16,15 +16,11 @@ const RecipePageHero = ({ ingridients: { drink } }) => {
 
   return (
     <div className="recipe-page-hero">
+      <p>{glass}</p>
       <MainPageTitle title={drink} />
-      {/* <p className="recipe-description">{recipeData.description}</p>  */}
-      {/* {isInFavorite ? (
-        <RemoveFromFavorite onClick={handleToggleFavorite} />
-      ) : (
-        <AddToFavorite onClick={handleToggleFavorite} />
-      )} */}
-      {/* <p className="serving">{recipeData.serving}</p> */}
-      {/* Інші додаткові деталі */}
+      <img src={drinkThumb} alt={drink} loading="lazy" />
+      <button>Add to favourite</button>
+
     </div>
   );
 };
