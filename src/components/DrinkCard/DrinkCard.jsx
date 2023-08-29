@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-// import { SeeButton } from "../Button/SeeButton/SeeButton";
+
+import { SeeButton } from "../Button/SeeButton/SeeButton";
+import { AddButton } from "../Button/AddButton/AddButton";
 // import { DeleteButton } from "../Button/DeleteButton/DeleteButton";
+
 import drink from "../../images/coctails.jpg";
 import {
   AboutStyled,
@@ -48,6 +51,8 @@ export const DrinkCard = ({ cocktail, page }) => {
           <SeeButton id={cocktail._id} />
         )}
         {(page === "my" || page === "favorite") && (
+          <AddButton text={"delete"} id={cocktail._id} page={page} />
+        )}
           <DeleteButton id={cocktail._id} page={page} />
         )} */}
       </ButtonsWrapper>
