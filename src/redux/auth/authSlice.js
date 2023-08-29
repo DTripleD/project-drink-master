@@ -22,16 +22,16 @@ const handleRejected = (state, action) => {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    handleEyeClick: (state) => {
-      state.isClicked = !state.isClicked;
-      const openPassword = () => {
-        const input = document.querySelector("#password");
-        input.type = input.type === "password" ? "text" : "password";
-      };
-      openPassword();
-    },
-  },
+  // reducers: {
+  //   handleEyeClick: (state) => {
+  //     state.isClicked = !state.isClicked;
+  //     const openPassword = () => {
+  //       const input = document.querySelector("#password");
+  //       input.type = input.type === "password" ? "text" : "password";
+  //     };
+  //     openPassword();
+  //   },
+  // },
   extraReducers: (builder) =>
     builder
       .addCase(signup.fulfilled, (state, action) => {
@@ -87,4 +87,4 @@ export const persistedAuthReducer = persistReducer(
   authReducer
 );
 
-export const { handleEyeClick } = authSlice.actions;
+// export const { handleEyeClick } = authSlice.actions;

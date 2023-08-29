@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router';
 import  toast, { Toaster }  from 'react-hot-toast'; 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {  signin, refreshUser } from '../../redux/auth/operations';
 import { AuthNavigate } from '../AuthNav/AuthNav';
-import { selectIsClicked } from '../../redux/auth/selectors';
-import { handleEyeClick } from '../../redux/auth/authSlice';
+import { useState } from 'react';
+// import { selectIsClicked } from '../../redux/auth/selectors';
+// import { handleEyeClick } from '../../redux/auth/authSlice';
 import { SignInSchema } from './SignUpAndSignInSchema';
 import {
   StyledButton,
@@ -27,10 +28,11 @@ import {
 export const SignInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const isClicked = useSelector(selectIsClicked);
-
+//   const isClicked = useSelector(selectIsClicked);
+    const [isClicked, setIsClicked] = useState(false);
+    
   const openPassword = () => {
-    dispatch(handleEyeClick());
+   setIsClicked(prevIsClicked => !prevIsClicked);
   };
 
     return (
@@ -95,7 +97,7 @@ export const SignInForm = () => {
               <StyledPasswordDiv>
                 <StyledInput
                   id="password"
-                  type="password"
+                  type={isClicked? "text" : "password"}
                   name="password"
                   placeholder="Password"
                   onChange={e => {

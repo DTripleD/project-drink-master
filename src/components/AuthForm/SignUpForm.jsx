@@ -1,12 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { useEffect } from 'react';
 // import { useSearchParams } from 'react-router-dom';
 // import { verifyThunk } from '../../redux/auth/operations';
 import { signup } from '../../redux/auth/operations';
 import { SignUpSchema } from './SignUpAndSignInSchema';
-import { AuthNavigate } from '../AuthNav/AuthNav'
-import { handleEyeClick } from '../../redux/auth/authSlice';
-import { selectIsClicked } from '../../redux/auth/selectors';
+import { AuthNavigate } from '../AuthNav/AuthNav';
+import { useState } from 'react';
+// import { handleEyeClick } from '../../redux/auth/authSlice';
+// import { selectIsClicked } from '../../redux/auth/selectors';
 import {
   StyledButton,
   StyledError,
@@ -26,7 +27,8 @@ import {
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
-  const isClicked = useSelector(selectIsClicked);
+//   const isClicked = useSelector(selectIsClicked);
+    const [isClicked, setIsClicked] = useState(false);
 
 //   const [searchParams] = useSearchParams();
 //   const verificationToken = searchParams.get('verificationToken');
@@ -37,7 +39,7 @@ export const SignUpForm = () => {
 //   }, [verificationToken, dispatch]);
 
   const openPassword = () => {
-    dispatch(handleEyeClick());
+    setIsClicked(prevIsClicked => !prevIsClicked);
   };
 
   return (
