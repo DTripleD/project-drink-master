@@ -23,7 +23,7 @@ const FavoritePage = () => {
         if (data.message) {
           return favoriteRecipe;
         }
-        console.log("data", data);
+        // console.log("data", data);
         setFavoriteRecipe(data);
       } catch (error) {
         setError(error.message);
