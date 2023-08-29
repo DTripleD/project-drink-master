@@ -38,6 +38,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
         state.token = action.payload.token;
         state.isLoggedIn = true;
+        state.isRefreshing = false;
       })
       .addCase(signin.fulfilled, (state, action) => {
         state.user = action.payload.user;
@@ -45,14 +46,15 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(logout.pending, (state) => {
-        state.isRefreshing = true;
-      })
+      // .addCase(logout.pending, (state) => {
+      //   state.isRefreshing = true;
+      // }) У Иветы нету
       .addCase(logout.fulfilled, (state) => {
         state.user = { name: null, email: null };
         state.token = null;
         state.isLoggedIn = false;
         state.isRefreshing = false;
+        // state.isRefreshing = true; От Иветы
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;

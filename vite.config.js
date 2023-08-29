@@ -4,6 +4,12 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/project-drink-master/",
   plugins: [svgr(), react()],
+  resolve: {
+    alias: {
+      src: "/src",
+      components: "/src/components",
+    },
+  },
+  base: "/project-drink-master/",
 });
