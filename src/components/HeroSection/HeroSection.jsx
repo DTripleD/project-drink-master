@@ -21,7 +21,7 @@ export const HeroSection = () => {
             text="Add Recipe"
             ariaLabel="Button to open Add Recipe Page"
             onClick={() => {
-              navigate("/main/add");
+              navigate("/add");
             }}
           />
         </Herowrapper>
