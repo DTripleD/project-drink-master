@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import instance from "../../shared/api/instance"
+import instance from "../../shared/api/instance";
 
 // axios.defaults.baseURL = "https://drink-master-backend.onrender.com";
 
