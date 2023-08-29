@@ -1,42 +1,31 @@
-import { useDispatch, useSelector } from "react-redux";
-// import { logOut } from "redux/auth/operations";
+import { useSelector } from "react-redux";
+
 import { selectUser } from "../../redux/auth/selectors";
 import {
 	MenuWrapper,
 	UserName,
 	UserPhoto,
 	UserPhotoWrapper,
+	DropWrapper,
 } from "./UserMenu.styled";
-import { useState } from "react";
 import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
 import userDefaultPhoto from "../../images/user.png";
+import { useRef, useState } from "react";
+
 const UserMenu = () => {
 	const user = useSelector(selectUser);
-	const [showModal, setShowModal] = useState(false);
-
-	const handleModalOpen = () => {
-		setShowModal(true);
-	};
-
-	const handleModalClose = () => {
-		setShowModal(false);
-	};
-
-	//   const dispatch = useDispatch();
-
-	//   const handleLogout = (event) => {
-	//     event.preventDefault();
-	//     dispatch(logOut());
-	//   };
+	const [openDrop, setOpenDrop] = useState(false);
 
 	return (
-		<MenuWrapper onClick={handleModalOpen}>
-			<UserPhotoWrapper>
-				<UserPhoto src={userDefaultPhoto} alt="" />
-			</UserPhotoWrapper>
-			<UserName>{UserMenu.name}</UserName>
-			{showModal && <UserLogoModal handleModalClose={handleModalClose} />}
-		</MenuWrapper>
+		<>
+			<MenuWrapper open={openDrop} onClick={() => setOpenDrop(!openDrop)}>
+				<UserPhotoWrapper>
+					<UserPhoto src={userDefaultPhoto} alt="" />
+				</UserPhotoWrapper>
+				<UserName>{user.name}</UserName>
+			</MenuWrapper>
+			<DropWrapper>{!openDrop && <UserLogoModal />}</DropWrapper>
+		</>
 	);
 };
 

@@ -1,60 +1,62 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { createPortal } from "react-dom";
 // import { logOut } from "redux/auth/operations";
 // import { logOut } from "../../redux/auth/operations";
-const modalRoot = document.querySelector("#modal-root");
 
 import { ReactComponent as editSVG } from "../../images/svg/edit.svg";
 import {
-  getStyledEdit,
-  BackDrop,
-  Modal,
-  EditButton,
-  SvgButton,
-  LogOutButton,
+	getStyledEdit,
+	Drop,
+	EditButton,
+	SvgButton,
+	LogOutButton,
 } from "./UserLogoModal.styled";
 import { logout } from "../../redux/auth/operations";
 
 const StyledEditSvg = getStyledEdit(editSVG);
 
-export const UserLogoModal = ({ handleModalClose }) => {
-  const dispatch = useDispatch();
+export const UserLogoModal = ({ setOpenDrop }) => {
+	const dispatch = useDispatch();
+	const [showModal, setShowModal] = useState(false);
 
-  const handleLogout = (event) => {
-    event.preventDefault();
-    dispatch(logout());
-  };
+	const handleModalOpen = () => {
+		setShowModal(true);
+	};
 
-  useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.code === "Escape") {
-        handleModalClose();
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
+	const handleModalClose = () => {
+		setShowModal(false);
+	};
 
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [handleModalClose]);
+	const handleLogout = (event) => {
+		event.preventDefault();
+		dispatch(logout());
+	};
 
-  const handleBackdropClick = (event) => {
-    if (event.currentTarget === event.target) {
-      handleModalClose();
-    }
-  };
+	useEffect(() => {
+		const handleKeyDown = (event) => {
+			if (event.code === "Escape") {
+				handleModalClose();
+			}
+		};
+		window.addEventListener("keydown", handleKeyDown);
 
-  return createPortal(
-    <BackDrop onClick={handleBackdropClick}>
-      <Modal>
-        <EditButton type="button">Edit profile</EditButton>
-        <SvgButton>{<StyledEditSvg />}</SvgButton>
-        <LogOutButton onClick={handleLogout} type="button">
-          Log out
-        </LogOutButton>
-      </Modal>
-    </BackDrop>,
-    modalRoot
-  );
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [handleModalClose]);
+
+	return (
+		<Drop open={setOpenDrop}>
+			<div>
+				<EditButton onClick={handleModalOpen} type="button">
+					Edit profile
+				</EditButton>
+				<SvgButton>{<StyledEditSvg />}</SvgButton>
+			</div>
+			<LogOutButton onClick={handleLogout} type="button">
+				Log out
+			</LogOutButton>
+		</Drop>
+	);
 };
