@@ -1,20 +1,40 @@
 import { useEffect, useState } from "react";
+
 import { Container } from "../../components/Container/Container";
 import MainPageTitle from "../../components/MainPageTitle/MainPageTitle";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
 import { StyledSection } from "./FavoritePage.styled";
 import { AddButton } from "../../components/Button/AddButton/AddButton";
 import { SeeButton } from "../../components/Button/SeeButton/SeeButton";
+import {
+  ErrorText,
+  ErrorPageWrapper,
+  TextWrapper,
+} from "../../pages/ErrorPage/ErrorPage.styled";
 // import { DrinkCard } from "../../components/DrinkCard/DrinkCard";
 // import { Pagination } from "../../components/Pagination/Pagination";
 // import { RecipesList } from "../../components/RecipesList/RecipesList";
 
-import { getFavoriteList } from "../../redux/favorite/favorite-operation";
+import {
+  getFavoriteList,
+  deleteRecipe,
+} from "../../shared/api/favoriteRecipePage";
+
+const useLocalStorage = (key, defaultValue) => {
+  const [state, setState] = useState(() => {
+    return JSON.parse(window.localStorage.getItem(key)) ?? defaultValue;
+  });
+  return [state, setState];
+};
 
 const FavoritePage = () => {
-  const [favoriteRecipe, setFavoriteRecipe] = useState([]);
+  const [favoriteRecipe, setFavoriteRecipe] = useLocalStorage(
+    "favoriteRecipe",
+    []
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -23,8 +43,8 @@ const FavoritePage = () => {
         if (data.message) {
           return favoriteRecipe;
         }
-        // console.log("data", data);
-        setFavoriteRecipe(data);
+        setFavoriteRecipe(data); // Обновление состояния с полученными данными
+        setError(null);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -33,6 +53,35 @@ const FavoritePage = () => {
     };
     fetchData();
   }, []);
+
+  const handleDeleteRecipe = async (recipeId) => {
+    try {
+      // Отправляем запрос на бэкенд для удаления рецепта
+      const response = await deleteRecipe(recipeId);
+      if (response.status === 200) {
+        // Обновляем состояние favoriteRecipe, убрав удаленный рецепт
+        const updatedRecipes = favoriteRecipe.filter(
+          (recipe) => recipe._id !== recipeId
+        );
+        setFavoriteRecipe(updatedRecipes);
+      }
+    } catch (error) {
+      setError("Failed to delete recipe");
+    }
+  };
+
+  useEffect(() => {
+    // Сохранение данных в localStorage при изменении favoriteRecipe
+    try {
+      window.localStorage.setItem(
+        "favoriteRecipe",
+        JSON.stringify(favoriteRecipe)
+      );
+    } catch (error) {
+      // Обработка ошибок сохранения в localStorage
+      console.error("Error saving data to localStorage:", error);
+    }
+  }, [favoriteRecipe]);
 
   return (
     <>
@@ -47,36 +96,39 @@ const FavoritePage = () => {
                   ({
                     _id,
                     drink,
-                    description = "good coctail",
+                    description = "good cocktail",
                     drinkThumb,
                   }) => (
                     <li key={_id} page={"favorite"}>
-                      {_id}
-                      {drink}
-                      {description}
+                      {/* {_id} */}
                       <img
                         src={drinkThumb}
                         alt={drink}
-                        width="100"
-                        height="150"
+                        width="400"
+                        height="400"
                       />
-                      <SeeButton id={_id} />
+                      <h3>{drink}</h3>
+                      {description}
+                      <div>
+                        <SeeButton id={_id} />
 
-                      <AddButton
-                        id={_id}
-                        text={"Delete"}
-                        ariaLabel={"button for click"}
-                        onClick={() => {
-                          console.log("delete");
-                        }}
-                        type={"button"}
-                      />
+                        <AddButton
+                          id={_id}
+                          text={"Delete"}
+                          ariaLabel={"button for click"}
+                          onClick={() => handleDeleteRecipe(_id)}
+                          type={"button"}
+                        />
+                      </div>
                     </li>
                   )
                 )}
               </ul>
             ) : (
-              <p>No favorite recipes have been added yet.</p>
+              <>
+                <ErrorPageWrapper />
+                <h3>You haven't added any favorite cocktails yet</h3>
+              </>
             )}
 
             {/* <RecipesList /> */}
