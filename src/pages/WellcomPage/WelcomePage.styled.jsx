@@ -6,6 +6,8 @@ import coctailImgTab from "../../images/WelcomePage/cocktailMainTab.jpg";
 import coctailImgTabR from "../../images/WelcomePage/cocktailMainTab@2x.jpg";
 import coctailImgDesc from "../../images/WelcomePage/cocktailMainDesc.jpg";
 import coctailImgDescR from "../../images/WelcomePage/cocktailMainDesc@2x.png";
+import ellipseM from "../../images/WelcomePage/BackgroundellipseM.png";
+
 
 export const BaseDiv = styled.div`
   // width: 100%;
@@ -14,9 +16,9 @@ export const BaseDiv = styled.div`
   background-size: contain;
   justify-content: center;
   align-items: center;
-  background-image: url(${coctailImgMobile});
+  background-image: url(${coctailImgMobile}),url(${ellipseM});
   background-position: right;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat,no-repeat;
   background-color: #07070b;
   @media (-webkit-min-device-pixel-ratio: 2) {
     background-image: url(${coctailImgMobileR});

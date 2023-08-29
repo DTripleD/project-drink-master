@@ -146,7 +146,7 @@ export const StyledError = styled(ErrorMessage)`
 export const StyledInnerDiv = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 28px;
   margin-bottom: 28px;
 
   @media ${devices.tablet} {
@@ -154,6 +154,7 @@ export const StyledInnerDiv = styled.div`
   }
 `;
 export const StyledMessage = styled.p`
+ position: absolute;
   margin-top: 8px;
   font-size: 12px;
   font-weight: 400;
