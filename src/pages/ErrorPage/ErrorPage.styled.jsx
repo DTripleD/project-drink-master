@@ -28,6 +28,10 @@ export const ErrorPageWrapper = styled.div`
   position: relative;
   background-repeat: no-repeat;
   background-size: 100% auto;
+      margin-left: auto;
+    margin-right: auto;
+    margin-top: 83px;
+    margin-bottom: 140px;
 `;
 
 export const TextWrapper = styled.div`
