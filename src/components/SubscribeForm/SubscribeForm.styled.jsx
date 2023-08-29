@@ -12,7 +12,7 @@ export const FooterSubscribeWrapper = styled.form`
   
 
   @media screen and (min-width: 768px) {
-   display: block;
+  
    width: 309px;
   }
 
@@ -30,7 +30,12 @@ export const FooterSubscribetext = styled.p`
   letter-spacing: -0.02em;
   color: #f3f3f3;
   margin-bottom: 24px;
- 
+
+  
+ @media screen and (min-width: 768px) {
+   font-size: 18px;
+    line-height: calc(24 / 18);
+  }
   
 `;
 
@@ -39,7 +44,7 @@ export const FooterSubscribeLabel = styled.label`
   display: flex;
   width: 100%;
   height: 54px;
-  margin: 0 auto;
+   margin: 0 auto;
   margin-bottom: 18px;
  
   
