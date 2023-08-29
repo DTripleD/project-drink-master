@@ -11,7 +11,7 @@ export const PreviewDrinks = ({ title, data = [] }) => {
   return (
     <Section>
       <Container>
-        <Link to={`/main/drinks`}>
+        <Link to={`/drinks`}>
           <SectionTitle>{title}</SectionTitle>
         </Link>
         <Cardwrapper>
