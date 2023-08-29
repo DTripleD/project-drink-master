@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container } from "../../components/Container/Container";
 import MainPageTitle from "../../components/MainPageTitle/MainPageTitle";
+import { MainContainer } from "../../components/MainContainer/MainContainer";
 import { StyledSection } from "./FavoritePage.styled";
 import { AddButton } from "../../components/Button/AddButton/AddButton";
 import { SeeButton } from "../../components/Button/SeeButton/SeeButton";
@@ -19,6 +20,9 @@ const FavoritePage = () => {
       setIsLoading(true);
       try {
         const data = await getFavoriteList();
+        if (data.message) {
+          return favoriteRecipe;
+        }
         console.log("data", data);
         setFavoriteRecipe(data);
       } catch (error) {
@@ -28,46 +32,50 @@ const FavoritePage = () => {
       }
     };
     fetchData();
-
-    window.scrollTo(0, 0);
-  }, []);
-  console.log("favoriteRecipe", favoriteRecipe);
+  }, [favoriteRecipe]);
 
   return (
     <>
-      <Container>
-        <StyledSection>
-          <MainPageTitle title={"Favorites"} />
+      <MainContainer>
+        <Container>
+          <StyledSection>
+            <MainPageTitle title={"Favorites"} />
 
-          {favoriteRecipe?.length !== 0 ? (
-            <ul>
-              {favoriteRecipe.map(
-                ({ _id, drink, description = "good coctail", drinkThumb }) => (
-                  <li key={_id} page={"favorite"}>
-                    {_id}
-                    {drink}
-                    {description}
-                    <img
-                      src={drinkThumb}
-                      alt={drink}
-                      width="100"
-                      height="150"
-                    />
+            {favoriteRecipe?.length !== 0 ? (
+              <ul>
+                {favoriteRecipe.map(
+                  ({
+                    _id,
+                    drink,
+                    description = "good coctail",
+                    drinkThumb,
+                  }) => (
+                    <li key={_id} page={"favorite"}>
+                      {_id}
+                      {drink}
+                      {description}
+                      <img
+                        src={drinkThumb}
+                        alt={drink}
+                        width="100"
+                        height="150"
+                      />
 
-                    <SeeButton />
-                    <AddButton />
-                  </li>
-                )
-              )}
-            </ul>
-          ) : (
-            <p>No favorite recipes have been added yet.</p>
-          )}
+                      <SeeButton />
+                      <AddButton />
+                    </li>
+                  )
+                )}
+              </ul>
+            ) : (
+              <p>No favorite recipes have been added yet.</p>
+            )}
 
-          {/* <RecipesList /> */}
-          {/* <Pagination /> */}
-        </StyledSection>
-      </Container>
+            {/* <RecipesList /> */}
+            {/* <Pagination /> */}
+          </StyledSection>
+        </Container>
+      </MainContainer>
     </>
   );
 };
