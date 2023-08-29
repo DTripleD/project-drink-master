@@ -24,6 +24,11 @@ const theme = {
     tablet: 768,
     desktop: 1440,
   },
+  device: {
+    mobail: "screen and (min-width: 375px)",
+    tablet: "screen and (min-width: 768px)",
+    desktop: "screen and (min-width: 1440px)",
+  },
 };
 
 ReactDOM.createRoot(document.getElementById("root")).render(
