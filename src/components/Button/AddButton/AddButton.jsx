@@ -28,6 +28,6 @@ AddButton.propTypes = {
   ariaLabel: PropTypes.string.isRequired,
   marginbottom: PropTypes.number,
   onClick: PropTypes.func.isRequired,
-  type: PropTypes.func,
+  type: PropTypes.string,
   margintop: PropTypes.number,
 };
