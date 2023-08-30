@@ -15,10 +15,7 @@ import {
 // import { Pagination } from "../../components/Pagination/Pagination";
 // import { RecipesList } from "../../components/RecipesList/RecipesList";
 
-import {
-  getFavoriteList,
-  deleteRecipe,
-} from "../../shared/api/favoriteRecipePage";
+import { getFavoriteList, deleteFavoriteRecipe } from "../../shared/api/favoriteRecipe";
 
 const useLocalStorage = (key, defaultValue) => {
   const [state, setState] = useState(() => {
@@ -57,7 +54,7 @@ const FavoritePage = () => {
   const handleDeleteRecipe = async (recipeId) => {
     try {
       // Отправляем запрос на бэкенд для удаления рецепта
-      const response = await deleteRecipe(recipeId);
+      const response = await deleteFavoriteRecipe(recipeId);
       if (response.status === 200) {
         // Обновляем состояние favoriteRecipe, убрав удаленный рецепт
         const updatedRecipes = favoriteRecipe.filter(
