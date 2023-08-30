@@ -2,51 +2,40 @@ import { useEffect, useState } from "react";
 import { PreviewDrinks } from "../../components/PreviewDrinks/PreviewDrinks";
 import { HeroSection } from "../../components/HeroSection/HeroSection";
 import { OtherDrinksButton } from "../../components/Button/OtherDrinksButton/OtherDrinks";
-import { getCategoriesList } from "../../shared/api/addRecipePageQuery";
+import { getMainPage } from "../../shared/api/addRecipePageQuery";
 
 const MainPage = () => {
   // const dispatch = useDispatch();
 
   const [categories, setCategories] = useState([]);
+  const [object, setObject] = useState([]);
 
   useEffect(() => {
-    const getCategories = async () => {
-      const result = await getCategoriesList();
-      setCategories(result);
-    };
-
-    getCategories();
+    getMainPage().then((data) => {
+      setObject(data);
+      uniqueCategoties(data);
+    });
   }, []);
-  // const category = useSelector(selectCoctails);
 
-  const ordinaryDrink = categories.filter((item) => {
-    return item.categories === "Ordinary Drink";
-  });
-
-  const cocktail = categories.filter((item) => {
-    return item.categories === "Coctail";
-  });
-
-  const shake = categories.filter((item) => {
-    return item.categories === "Shake";
-  });
-
-  const other = categories.filter((item) => {
-    return item.categories === "Other/Unknow";
-  });
+  const uniqueCategoties = (data) => {
+    const categories = data.flatMap((item) => item.category);
+    const uniqueCategoties = categories.filter(
+      (category, index, array) => array.indexOf(category) === index
+    );
+    setCategories(uniqueCategoties);
+  };
 
   return (
     <>
-      {categories !== undefined && (
-        <>
-          <HeroSection />
-          <PreviewDrinks title="Ordinary Drink" data={ordinaryDrink} />
-          <PreviewDrinks title="Cocktail" data={cocktail} />
-          <PreviewDrinks title="Shake" data={shake} />
-          <PreviewDrinks title="Other/Unknown" data={other} />
-          <OtherDrinksButton />
-        </>
-      )}
+      <HeroSection />
+      {categories.map((f) => (
+        <PreviewDrinks
+          title={f}
+          key={f}
+          data={object.filter((da) => da.category === f)}
+        />
+      ))}
+      <OtherDrinksButton />
     </>
   );
 };
