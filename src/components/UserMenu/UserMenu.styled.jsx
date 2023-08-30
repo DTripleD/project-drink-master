@@ -25,3 +25,9 @@ export const UserPhoto = styled.img`
 	width: 32px;
 	height: 32px;
 `;
+
+export const DropWrapper = styled.div`
+	position: absolute;
+	top: -13%;
+	right: 11%;
+`;

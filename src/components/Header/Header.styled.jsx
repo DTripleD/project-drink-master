@@ -20,3 +20,16 @@ export const HeaderStyled = styled.header`
 		padding: 20px 100px;
 	}
 `;
+
+export const MenuWrepper = styled.div`
+	margin-left: 14px;
+	z-index: 800;
+
+	@media (min-width: 768px) {
+		margin-left: 24px;
+	}
+
+	@media (min-width: 1440px) {
+		display: none;
+	}
+`;

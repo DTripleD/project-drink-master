@@ -5,39 +5,36 @@ export const getStyledEdit = (component) => styled(component)`
 	height: 14px;
 `;
 
-export const BackDrop = styled.div`
-	position: fixed;
+export const Drop = styled.div`
+	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(0, 0, 0, 0.8);
-`;
-
-export const Modal = styled.div`
+	right: 0;
 	width: 177px;
 	padding: 18px;
 	background: #161f37;
 	border-radius: 8px;
+	transform: ${({ setOpenDrop }) =>
+		setOpenDrop ? "translateX(0%)" : "translateY(100%)"};
 `;
 
 export const EditButton = styled.button`
-	width: 100%;
+	width: 141px;
 	background: transparent;
 	font-size: 14px;
 	text-align: left;
 	border: none;
 	margin-bottom: 38px;
 	color: #f3f3f3;
+
+	
+	&:focus {
+		outline: none;
 `;
 
 export const SvgButton = styled.div`
 	position: absolute;
-	top: 152px;
-	right: 165px;
+	top: 16%;
+	right: 10%;
 	width: 14px;
 	height: 14px;
 	border: none;
