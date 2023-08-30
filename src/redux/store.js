@@ -14,6 +14,7 @@ import storage from "redux-persist/lib/storage";
 import { persistedAuthReducer } from "./auth/authSlice";
 import { subscribeReducer } from "./subscribe/subscribeSlice";
 import { cocktailsReducer } from "./Cocktails/cocktailsSlice";
+import {persistedDrinksQueryReducer} from "./drinks/drinksSlice"
 
 const persistConfigForCocktails = {
   key: "cocktails",
@@ -27,6 +28,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     subscribe: subscribeReducer,
     cocktails: persistReducer(persistConfigForCocktails, cocktailsReducer),
+    drinksQuery: persistedDrinksQueryReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

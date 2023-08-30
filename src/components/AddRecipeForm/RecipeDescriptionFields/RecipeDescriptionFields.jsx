@@ -19,26 +19,33 @@ import {
 	StyledSelect,
 } from "./RecipeDescriptionFields.styled";
 import { ReactComponent as Plus } from "../../../images/svg/add-photo.svg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+	selectCategories,
+	selectGlasses,
+	selectIngredientsListSorted,
+} from "../../../redux/drinks/drinksSelectors";
+
+import {
+	getCategories,
+	getGlasses,
+	getIngredients,
+} from "../../../redux/drinks/drinksOperations";
 
 const RecipeDescriptionFields = ({ getFile, register, control }) => {
 	const [image, setImage] = useState(null);
-	const [categories, setCategories] = useState([]);
-	const [glasses, setGlasses] = useState([]);
 
+	const dispatch = useDispatch();
 	useEffect(() => {
-		const getCategories = async () => {
-			const result = await getCategoriesList();
-			setCategories(result);
-		};
+		dispatch(getCategories());
+		dispatch(getGlasses());
+		// dispatch(getIngredients());
+	}, [dispatch])
 
-		const getGlasses = async () => {
-			const result = await getGlassesList();
-			setGlasses(result);
-		};
+	const categories = useSelector(selectCategories);
+	const glasses = useSelector(selectGlasses)
 
-		getCategories();
-		getGlasses();
-	}, []);
+		// const ingredients = useSelector(selectIngredientsListSorted);
 
 	const optionCategories = categories.map((category) => ({
 		value: category.toLowerCase(),
@@ -51,9 +58,8 @@ const RecipeDescriptionFields = ({ getFile, register, control }) => {
 	}));
 
 	const handleUploadClick = (event) => {
-
 		const file = event.target.files[0];
-	
+
 		const reader = new FileReader();
 		if (file) {
 			reader.readAsDataURL(file);
@@ -65,8 +71,8 @@ const RecipeDescriptionFields = ({ getFile, register, control }) => {
 	};
 
 	const getValue = (value, options) => {
-		value ? options.find( option => option.value===value) : ''
-	}
+		value ? options.find((option) => option.value === value) : "";
+	};
 
 	return (
 		<Container>
