@@ -4,6 +4,8 @@ import SubscribeForm from '../SubscribeForm/SubscribeForm';
 import Nav from '../Nav/Nav';
 import FollowUs from '../FollowUs/FollowUs';
 import FooterLogo from "./FooterLogo/FooterLogo";
+import {MainContainer} from "../MainContainer/MainContainer"
+
 
 import {
   StyledBottomWrapper,
@@ -17,14 +19,17 @@ import {
 
 const Footer = () => {
   return (
+     <MainContainer>
     <StyledFooter>
       <StyledWrapper>
-        <StyledContainer>
+         <StyledContainer> 
           <StyledBox>
           <FooterLogo/>
             <FollowUs /> 
           </StyledBox>
-          <Nav />
+          
+            <Nav/>
+         
         </StyledContainer>
         <SubscribeForm />
       </StyledWrapper>
@@ -35,7 +40,9 @@ const Footer = () => {
           <p>Terms of Service</p>
         </StyledFlexWrapper>
       </StyledBottomWrapper>
-    </StyledFooter>
+      </StyledFooter>
+       </MainContainer>
+   
   );
 };
 
