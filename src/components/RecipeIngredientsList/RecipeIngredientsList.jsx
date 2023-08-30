@@ -1,22 +1,24 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import PropTypes from "prop-types";
+const RecipeIngredientsList = ({ ingridients }) => {
+  if (!ingridients) {
+    return <p>Something went wrong,try again...</p>;
+  }
+  const ingredientItems = ingridients.ingredients;
 
-const RecipeIngredientsList = ({ingridients}) => {
-  //  return (
-  //   <>
-  //     <ul>
-  //       {ingridients.map(({ _id, title, ingrеdientThumb }) => (
-  //         <li key={_id}>
-  //           <img src={ingrеdientThumb} alt={title} loading="lazy" />
-  //             <p>{title}</p>
-  //         </li>
-  //       ))}
-  //     </ul>
-  //   </>
-  // );
+  return (
+    <div className="recipe-ingredients-list">
+      {ingredientItems.map((ingredient, index) => (
+        <div key={index} className="ingredient-item">
+          <img
+            src={ingredient.ingredientThumb || 'placeholder-image-url'}
+            alt={ingredient.title}
+            className="ingredient-image"
+          />
+          <h3 className="ingredient-title">{ingredient.title}</h3>
+          <p className="ingredient-amount">{ingredient.measure}</p>
+        </div>
+      ))}
+    </div>
+  );
 };
-
-
 
 export default RecipeIngredientsList;
