@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { SeeButton } from "../Button/SeeButton/SeeButton";
-import { AddButton } from "../Button/AddButton/AddButton";
+// import { SeeButton } from "../Button/SeeButton/SeeButton";
+
 // import { DeleteButton } from "../Button/DeleteButton/DeleteButton";
 
 import drink from "../../images/coctails.jpg";
