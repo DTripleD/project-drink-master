@@ -1,6 +1,6 @@
 import instance from "../instance";
 
-const getIngridients = async (id) => {
+const getIngrеdients = async (id) => {
   try {
     const { data } = await instance.get(`/recipes/${id}`);
     return data;
@@ -9,4 +9,4 @@ const getIngridients = async (id) => {
   }
 };
 
-export default getIngridients;
+export default getIngrеdients;

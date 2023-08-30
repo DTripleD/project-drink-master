@@ -1,24 +1,22 @@
-// import { useEffect } from "react";
+const RecipeIngredientsList = ({ ingridients }) => {
+  if (!ingridients) {
+    return <p>Something went wrong,try again...</p>;
+  }
+  const ingredientItems = ingridients.ingredients;
 
-// import getIngredients from "../../shared/api/addIngridients/addIngredients.js";
-
-const RecipeIngredientsList = () => {
   return (
     <div className="recipe-ingredients-list">
-      {/* {ingredients.map((ingredient, index) => (
+      {ingredientItems.map((ingredient, index) => (
         <div key={index} className="ingredient-item">
           <img
-            src={ingredient.image || "placeholder-image-url"}
+            src={ingredient.ingredientThumb || 'placeholder-image-url'}
             alt={ingredient.title}
             className="ingredient-image"
           />
           <h3 className="ingredient-title">{ingredient.title}</h3>
-          {ingredient.description && (
-            <p className="ingredient-description">{ingredient.description}</p>
-          )}
-          <p className="ingredient-amount">{ingredient.amount}</p>
+          <p className="ingredient-amount">{ingredient.measure}</p>
         </div>
-      ))} */}
+      ))}
     </div>
   );
 };
