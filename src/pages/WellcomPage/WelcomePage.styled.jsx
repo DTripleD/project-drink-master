@@ -8,7 +8,6 @@ import coctailImgDesc from "../../images/WelcomePage/cocktailMainDesc.jpg";
 import coctailImgDescR from "../../images/WelcomePage/cocktailMainDesc@2x.png";
 import ellipseM from "../../images/WelcomePage/BackgroundellipseM.png";
 
-
 export const BaseDiv = styled.div`
   // width: 100%;
   height: 100vh;
@@ -16,9 +15,9 @@ export const BaseDiv = styled.div`
   background-size: contain;
   justify-content: center;
   align-items: center;
-  background-image: url(${coctailImgMobile}),url(${ellipseM});
+  background-image: url(${coctailImgMobile}), url(${ellipseM});
   background-position: right;
-  background-repeat: no-repeat,no-repeat;
+  background-repeat: no-repeat, no-repeat;
   background-color: #07070b;
   @media (-webkit-min-device-pixel-ratio: 2) {
     background-image: url(${coctailImgMobileR});
@@ -116,7 +115,7 @@ export const RegistrationNavLink = styled(NavLink)`
   padding: 14px 40px;
   border-radius: 42px;
   border: 1px solid rgba(243, 243, 243, 0.2);
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -124,8 +123,8 @@ export const RegistrationNavLink = styled(NavLink)`
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   &:hover,
   &:focus {
-    background-color: #0a0a11;
-    color: #0a0a11;
+    background-color: ${(props) => props.theme.colors.black};
+    color: ${(props) => props.theme.colors.black};
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -137,7 +136,7 @@ export const SignInNavLink = styled(NavLink)`
   display: block;
   padding: 14px 40px;
   border-radius: 42px;
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
   border: 1px solid rgba(243, 243, 243, 0.2);
   font-size: 14px;
   font-style: normal;
@@ -146,8 +145,8 @@ export const SignInNavLink = styled(NavLink)`
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   &:hover,
   &:focus {
-    background-color: #f3f3f3;
-    color: #0a0a11;
+    background-color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.black};
     box-shadow: 1px 0px 3px 4px rgba(35, 93, 171, 0.4) inset; */
   }
   @media screen and (min-width: 768px) {

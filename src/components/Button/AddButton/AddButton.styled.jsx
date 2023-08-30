@@ -10,7 +10,7 @@ export const StyledButton = styled.button`
 
   background: transparent;
   border: 1px solid rgba(243, 243, 243, 0.2);
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
 
   margin-top: ${(props) => (props.margintop ? props.margintop : "0px")};
   margin-bottom: ${(props) =>
@@ -18,8 +18,8 @@ export const StyledButton = styled.button`
 
   &:hover,
   :focus {
-    background: #f3f3f3;
-    color: #0a0a11;
+    background: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.black};
   }
 
   @media (min-width: 768px) {

@@ -13,12 +13,24 @@ export const ErrorText = styled.h2`
 export const ErrorPageWrapper = styled.div`
   background-image: linear-gradient(
       176.63deg,
-      #0a0a11 1.42%,
+      ${(props) => props.theme.colors.black} 1.42%,
       rgba(10, 10, 17, 0) 24.97%
     ),
-    linear-gradient(281.81deg, #0a0a11 12.84%, rgba(10, 10, 17, 0) 58.63%),
-    linear-gradient(359.21deg, #0a0a11 -1.94%, rgba(10, 10, 17, 0) 21.95%),
-    linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+    linear-gradient(
+      281.81deg,
+      ${(props) => props.theme.colors.black} 12.84%,
+      rgba(10, 10, 17, 0) 58.63%
+    ),
+    linear-gradient(
+      359.21deg,
+      ${(props) => props.theme.colors.black} -1.94%,
+      rgba(10, 10, 17, 0) 21.95%
+    ),
+    linear-gradient(
+      86.16deg,
+      ${(props) => props.theme.colors.black} 8.41%,
+      rgba(10, 10, 17, 0) 46.6%
+    ),
     url(${glass});
   background-position: right;
   background-repeat: no-repeat;
@@ -28,10 +40,10 @@ export const ErrorPageWrapper = styled.div`
   position: relative;
   background-repeat: no-repeat;
   background-size: 100% auto;
-      margin-left: auto;
-    margin-right: auto;
-    margin-top: 83px;
-    margin-bottom: 140px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 83px;
+  margin-bottom: 140px;
 `;
 
 export const TextWrapper = styled.div`

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 const MainTitle = styled.h1`
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
   font-size: 32px;
   font-weight: 600;
   line-height: calc(38 / 32);

@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 
-
-
 export const StyledList = styled.ul`
   width: fit-content;
   padding: 0;
@@ -33,14 +31,13 @@ export const StyledLink = styled.a`
   align-items: center;
 
   border-radius: 10px;
-  border: 1px solid #F3F3F3;
+  border: 1px solid ${(props) => props.theme.colors.white};
 
   transition: border-color 400ms ease, transform 400ms ease;
 
   &:hover,
   &:focus {
     transform: translateY(-3px);
-    
   }
   @media screen and(min-width: 768px) {
     width: 44px;
@@ -48,10 +45,10 @@ export const StyledLink = styled.a`
   }
 `;
 
-export const getStyledIcon = component => styled(component)`
+export const getStyledIcon = (component) => styled(component)`
   width: 22px;
   height: 22px;
-  fill: #F3F3F3;
+  fill: ${(props) => props.theme.colors.white};
   @media screen and(min-width: 768px) {
     width: 28px;
     height: 28px;
