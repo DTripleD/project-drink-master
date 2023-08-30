@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-import { SeeButton } from "../Button/SeeButton/SeeButton";
-import { AddButton } from "../Button/AddButton/AddButton";
+// import { SeeButton } from "../Button/SeeButton/SeeButton";
+
 // import { DeleteButton } from "../Button/DeleteButton/DeleteButton";
 
 import drink from "../../images/coctails.jpg";
@@ -22,7 +22,7 @@ import {
 export const DrinkCard = ({ cocktail, page }) => {
   return (
     <Card>
-      <Link to={`/main/recipe/${cocktail._id}`}>
+      <Link to={`/recipe/${cocktail._id}`}>
         <OneMoreWrapper>
           <ImageWrapper>
             <Image
@@ -61,7 +61,7 @@ export const DrinkCard = ({ cocktail, page }) => {
 };
 
 DrinkCard.propTypes = {
-  page: PropTypes.string.isRequired,
+  page: PropTypes.string,
 
-  cocktail: PropTypes.string.isRequired,
+  cocktail: PropTypes.object,
 };

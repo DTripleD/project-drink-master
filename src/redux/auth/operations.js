@@ -4,7 +4,7 @@ import instance from "../../shared/api/instance";
 
 // axios.defaults.baseURL = "https://drink-master-backend.onrender.com";
 
-const setAuthHeader = (token) => {
+export const setAuthHeader = (token) => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 

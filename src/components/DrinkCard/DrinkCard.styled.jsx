@@ -61,7 +61,7 @@ export const Ingredientswrapper = styled.div`
 `;
 // || 'favorites'
 export const Drinkingreds = styled.p`
-  /* color: #f3f3f3; */
+  /* color: ${(props) => props.theme.colors.white}; */
   color: ${(props) => props.theme.textColor};
   font-family: Manrope, sans-serif;
   font-size: 16px;
@@ -86,8 +86,8 @@ export const AboutStyled = styled.p`
   max-width: 335px;
   /* text-justify: distribute; */
   height: 75px;
-  /* color: #f3f3f3; */
-  color: #f3f3f3;
+  /* color: ${(props) => props.theme.colors.white}; */
+  color: ${(props) => props.theme.colors.white};
   font-size: 14px;
   font-weight: 400;
   line-height: calc(18 / 14);

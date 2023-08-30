@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import { persistor, store } from "./redux/store.js";
 import { PersistGate } from "redux-persist/integration/react";
 
-const theme = {
+export const theme = {
   colors: {
     black: "#0A0A11",
     blue: "#161F37",

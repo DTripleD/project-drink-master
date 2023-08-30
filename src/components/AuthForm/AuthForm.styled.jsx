@@ -1,9 +1,9 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { IoIosCheckmarkCircleOutline } from 'react-icons/io';
-import { RiErrorWarningLine } from 'react-icons/ri';
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
-import { devices } from '../../shared/devises';
-import styled from '@emotion/styled';
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { IoIosCheckmarkCircleOutline } from "react-icons/io";
+import { RiErrorWarningLine } from "react-icons/ri";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { devices } from "../../shared/devises";
+import styled from "@emotion/styled";
 
 export const StyledForm = styled(Formik)``;
 export const StyledFormInsight = styled(Form)`
@@ -16,7 +16,7 @@ export const StyledFormInsight = styled(Form)`
   }
 `;
 export const StyledTitle = styled.h2`
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
   font-size: 28px;
   font-weight: 600;
   line-height: calc(32 / 28);
@@ -30,7 +30,7 @@ export const StyledTitle = styled.h2`
   }
 `;
 export const StyledInputWrap = styled.div`
-width: 100%;
+  width: 100%;
   position: relative;
 
   @media ${devices.tablet} {
@@ -72,7 +72,7 @@ export const StyledInput = styled(Field)`
   background-color: transparent;
   padding: 18px 24px;
   padding-right: 50px;
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
   font-size: 14px;
   font-weight: 400;
   line-height: calc(18 / 14);
@@ -92,7 +92,7 @@ export const StyledInput = styled(Field)`
   &:focus,
   &:hover {
     outline: none;
-    color: #f3f3f3;
+    color: ${(props) => props.theme.colors.white};
     border-color: rgba(243, 243, 243, 0.5);
     background-color: transparent;
   }
@@ -113,8 +113,8 @@ export const StyledButton = styled.button`
   border: none;
   justify-content: center;
   border-radius: 42px;
-  background: #f3f3f3;
-  color: #161f37;
+  background: ${(props) => props.theme.colors.white};
+  color: ${(props) => props.theme.colors.blue};
   font-size: 14px;
   font-weight: 600;
   line-height: calc (18 / 14);
@@ -154,7 +154,7 @@ export const StyledInnerDiv = styled.div`
   }
 `;
 export const StyledMessage = styled.p`
- position: absolute;
+  position: absolute;
   margin-top: 8px;
   font-size: 12px;
   font-weight: 400;

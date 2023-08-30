@@ -1,11 +1,11 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 // import { useEffect } from 'react';
 // import { useSearchParams } from 'react-router-dom';
 // import { verifyThunk } from '../../redux/auth/operations';
-import { signup } from '../../redux/auth/operations';
-import { SignUpSchema } from './SignUpAndSignInSchema';
-import { AuthNavigate } from '../AuthNav/AuthNav';
-import { useState } from 'react';
+import { signup } from "../../redux/auth/operations";
+import { SignUpSchema } from "./SignUpAndSignInSchema";
+import { AuthNavigate } from "../AuthNav/AuthNav";
+import { useState } from "react";
 // import { handleEyeClick } from '../../redux/auth/authSlice';
 // import { selectIsClicked } from '../../redux/auth/selectors';
 import {
@@ -23,34 +23,35 @@ import {
   StyledAiOutlineEye,
   StyledAiOutlineEyeInvisible,
   StyledPasswordDiv,
-} from './AuthForm.styled';
+} from "./AuthForm.styled";
+import { theme } from "../../main";
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
-//   const isClicked = useSelector(selectIsClicked);
-    const [isClicked, setIsClicked] = useState(false);
+  //   const isClicked = useSelector(selectIsClicked);
+  const [isClicked, setIsClicked] = useState(false);
 
-//   const [searchParams] = useSearchParams();
-//   const verificationToken = searchParams.get('verificationToken');
+  //   const [searchParams] = useSearchParams();
+  //   const verificationToken = searchParams.get('verificationToken');
 
-//   useEffect(() => {
-//     if (verificationToken === null) return;
-//     // dispatch(verifyThunk(verificationToken));
-//   }, [verificationToken, dispatch]);
+  //   useEffect(() => {
+  //     if (verificationToken === null) return;
+  //     // dispatch(verifyThunk(verificationToken));
+  //   }, [verificationToken, dispatch]);
 
   const openPassword = () => {
-    setIsClicked(prevIsClicked => !prevIsClicked);
+    setIsClicked((prevIsClicked) => !prevIsClicked);
   };
 
   return (
     <StyledForm
       initialValues={{
-        name: '',
-        email: '',
-        password: '',
+        name: "",
+        email: "",
+        password: "",
       }}
       validationSchema={SignUpSchema}
-      onSubmit={values => {
+      onSubmit={(values) => {
         dispatch(signup(values));
       }}
     >
@@ -63,27 +64,27 @@ export const SignUpForm = () => {
                 type="text"
                 name="name"
                 placeholder="Name"
-                onChange={e => {
-                  setFieldTouched('name');
+                onChange={(e) => {
+                  setFieldTouched("name");
                   handleChange(e);
                 }}
                 className={
                   touched.name && !errors.name
-                    ? 'valid-border'
+                    ? "valid-border"
                     : errors.name && touched.name
-                    ? 'invalid-border'
-                    : ''
+                    ? "invalid-border"
+                    : ""
                 }
               />
               {errors.name && touched.name && (
                 <div>
-                  <StyledIconError color="red" />{' '}
+                  <StyledIconError color="red" />{" "}
                   <StyledError name="name" component="div" />
                 </div>
               )}
               {touched.name && !errors.name && (
                 <div>
-                  <StyledIconChecked color="green" />{' '}
+                  <StyledIconChecked color="green" />{" "}
                   <StyledMessage>This is an CORRECT name</StyledMessage>
                 </div>
               )}
@@ -94,27 +95,27 @@ export const SignUpForm = () => {
                 type="email"
                 name="email"
                 placeholder="Email"
-                onChange={e => {
-                  setFieldTouched('email');
+                onChange={(e) => {
+                  setFieldTouched("email");
                   handleChange(e);
                 }}
                 className={
                   touched.email && !errors.email
-                    ? 'valid-border'
+                    ? "valid-border"
                     : errors.email && touched.email
-                    ? 'invalid-border'
-                    : ''
+                    ? "invalid-border"
+                    : ""
                 }
               />
               {errors.email && touched.email && (
                 <div>
-                  <StyledIconError color="red" />{' '}
+                  <StyledIconError color="red" />{" "}
                   <StyledError name="email" component="div" />
                 </div>
               )}
               {touched.email && !errors.email && (
                 <div>
-                  <StyledIconChecked color="green" />{' '}
+                  <StyledIconChecked color="green" />{" "}
                   <StyledMessage>This is an CORRECT email</StyledMessage>
                 </div>
               )}
@@ -123,30 +124,33 @@ export const SignUpForm = () => {
               <StyledPasswordDiv>
                 <StyledInput
                   id="password"
-                  type={isClicked ? 'text' : 'password'}
+                  type={isClicked ? "text" : "password"}
                   name="password"
-                  onChange={e => {
-                    setFieldTouched('password');
+                  onChange={(e) => {
+                    setFieldTouched("password");
                     handleChange(e);
                   }}
                   placeholder="Password"
                   className={
                     touched.password && !errors.password
-                      ? 'valid-border'
+                      ? "valid-border"
                       : errors.password && touched.password
-                      ? 'invalid-border'
-                      : ''
+                      ? "invalid-border"
+                      : ""
                   }
                 />
                 {touched.password && !isClicked ? (
                   <StyledAiOutlineEyeInvisible
-                    color="#F3F3F3"
+                    color={theme.colors.white}
                     onClick={openPassword}
                   />
                 ) : touched.password && isClicked ? (
-                  <StyledAiOutlineEye color="#F3F3F3" onClick={openPassword} />
+                  <StyledAiOutlineEye
+                    color={theme.colors.white}
+                    onClick={openPassword}
+                  />
                 ) : (
-                  ''
+                  ""
                 )}
               </StyledPasswordDiv>
               {errors.password && touched.password && (

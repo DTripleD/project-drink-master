@@ -12,8 +12,8 @@ export const StyledOtherButton = styled(Link)`
   height: 46px; */
 
   border-radius: 42px;
-  color: #161f37;
-  background: #f3f3f3;
+  color: ${(props) => props.theme.colors.blue};
+  background: ${(props) => props.theme.colors.white};
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);
@@ -27,12 +27,12 @@ export const StyledOtherButton = styled(Link)`
     color 400ms ease;
   &:hover {
     background-color: transparent;
-    border-color: #f3f3f3;
-    color: #f3f3f3;
+    border-color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
   }
 
   &:active {
-    background-color: #161f37;
+    background-color: ${(props) => props.theme.colors.blue};
   }
   @media (min-width: 768px) {
     /* width: 183px;

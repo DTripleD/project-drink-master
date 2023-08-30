@@ -40,7 +40,7 @@ export const Herowrapper = styled.div`
 `;
 
 export const Herodescription = styled.div`
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
   font-size: 18px;
   line-height: 1.33;
   margin-bottom: 40px;

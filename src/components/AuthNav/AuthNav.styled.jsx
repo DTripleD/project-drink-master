@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 export const StyledNavLink = styled(NavLink)`
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
   font-size: 12px;
   font-weight: 600;
   line-height: calc(16 / 12);
@@ -17,12 +17,12 @@ export const StyledNavLink = styled(NavLink)`
   &:after {
     background: none repeat scroll 0 0 transparent;
     bottom: 0;
-    content: '';
+    content: "";
     display: block;
     height: 1px;
     left: 50%;
     position: absolute;
-    background: #f3f3f3;
+    background: ${(props) => props.theme.colors.white};
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
@@ -36,4 +36,3 @@ export const StyledNavLink = styled(NavLink)`
     line-height: calc(18 / 14);
   }
 `;
-

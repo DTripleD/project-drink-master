@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Container } from "../../components/Container/Container";
 import MainPageTitle from "../../components/MainPageTitle/MainPageTitle";
 // import { Pagination } from "../../components/Pagination/Pagination";
-// import { RecipesList } from "../../components/RecipesList/RecipesList";
+import { RecipesList } from "../../components/RecipesList/RecipesList";
 import { StyledSection } from "./MyCoctailsPage.styled";
 
 const MyCoctailsPage = () => {
@@ -14,7 +14,7 @@ const MyCoctailsPage = () => {
       <Container>
         <StyledSection>
           <MainPageTitle title={"My recipes"} />
-          {/* <RecipesList /> */}
+          <RecipesList />
           {/* <Pagination /> */}
         </StyledSection>
       </Container>
