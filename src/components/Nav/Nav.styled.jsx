@@ -8,17 +8,15 @@ export const StyledNavLink = styled(NavLink)`
   font-size: 14px;
   font-weight: 500;
   line-height: 1.6;
-  
-
-  
-  
-  &.active {
-    font-weight: 700;
-    text-decoration: underline;
-    &:after {
-      display: none;
-    }
-  }
+    
+  // &.active {
+  //   font-weight: 700;
+  //   text-decoration: underline;
+    
+  //   &:after {
+  //     display: none;
+  //   }
+  // }
   
   &:after {
     content: '';
@@ -30,14 +28,9 @@ export const StyledNavLink = styled(NavLink)`
   }
   
   &:hover:after {
-    width: 100%;
+     width: 100%;
     
   }
-
-  @media (min-width: 768px) {
-   
-    
-
 `;
 
 export const StyledNavButton = styled.button`
@@ -49,7 +42,8 @@ export const StyledNavButton = styled.button`
   line-height: 1.6;
   background-color: transparent;
   border: none;
-  text-align: left;
+  padding: 0;
+  
   
   &:after {
     content: '';
@@ -68,9 +62,6 @@ export const StyledListItem = styled.li`
   
   @media (min-width: 768px) {
     margin-bottom: 16px;
-    margin-left: -40px;
-    
-    
     
   }
   
@@ -79,3 +70,4 @@ export const StyledListItem = styled.li`
     
   }
 `;
+

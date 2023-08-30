@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 
 
-
 export const StyledList = styled.ul`
   width: fit-content;
   padding: 0;
@@ -16,16 +15,11 @@ export const StyledList = styled.ul`
   @media screen and(min-width: 768px) {
     gap: 16px;
      
-    
-    
 	}
-    
-  }
+  
 `;
 
 export const StyledLink = styled.a`
-  width: 24px;
-  height: 24px;
   padding: 8px;
 
   display: flex;
@@ -49,11 +43,12 @@ export const StyledLink = styled.a`
 `;
 
 export const getStyledIcon = component => styled(component)`
-  width: 22px;
-  height: 22px;
+   width: 22px;
+   height: 22px;
   fill: #F3F3F3;
   @media screen and(min-width: 768px) {
-    width: 28px;
-    height: 28px;
+     height: 28px;
   }
 `;
+
+

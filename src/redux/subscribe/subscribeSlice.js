@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchSubscribe } from './operations';
+import { toast } from 'react-hot-toast';
 
 const subscribeSlice = createSlice({
     name: 'subscribe',
@@ -10,18 +11,17 @@ const subscribeSlice = createSlice({
     },
     extraReducers: builder => {
         builder
-            .addCase(fetchSubscribe.pending, state => {
+            .addCase(fetchSubscribe.pending, (state) => {
                 state.isLoading = true;
             })
-            .addCase(fetchSubscribe.fulfilled, (state, { payload }) => {
-                state.subscription = payload;
+            .addCase(fetchSubscribe.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.error = null;
+                toast.success("Thank you for subscribing to our news.");
             })
-            .addCase(fetchSubscribe.rejected, (state, { payload }) => {
-                state.isLoading = false;
-                state.error = payload;
-            });
+            .addCase(fetchSubscribe.rejected, (state, action) => {
+                state.isRefreshing = false;
+                toast.error(action.payload);
+            })
     },
 });
 

@@ -1,12 +1,15 @@
-import axios from 'axios';
+
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-hot-toast';
+import instance from "../../shared/api/instance";
 
-export const fetchSubscribe = createAsyncThunk('/subscribe', async thunkAPI => {
+export const fetchSubscribe = createAsyncThunk('auth/subscribe', async (email, thunkAPI) => {
     try {
-        return await axios.post(`/subscribe`).data;
+        const resp = await instance.post(`users/subscribe`, email);
+        return resp.data;
     } catch (error) {
         toast.error('Something wrong. Try again.');
-        return thunkAPI.rejectWithValue(error.message);
+        return thunkAPI.rejectWithValue(error.response.data.message);
     }
 });
+
