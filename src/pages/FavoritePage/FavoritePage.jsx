@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
+import { Children } from "react";
 
 import { Container } from "../../components/Container/Container";
 import MainPageTitle from "../../components/MainPageTitle/MainPageTitle";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
 import { StyledSection } from "./FavoritePage.styled";
-import { AddButton } from "../../components/Button/AddButton/AddButton";
-import { SeeButton } from "../../components/Button/SeeButton/SeeButton";
+
+import FavoriteList from "../../components/FavoriteList/FavoriteList";
 import {
   ErrorText,
   ErrorPageWrapper,
@@ -15,7 +18,10 @@ import {
 // import { Pagination } from "../../components/Pagination/Pagination";
 // import { RecipesList } from "../../components/RecipesList/RecipesList";
 
-import { getFavoriteList, deleteFavoriteRecipe } from "../../shared/api/favoriteRecipe";
+import {
+  getFavoriteList,
+  deleteFavoriteRecipe,
+} from "../../shared/api/favoriteRecipe";
 
 const useLocalStorage = (key, defaultValue) => {
   const [state, setState] = useState(() => {
@@ -25,12 +31,17 @@ const useLocalStorage = (key, defaultValue) => {
 };
 
 const FavoritePage = () => {
+  const location = useLocation();
   const [favoriteRecipe, setFavoriteRecipe] = useLocalStorage(
     "favoriteRecipe",
     []
   );
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [allPage, setAllPage] = useState();
+  // const [allItem, setAllItem] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -83,55 +94,28 @@ const FavoritePage = () => {
   return (
     <>
       <MainContainer>
-        <Container>
-          <StyledSection>
-            <MainPageTitle title={"Favorites"} />
+        {/* <Container> */}
+        <StyledSection>
+          <MainPageTitle title={"Favorites"} />
+          {favoriteRecipe?.length !== 0 ? (
+            <FavoriteList
+              recipes={favoriteRecipe}
+              // allItem={allItem}
+              // location={location}
+              deleteFavorite={handleDeleteRecipe}
+            >
+              {/* {Children} */}
+            </FavoriteList>
+          ) : (
+            <>
+              <ErrorPageWrapper />
+              <h3>You haven't added any favorite cocktails yet</h3>
+            </>
+          )}
 
-            {favoriteRecipe?.length !== 0 ? (
-              <ul>
-                {favoriteRecipe.map(
-                  ({
-                    _id,
-                    drink,
-                    description = "good cocktail",
-                    drinkThumb,
-                  }) => (
-                    <li key={_id} page={"favorite"}>
-                      {/* {_id} */}
-                      <img
-                        src={drinkThumb}
-                        alt={drink}
-                        width="400"
-                        height="400"
-                      />
-                      <h3>{drink}</h3>
-                      {description}
-                      <div>
-                        <SeeButton id={_id} />
-
-                        <AddButton
-                          id={_id}
-                          text={"Delete"}
-                          ariaLabel={"button for click"}
-                          onClick={() => handleDeleteRecipe(_id)}
-                          type={"button"}
-                        />
-                      </div>
-                    </li>
-                  )
-                )}
-              </ul>
-            ) : (
-              <>
-                <ErrorPageWrapper />
-                <h3>You haven't added any favorite cocktails yet</h3>
-              </>
-            )}
-
-            {/* <RecipesList /> */}
-            {/* <Pagination /> */}
-          </StyledSection>
-        </Container>
+          {/* <Pagination /> */}
+        </StyledSection>
+        {/* </Container> */}
       </MainContainer>
     </>
   );
