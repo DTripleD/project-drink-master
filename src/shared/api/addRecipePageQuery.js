@@ -39,3 +39,16 @@ export const getMainPage = async () => {
     return err.response.data.message;
   }
 };
+
+export const getMyOwnRecipies = async () => {
+  const params = {};
+
+  try {
+    const res = await instance.get("own", {
+      params,
+    });
+    return res.data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
