@@ -1,9 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import RecipeDescriptionFields from "./RecipeDescriptionFields/RecipeDescriptionFields";
+import RecipeIngredientsFields from "./RecipeIngredientsFields/RecipeIngredientsFields";
+import { useDispatch } from "react-redux";
+import {
+	getCategories,
+	getGlasses,
+	getIngredients,
+} from "../../redux/drinks/drinksOperations";
 
 const AddRecipeForm = (props) => {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(getCategories());
+		dispatch(getGlasses());
+		dispatch(getIngredients());
+	}, [dispatch]);
+
 	const [file, setFile] = useState(null);
 
 	const getFile = (file) => {
@@ -33,17 +47,17 @@ const AddRecipeForm = (props) => {
 	};
 
 	const isFirtsRender = useRef(true);
-	
+
 	useEffect(() => {
 		if (isFirtsRender.current) {
 			isFirtsRender.current = false;
 			return;
 		}
-		console.log(errors?.drinkThumb?.message);
-		console.log(errors?.drink?.message);
-		console.log(errors?.description?.message);
-		console.log(errors?.category?.message);
-		console.log(errors?.glass?.message);
+		// console.log(errors?.drinkThumb?.message);
+		// console.log(errors?.drink?.message);
+		// console.log(errors?.description?.message);
+		// console.log(errors?.category?.message);
+		// console.log(errors?.glass?.message);
 	}, [errors]);
 
 	return (
@@ -53,6 +67,7 @@ const AddRecipeForm = (props) => {
 				register={register}
 				control={control}
 			/>
+			<RecipeIngredientsFields register={register} control={control} />
 			<button type="submit">Add</button>
 		</form>
 	);
