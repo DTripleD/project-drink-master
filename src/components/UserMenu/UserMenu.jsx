@@ -24,7 +24,7 @@ const UserMenu = () => {
 				</UserPhotoWrapper>
 				<UserName>{user.name}</UserName>
 			</MenuWrapper>
-			<DropWrapper>{!openDrop && <UserLogoModal />}</DropWrapper>
+			<DropWrapper>{openDrop && <UserLogoModal />}</DropWrapper>
 		</>
 	);
 };

@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+export const getStyledCloseIcon = (component) => styled(component)`
+	width: 38px;
+	height: 38px;
+	fill: #ffffff;
+`;
+
 export const BackDrop = styled.div`
 	position: fixed;
 	top: 0;
@@ -13,15 +19,15 @@ export const BackDrop = styled.div`
 `;
 
 export const Modal = styled.div`
-  width: 335px;
-  padding: 50px 25px;
-  background: ${(props) => props.theme.colors.blue};
-  border-radius: 16px;
+	width: 335px;
+	padding: 50px 25px;
+	background: ${(props) => props.theme.colors.blue};
+	border-radius: 16px;
 
-  @media (min-width: 768px) {
-    width: 500px;
-    padding: 50px 50px 75px 50px;
-  }
+	@media (min-width: 768px) {
+		width: 500px;
+		padding: 50px 50px 75px 50px;
+	}
 `;
 
 export const CloseBtn = styled.button`

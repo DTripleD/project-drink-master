@@ -1,23 +1,17 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { selectUser } from "../../redux/auth/selectors";
-import { Controller } from "react-hook-form";
-import { ReactComponent as Plus } from "../../../images/svg/add-photo.svg";
-import { ReactComponent as Cross } from "../../../images/svg/close.svg";
-import { ReactComponent as editSVG } from "../../images/svg/edit.svg";
+// import { ReactComponent as Plus } from "../../images/svg/add-photo.svg";
+// import { ReactComponent as Cross } from "../../images/svg/close.svg";
+// import { ReactComponent as editSVG } from "../images/svg/edit.svg";
 
-import * as yup from "yup";
-import { BackDrop, Modal } from "./UserInfoModal.styled";
+import { BackDrop, Modal, CloseBtn } from "./UserInfoModal.styled";
+import { useDispatch } from "react-redux";
 
 const modalRoot = document.querySelector("#modal-root");
+// const StyledCloseIcon = getStyledCloseIcon(CloseMenuIcon);
 
-const schema = yup
-	.object({
-		userName: yup.string().required(),
-		file: yup.mixed().required("File is required"),
-	})
-	.required();
-
-export const UserInfoModal = ({ control, handleModalClose }) => {
+export const UserInfoModal = ({ handleModalClose }) => {
 	const dispatch = useDispatch();
 	const { name, avatarURL } = useSelector(selectUser);
 	const [image, setImage] = useState({ preview: avatarURL, data: null });
@@ -109,12 +103,13 @@ export const UserInfoModal = ({ control, handleModalClose }) => {
 		}
 	};
 
-	return (
+	return createPortal(
 		<BackDrop onClick={handleBackdropClick}>
 			<Modal>
-				<button type="button">{Cross}</button>
+				<CloseBtn type="button">{Cross}</CloseBtn>
 				<form action=""></form>
 			</Modal>
-		</BackDrop>
+		</BackDrop>,
+		modalRoot
 	);
 };
