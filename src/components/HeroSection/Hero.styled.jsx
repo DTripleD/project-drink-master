@@ -6,6 +6,7 @@ export const Hero = styled.section`
   position: relative;
   background-image: ${(props) =>
     props.currenttheme === "dark" || `url(${heroimgDark})`};
+  /* background-image: url("../../images/porto-glass.jpg"); */
 
   background-position: top 0px right -320px;
 
@@ -19,7 +20,7 @@ export const Hero = styled.section`
   }
 
   @media (min-width: 1440px) {
-    background-position: top 0px right 0px;
+    /* background-position: top 0px right 0px; */
 
     background-size: contain;
   }
