@@ -8,8 +8,11 @@ import {
   SignInNavLink,
 } from './WelcomePage.styled';
 
+import Background from "../../components/Background/Background";
+
 const WelcomePage = () => {
   return (
+     <Background>
     <BaseDiv>
       <SummaryWrapper>
         <WelcomeTitle>Welcome to the app!</WelcomeTitle>
@@ -23,7 +26,8 @@ const WelcomePage = () => {
           <SignInNavLink to="/signin">Sign In</SignInNavLink>
         </ButtonsBlock>
       </SummaryWrapper>
-  </BaseDiv>
+      </BaseDiv>
+      </Background>
   );
 };
 

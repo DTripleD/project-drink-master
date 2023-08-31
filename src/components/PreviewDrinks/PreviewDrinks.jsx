@@ -4,13 +4,12 @@ import PropTypes from "prop-types";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
 import { DrinkCard } from "../DrinkCard/DrinkCard";
-// import { Container } from "../Container/Container";
+
 import { Cardwrapper, Section, SectionTitle } from "./PreviewDrinks.styled";
 
 export const PreviewDrinks = ({ title, data = [] }) => {
   return (
     <Section>
-      {/* <Container> */}
       <Link to={`/drinks`} state={{ category: title }}>
         <SectionTitle>{title}</SectionTitle>
       </Link>
@@ -44,7 +43,6 @@ export const PreviewDrinks = ({ title, data = [] }) => {
           ))}
         </Swiper>
       </Cardwrapper>
-      {/* </Container> */}
     </Section>
   );
 };

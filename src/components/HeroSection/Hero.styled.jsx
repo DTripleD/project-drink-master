@@ -41,10 +41,20 @@ export const Herowrapper = styled.div`
 `;
 
 export const Herodescription = styled.div`
+  width: 319px;
+
+  /* height: 72px, auto; */
   color: ${(props) => props.theme.colors.white};
   font-size: 18px;
   line-height: 1.33;
   margin-bottom: 40px;
+
+  @media (min-width: 768px) {
+    width: 470px;
+  }
+  @media (min-width: 1440px) {
+    width: 500px;
+  }
 `;
 
 export const Herobackground = styled.div`

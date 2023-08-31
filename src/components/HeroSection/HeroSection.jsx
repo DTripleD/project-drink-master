@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { AddButton } from "../Button/AddButton/AddButton";
-// import { Container } from "../Container/Container";
+
 import MainPageTitle from "../MainPageTitle/MainPageTitle";
 
 import { Hero, Herodescription, Herowrapper } from "./Hero.styled";
@@ -9,7 +9,6 @@ export const HeroSection = () => {
   const navigate = useNavigate();
   return (
     <Hero>
-      {/* <Container> */}
       <Herowrapper>
         <MainPageTitle title="Craft Your Perfect Drink with Drink Master"></MainPageTitle>
         <Herodescription>
@@ -25,7 +24,6 @@ export const HeroSection = () => {
           }}
         />
       </Herowrapper>
-      {/* </Container> */}
     </Hero>
   );
 };
