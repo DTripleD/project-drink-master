@@ -30,14 +30,14 @@ export const Ellipse1 = styled(Ellipse)`
   border-radius: 387px;
   background: rgba(188, 230, 210, 0.4);
 
-  @media (min-width: 568px) {
+  @media (min-width: 768px) {
     width: 387px;
     height: 372px;
 
     top: 46px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1440px) {
     width: 387px;
     height: 381px;
 
@@ -55,14 +55,14 @@ export const Ellipse2 = styled(Ellipse)`
   border-radius: 849px;
   background: rgba(64, 112, 205, 0.5);
 
-  @media (min-width: 568px) {
+  @media (min-width: 768px) {
     width: 784px;
     height: 829px;
     top: -50px;
     left: -665px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1440px) {
     width: 784px;
     height: 849px;
     top: -231px;
@@ -81,7 +81,7 @@ export const Ellipse3 = styled(Ellipse)`
   border-radius: 549px;
   background: rgba(64, 112, 205, 0.5);
 
-  @media (min-width: 568px) {
+  @media (min-width: 768px) {
     width: 549px;
     height: 543px;
 
@@ -89,7 +89,7 @@ export const Ellipse3 = styled(Ellipse)`
     left: 621px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1440px) {
     width: 549px;
     height: 543px;
 
