@@ -28,8 +28,8 @@ const DrinksList = ({ drinks }) => {
 				</Ul>
 			) : (
 				<>
-					<P3>Unfortunately, there is no such cocktails.... 😭</P3>
 					<ErrorPageWrapper></ErrorPageWrapper>
+					<P3>Unfortunately, there is no such cocktails.... 😭</P3>
 				</>
 			)}
 		</>
