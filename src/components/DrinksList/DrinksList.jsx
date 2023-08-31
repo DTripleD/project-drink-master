@@ -1,18 +1,27 @@
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Li, Img, Div, P, P2, P3, Ul } from "./DrinksList.styled";
+import { Li, Img, Div, P, P2, Ul, P3 } from "./DrinksList.styled";
+import {
+	ErrorPageWrapper,
+	ErrorText,
+	TextWrapper,
+} from "../../pages/ErrorPage/ErrorPage.styled";
 
 const DrinksList = ({ drinks }) => {
 	const location = useLocation();
 
 	return (
 		<>
-			{Array.isArray(drinks) ? (
+			{drinks && Array.isArray(drinks) && drinks.length > 0 ? (
 				<Ul>
 					{drinks.map(({ _id, drink, drinkThumb, instructions }) => (
 						<Li key={_id}>
 							<Link to={`/recipe/${_id}`} state={{ from: location }}>
-								<Img src={drinkThumb} alt={instructions} loading="lazy" />
+								<Img
+									src={drinkThumb ? drinkThumb : "/public/plug-b.png"}
+									alt={instructions}
+									loading="lazy"
+								/>
 								<Div>
 									<P>{drink}</P>
 									<P2>Ingredients</P2>
@@ -22,7 +31,15 @@ const DrinksList = ({ drinks }) => {
 					))}
 				</Ul>
 			) : (
-				<P3>Unfortunately, there is no such coctails .... 😭</P3>
+				<>
+					<P3>Unfortunately, there is no such cocktails.... 😭</P3>
+					<ErrorPageWrapper>
+						<TextWrapper>
+							<ErrorText>4</ErrorText>
+							<ErrorText>4</ErrorText>
+						</TextWrapper>
+					</ErrorPageWrapper>
+				</>
 			)}
 		</>
 	);

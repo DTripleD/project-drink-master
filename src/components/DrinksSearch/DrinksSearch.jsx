@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Search } from "../../images/svg/search.svg";
 import DrinksList from "../../components/DrinksList/DrinksList";
-import { useSearchParams } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import {
 	getCategoriesList,
@@ -19,12 +19,19 @@ import {
 import { getDrinksList } from "../../shared/api/drinksSearch";
 
 const DrinksSearch = () => {
-	const [categories, setCategories] = useState(["All categories"]);
+	const { state } = useLocation();
+	const [categories, setCategories] = useState(
+		state?.category ? [state?.category] : ["Cocktail"]
+	);
 	const [ingredients, setIngredients] = useState(["Ingredients"]);
 	const { register, handleSubmit, control } = useForm();
-	const [searchParams, setSearchParams] = useSearchParams();
-	const [drinks, setDrinks] = useState([]);
-	const [error, seterror] = useState("");
+	const [searchParams, setSearchParams] = useSearchParams({
+		search: "",
+		category: state?.category ? state?.category : "Cocktail",
+		ingredients: "",
+	});
+	const [data, setData] = useState([]);
+	const [error, setError] = useState("");
 
 	useEffect(() => {
 		const getCategories = async () => {
@@ -43,27 +50,28 @@ const DrinksSearch = () => {
 	useEffect(() => {
 		getDrinksList(searchParams)
 			.then((data) => {
-				setDrinks(data);
+				setData(data);
 			})
 			.catch((error) => {
-				seterror(error.message);
+				setError(error.message);
 			});
+		console.log(data);
 	}, [searchParams]);
 
 	const optionCategories = categories.map((category) => ({
-		value: category.toLowerCase(),
+		value: category,
 		label: category,
 	}));
 
 	const optionIngredients = ingredients.map((ingredient) => ({
-		value: ingredient.toLowerCase(),
+		value: ingredient,
 		label: ingredient,
 	}));
 
 	const onSubmit = (data) => {
 		setSearchParams({
 			search: data?.search || "",
-			category: data?.category?.label || "",
+			category: data?.category?.label || state?.category || "",
 			ingredients: data?.ingredients?.label || "",
 		});
 	};
@@ -109,7 +117,7 @@ const DrinksSearch = () => {
 				/>
 			</Form>
 			{error && <p>Sorry. {error} 😭</p>}
-			{drinks?.length !== 0 && <DrinksList drinks={drinks} />}
+			<DrinksList drinks={data.drinks} />
 		</>
 	);
 };

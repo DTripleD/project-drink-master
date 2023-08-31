@@ -3,16 +3,13 @@ import styled from "@emotion/styled";
 export const StyledFooter = styled.footer`
   padding-top: 40px;
   border-top: 1px solid rgba(243, 243, 243, 0.2);
-  padding-left: 20px;
-    padding-right: 20px;
-    
+  
 
   @media screen and (min-width: 768px) {
     
     padding-top: 80px;
     padding-bottom: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
+   
     width: 100%;
     box-sizing: border-box;
 
@@ -25,8 +22,7 @@ export const StyledFooter = styled.footer`
 	 
 	  width: 100%;
 	  box-sizing: border-box;
-    padding-left: 100px;
-    padding-right: 100px;
+    
   }
 `;
 
@@ -62,7 +58,7 @@ export const StyledContainer = styled.div`
 
   @media screen and (min-width: 1440px) {
     display: flex;
-    gap: 350px;
+    gap: 300px;
     flex-direction: row;
     width: 100%;
     box-sizing: border-box;

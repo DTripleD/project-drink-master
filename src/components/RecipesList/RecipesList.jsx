@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DrinkCard } from "../DrinkCard/DrinkCard";
-import { NotFound } from "../../pages/ErrorPage/ErrorPage";
-import { selectOwn } from "../../redux/selectors";
-import { selectPage } from "../../redux/selectors";
-import { getAllOwnThunk } from "../../redux/drinks/operations";
-import { useMediaRules } from "../../hooks/useMediaRules";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
+import { selectOwn, selectPage } from "../../redux/Cocktails/coctailsSelectors";
+
+import { getAllOwnDrinksThunk } from "../../redux/Cocktails/cocktailsOperations";
+import useMediaRules from "../../hooks/useMediaRules";
 import { MyRecipesListStyled, Section } from "./RecipesList.styled";
 
 export const RecipesList = () => {
@@ -16,7 +16,7 @@ export const RecipesList = () => {
   const limit = isDesktop ? 9 : 8;
 
   useEffect(() => {
-    dispatch(getAllOwnThunk({ page, limit }));
+    dispatch(getAllOwnDrinksThunk({ page, limit }));
   }, [page, limit, dispatch]);
 
   return (
@@ -32,7 +32,7 @@ export const RecipesList = () => {
           ))}
         </MyRecipesListStyled>
       ) : (
-        <NotFound message={"You haven't added any cocktail recipes yet"} />
+        <ErrorPage message={"You haven't added any cocktail recipes yet"} />
       )}
     </Section>
   );
