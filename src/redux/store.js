@@ -17,6 +17,7 @@ import { subscribeReducer } from "./subscribe/subscribeSlice";
 import { favoritesReducer } from "./favorite/favoriteSlice";
 
 import { cocktailsReducer } from "./Cocktails/cocktailsSlice";
+import {persistedDrinksQueryReducer} from "./drinks/drinksSlice"
 
 const persistConfigForCocktails = {
   key: "cocktails",
@@ -31,6 +32,7 @@ export const store = configureStore({
     subscribe: subscribeReducer,
     favorites: favoritesReducer,
     cocktails: persistReducer(persistConfigForCocktails, cocktailsReducer),
+    drinksQuery: persistedDrinksQueryReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
