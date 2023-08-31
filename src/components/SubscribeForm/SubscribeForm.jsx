@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useState, useEffect } from 'react';
-import { fetchSubscribe } from '../../redux/subscribe/operations';
+
+
 import { selectSubscribe } from "../../redux/subscribe/selector";
 import { useForm } from "react-hook-form";
+import toast, { Toaster } from "react-hot-toast";
+import { subscripbeValidationSchema } from "./subscripbeValidationSchema";
 
-import { toast } from 'react-hot-toast';
+import { subscribeUser } from "../../shared/api/subscribe"
 import {
     FooterSubscribeWrapper,
     FooterSubscribetext,
@@ -14,39 +16,40 @@ import {
     FooterSubscribeButton,
 } from './SubscribeForm.styled';
 
+
+
  const SubscribeForm = () => {
-    // const dispatch = useDispatch();
-    // const [subscribeState, setSubscribeState] = useState('');
+   
+     const user = useSelector(selectSubscribe);
 
-    // const handleSubmitSubscribe = e => {
-    //     e.preventDefault();
-    //     setSubscribeState(e.currentTarget.subscribeEmail.value);
-    //     dispatch(fetchSubscribe({ subscribeState }));
-    //     setSubscribeState('');
-    //     toast.success('Successfully send email!');
-    // };
+
+     const { register, handleSubmit, formState, reset } = useForm();
      
- 
-         const dispatch = useDispatch();
-         const user = useSelector(selectSubscribe);
-
-         const { register, setValue, handleSubmit } = useForm();
-
-         const [subscribeState, setSubscribeState] = useState(''); 
-
-         const onSubmit = (data) => {
-             dispatch(fetchSubscribe({ email: data.email }));
-         };
-
-         useEffect(() => {
-             if (user?.email) {
-                 setValue('email', user.email);
-                 setSubscribeState(user.email); 
+     
+     const onSubmit = async ({email}) => {
+         try {
+             await subscribeUser({ email });
+             toast.success('Subscribe success');
+             reset();
+             
+             
+         } catch (error) {
+             if (error.response.status === 409) {
+                 toast.error('Email already subscribed');
+                 reset();
+                 
+                 
+             } else {
+                 toast.error('Error. User is not registered');
+                 reset();
+                 
+                 
              }
-         }, [user, setValue]);
-
-
-
+         }
+        
+     };
+ 
+       
     return (
         <FooterSubscribeWrapper onSubmit={handleSubmit(onSubmit)}>
             
@@ -58,19 +61,44 @@ import {
 
             <FooterSubscribeLabel>
                 <FooterSubscribeInput
-                    onChange={e => setSubscribeState(e.currentTarget.value)}
-                    value={subscribeState}
+                    validationSchema={subscripbeValidationSchema}
                     type="email"
                     name="email"
                     placeholder="Enter the email"
+                    {...register('email', {
+                        required: true,
+                        
+                    })}
                     
                 />
                 
             </FooterSubscribeLabel>
 
-            <FooterSubscribeButton type="submit" disabled={!subscribeState}>
+            <FooterSubscribeButton type="submit" disabled={!formState.isValid}>
                 Subscribe
             </FooterSubscribeButton>
+            <Toaster
+                toastOptions={{
+                    success: {
+                        style: {
+                            background: "#66BB6A",
+                            border: "1px solid ##66BB6A",
+                            borderRadius: "4px",
+                            color: "white",
+                        },
+                        icon: () => null,
+                    },
+                    error: {
+                        style: {
+                            background: "#E57373",
+                            border: "1px solid #FF5733",
+                            borderRadius: "4px",
+                            color: "white",
+                        },
+                        icon: () => null,
+                    },
+                }}
+            />
         </FooterSubscribeWrapper>
     );
 };
@@ -79,34 +107,60 @@ import {
     
 export default SubscribeForm;
 
+//  const SubscribeForm = () => {
+   
+     
+ 
+//          const dispatch = useDispatch();
+//          const user = useSelector(selectSubscribe);
 
-// return (
-//     <FooterSubscribeWrapper onSubmit={handleSubmitSubscribe}>
+//          const { register, setValue, handleSubmit } = useForm();
+
+//          const [subscribeState, setSubscribeState] = useState(''); 
+
+//          const onSubmit = (data) => {
+//              dispatch(fetchSubscribe({ email: data.email }));
+//          };
+
+//          useEffect(() => {
+//              if (user?.email) {
+//                  setValue('email', user.email);
+//                  setSubscribeState(user.email); 
+//              }
+//          }, [user, setValue]);
 
 
-//         <FooterSubscribetext>
-//             Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.
-//         </FooterSubscribetext>
 
+//     return (
+//         <FooterSubscribeWrapper onSubmit={handleSubmit(onSubmit)}>
+            
+               
+//                 <FooterSubscribetext>
+//                 Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.
+//                 </FooterSubscribetext>
+            
 
-//         <FooterSubscribeLabel>
-//             <FooterSubscribeInput
-//                 onChange={e => setSubscribeState(e.currentTarget.value)}
-//                 value={subscribeState}
-//                 type="email"
-//                 name="subscribeEmail"
-//                 placeholder="Enter the email "
-//             />
+//             <FooterSubscribeLabel>
+//                 <FooterSubscribeInput
+//                     onChange={e => setSubscribeState(e.currentTarget.value)}
+//                     value={subscribeState}
+//                     type="email"
+//                     name="email"
+//                     placeholder="Enter the email"
+                    
+//                 />
+                
+//             </FooterSubscribeLabel>
 
-//         </FooterSubscribeLabel>
-
-//         <FooterSubscribeButton type="submit" disabled={!subscribeState}>
-//             Subscribe
-//         </FooterSubscribeButton>
-//     </FooterSubscribeWrapper>
-// );
+//             <FooterSubscribeButton type="submit" disabled={!subscribeState}>
+//                 Subscribe
+//             </FooterSubscribeButton>
+//         </FooterSubscribeWrapper>
+//     );
 // };
 
 
+    
+ //export default SubscribeForm;
 
-// export default SubscribeForm;
+
