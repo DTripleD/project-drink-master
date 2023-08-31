@@ -37,7 +37,7 @@ export const DrinkCard = ({ cocktail, page }) => {
       </Link>
       <Wrapper>
         <Ingredientswrapper position={page}>
-          <Link to={`/main/recipe/${cocktail._id}`}>
+          <Link to={`/recipe/${cocktail._id}`}>
             <Drinkingreds>{cocktail.drink}</Drinkingreds>
           </Link>
           <Ingredients>Ingredients</Ingredients>
