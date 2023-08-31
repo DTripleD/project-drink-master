@@ -4,6 +4,8 @@ import {
   addFavorite,
   deleteFavorite,
 } from "./favorite-operation";
+import storage from "redux-persist/lib/storage";
+import persistReducer from "redux-persist/es/persistReducer";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -52,3 +54,12 @@ const favoritesSlice = createSlice({
 });
 
 export const favoritesReducer = favoritesSlice.reducer;
+const favoritesPersistConfig = {
+  key: "favoriteRecipe",
+  storage,
+};
+
+export const persistedfavoritesReducer = persistReducer(
+  favoritesPersistConfig,
+  favoritesReducer
+);
