@@ -3,6 +3,7 @@ import { PreviewDrinks } from "../../components/PreviewDrinks/PreviewDrinks";
 import { HeroSection } from "../../components/HeroSection/HeroSection";
 import { OtherDrinksButton } from "../../components/Button/OtherDrinksButton/OtherDrinks";
 import { getMainPage } from "../../shared/api/addRecipePageQuery";
+import { MainContainer } from "../../components/MainContainer/MainContainer";
 
 const MainPage = () => {
   // const dispatch = useDispatch();
@@ -27,15 +28,17 @@ const MainPage = () => {
 
   return (
     <>
-      <HeroSection />
-      {categories.map((f) => (
-        <PreviewDrinks
-          title={f}
-          key={f}
-          data={object.filter((da) => da.category === f)}
-        />
-      ))}
-      <OtherDrinksButton />
+      <MainContainer>
+        <HeroSection />
+        {categories.map((f) => (
+          <PreviewDrinks
+            title={f}
+            key={f}
+            data={object.filter((da) => da.category === f)}
+          />
+        ))}
+        <OtherDrinksButton />
+      </MainContainer>
     </>
   );
 };
