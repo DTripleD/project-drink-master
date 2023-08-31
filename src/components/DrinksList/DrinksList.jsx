@@ -1,11 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Li, Img, Div, P, P2, Ul, P3 } from "./DrinksList.styled";
-import {
-	ErrorPageWrapper,
-	ErrorText,
-	TextWrapper,
-} from "../../pages/ErrorPage/ErrorPage.styled";
+import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 
 const DrinksList = ({ drinks }) => {
 	const location = useLocation();
@@ -33,12 +29,7 @@ const DrinksList = ({ drinks }) => {
 			) : (
 				<>
 					<P3>Unfortunately, there is no such cocktails.... 😭</P3>
-					<ErrorPageWrapper>
-						<TextWrapper>
-							<ErrorText>4</ErrorText>
-							<ErrorText>4</ErrorText>
-						</TextWrapper>
-					</ErrorPageWrapper>
+					<ErrorPageWrapper></ErrorPageWrapper>
 				</>
 			)}
 		</>

@@ -3,12 +3,16 @@ import { ReactComponent as Search } from "../../images/svg/search.svg";
 import DrinksList from "../../components/DrinksList/DrinksList";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import {
-	getCategoriesList,
-	getIngredientsList,
-} from "../../shared/api/addRecipePageQuery";
 import { useForm } from "react-hook-form";
 import { Controller } from "react-hook-form";
+import {
+	selectCategories,
+	selectIngredientsListSorted,
+} from "../../redux/drinks/drinksSelectors";
+import {
+	getCategories,
+	getIngredients,
+} from "../../redux/drinks/drinksOperations";
 import {
 	StyledSelect,
 	Form,
@@ -17,13 +21,11 @@ import {
 	Input,
 } from "./DrinksSearch.styled";
 import { getDrinksList } from "../../shared/api/drinksSearch";
+import { useDispatch, useSelector } from "react-redux";
 
 const DrinksSearch = () => {
 	const { state } = useLocation();
-	const [categories, setCategories] = useState(
-		state?.category ? [state?.category] : ["Cocktail"]
-	);
-	const [ingredients, setIngredients] = useState(["Ingredients"]);
+	const dispatch = useDispatch();
 	const { register, handleSubmit, control } = useForm();
 	const [searchParams, setSearchParams] = useSearchParams({
 		search: "",
@@ -34,18 +36,12 @@ const DrinksSearch = () => {
 	const [error, setError] = useState("");
 
 	useEffect(() => {
-		const getCategories = async () => {
-			const result = await getCategoriesList();
-			setCategories(result);
-		};
-		const getIngredients = async () => {
-			const result = await getIngredientsList();
-			setIngredients(result);
-		};
-
-		getCategories();
-		getIngredients();
+		dispatch(getCategories());
+		dispatch(getIngredients());
 	}, []);
+
+	const categories = useSelector(selectCategories);
+	const ingredients = useSelector(selectIngredientsListSorted);
 
 	useEffect(() => {
 		getDrinksList(searchParams)
@@ -94,7 +90,7 @@ const DrinksSearch = () => {
 					name="category"
 					render={({ field: { onChange, value } }) => (
 						<StyledSelect
-							defaultValue={optionCategories[0]}
+							defaultValue={optionCategories[1]}
 							options={optionCategories}
 							value={value}
 							onChange={onChange}
