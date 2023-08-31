@@ -5,7 +5,11 @@ import { selectOwn, selectPage } from "../../redux/Cocktails/coctailsSelectors";
 
 import { getAllOwnDrinksThunk } from "../../redux/Cocktails/cocktailsOperations";
 import useMediaRules from "../../hooks/useMediaRules";
-import { MyRecipesListStyled, Section } from "./RecipesList.styled";
+import {
+  MyRecipesListStyled,
+  Section,
+  MessageTitle,
+} from "./RecipesList.styled";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 
 export const RecipesList = () => {
@@ -34,7 +38,9 @@ export const RecipesList = () => {
       ) : (
         <>
           <ErrorPageWrapper />
-          <h3>You haven't added any cocktail recipes yet</h3>
+          <MessageTitle>
+            You haven't added any cocktail recipes yet
+          </MessageTitle>
         </>
       )}
     </Section>

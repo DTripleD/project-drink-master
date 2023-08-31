@@ -23,3 +23,13 @@ export const MyRecipesListStyled = styled.ul`
     row-gap: 80px;
   }
 `;
+
+export const MessageTitle = styled.h3`
+  color: #f3f3f3;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px;
+`;
