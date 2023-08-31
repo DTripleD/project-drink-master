@@ -10,13 +10,11 @@ export const fetchFavorites = createAsyncThunk(
     try {
       const { data } = await instance.get(`/favorite`);
 
-      //   console.log("data", data);
       if (!data.length) {
         return [];
       }
       return data;
     } catch (e) {
-      //   return err.response.data.message;
       return thunkAPI.rejectWithValue("Failed to load favorites");
     }
   }
@@ -30,7 +28,6 @@ export const addFavorite = createAsyncThunk(
 
       return response.data;
     } catch (e) {
-      //   return e.response.data.message;
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -41,10 +38,9 @@ export const deleteFavorite = createAsyncThunk(
   async (recipeId, thunkAPI) => {
     try {
       const response = await instance.delete(`/favorite/${recipeId}`);
-      console.log("response.data", response.data);
+
       return { recipeId, ...response.data };
     } catch (e) {
-      //   return e.response.data.message;
       return thunkAPI.rejectWithValue(e.message);
     }
   }

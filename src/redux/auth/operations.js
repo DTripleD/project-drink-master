@@ -20,7 +20,7 @@ export const signup = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response);
     }
   }
 );
@@ -33,7 +33,9 @@ export const signin = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      console.log("словили");
+      console.log("error.response", error.response);
+      return thunkAPI.rejectWithValue(error);
     }
   }
 );

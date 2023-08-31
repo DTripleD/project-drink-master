@@ -46,6 +46,12 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
+      .addCase(signin.rejected, (state, action) => {
+        // state.user = action.payload.user;
+        // state.token = action.payload.token;
+        state.isLoggedIn = false;
+        state.isRefreshing = false;
+      })
       // .addCase(logout.pending, (state) => {
       //   state.isRefreshing = true;
       // }) У Иветы нету

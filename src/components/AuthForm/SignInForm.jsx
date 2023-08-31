@@ -35,6 +35,21 @@ export const SignInForm = () => {
     setIsClicked((prevIsClicked) => !prevIsClicked);
   };
 
+  const handleSubmit = (Values) => {
+    dispatch(
+      logIn({
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    )
+      .unwrap()
+      .then((response) => {
+        toast.success(`Wellcome, ${response.user.name}!`);
+        form.reset();
+      })
+      // .catch(err => console.log('err', err));
+      .catch(() => toast.error("Error login- wrong email or password."));
+  };
   return (
     <>
       <StyledForm
@@ -43,19 +58,24 @@ export const SignInForm = () => {
           password: "",
         }}
         validationSchema={SignInSchema}
-        onSubmit={(values) => {
-          dispatch(signin(values)).then((res) => {
+        onSubmit={async (values) => {
+          try {
+            const res = await dispatch(signin(values));
+            console.log("first", res.payload.status);
+            if (res.payload.status === 401) {
+              toast.error(res.payload.data.message);
+              throw new Error(res.payload.data.message);
+            }
+
             if (res.payload && res.payload.status === 200) {
               navigate("/signin");
               dispatch(refreshUser());
               toast.success("Authentication successful");
               return;
             }
-
-            return toast.error(
-              "Authentication failed. Please check your email and password."
-            );
-          });
+          } catch (error) {
+            console.log(error);
+          }
         }}
       >
         {({ errors, touched, handleChange, setFieldTouched }) => (
