@@ -5,42 +5,59 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getIngredients from "../../shared/api/addIngrеdients/addIngredients";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
-import { addFavoriteRecipe } from "../../shared/api/favoriteRecipe";
+// import { addFavoriteRecipe } from "../../shared/api/favoriteRecipe";
 import { useDispatch } from "react-redux";
-import { addFavorite } from "../../redux/favorite/favorite-operation";
+import {
+  addFavorite,
+  deleteFavorite,
+} from "../../redux/favorite/favorite-operation";
+import {
+  selectIsLoading,
+  selectError,
+  selectFavorites,
+} from "../../redux/favorite/favorite-selector";
+import { useSelector } from "react-redux";
+import { fetchFavorites } from "../../redux/favorite/favorite-operation";
 
 const RecipePage = () => {
   const { recipeId } = useParams();
   const [ingridients, setIngridients] = useState(null);
-  const [isAddFavorite, setIsAddFavorite] = useState(true);
+  const [isAddFavorite, setIsAddFavorite] = useState(false);
+  const favoriteRecipe = useSelector(selectFavorites);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     getIngredients(recipeId).then((data) => setIngridients(data));
   }, [recipeId]);
 
-  // const handleAddFavotiteRecipe = async (recipeId) => {
-  //   try {
-  //     // Отправляем запрос на бэкенд для добавления рецепта
-  //     const response = await addFavoriteRecipe(recipeId);
-  //     setIsAddFavorite(false);
-  //   } catch (error) {
-  //     console.log("Failed to add recipe");
-  //   }
-  // };
-  const dispatch = useDispatch();
+  useEffect(() => {
+    // Проверяем, находится ли recipeId в favoriteRecipe
+    const isFavorite = favoriteRecipe.some((recipe) => recipe._id === recipeId);
+    setIsAddFavorite(isFavorite);
+  }, [favoriteRecipe, recipeId]);
+
+  useEffect(() => {
+    dispatch(fetchFavorites());
+  }, [dispatch]);
 
   return (
     <div>
       <MainContainer>
-        {isAddFavorite ? (
+        {ingridients && <RecipePageHero ingridients={ingridients} />}
+
+        {!isAddFavorite ? (
           <button type="button" onClick={() => dispatch(addFavorite(recipeId))}>
             Add favorite recipe
           </button>
         ) : (
-          <h4>Recipe in Favorite</h4>
+          <button
+            type="button"
+            onClick={() => dispatch(deleteFavorite(recipeId))}
+          >
+            Delete favorite recipe
+          </button>
         )}
 
-        {ingridients && <RecipePageHero ingridients={ingridients} />}
         {ingridients && <RecipeIngredientsList ingridients={ingridients} />}
         {ingridients && <RecipePreparation ingridients={ingridients} />}
       </MainContainer>
