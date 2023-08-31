@@ -105,7 +105,7 @@ const FavoritePage = () => {
   //     console.error("Error saving data to localStorage:", error);
   //   }
   // }, [favoriteRecipe]);
-  console.log("favoriteRecipe", favoriteRecipe);
+  // console.log("favoriteRecipe", favoriteRecipe);
 
   return (
     <>
@@ -113,6 +113,7 @@ const FavoritePage = () => {
         {/* <Container> */}
         <StyledSection>
           <MainPageTitle title={"Favorites"} />
+          {isLoading && <p>Loading</p>}
           {favoriteRecipe?.length !== 0 ? (
             <FavoriteList
               recipes={favoriteRecipe}
