@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { DrinkCard } from "../DrinkCard/DrinkCard";
-import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import { selectOwn, selectPage } from "../../redux/Cocktails/coctailsSelectors";
 
 import { getAllOwnDrinksThunk } from "../../redux/Cocktails/cocktailsOperations";
 import useMediaRules from "../../hooks/useMediaRules";
 import { MyRecipesListStyled, Section } from "./RecipesList.styled";
+import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 
 export const RecipesList = () => {
   const dispatch = useDispatch();
@@ -32,7 +32,10 @@ export const RecipesList = () => {
           ))}
         </MyRecipesListStyled>
       ) : (
-        <ErrorPage message={"You haven't added any cocktail recipes yet"} />
+        <>
+          <ErrorPageWrapper />
+          <h3>You haven't added any cocktail recipes yet</h3>
+        </>
       )}
     </Section>
   );
