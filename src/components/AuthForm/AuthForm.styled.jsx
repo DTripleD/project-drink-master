@@ -40,13 +40,13 @@ export const StyledInputWrap = styled.div`
 export const StyledIconError = styled(RiErrorWarningLine)`
   position: absolute;
   right: 24px;
-  top: 36%;
+  top: 50%;
   transform: translateY(-50%);
 `;
 export const StyledIconChecked = styled(IoIosCheckmarkCircleOutline)`
   position: absolute;
   right: 24px;
-  top: 36%;
+  top: 50%;
   transform: translateY(-50%);
 `;
 export const StyledAiOutlineEye = styled(AiOutlineEye)`
@@ -135,6 +135,7 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledError = styled(ErrorMessage)`
+ position: absolute;
   margin-top: 8px;
   font-size: 12px;
   font-weight: 400;
@@ -147,7 +148,7 @@ export const StyledInnerDiv = styled.div`
   display: flex;
   flex-direction: column;
   gap: 28px;
-  margin-bottom: 28px;
+  margin-bottom: 40px;
 
   @media ${devices.tablet} {
     margin-bottom: 40px;
