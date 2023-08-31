@@ -205,7 +205,4 @@ export const Button = styled.button`
 		outline: none;
 		border: none;
 	}
-	/* position: absolute;
-	right: 10px; */
-	/* margin-right: 25px; */
 `;

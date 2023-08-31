@@ -22,31 +22,70 @@ import {
 } from "./DrinksSearch.styled";
 import { getDrinksList } from "../../shared/api/drinksSearch";
 import { useDispatch, useSelector } from "react-redux";
+// import { Container, Pagination, Stack } from "@mui/material";
 
 const DrinksSearch = () => {
 	const { state } = useLocation();
 	const dispatch = useDispatch();
 	const { register, handleSubmit, control } = useForm();
+	const [page, setPage] = useState(1);
+	const [totalPages, setTotalPages] = useState(1);
+
+	const [data, setData] = useState([]);
+	const [error, setError] = useState("");
+
+	const [itemsPerPage, setItemsPerPage] = useState(() => {
+		const width = window.innerWidth;
+
+		if (width >= 1440) {
+			return 9;
+		} else {
+			return 10;
+		}
+	});
+
 	const [searchParams, setSearchParams] = useSearchParams({
 		search: "",
 		category: state?.category ? state?.category : "Cocktail",
 		ingredients: "",
+		page: page,
+		limit: itemsPerPage,
 	});
-	const [data, setData] = useState([]);
-	const [error, setError] = useState("");
+	const updatedParams = new URLSearchParams(searchParams.toString());
 
 	useEffect(() => {
 		dispatch(getCategories());
 		dispatch(getIngredients());
 	}, []);
 
+	useEffect(() => {
+		const handleWindowResize = () => {
+			const width = window.innerWidth;
+
+			if (width >= 1440) {
+				setItemsPerPage(9);
+			} else {
+				setItemsPerPage(10);
+			}
+		};
+		window.addEventListener("resize", handleWindowResize);
+
+		return () => window.removeEventListener("resize", handleWindowResize);
+	}, []);
+
 	const categories = useSelector(selectCategories);
 	const ingredients = useSelector(selectIngredientsListSorted);
 
 	useEffect(() => {
+		const newPage = parseInt(searchParams.get("page")) || 1;
+		if (newPage !== page) {
+			setPage(newPage);
+		}
+
 		getDrinksList(searchParams)
 			.then((data) => {
 				setData(data);
+				setTotalPages(Math.ceil(data.totalHits / itemsPerPage));
 			})
 			.catch((error) => {
 				setError(error.message);
@@ -69,7 +108,15 @@ const DrinksSearch = () => {
 			search: data?.search || "",
 			category: data?.category?.label || state?.category || "",
 			ingredients: data?.ingredients?.label || "",
+			page: page,
+			limit: itemsPerPage,
 		});
+	};
+
+	const changeNum = (_, num) => {
+		updatedParams.set("page", num.toString());
+		setSearchParams(updatedParams);
+		setPage(num);
 	};
 
 	return (
@@ -114,6 +161,19 @@ const DrinksSearch = () => {
 			</Form>
 			{error && <p>Sorry. {error} 😭</p>}
 			<DrinksList drinks={data.drinks} />
+			{/* {totalPages > 1 && (
+				<Container>
+					<Stack>
+						<Pagination
+							count={totalPages}
+							page={page}
+							onChange={changeNum}
+							siblingCount={1}
+							sx={{ marginY: 3, marginX: "auto" }}
+						/>
+					</Stack>
+				</Container>
+			)} */}
 		</>
 	);
 };
