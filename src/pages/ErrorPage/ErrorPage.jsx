@@ -5,14 +5,14 @@ import { ErrorText, ErrorPageWrapper, TextWrapper } from "./ErrorPage.styled";
 const ErrorPage = () => {
   return (
     <MainContainer>
-    <ErrorPageWrapper>
-      <TextWrapper>
-        <ErrorText>4</ErrorText>
-        <ErrorText>4</ErrorText>
-      </TextWrapper>
-      {/* <img src={glass} alt="" /> */}
+      <ErrorPageWrapper>
+        <TextWrapper>
+          <ErrorText>4</ErrorText>
+          <ErrorText>4</ErrorText>
+        </TextWrapper>
+        {/* <img src={glass} alt="" /> */}
       </ErrorPageWrapper>
-      </MainContainer>
+    </MainContainer>
   );
 };
 

@@ -1,14 +1,10 @@
 import styled from "@emotion/styled";
-import glass from "../../images/porto-glass.jpg";
-
-export const ErrorText = styled.h2`
-  font-weight: 600;
-  font-size: 150px;
-  line-height: 123px;
-
-  color: rgba(243, 243, 243, 0.1);
-  margin: 0;
-`;
+import glass_s2 from "../../images/bg/porto-glass_s@2x.jpg";
+import glass_s1 from "../../images/bg/porto-glass_s@1x.jpg";
+import glass_m2 from "../../images/bg/porto-glass_m@2x.jpg";
+import glass_m1 from "../../images/bg/porto-glass_m@1x.jpg";
+import glass_l2 from "../../images/bg/porto-glass_l@2x.jpg";
+import glass_l1 from "../../images/bg/porto-glass_l@1x.jpg";
 
 export const ErrorPageWrapper = styled.div`
   background-image: linear-gradient(
@@ -31,15 +27,44 @@ export const ErrorPageWrapper = styled.div`
       ${(props) => props.theme.colors.black} 8.41%,
       rgba(10, 10, 17, 0) 46.6%
     ),
-    url(${glass});
-  background-position: right;
-  background-repeat: no-repeat;
-  width: 465px;
-  height: 517px;
+    url(${glass_s1});
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: url(${glass_s2});
+  }
+
+  @media screen and (min-width: 768px) {
+    background-image: url(${glass_m1});
+    width: 465px;
+    height: 517px;
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${glass_m2});
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: url(${glass_l1});
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${glass_l2});
+    }
+  }
+
+  width: 375px;
+  height: 476px;
+  background-position: center;
+
   background-size: cover;
   position: relative;
   background-repeat: no-repeat;
-  background-size: 100% auto;
+
   margin-left: auto;
   margin-right: auto;
   margin-top: 83px;
@@ -55,3 +80,23 @@ export const TextWrapper = styled.div`
   width: 301px;
   justify-content: space-between;
 `;
+
+export const ErrorText = styled.h2`
+  font-weight: 600;
+  font-size: 120px;
+  line-height: 123px;
+
+  color: rgba(243, 243, 243, 0.1);
+  margin: 0;
+
+  @media (min-width: 768px) {
+    font-size: 150px;
+  }
+
+  @media (min-width: 1440px) {
+    font-size: 150px;
+  }
+`;
+
+// Size
+// 120px
