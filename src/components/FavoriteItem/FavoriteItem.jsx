@@ -16,21 +16,23 @@ import {
 import { AddButton } from "../../components/Button/AddButton/AddButton";
 import { SeeButton } from "../../components/Button/SeeButton/SeeButton";
 import defaultImg from "../../images/plug-m.png";
+import { useDispatch } from "react-redux";
+import { deleteFavorite } from "../../redux/favorite/favorite-operation";
 
-export default function FavoriteItem({ recipe, deleteFavorite }) {
-  console.log("recipe", recipe);
+export default function FavoriteItem({ recipe }) {
+  // console.log("recipe", recipe);
+  const dispatch = useDispatch();
+
   return (
     <ItemCard>
       <ItemImg
         src={recipe.drinkThumb ? recipe.drinkThumb : defaultImg}
         alt={recipe.drink}
       />
-      {/* <ItemTextWrapper> */}
-      <ItemTitle>
-        {recipe.drink}
+      <ItemTextWrapper>
+        <ItemTitle>{recipe.drink}</ItemTitle>
         <ItemGlass>{recipe.glass}</ItemGlass>
-      </ItemTitle>
-      {/* </ItemTextWrapper> */}
+      </ItemTextWrapper>
       <ItemDescription>{recipe.description || "Good cocktail"}</ItemDescription>
       <div>
         <SeeButton id={recipe._id} />
@@ -39,7 +41,7 @@ export default function FavoriteItem({ recipe, deleteFavorite }) {
           id={recipe._id}
           text={"Delete"}
           ariaLabel={"button for click"}
-          onClick={() => deleteFavorite(recipe._id)}
+          onClick={() => dispatch(deleteFavorite(recipe._id))}
           type={"button"}
         />
       </div>
