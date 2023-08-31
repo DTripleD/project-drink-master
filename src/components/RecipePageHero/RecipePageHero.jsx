@@ -28,7 +28,7 @@ const RecipePageHero = ({
         temporibus vel dolore similique, suscipit amet.
       </p>
       <img src={drinkThumb} alt={drink} loading="lazy" />
-      <button>Add to favourite</button>
+      {/* <button>Add to favourite</button> */}
     </div>
   );
 };
