@@ -27,6 +27,9 @@ export const Ellipse1 = styled(Ellipse)`
   top: 84px;
   left: 42px;
 
+   z-index: 0;
+  
+
   border-radius: 387px;
   background: rgba(188, 230, 210, 0.4);
 
@@ -51,6 +54,8 @@ export const Ellipse2 = styled(Ellipse)`
   height: 550px;
   top: 20px;
   left: -399px;
+   z-index: 0;
+
 
   border-radius: 849px;
   background: rgba(64, 112, 205, 0.5);
@@ -77,6 +82,7 @@ export const Ellipse3 = styled(Ellipse)`
   top: 498px;
   left: 331px;
   z-index: 0;
+
 
   border-radius: 549px;
   background: rgba(64, 112, 205, 0.5);

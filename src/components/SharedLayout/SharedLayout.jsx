@@ -3,9 +3,11 @@ import { Suspense } from "react";
 import Header from "../Header/Header";
 import { SharedLayoutWrapper } from "./SharedLayout.styled";
 import Footer from "../Footer/Footer";
+import Background from "../../components/Background/Background";
 
 export const SharedLayout = () => {
   return (
+    <Background>
     <SharedLayoutWrapper>
       <Header />
 
@@ -15,5 +17,6 @@ export const SharedLayout = () => {
 
       <Footer />
     </SharedLayoutWrapper>
+    </Background>
   );
 };
