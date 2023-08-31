@@ -57,6 +57,14 @@ export const favoritesReducer = favoritesSlice.reducer;
 const favoritesPersistConfig = {
   key: "favoriteRecipe",
   storage,
+  whitelist: [
+    "drink",
+    "categories",
+    "_id",
+    "description",
+    "glass",
+    "drinkThumb",
+  ],
 };
 
 export const persistedfavoritesReducer = persistReducer(
