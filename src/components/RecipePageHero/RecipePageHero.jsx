@@ -19,7 +19,7 @@ const RecipePageHero = ({
       </P2>
       <FavoriteButton/>
 
-      <IMG src={drinkThumb} alt={drink} loading="lazy" />
+      <IMG src={drinkThumb} alt={drink}/>
     </div>
   );
 };

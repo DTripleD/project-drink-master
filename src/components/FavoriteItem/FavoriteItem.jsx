@@ -20,7 +20,6 @@ import { useDispatch } from "react-redux";
 import { deleteFavorite } from "../../redux/favorite/favorite-operation";
 
 export default function FavoriteItem({ recipe }) {
-  // console.log("recipe", recipe);
   const dispatch = useDispatch();
 
   return (

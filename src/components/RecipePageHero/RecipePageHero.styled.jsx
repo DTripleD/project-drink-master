@@ -26,6 +26,7 @@ line-height: 22px;
 export const IMG = styled.img`
 width:335px;
 height:400px;
+border-radius:8px;
 @media screen and (min-width:768px){
     width:704px;
 }
