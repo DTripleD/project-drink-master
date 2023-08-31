@@ -9,6 +9,7 @@ import { BackDrop, Modal, CloseBtn } from "./UserInfoModal.styled";
 import { useDispatch } from "react-redux";
 
 const modalRoot = document.querySelector("#modal-root");
+// const StyledCloseIcon = getStyledCloseIcon(CloseMenuIcon);
 
 export const UserInfoModal = ({ handleModalClose }) => {
 	const dispatch = useDispatch();

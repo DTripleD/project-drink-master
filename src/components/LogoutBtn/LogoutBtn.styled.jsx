@@ -1,5 +1,11 @@
 import styled from "@emotion/styled";
 
+export const getStyledCloseIcon = (component) => styled(component)`
+	width: 38px;
+	height: 38px;
+	fill: #ffffff;
+`;
+
 export const BackDrop = styled.div`
 	position: fixed;
 	top: 0;

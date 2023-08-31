@@ -9,10 +9,12 @@ import {
 	ModalText,
 	LogoutButton,
 	CanceltBtn,
+	StyledCloseIcon,
 } from "./LogoutBtn.styled";
 import { useEffect } from "react";
 
 const modalRoot = document.querySelector("#logout-root");
+const StyledCloseIcon = getStyledCloseIcon(CloseMenuIcon);
 
 export const LogoutBtn = ({ handleModalClose, handleLogout }) => {
 	useEffect(() => {
@@ -37,7 +39,9 @@ export const LogoutBtn = ({ handleModalClose, handleLogout }) => {
 	return createPortal(
 		<BackDrop onClick={handleBackdropClick}>
 			<Modal>
-				<CloseBtn type="button">{Cross}</CloseBtn>
+				<CloseBtn onClic={handleModalClose} type="button">
+					{<StyledCloseIcon />}
+				</CloseBtn>
 				<ModalText>Are you sure you want to log out?</ModalText>
 				<ButtonWrapper>
 					<LogoutButton onClick={handleLogout} type="button">
