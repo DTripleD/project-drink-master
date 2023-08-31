@@ -5,18 +5,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import getIngredients from "../../shared/api/addIngrеdients/addIngredients";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
-// import { addFavoriteRecipe } from "../../shared/api/favoriteRecipe";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  addFavorite,
-  deleteFavorite,
-} from "../../redux/favorite/favorite-operation";
-import {
-  selectIsLoading,
-  selectError,
   selectFavorites,
 } from "../../redux/favorite/favorite-selector";
-import { useSelector } from "react-redux";
 import { fetchFavorites } from "../../redux/favorite/favorite-operation";
 
 const RecipePage = () => {
@@ -44,20 +36,6 @@ const RecipePage = () => {
     <div>
       <MainContainer>
         {ingridients && <RecipePageHero ingridients={ingridients} />}
-
-        {!isAddFavorite ? (
-          <button type="button" onClick={() => dispatch(addFavorite(recipeId))}>
-            Add favorite recipe
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={() => dispatch(deleteFavorite(recipeId))}
-          >
-            Delete favorite recipe
-          </button>
-        )}
-
         {ingridients && <RecipeIngredientsList ingridients={ingridients} />}
         {ingridients && <RecipePreparation ingridients={ingridients} />}
       </MainContainer>

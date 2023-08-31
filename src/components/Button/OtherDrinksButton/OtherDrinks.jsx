@@ -3,9 +3,7 @@ import { StyledOtherButton, StyledOtherWrapper } from "./OtherDrinks.styled";
 export const OtherDrinksButton = () => {
   return (
     <StyledOtherWrapper>
-      <StyledOtherButton to={"/main/drinks/Cocktail"}>
-        Other Drinks
-      </StyledOtherButton>
+      <StyledOtherButton to={"/drinks"}>Other Drinks</StyledOtherButton>
     </StyledOtherWrapper>
   );
 };

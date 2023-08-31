@@ -66,3 +66,35 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+export const updateAvatar = createAsyncThunk(
+	"auth/updateAvatar",
+	async (file, thunkAPI) => {
+		try {
+			const formData = new FormData();
+
+			formData.append("avatarURL", file);
+			const { data } = await instance.patch("users/avatars", formData, {
+				headers: {
+					"content-type": "multipart/form-data",
+				},
+			});
+			return data;
+		} catch (error) {
+			return thunkAPI.rejectWithValue(error.message);
+		}
+	}
+);
+
+export const updateUserName = createAsyncThunk(
+	"auth/updateUserName",
+	async (credentials, thunkAPI) => {
+		try {
+			const { data } = await instance.patch("users", credentials);
+			return data;
+		} catch (error) {
+			return thunkAPI.rejectWithValue(error.message);
+		}
+	}
+);
+

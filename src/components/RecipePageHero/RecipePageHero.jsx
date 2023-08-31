@@ -1,34 +1,25 @@
-// import { useState } from "react";
-// import AddToFavorite from "./AddToFavorite";
-// import RemoveFromFavorite from "./RemoveFromFavorite";
-import MainPageTitle from "../MainPageTitle/MainPageTitle";
+import RecipePageTitle from "../RecipePageTitle/RecipePageTitle";
+import {P1,P2,IMG} from './RecipePageHero.styled'
+import FavoriteButton from '../Button/FavoriteButton/Button'
 
-// const RecipePageHero = ({ recipeData, isFavorite, onToggleFavorite }) => {
-
-// eslint-disable-next-line react/prop-types
 const RecipePageHero = ({
   ingridients: { drink, glass, drinkThumb, description },
 }) => {
-  //   const [isInFavorite, setIsInFavorite] = useState(isFavorite);
-
-  //   const handleToggleFavorite = () => {
-  //     onToggleFavorite(recipeData.id);
-  //     setIsInFavorite(!isInFavorite);
-  //   };
 
   return (
     <div className="recipe-page-hero">
-      <p>{glass}</p>
-      <MainPageTitle title={drink} />
-      <p>
+      <P1>{glass}</P1>
+      <RecipePageTitle title={drink}/>
+      <P2>
         {description} || Lorem ipsum dolor sit amet consectetur adipisicing
         elit. Praesentium debitis optio deserunt dignissimos commodi nisi
         expedita itaque dolor provident. Atque labore, corrupti totam
         accusantium omnis alias vero. Itaque eos ullam aut rerum quam. Non
         temporibus vel dolore similique, suscipit amet.
-      </p>
-      <img src={drinkThumb} alt={drink} loading="lazy" />
-      {/* <button>Add to favourite</button> */}
+      </P2>
+      <FavoriteButton/>
+
+      <IMG src={drinkThumb} alt={drink} loading="lazy" />
     </div>
   );
 };
