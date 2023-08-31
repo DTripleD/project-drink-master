@@ -13,6 +13,9 @@ import storage from "redux-persist/lib/storage";
 
 import { persistedAuthReducer } from "./auth/authSlice";
 import { subscribeReducer } from "./subscribe/subscribeSlice";
+
+import { favoritesReducer } from "./favorite/favoriteSlice";
+
 import { cocktailsReducer } from "./Cocktails/cocktailsSlice";
 
 const persistConfigForCocktails = {
@@ -26,6 +29,7 @@ export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     subscribe: subscribeReducer,
+    favorites: favoritesReducer,
     cocktails: persistReducer(persistConfigForCocktails, cocktailsReducer),
   },
   middleware: (getDefaultMiddleware) =>

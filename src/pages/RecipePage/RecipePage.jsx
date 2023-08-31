@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import getIngredients from "../../shared/api/addIngrеdients/addIngredients";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
 import { addFavoriteRecipe } from "../../shared/api/favoriteRecipe";
+import { useDispatch } from "react-redux";
+import { addFavorite } from "../../redux/favorite/favorite-operation";
 
 const RecipePage = () => {
   const { recipeId } = useParams();
@@ -16,24 +18,22 @@ const RecipePage = () => {
     getIngredients(recipeId).then((data) => setIngridients(data));
   }, [recipeId]);
 
-  const handleAddFavotiteRecipe = async (recipeId) => {
-    try {
-      // Отправляем запрос на бэкенд для добавления рецепта
-      const response = await addFavoriteRecipe(recipeId);
-      setIsAddFavorite(false);
-    } catch (error) {
-      console.log("Failed to add recipe");
-    }
-  };
+  // const handleAddFavotiteRecipe = async (recipeId) => {
+  //   try {
+  //     // Отправляем запрос на бэкенд для добавления рецепта
+  //     const response = await addFavoriteRecipe(recipeId);
+  //     setIsAddFavorite(false);
+  //   } catch (error) {
+  //     console.log("Failed to add recipe");
+  //   }
+  // };
+  const dispatch = useDispatch();
 
   return (
     <div>
       <MainContainer>
         {isAddFavorite ? (
-          <button
-            type="button"
-            onClick={() => handleAddFavotiteRecipe(recipeId)}
-          >
+          <button type="button" onClick={() => dispatch(addFavorite(recipeId))}>
             Add favorite recipe
           </button>
         ) : (
