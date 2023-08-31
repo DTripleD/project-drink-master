@@ -7,9 +7,11 @@ import {
   RegistrationNavLink,
   SignInNavLink,
 } from './WelcomePage.styled';
+import { MainContainer } from "../../components/MainContainer/MainContainer";
 
 const WelcomePage = () => {
   return (
+    <MainContainer>
     <BaseDiv>
       <SummaryWrapper>
         <WelcomeTitle>Welcome to the app!</WelcomeTitle>
@@ -23,7 +25,8 @@ const WelcomePage = () => {
           <SignInNavLink to="/signin">Sign In</SignInNavLink>
         </ButtonsBlock>
       </SummaryWrapper>
-  </BaseDiv>
+      </BaseDiv>
+      </MainContainer>
   );
 };
 
