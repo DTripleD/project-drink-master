@@ -9,8 +9,8 @@ import UserMenu from "../UserMenu/UserMenu";
 import { Burger, Menu } from "./BurgerMenu/BurgerMenu";
 import MediaQuery from "react-responsive";
 import { useNavigate } from "react-router";
-import { useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+
 import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
 
 const Header = () => {
@@ -19,11 +19,10 @@ const Header = () => {
 
 	const node = useRef();
 	const navigate = useNavigate();
+
 	return (
 		<HeaderStyled>
-			<NavLink onClick={() => navigate("/main")}>
-				<Logo />
-			</NavLink>
+			<Logo />
 
 			<MediaQuery minWidth={1440}>{isLoggedIn && <Navigation />}</MediaQuery>
 
