@@ -1,4 +1,9 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { logout } from "../../redux/auth/operations";
+import { useNavigate } from "react-router";
+import { LogoutBtn } from "../LogoutBtn/LogoutBtn";
+import { UserInfoModal } from "../UserInfoModal/UserInfoModal";
 
 import { selectUser } from "../../redux/auth/selectors";
 import {
@@ -6,25 +11,96 @@ import {
 	UserName,
 	UserPhoto,
 	UserPhotoWrapper,
-	DropWrapper,
 } from "./UserMenu.styled";
 import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
 import userDefaultPhoto from "../../images/user.png";
-import { useRef, useState } from "react";
 
 const UserMenu = () => {
-	const user = useSelector(selectUser);
+	const { name, avatarURL = userDefaultPhoto } = useSelector(selectUser);
+
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 	const [openDrop, setOpenDrop] = useState(false);
+	const [showInfoModal, setShowInfoModal] = useState(false);
+	const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+	const handleLogoutModalOpen = () => {
+		setShowLogoutModal(true);
+		setOpenDrop(false);
+	};
+
+	const handleInfoModalOpen = () => {
+		setShowInfoModal(true);
+		setOpenDrop(false);
+	};
+
+	const handleModalClose = () => {
+		setShowInfoModal(false);
+		setShowLogoutModal(false);
+		setOpenDrop(false);
+	};
+
+	const handleLogout = (event) => {
+		// event.preventDefault();
+		dispatch(logout());
+		navigate("/welcome");
+	};
+
+	const handleBackdropClick = (event) => {
+		if (event.currentTarget === event.target) {
+			handleModalClose();
+		}
+	};
+
+	const handleKeyDown = (event) => {
+		if (event.code === "Escape") {
+			handleModalClose();
+		}
+	};
+
+	useEffect(() => {
+		if (openDrop) {
+			window.addEventListener("keydown", handleKeyDown);
+			window.addEventListener("click", handleBackdropClick);
+		}
+
+		return () => {
+			window.removeEventListener("keydown", handleKeyDown);
+			window.removeEventListener("click", handleBackdropClick);
+		};
+	}, [handleModalClose]);
 
 	return (
 		<>
 			<MenuWrapper open={openDrop} onClick={() => setOpenDrop(!openDrop)}>
 				<UserPhotoWrapper>
-					<UserPhoto src={userDefaultPhoto} alt="" />
+					<UserPhoto src={avatarURL} alt="" />
 				</UserPhotoWrapper>
-				<UserName>{user.name}</UserName>
+				<UserName>{name}</UserName>
 			</MenuWrapper>
-			<DropWrapper>{openDrop && <UserLogoModal />}</DropWrapper>
+
+			{openDrop && (
+				<UserLogoModal
+					handleInfoModalOpen={handleInfoModalOpen}
+					handleLogoutModalOpen={handleLogoutModalOpen}
+				/>
+			)}
+
+			{showInfoModal && (
+				<UserInfoModal
+					handleInfoModalOpen={handleInfoModalOpen}
+					handleBackdropClick={handleBackdropClick}
+				/>
+			)}
+
+			{showLogoutModal && (
+				<LogoutBtn
+					handleInfoModalOpen={handleInfoModalOpen}
+					handleModalClose={handleModalClose}
+					handleLogout={handleLogout}
+					handleBackdropClick={handleBackdropClick}
+				/>
+			)}
 		</>
 	);
 };
