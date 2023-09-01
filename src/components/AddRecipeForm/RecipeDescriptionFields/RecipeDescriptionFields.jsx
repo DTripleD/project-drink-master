@@ -85,6 +85,7 @@ const RecipeDescriptionFields = ({ getFile, register, control }) => {
 					})}
 					type="text"
 					placeholder="Enter item title"
+					autoComplete="off"
 				/>
 				<StyledInput
 					{...register("description", {
@@ -95,6 +96,7 @@ const RecipeDescriptionFields = ({ getFile, register, control }) => {
 					})}
 					type="text"
 					placeholder="Enter about recipe"
+					autoComplete="off"
 				/>
 				<SelectContainer>
 					<StyledInput disabled={true} type="text" placeholder="Category" />
