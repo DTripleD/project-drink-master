@@ -49,7 +49,7 @@ margin-top:40px;
     margin-top:60px;
     display:flex;
     flex-direction:row-reverse;
-    gap:60px;
+    justify-content:space-between;
 }
 `
 export const DIV2 = styled.div`
@@ -63,7 +63,6 @@ margin-bottom:46px;
 `
 export const UL = styled.ul`
 margin-top:60px;
-list-style:inside;
 display:flex;
 flex-direction:column;
 gap:8px;
@@ -71,15 +70,32 @@ gap:8px;
 export const Li = styled.li`
 padding-bottom:8px;
 border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+vertical-align: middle;
+
 `
 export const IMG = styled.img`
-width:335px;
-height:430px;
-border-radius:8px;
+border-radius: 15px;
+ display: block;
+ object-fit:contain;
+`
+export const DIV3 = styled.div`
+width: 100%;
+ height: 100%;
+
 @media ${(props)=> props.theme.device.tablet}{
     width:704px;
 }
 @media ${(props)=> props.theme.device.desktop}{
-    width:631px;
-}
+    width:400px;
+
 `
+export const DIV4 = styled.div`
+display:flex;
+`
+export const DOT = styled.span`
+font-weight: bold;
+margin-right: 8px; 
+vertical-align: middle; 
+display: inline-block;
+  color: ${(props) => props.theme.colors.white}; 
+`;
