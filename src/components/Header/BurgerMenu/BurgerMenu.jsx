@@ -8,11 +8,19 @@ import {
 } from "./BurgerMenu.styled";
 
 import { Navigation } from "../Navigation/Navigation";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const StyledOpenIcon = getStyledOpenIcon(OpenMenuIcon);
 const StyledCloseIcon = getStyledCloseIcon(CloseMenuIcon);
 
-export const Menu = ({ open }) => {
+export const Menu = ({ open, setOpen }) => {
+	const location = useLocation();
+
+	useEffect(() => {
+		setOpen(false);
+	}, [location.pathname]);
+
 	return (
 		<StyledMenu open={open}>
 			<Navigation />

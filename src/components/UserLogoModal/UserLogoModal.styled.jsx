@@ -7,15 +7,19 @@ export const getStyledEdit = (component) => styled(component)`
 
 export const Drop = styled.div`
 	position: absolute;
-	top: 0;
+	top: -100px;
 	right: 0;
 	width: 177px;
 	padding: 18px;
 	background: ${(props) => props.theme.colors.blue};
 	border-radius: 8px;
 	transform: ${({ setOpenDrop }) =>
-		setOpenDrop ? "translateX(-20%)" : "translateY(100%)"};
+		setOpenDrop ? "translateX(0)" : "translateY(100%)"};
 	z-index: 500;
+
+	@media (min-width: 768px) {
+		top: 67px;
+	}
 `;
 
 export const EditButton = styled.button`
@@ -44,7 +48,8 @@ export const SvgButton = styled.div`
 
 export const LogOutButton = styled.button`
 	width: 100%;
-	background: ${(props) => props.theme.colors.white};
+	background-color: ${(props) => props.theme.colors.white};
+	color: ${(props) => props.theme.colors.blue};
 	font-size: 14px;
 	text-align: center;
 	border: none;

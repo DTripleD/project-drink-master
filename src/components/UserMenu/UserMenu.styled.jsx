@@ -5,6 +5,7 @@ export const UserPhotoWrapper = styled.div`
 	height: 32px;
 	border-radius: 50%;
 	background: ${(props) => props.theme.colors.white};
+	overflow: hidden;
 `;
 
 export const UserName = styled.p`
@@ -24,13 +25,5 @@ export const MenuWrapper = styled.div`
 export const UserPhoto = styled.img`
 	width: 32px;
 	height: 32px;
-`;
-
-export const DropWrapper = styled.div`
-	position: absolute;
-	top: -15%;
-	right: 0;
-
-	@media (min-width: 768px) {
-	}
+	border-radius: 50%;
 `;
