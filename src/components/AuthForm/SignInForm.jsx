@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router";
-import toast, { Toaster } from "react-hot-toast";
+// import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { signin, refreshUser } from "../../redux/auth/operations";
 import { AuthNavigate } from "../AuthNav/AuthNav";
@@ -35,20 +35,25 @@ export const SignInForm = () => {
     setIsClicked((prevIsClicked) => !prevIsClicked);
   };
 
-  const handleSubmit = (Values) => {
-    dispatch(
-      logIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    )
-      .unwrap()
-      .then((response) => {
-        toast.success(`Wellcome, ${response.user.name}!`);
-        form.reset();
-      })
-      // .catch(err => console.log('err', err));
-      .catch(() => toast.error("Error login- wrong email or password."));
+  const handleSubmit = async (values) => {
+    try {
+      const res = await dispatch(signin(values));
+      console.log("first", res.payload.response.status);
+      if (res.payload.response.status === 401) {
+        // toast.error(res.payload.response.data.message);
+        throw new Error(res.payload.response.data.message);
+      }
+
+      if (res.payload && res.payload.response.data.status === 200) {
+        navigate("/signin");
+        dispatch(refreshUser());
+        // toast.success("Authentication successful");
+        return;
+      }
+    } catch (error) {
+      console.log("Зайшли в кетч");
+      console.log(error);
+    }
   };
   return (
     <>
@@ -58,25 +63,7 @@ export const SignInForm = () => {
           password: "",
         }}
         validationSchema={SignInSchema}
-        onSubmit={async (values) => {
-          try {
-            const res = await dispatch(signin(values));
-            console.log("first", res.payload.status);
-            if (res.payload.status === 401) {
-              toast.error(res.payload.data.message);
-              throw new Error(res.payload.data.message);
-            }
-
-            if (res.payload && res.payload.status === 200) {
-              navigate("/signin");
-              dispatch(refreshUser());
-              toast.success("Authentication successful");
-              return;
-            }
-          } catch (error) {
-            console.log(error);
-          }
-        }}
+        onSubmit={(values) => handleSubmit(values)}
       >
         {({ errors, touched, handleChange, setFieldTouched }) => (
           <StyledFormInsight>
@@ -158,7 +145,7 @@ export const SignInForm = () => {
           </StyledFormInsight>
         )}
       </StyledForm>
-      <Toaster
+      {/* <Toaster
         toastOptions={{
           success: {
             style: {
@@ -179,7 +166,7 @@ export const SignInForm = () => {
             icon: () => null,
           },
         }}
-      />
+      /> */}
     </>
   );
 };
