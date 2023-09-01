@@ -31,7 +31,7 @@ export const CountValue = styled.p`
 	text-align: center;
 	font-family: Manrope;
 	font-size: 14px;
-	line-height: ${18 / 14}px;
+	line-height: ${18 / 14};
 `;
 
 export const IngredientsList = styled.ul`
@@ -40,6 +40,7 @@ export const IngredientsList = styled.ul`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+	gap: 18px;
 `;
 
 export const IngredientsListItem = styled.li`
@@ -83,17 +84,12 @@ export const SelectContainer = styled.div`
 	align-items: center;
 	border-radius: 200px;
 	border: 1px solid rgba(243, 243, 243, 0.5);
-	opacity: 0.8;
 	width: 101px;
 	height: 50px;
 `;
 
 export const StyledSelect = styled(Select)`
 	.select__menu {
-		// position: absolute;
-		// right: -5px;
-		// top: 55px;
-		// width: 200px;
 		background-color: ${(props) => props.theme.colors.blue};
 		border-radius: 20px;
 		outline: 0;
@@ -114,6 +110,7 @@ export const StyledSelect = styled(Select)`
 
 	.select__value-container {
 		padding: 0;
+		text-align: left;
 	}
 
 	.select__control {
@@ -188,10 +185,6 @@ export const StyledSelect = styled(Select)`
 
 	.select__indicator {
 		padding: 0;
-
-		:hover {
-			translate-x: 180;
-		}
 	}
 
 	.select__value-container {
@@ -208,15 +201,12 @@ export const StyledSelect = styled(Select)`
 
 export const StyledUnitSelect = styled(Select)`
 	.select__menu {
-		// position: absolute;
-		// right: -5px;
-		// top: 35px;
-		// width: 170px;
+		width: 48px;
 		background-color: ${(props) => props.theme.colors.blue};
 		border-radius: 12px;
 		outline: 0;
 		border: 0;
-		margin-top: -10px;
+		margin-top: -5px;
 	}
 
 	.select__menu:hover {
@@ -263,7 +253,7 @@ export const StyledUnitSelect = styled(Select)`
 		color: ${(props) => props.theme.colors.white};
 		font-family: Manrope;
 		font-size: 14px;
-		line-height: ${14 / 14}px;
+		line-height: ${18 / 14}px;
 	}
 
 	.select__input {
@@ -305,20 +295,16 @@ export const StyledUnitSelect = styled(Select)`
 		padding: 0;
 	}
 
-		:hover {
-			translate-x: 180;
-		}
-	}
-
 	.select__value-container {
 		position: relative;
 	}
 
 	.select__single-value {
 		display: block;
-		color:  ${(props) => props.theme.colors.white};
+		color: ${(props) => props.theme.colors.white};
 		font-family: Manrope;
 		font-size: 14px;
+		color: ${(props) => props.theme.colors.white};
 	}
 `;
 
