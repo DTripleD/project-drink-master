@@ -104,14 +104,14 @@ export const ItemGlass = styled.h3`
 `;
 export const ItemDescription = styled.p`
   display: inline-block;
-  height: 75px;
+  height: 45px;
   font-family: Manrope;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0em;
   text-align: left;
-
+  overflow: hidden;
   color: #f3f3f3;
 
   @media screen and (min-width: 768px) {
@@ -122,18 +122,26 @@ export const ItemDescription = styled.p`
     line-height: 22px;
     letter-spacing: 0em;
     text-align: left;
-
-    height: 110px;
   }
 
   @media screen and (min-width: 1440px) {
     display: inline-block;
-    height: 96px;
+
     font-family: Manrope;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
     letter-spacing: 0em;
     text-align: left;
+  }
+`;
+export const ButtonSection = styled.p`
+  display: flex;
+  gap: 18px;
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
   }
 `;

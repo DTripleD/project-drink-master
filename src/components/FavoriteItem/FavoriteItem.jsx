@@ -8,10 +8,7 @@ import {
   ItemTitle,
   ItemGlass,
   ItemDescription,
-  //   CardTime,
-  //   CardButtonSee,
-  //   CardButtonDelete,
-  //   CardIcon,
+  ButtonSection,
 } from "./FavoriteItem.styled";
 import { DeleteButton } from "../../components/Button/DeleteButton/DeleteButton";
 import { SeeButton } from "../../components/Button/SeeButton/SeeButton";
@@ -34,7 +31,7 @@ const FavoriteItem = ({ recipe }) => {
       </ItemTextWrapper>
 
       <ItemDescription>{recipe.description || "Good cocktail"}</ItemDescription>
-      <div>
+      <ButtonSection>
         <SeeButton id={recipe._id} />
 
         <DeleteButton
@@ -44,7 +41,7 @@ const FavoriteItem = ({ recipe }) => {
           onClick={() => dispatch(deleteFavorite(recipe._id))}
           type={"button"}
         />
-      </div>
+      </ButtonSection>
     </ItemCard>
   );
 };

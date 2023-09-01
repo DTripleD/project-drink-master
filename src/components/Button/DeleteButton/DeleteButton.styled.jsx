@@ -32,13 +32,8 @@ export const getStyledIcon = (component) => styled(component)`
   width: 22px;
   height: 22px;
   background: transparent;
-  fill: ${(props) => props.theme.colors.white};
-  /* &:hover,
-  :focus {
-    background: ${(props) => props.theme.colors.white};
-    color: ${(props) => props.theme.colors.black};
-    fill: ${(props) => props.theme.colors.black};
-  } */
+  fill: transparent;
+  stroke: currentColor;
   @media screen and(min-width: 768px) {
     height: 28px;
     width: 28px;
