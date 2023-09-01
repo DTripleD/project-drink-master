@@ -12,28 +12,31 @@ import { useNavigate } from "react-router";
 import { useEffect, useRef, useState } from "react";
 
 import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
+import { MainContainer } from "../MainContainer/MainContainer";
 
 const Header = () => {
-	const isLoggedIn = useSelector(selectIsLoggedIn);
-	const [open, setOpen] = useState(false);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const [open, setOpen] = useState(false);
 
-	const node = useRef();
-	const navigate = useNavigate();
+  const node = useRef();
+  const navigate = useNavigate();
 
-	return (
-		<HeaderStyled>
-			<Logo />
+  return (
+    <MainContainer>
+      <HeaderStyled>
+        <Logo />
 
-			<MediaQuery minWidth={1440}>{isLoggedIn && <Navigation />}</MediaQuery>
+        <MediaQuery minWidth={1440}>{isLoggedIn && <Navigation />}</MediaQuery>
 
-			{isLoggedIn ? <UserMenu /> : <WelcomePage />}
+        {isLoggedIn ? <UserMenu /> : <WelcomePage />}
 
-			<MenuWrepper ref={node}>
-				<Burger open={open} setOpen={setOpen} />
-				<Menu open={open} setOpen={setOpen} />
-			</MenuWrepper>
-		</HeaderStyled>
-	);
+        <MenuWrepper ref={node}>
+          <Burger open={open} setOpen={setOpen} />
+          <Menu open={open} setOpen={setOpen} />
+        </MenuWrepper>
+      </HeaderStyled>
+    </MainContainer>
+  );
 };
 
 export default Header;

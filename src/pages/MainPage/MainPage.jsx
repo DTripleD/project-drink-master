@@ -32,8 +32,8 @@ const MainPage = () => {
 
   return (
     <>
+      <HeroSection />
       <MainContainer>
-        <HeroSection />
         {categories.map((f) => (
           <PreviewDrinks
             title={f}

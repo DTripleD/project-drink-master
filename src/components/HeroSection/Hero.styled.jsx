@@ -1,42 +1,98 @@
-import heroimgDark from "../../images/porto-glass.jpg";
 import styled from "@emotion/styled";
-// import heroImgFoto from "../../images/mae-mu-T7heq8rawkc-unsplash1.jpg";
+
+import bg_image_s2 from "../../images/hero-bg/hero_bg_s@2x.jpg";
+import bg_image_s1 from "../../images/hero-bg/hero_bg_s@1x.jpg";
+import bg_image_m2 from "../../images/hero-bg/hero_bg_m@2x.jpg";
+import bg_image_m1 from "../../images/hero-bg/hero_bg_m@1x.jpg";
+import bg_image_l2 from "../../images/hero-bg/hero_bg_l@2x.jpg";
+import bg_image_l1 from "../../images/hero-bg/hero_bg_l@1x.jpg";
 
 export const Hero = styled.section`
-  position: relative;
-  background-image: ${(props) =>
-    props.currenttheme === "dark" || `url(${heroimgDark})`};
-  /* background-image: url("../../images/porto-glass.jpg"); */
-
-  background-position: top 0px right -320px;
-
+  margin-right: -200px;
+  background-image: linear-gradient(
+      0.95deg,
+      #0a0a11 -0.56%,
+      rgba(10, 10, 17, 0) 21.93%
+    ),
+    linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+    url(${bg_image_s1});
   background-repeat: no-repeat;
-  background-size: auto;
+  background-position: top right;
+  background-size: contain;
+
   margin-bottom: 100px;
 
-  @media (min-width: 768px) {
-    background-position: top 0px right -230px;
-    background-size: contain;
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        0.95deg,
+        #0a0a11 -0.56%,
+        rgba(10, 10, 17, 0) 21.93%
+      ),
+      linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+      url(${bg_image_s2});
   }
 
-  @media (min-width: 1440px) {
-    /* background-position: top 0px right 0px; */
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(
+        0.95deg,
+        #0a0a11 -0.56%,
+        rgba(10, 10, 17, 0) 21.93%
+      ),
+      linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+      url(${bg_image_m1});
 
-    background-size: contain;
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          0.95deg,
+          #0a0a11 -0.56%,
+          rgba(10, 10, 17, 0) 21.93%
+        ),
+        linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+        url(${bg_image_m2});
+    }
+  }
+
+  @media screen and (min-width: 1440px) {
+    background-image: linear-gradient(
+        0.95deg,
+        #0a0a11 -0.56%,
+        rgba(10, 10, 17, 0) 21.93%
+      ),
+      linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+      url(${bg_image_l1});
+
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          0.95deg,
+          #0a0a11 -0.56%,
+          rgba(10, 10, 17, 0) 21.93%
+        ),
+        linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
+        url(${bg_image_l2});
+    }
   }
 `;
 
 export const Herowrapper = styled.div`
-  padding: 164px 0px 200px 0px;
+  max-width: 279px;
+  padding: 164px 0px 100px 0px;
   width: 68%;
   overflow: hidden;
 
   @media (min-width: 768px) {
-    padding: 184px 0px 200px 0px;
+    padding: 184px 0px 100px 0px;
+    max-width: 483px;
   }
 
   @media (min-width: 1440px) {
-    padding: 244px 0px 300px 0px;
+    padding: 244px 0px 200px 0px;
+    max-width: 715px;
   }
 `;
 

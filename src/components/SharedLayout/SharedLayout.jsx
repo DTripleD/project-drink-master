@@ -8,15 +8,15 @@ import Background from "../../components/Background/Background";
 export const SharedLayout = () => {
   return (
     <Background>
-    <SharedLayoutWrapper>
-      <Header />
+      <SharedLayoutWrapper>
+        <Header />
 
-      <Suspense fallback={<h2>Loading...</h2>}>
-        <Outlet />
-      </Suspense>
+        <Suspense fallback={<h2>Loading...</h2>}>
+          <Outlet />
+        </Suspense>
 
-      <Footer />
-    </SharedLayoutWrapper>
+        <Footer />
+      </SharedLayoutWrapper>
     </Background>
   );
 };
