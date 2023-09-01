@@ -4,7 +4,7 @@ export const SeeButtonStyled = styled.button`
   width: 151px;
   height: 46px;
   border-radius: 42px;
-  background-color: transparent;
+  background-color: ${(props) => props.theme.colors.blue};
   border: 1px solid rgba(243, 243, 243, 0.2);
   color: ${(props) => props.theme.colors.white};
   font-size: 14px;
@@ -18,7 +18,8 @@ export const SeeButtonStyled = styled.button`
 
   &:hover,
   &:active {
-    background-color: ${(props) => props.theme.colors.blue};
+    background-color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.black};
   }
 
   @media (min-width: 768px) {

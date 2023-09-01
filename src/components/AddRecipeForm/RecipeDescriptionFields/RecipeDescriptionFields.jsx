@@ -1,11 +1,7 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import Select from "react-select";
 import { Controller } from "react-hook-form";
-import {
-	getCategoriesList,
-	getGlassesList,
-} from "../../../shared/api/addRecipePageQuery";
+
 import {
 	Container,
 	AddImageButtonContainer,
@@ -19,33 +15,19 @@ import {
 	StyledSelect,
 } from "./RecipeDescriptionFields.styled";
 import { ReactComponent as Plus } from "../../../images/svg/add-photo.svg";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {
 	selectCategories,
 	selectGlasses,
-	selectIngredientsListSorted,
 } from "../../../redux/drinks/drinksSelectors";
 
-import {
-	getCategories,
-	getGlasses,
-	getIngredients,
-} from "../../../redux/drinks/drinksOperations";
+
 
 const RecipeDescriptionFields = ({ getFile, register, control }) => {
 	const [image, setImage] = useState(null);
 
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getCategories());
-		dispatch(getGlasses());
-		// dispatch(getIngredients());
-	}, [dispatch])
-
 	const categories = useSelector(selectCategories);
 	const glasses = useSelector(selectGlasses)
-
-		// const ingredients = useSelector(selectIngredientsListSorted);
 
 	const optionCategories = categories.map((category) => ({
 		value: category.toLowerCase(),

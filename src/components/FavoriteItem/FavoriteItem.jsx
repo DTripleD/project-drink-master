@@ -1,6 +1,6 @@
 // import { Link } from "react-router-dom";
-// import { UseSvg } from "../../helpers/useSvg/useSvg";
 
+import PropTypes from "prop-types";
 import {
   ItemCard,
   ItemImg,
@@ -13,13 +13,13 @@ import {
   //   CardButtonDelete,
   //   CardIcon,
 } from "./FavoriteItem.styled";
-import { AddButton } from "../../components/Button/AddButton/AddButton";
+import { DeleteButton } from "../../components/Button/DeleteButton/DeleteButton";
 import { SeeButton } from "../../components/Button/SeeButton/SeeButton";
 import defaultImg from "../../images/plug-m.png";
 import { useDispatch } from "react-redux";
 import { deleteFavorite } from "../../redux/favorite/favorite-operation";
 
-export default function FavoriteItem({ recipe }) {
+const FavoriteItem = ({ recipe }) => {
   const dispatch = useDispatch();
 
   return (
@@ -32,11 +32,12 @@ export default function FavoriteItem({ recipe }) {
         <ItemTitle>{recipe.drink}</ItemTitle>
         <ItemGlass>{recipe.glass}</ItemGlass>
       </ItemTextWrapper>
+
       <ItemDescription>{recipe.description || "Good cocktail"}</ItemDescription>
       <div>
         <SeeButton id={recipe._id} />
 
-        <AddButton
+        <DeleteButton
           id={recipe._id}
           text={"Delete"}
           ariaLabel={"button for click"}
@@ -46,4 +47,8 @@ export default function FavoriteItem({ recipe }) {
       </div>
     </ItemCard>
   );
-}
+};
+FavoriteItem.propTypes = {
+  recipe: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+};
+export default FavoriteItem;

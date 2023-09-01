@@ -10,10 +10,10 @@ export const fetchFavorites = createAsyncThunk(
     try {
       const { data } = await instance.get(`/favorite`);
 
-      if (!data.length) {
+      if (!data.drinks.length) {
         return [];
       }
-      return data;
+      return data.drinks;
     } catch (e) {
       return thunkAPI.rejectWithValue("Failed to load favorites");
     }

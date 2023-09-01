@@ -44,23 +44,23 @@ export const ItemImg = styled.img`
 export const ItemTextWrapper = styled.div`
   /* display: flex;
   flex-direction: column;
-  gap: 18px;
+ 
   justify-content: space-between; */
-  height: 124px;
-
+  /* height: 124px; */
+  gap: 18px;
   @media screen and (min-width: 768px) {
     /* display: flex; */
     /* flex-direction: column;
     justify-content: space-between; */
     gap: 24px;
-    height: 252px;
+    /* height: 252px; */
   }
 
   @media screen and (min-width: 1440px) {
     /* display: flex;
     flex-direction: column;
     justify-content: space-between; */
-    height: 252px;
+    /* height: 252px; */
   }
 `;
 
