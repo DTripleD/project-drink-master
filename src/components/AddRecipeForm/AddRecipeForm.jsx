@@ -24,6 +24,8 @@ const AddRecipeForm = (props) => {
 		setFile(file);
 	};
 
+	const [ingredientsList, setIngredientsList] = useState([]);
+
 	const {
 		register,
 		handleSubmit,
@@ -67,7 +69,12 @@ const AddRecipeForm = (props) => {
 				register={register}
 				control={control}
 			/>
-			<RecipeIngredientsFields register={register} control={control} />
+			<RecipeIngredientsFields
+				register={register}
+				control={control}
+				ingredientsList={ingredientsList}
+				setIngredientsList={setIngredientsList}
+			/>
 			<button type="submit">Add</button>
 		</form>
 	);
