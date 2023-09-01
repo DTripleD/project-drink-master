@@ -25,19 +25,25 @@ line-height: calc(24/16);
 `;
 
 export const IMG = styled.img`
+ border-radius:8px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+`
+export const DIV = styled.div`
 width:335px;
-height:400px;
-border-radius:8px;
+border-radius: 15px;
 @media ${(props)=> props.theme.device.tablet}{
     width:704px;
 }
 @media ${(props)=> props.theme.device.desktop}{
     width:400px;
-}
+
 `
 export const Wrapper = styled.div`
 padding-top:58px;
-padding-bottom-40px;
+padding-bottom:40px;
 @media ${(props)=> props.theme.device.tablet} {
   padding-top: 80px;
   padding-bottom: 80px;

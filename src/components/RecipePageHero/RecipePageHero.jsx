@@ -1,5 +1,5 @@
 import RecipePageTitle from "../RecipePageTitle/RecipePageTitle";
-import {P1,P2,IMG,Wrapper} from './RecipePageHero.styled'
+import {P1,P2,IMG,Wrapper,DIV} from './RecipePageHero.styled'
 import FavoriteButton from '../Button/FavoriteButton/FavoriteButton'
 
 const RecipePageHero = ({
@@ -20,9 +20,9 @@ const RecipePageHero = ({
       </P2>
       <FavoriteButton/>
       </div>
-      <div>
+      <DIV>
      <IMG src={drinkThumb} alt={drink}/>
-      </div>
+      </DIV>
     </Wrapper>
   );
 };

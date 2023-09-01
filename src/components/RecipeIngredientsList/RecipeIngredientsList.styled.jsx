@@ -23,7 +23,7 @@ border-radius: 8px;
 @media ${(props)=> props.theme.device.tablet}{
   width:220px;
   height:220px;
-    padding:32px;
+  padding:32px;
 }
 `
 export const List = styled.ul`
@@ -58,5 +58,11 @@ export const Wrapper = styled.div`
 padding-bottom:40px;
 @media ${(props) => props.theme.device.tablet}{
   padding-bottom:50px;
+}
+`
+export const Li = styled.li`
+width:157px;
+@media ${(props)=> props.theme.device.tablet}{
+  width:220px;
 }
 `
