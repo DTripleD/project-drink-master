@@ -8,7 +8,6 @@ import bg_image_l2 from "../../images/hero-bg/hero_bg_l@2x.jpg";
 import bg_image_l1 from "../../images/hero-bg/hero_bg_l@1x.jpg";
 
 export const Hero = styled.section`
-  margin-right: -200px;
   background-image: linear-gradient(
       0.95deg,
       #0a0a11 -0.56%,
@@ -21,6 +20,7 @@ export const Hero = styled.section`
   background-size: contain;
 
   margin-bottom: 100px;
+  margin-right: -40px;
 
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -35,6 +35,7 @@ export const Hero = styled.section`
   }
 
   @media screen and (min-width: 768px) {
+    margin-right: -64px;
     background-image: linear-gradient(
         0.95deg,
         #0a0a11 -0.56%,
@@ -64,6 +65,7 @@ export const Hero = styled.section`
       ),
       linear-gradient(86.16deg, #0a0a11 8.41%, rgba(10, 10, 17, 0) 46.6%),
       url(${bg_image_l1});
+    margin-right: -200px;
 
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
