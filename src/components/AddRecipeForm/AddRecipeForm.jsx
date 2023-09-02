@@ -94,6 +94,7 @@ const AddRecipeForm = () => {
 				getFile={getFile}
 				register={register}
 				control={control}
+				errors={errors}
 			/>
 			<RecipeIngredientsFields
 				register={register}
