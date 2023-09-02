@@ -58,7 +58,7 @@ const authSlice = createSlice({
         // state.token = action.payload.token;
         state.isLoggedIn = false;
         state.isRefreshing = false;
-        state.error = action.payload;
+        state.error = action.payload.message;
       })
       // .addCase(logout.pending, (state) => {
       //   state.isRefreshing = true;

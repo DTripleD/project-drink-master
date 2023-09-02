@@ -15,6 +15,7 @@ export const UserName = styled.p`
 `;
 
 export const MenuWrapper = styled.div`
+	position: relative;
 	display: flex;
 
 	align-items: center;

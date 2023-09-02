@@ -1,11 +1,9 @@
-
-import React from 'react';
-import SubscribeForm from '../SubscribeForm/SubscribeForm';
-import Nav from '../Nav/Nav';
-import FollowUs from '../FollowUs/FollowUs';
+import React from "react";
+import SubscribeForm from "../SubscribeForm/SubscribeForm";
+import Nav from "../Nav/Nav";
+import FollowUs from "../FollowUs/FollowUs";
 import FooterLogo from "./FooterLogo/FooterLogo";
-import {MainContainer} from "../MainContainer/MainContainer"
-
+import { MainContainer } from "../MainContainer/MainContainer";
 
 import {
   StyledBottomWrapper,
@@ -14,37 +12,33 @@ import {
   StyledFooter,
   StyledWrapper,
   StyledBox,
-  
-} from './Footer.styled';
+} from "./Footer.styled";
 
 const Footer = () => {
   return (
-     <MainContainer>
-    <StyledFooter>
-      <StyledWrapper>
-         <StyledContainer> 
-          <StyledBox>
-          <FooterLogo/>
-            <FollowUs /> 
-          </StyledBox>
-          
-            <Nav/>
-         
-        </StyledContainer>
-        <SubscribeForm />
-      </StyledWrapper>
-      <StyledBottomWrapper>
+    <MainContainer>
+      <StyledFooter>
+        <StyledWrapper>
+          <StyledContainer>
+            <StyledBox>
+              <FooterLogo />
+              <FollowUs />
+            </StyledBox>
+
+            <Nav />
+          </StyledContainer>
+          <SubscribeForm />
+        </StyledWrapper>
+        <StyledBottomWrapper>
           <p>&#169;2023 Drink Master. All rights reserved.</p>
-        <StyledFlexWrapper>
-          <p>Privacy Policy</p>
-          <p>Terms of Service</p>
-        </StyledFlexWrapper>
-      </StyledBottomWrapper>
+          <StyledFlexWrapper>
+            <p>Privacy Policy</p>
+            <p>Terms of Service</p>
+          </StyledFlexWrapper>
+        </StyledBottomWrapper>
       </StyledFooter>
-       </MainContainer>
-   
+    </MainContainer>
   );
 };
 
 export default Footer;
-

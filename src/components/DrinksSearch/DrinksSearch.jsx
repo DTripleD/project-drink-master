@@ -22,7 +22,9 @@ import {
 } from "./DrinksSearch.styled";
 import { getDrinksList } from "../../shared/api/drinksSearch";
 import { useDispatch, useSelector } from "react-redux";
-// import { Container, Pagination, Stack } from "@mui/material";
+// import Pagination from "../Pagination/Pagination";
+import { PaginationWrapper } from "../Pagination/Pagination.styled";
+import { Container, Pagination, Stack } from "@mui/material";
 
 const DrinksSearch = () => {
 	const { state } = useLocation();
@@ -108,7 +110,7 @@ const DrinksSearch = () => {
 			search: data?.search || "",
 			category: data?.category?.label || state?.category || "",
 			ingredients: data?.ingredients?.label || "",
-			page: page,
+			page: "1",
 			limit: itemsPerPage,
 		});
 	};
@@ -161,19 +163,22 @@ const DrinksSearch = () => {
 			</Form>
 			{error && <p>Sorry. {error} 😭</p>}
 			<DrinksList drinks={data.drinks} />
-			{/* {totalPages > 1 && (
-				<Container>
-					<Stack>
-						<Pagination
-							count={totalPages}
-							page={page}
-							onChange={changeNum}
-							siblingCount={1}
-							sx={{ marginY: 3, marginX: "auto" }}
-						/>
-					</Stack>
-				</Container>
-			)} */}
+			{totalPages > 1 && (
+				// <Pagination totalPages={totalPages} page={page} changeNum={changeNum} />
+				<PaginationWrapper>
+					<Container>
+						<Stack spacing={5}>
+							<Pagination
+								count={totalPages}
+								page={page}
+								onChange={changeNum}
+								siblingCount={1}
+								sx={{ marginY: 3, marginX: "auto" }}
+							/>
+						</Stack>
+					</Container>
+				</PaginationWrapper>
+			)}
 		</>
 	);
 };

@@ -23,8 +23,6 @@ import { ReactComponent as X } from "../../../images/svg/add-recipe-page/x.svg";
 import { selectIngredients } from "../../../redux/drinks/drinksSelectors";
 
 const RecipeIngredientsFields = ({
-	register,
-	control,
 	ingredientsList,
 	setIngredientsList,
 }) => {
@@ -52,20 +50,38 @@ const RecipeIngredientsFields = ({
 	};
 
 	const handleIngredientAdd = () => {
-		console.log(ingredientsList);
 		setIngredientsList((prevState) => {
-			return [...prevState, { title: "", amount: "", unit: "" }];
+			return [...prevState, { ingredient: "", amount: "", unit: "ml" }];
 		});
 		setCount(count + 1);
 	};
 
-	// const getValue = (value, options) => {
-	// 	value ? options.find((option) => option.value === value) : "";
-	// };
+	const handleChangeIngredient = (e, index) => {
+	
+		const newIngredientsList = [...ingredientsList];
+		newIngredientsList[index] = {
+			...newIngredientsList[index],
+			ingredient: e.value,
+		};
+		setIngredientsList(newIngredientsList);
+	};
 
-	// const { watch } = useForm();
+	const handleChangeAmount = (e, index) => {
+			let amount = e.currentTarget.value;
+			if (amount < 0) {
+				amount = 0;
+				e.currentTarget.value = 0;
+			}
+			const newIngredientsList = [...ingredientsList];
+			newIngredientsList[index].amount = amount;
+			setIngredientsList(newIngredientsList);
+		};
 
-	// console.log(watch("ingredient"));
+	const handleChangeUnit = (e, index) => {
+			const newIngredientsList = [...ingredientsList];
+			newIngredientsList[index].unit = e.value;
+		setIngredientsList(newIngredientsList);
+		};
 
 	return (
 		<div>
@@ -88,15 +104,22 @@ const RecipeIngredientsFields = ({
 							<StyledSelect
 								name="ingredient"
 								options={optionIngredients}
+								onChange={(e) => handleChangeIngredient(e, index)}
 								classNamePrefix={"select"}
 								isSearchable
 								defaultValue={optionIngredients[0]}
 							/>
 							<SelectContainer>
-								<StyledInput type="text" name="amount" />
+								<StyledInput
+									type="text"
+									name="amount"
+									onChange={(e) => handleChangeAmount(e, index)}
+									autoComplete="off"
+								/>
 								<StyledUnitSelect
 									name="unit"
 									options={optionUnits}
+									onChange={(e) => handleChangeUnit(e, index)}
 									classNamePrefix={"select"}
 									isSearchable
 									defaultValue={optionUnits[0]}
@@ -114,11 +137,21 @@ const RecipeIngredientsFields = ({
 };
 
 RecipeIngredientsFields.propTypes = {
-	register: PropTypes.func.isRequired,
-	control: PropTypes.shape({}).isRequired,
+	ingredientsList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+	setIngredientsList: PropTypes.func.isRequired,
 };
 
 export default RecipeIngredientsFields;
+
+
+	// const getValue = (value, options) => {
+	// 	value ? options.find((option) => option.value === value) : "";
+	// };
+
+	// const { watch } = useForm();
+
+	// console.log(watch("ingredient"));
+
 
 // <SelectContainer>
 // 	<StyledInput

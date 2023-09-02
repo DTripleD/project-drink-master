@@ -77,14 +77,13 @@ const UserMenu = () => {
           <UserPhoto src={avatarURL} alt="" />
         </UserPhotoWrapper>
         <UserName>{name}</UserName>
+        {openDrop && (
+          <UserLogoModal
+            handleInfoModalOpen={handleInfoModalOpen}
+            handleLogoutModalOpen={handleLogoutModalOpen}
+          />
+        )}
       </MenuWrapper>
-
-      {openDrop && (
-        <UserLogoModal
-          handleInfoModalOpen={handleInfoModalOpen}
-          handleLogoutModalOpen={handleLogoutModalOpen}
-        />
-      )}
 
       {showInfoModal && (
         <UserInfoModal

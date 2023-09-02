@@ -72,24 +72,25 @@ export const InputContainer = styled.div`
 `;
 
 export const StyledInput = styled.input`
-  width: 100%;
-  padding: 0;
-  padding-bottom: 14px;
-  background-color: transparent;
-  min-height: 23px;
-  border: 0;
-  border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
-  :focus-visible {
-    outline: 0;
-    box-shadow: 0;
-  }
-  ::placeholder {
-    color: rgba(243, 243, 243, 0.5);
-    font-family: Manrope;
-    font-size: 14px;
-    line-height: normal;
-    letter-spacing: -0.28px;
-  }
+	width: 100%;
+	padding: 0;
+	padding-bottom: 14px;
+	background-color: transparent;
+	min-height: 23px;
+	border: 0;
+	border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
+	color: ${(props) => props.theme.colors.white};
+	:focus-visible {
+		outline: 0;
+		box-shadow: 0;
+	}
+	::placeholder {
+		color: rgba(243, 243, 243, 0.5);
+		font-family: Manrope;
+		font-size: 14px;
+		line-height: normal;
+		letter-spacing: -0.28px;
+	}
 `;
 
 export const SelectContainer = styled.div`
@@ -99,121 +100,129 @@ export const SelectContainer = styled.div`
 `;
 
 export const StyledSelect = styled(Select)`
-  .select__menu {
-    position: absolute;
-    right: -5px;
-    top: 35px;
-    width: 170px;
-    background-color: ${(props) => props.theme.colors.blue};
-    border-radius: 12px;
-    outline: 0;
-    border: 0;
-    margin-top: -10px;
-  }
+	.select__menu {
+		position: absolute;
+		right: -5px;
+		top: 35px;
+		width: 170px;
+		background-color: ${(props) => props.theme.colors.blue};
+		border-radius: 12px;
+		outline: 0;
+		border: 0;
+		margin-top: -10px;
+	}
 
-  .select__menu:hover {
-    outline: 0;
-  }
+	.select__menu:hover {
+		outline: 0;
+	}
 
-  .select__menu-list {
-    padding: 0;
-    max-height: 185px;
-    scrollbar-width: 4px;
-    overflow-x: hidden;
-  }
+	.select__menu-list {
+		padding: 0;
+		max-height: 185px;
+		scrollbar-width: 4px;
+		overflow-x: hidden;
+	}
 
-  .select__value-container {
-    padding: 0;
-  }
+	.select__value-container {
+		padding: 0;
+	}
 
-  .select__control {
-    position: relative;
-    width: 190px;
-    height: 34px;
-    background-color: transparent;
-    color: ${(props) => props.theme.colors.white};
-    font-family: Manrope;
-    font-size: 14px;
-    border: 0;
-    border-radius: 0;
-    border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
-    :hover {
-      outline: 0;
-      box-shadow: 0;
-      outline: 0;
-      box-shadow: none;
-      border: 0;
-      border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
-    }
-  }
+	.select__control {
+		position: relative;
+		width: 190px;
+		height: 34px;
+		background-color: transparent;
+		color: ${(props) => props.theme.colors.white};
+		font-family: Manrope;
+		font-size: 14px;
+		border: 0;
+		border-radius: 0;
+		border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
+		:hover {
+			outline: 0;
+			box-shadow: 0;
+			outline: 0;
+			box-shadow: none;
+			border: 0;
+			border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
+		}
+	}
 
-  .select__indicator-separator {
-    display: none;
-  }
+	.select-container {
+		outline: 0;
+	}
 
-  .select__input-container {
-    margin: 0;
-    padding: 0;
-    color: ${(props) => props.theme.colors.white};
-    font-family: Manrope;
-    font-size: 14px;
-    line-height: ${14 / 14}px;
-  }
+	.select__control--is-focused {
+		outline: 0;
+	}
 
-  .select__input {
-    color: ${(props) => props.theme.colors.white};
-    font-family: Manrope;
-    font-size: 14px;
-    line-height: ${14 / 14}px;
-  }
+	.select__indicator-separator {
+		display: none;
+	}
 
-  .select__placeholder {
-    position: absolute;
-    right: 0;
-    top: 3;
-    color: ${(props) => props.theme.colors.white};
-    font-family: Manrope;
-    font-size: 14px;
-    line-height: ${14 / 14}px;
-  }
+	.select__input-container {
+		margin: 0;
+		padding: 0;
+		color: ${(props) => props.theme.colors.white};
+		font-family: Manrope;
+		font-size: 14px;
+		line-height: ${14 / 14}px;
+	}
 
-  .select__option {
-    background-color: transparent;
-    color: rgba(243, 243, 243, 0.4);
-    font-family: Manrope;
-    font-size: 12px;
-    line-height: ${16 / 10}px;
-    :hover {
-      color: ${(props) => props.theme.colors.white};
-    }
-    :focus {
-      color: ${(props) => props.theme.colors.white};
-    }
-  }
+	.select__input {
+		color: ${(props) => props.theme.colors.white};
+		font-family: Manrope;
+		font-size: 14px;
+		line-height: ${14 / 14}px;
+	}
 
-  .select__control--is-focused {
-    outline: 0;
-  }
+	.select__placeholder {
+		position: absolute;
+		right: 0;
+		top: 5px;
+		color: ${(props) => props.theme.colors.white};
+		font-family: Manrope;
+		font-size: 14px;
+		line-height: ${14 / 14}px;
+	}
 
-  .select__indicator {
-    padding: 0;
+	.select__option {
+		background-color: transparent;
+		color: rgba(243, 243, 243, 0.4);
+		font-family: Manrope;
+		font-size: 12px;
+		line-height: ${16 / 10}px;
+		:hover {
+			color: ${(props) => props.theme.colors.white};
+		}
+		:focus {
+			color: ${(props) => props.theme.colors.white};
+		}
+	}
 
-    :hover {
-      translate-x: 180;
-    }
-  }
+	.select__control--is-focused {
+		outline: 0;
+	}
 
-  .select__value-container {
-    position: relative;
-  }
+	.select__indicator {
+		padding: 0;
+	}
 
-  .select__single-value {
-    display: block;
-    position: absolute;
-    right: 0;
-    top: -6px;
-    color: ${(props) => props.theme.colors.white};
-    font-family: Manrope;
-    font-size: 14px;
-  }
+	.select__indicators {
+		padding-bottom: 5px;
+	}
+
+	.select__value-container {
+		position: relative;
+	}
+
+	.select__single-value {
+		display: block;
+		position: absolute;
+		right: 0;
+		top: -3px;
+		color: ${(props) => props.theme.colors.white};
+		font-family: Manrope;
+		font-size: 14px;
+	}
 `;

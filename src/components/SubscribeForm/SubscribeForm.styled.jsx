@@ -85,6 +85,12 @@ export const FooterSubscribeButton = styled.button`
     border-color: color: ${(props) => props.theme.colors.white};;
   }
 
+ &:disabled {
+    border-color: rgba(243, 243, 243, 0.2); 
+    cursor: not-allowed; 
+    color: rgba(243, 243, 243, 0.2);
+
+
   @media screen and (min-width: 768px) {
     height: 56px;
     width: 309px;
