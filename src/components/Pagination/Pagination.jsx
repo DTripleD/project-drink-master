@@ -22,9 +22,9 @@ const Pagination = ({ totalPages, page, changeNum }) => {
 };
 
 Pagination.propTypes = {
-	// totalPages: PropTypes.number.isRequired,
-	// page: PropTypes.number.isRequired,
-	// changeNum: PropTypes.func.isRequired,
+	totalPages: PropTypes.number.isRequired,
+	page: PropTypes.number.isRequired,
+	changeNum: PropTypes.func.isRequired,
 };
 
 export default Pagination;
