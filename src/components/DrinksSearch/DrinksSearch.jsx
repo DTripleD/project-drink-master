@@ -25,6 +25,9 @@ import { useDispatch, useSelector } from "react-redux";
 // import Pagination from "../Pagination/Pagination";
 import { PaginationWrapper } from "../Pagination/Pagination.styled";
 import { Container, Pagination, Stack } from "@mui/material";
+import Loader from "../Loader/Loader";
+import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
+import { P3 } from "../DrinksList/DrinksList.styled";
 
 const DrinksSearch = () => {
 	const { state } = useLocation();
@@ -87,10 +90,11 @@ const DrinksSearch = () => {
 		getDrinksList(searchParams)
 			.then((data) => {
 				setData(data);
+				setError(data);
 				setTotalPages(Math.ceil(data.totalHits / itemsPerPage));
 			})
 			.catch((error) => {
-				setError(error.message);
+				setError(error);
 			});
 	}, [searchParams]);
 
@@ -161,8 +165,14 @@ const DrinksSearch = () => {
 					)}
 				/>
 			</Form>
-			{error && <p>Sorry. {error} 😭</p>}
+			{!data.drinks && !error && <Loader />}
 			<DrinksList drinks={data.drinks} />
+			{error === "drinks not found" && (
+				<>
+					<ErrorPageWrapper></ErrorPageWrapper>
+					<P3>Unfortunately, there is no such cocktails.... 😭</P3>
+				</>
+			)}
 			{totalPages > 1 && (
 				// <Pagination totalPages={totalPages} page={page} changeNum={changeNum} />
 				<PaginationWrapper>
