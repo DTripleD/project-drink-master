@@ -30,6 +30,11 @@ export const Li = styled.li`
 export const Img = styled.img`
 	margin-bottom: 14px;
 	border-radius: 8px;
+	transition: transform 600ms ease;
+	&:hover,
+	&:focus {
+		transform: scale(1.03);
+	}
 `;
 
 export const Div = styled.div`

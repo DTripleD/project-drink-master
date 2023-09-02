@@ -17,6 +17,9 @@ export const PaginationWrapper = styled.div`
 	li {
 		margin-right: 24px;
 	}
+	div {
+		color: ${(props) => props.theme.colors.white};
+	}
 	button {
 		color: ${(props) => props.theme.colors.white};
 		font-size: 12px;
