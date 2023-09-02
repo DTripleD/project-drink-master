@@ -18,9 +18,13 @@ import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
-import { ThemeProvider } from "@emotion/react";
+import { Toaster } from "react-hot-toast";
+import { toastOptions } from "./shared/toasterOptions/toasterOptions";
+import { ThemeProvider } from "@mui/material/styles";
 import { selectTheme } from "./redux/theme/selectors";
 import theme from "./shared/theme";
+
+import Loader from "./components/Loader/Loader";
 
 function App() {
   const dispatch = useDispatch();
@@ -33,7 +37,7 @@ function App() {
 
   useEffect(() => {}, [currentTheme]);
   return isRefreshing ? (
-    <h2>Loading</h2>
+    <Loader />
   ) : (
     <ThemeProvider theme={theme(currentTheme)}>
       <AppWrapper>
@@ -85,6 +89,7 @@ function App() {
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>
+        <Toaster toastOptions={toastOptions} />
       </AppWrapper>
     </ThemeProvider>
   );

@@ -3,18 +3,22 @@ import { Suspense } from "react";
 import Header from "../Header/Header";
 import { SharedLayoutWrapper } from "./SharedLayout.styled";
 import Footer from "../Footer/Footer";
-import ThemeToggler from "../ThemeToggler/ThemeToggler";
+import Background from "../../components/Background/Background";
+
+import Loader from "../Loader/Loader";
 
 export const SharedLayout = () => {
   return (
-    <SharedLayoutWrapper>
-      <Header />
-      <ThemeToggler />
-      <Suspense fallback={<h2>Loading...</h2>}>
-        <Outlet />
-      </Suspense>
+    <Background>
+      <SharedLayoutWrapper>
+        <Header />
 
-      <Footer />
-    </SharedLayoutWrapper>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+
+        <Footer />
+      </SharedLayoutWrapper>
+    </Background>
   );
 };

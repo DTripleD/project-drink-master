@@ -37,7 +37,7 @@ export const StyledWrapper = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    
+    margin: 0;
   }
 `;
 
@@ -46,7 +46,7 @@ export const StyledContainer = styled.div`
     width: 100%;
     // margin: 0 auto;
     display: flex;
-    margin-bottom: 40px;
+     margin-bottom: 40px;
     justify-content: space-between;
   }
 
@@ -69,7 +69,7 @@ export const StyledBox = styled.div`
   padding-top: 0;
   
    @media screen and (min-width: 768px) {
-    margin-bottom: 40px;
+     margin-bottom: 40px;
     
   }
   
@@ -79,6 +79,7 @@ export const StyledBottomWrapper = styled.div`
   * {
     font-size: 12px;
     margin: 0;
+    color: rgba(243, 243, 243, 0.2);
   }
 
   display: flex;
@@ -97,6 +98,7 @@ export const StyledFlexWrapper = styled.div`
   display: flex;
   gap: 14px;
   margin-top: 8px;
+  color: rgba(243, 243, 243, 0.2);
 
   @media screen and (min-width: 768px) {
     gap: 18px;

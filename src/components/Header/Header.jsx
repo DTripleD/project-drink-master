@@ -9,31 +9,33 @@ import UserMenu from "../UserMenu/UserMenu";
 import { Burger, Menu } from "./BurgerMenu/BurgerMenu";
 import MediaQuery from "react-responsive";
 import { useNavigate } from "react-router";
-import { useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+
 import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
+import { MainContainer } from "../MainContainer/MainContainer";
 
 const Header = () => {
 	const isLoggedIn = useSelector(selectIsLoggedIn);
 	const [open, setOpen] = useState(false);
 
-	const node = useRef();
+	// const node = useRef();
 	const navigate = useNavigate();
+
 	return (
-		<HeaderStyled>
-			<NavLink onClick={() => navigate("/main")}>
+		<MainContainer>
+			<HeaderStyled>
 				<Logo />
-			</NavLink>
 
-			<MediaQuery minWidth={1440}>{isLoggedIn && <Navigation />}</MediaQuery>
+				<MediaQuery minWidth={1440}>{isLoggedIn && <Navigation />}</MediaQuery>
 
-			{isLoggedIn ? <UserMenu /> : <WelcomePage />}
+				{isLoggedIn ? <UserMenu /> : <WelcomePage />}
 
-			<MenuWrepper ref={node}>
-				<Burger open={open} setOpen={setOpen} />
-				<Menu open={open} setOpen={setOpen} />
-			</MenuWrepper>
-		</HeaderStyled>
+				<MenuWrepper>
+					<Burger open={open} setOpen={setOpen} />
+					<Menu open={open} setOpen={setOpen} />
+				</MenuWrepper>
+			</HeaderStyled>
+		</MainContainer>
 	);
 };
 
