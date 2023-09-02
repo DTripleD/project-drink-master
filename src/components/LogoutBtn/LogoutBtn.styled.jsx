@@ -94,7 +94,7 @@ export const LogoutButton = styled.button`
 
 export const CanceltBtn = styled.button`
 	padding: 16px 41px;
-	color: fill: ${(props) => props.theme.colors.white};;
+	color: ${(props) => props.theme.colors.white};;
 	background: #434d67;
 	font-size: 16px;
 	border-radius: 42px;

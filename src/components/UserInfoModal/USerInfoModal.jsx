@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { selectUser } from "../../redux/auth/selectors";
-import { ReactComponent as Plus } from "../../images/svg/add-photo.svg";
-import { ReactComponent as Cross } from "../../images/svg/close.svg";
-import { ReactComponent as editSVG } from "../../images/svg/edit.svg";
+import { updateAvatar, updateUserName } from "../../redux/auth/operations";
+import { useDispatch, useSelector } from "react-redux";
+
+import plus from "../../images/svg/add-photo.svg";
+import cross from "../../images/svg/close.svg";
+import editSVG from "../../images/svg/edit.svg";
+import defaultPhoto from "../../images/user@2x.png";
 
 import {
   BackDrop,
@@ -21,122 +25,100 @@ import {
   InputIcon,
   SaveButton,
 } from "./UserInfoModal.styled";
-import { useDispatch, useSelector } from "react-redux";
 
-const modalRoot = document.querySelector("#modal-root");
-const StyledCloseIcon = getStyledCloseIcon(Cross);
-const StyledEditSvg = getStyledEdit(editSVG);
-const StyledPlusSvg = getStyledPlus(Plus);
+const logoutRoot = document.querySelector("#logout-root");
 
-export const UserInfoModal = ({ handleModalClose, handleBackdropClick }) => {
-  //   const dispatch = useDispatch();
-  const { name, avatarURL } = useSelector(selectUser);
-  const [image, setImage] = useState({ preview: avatarURL, data: null });
-  const [userName, setUserName] = useState(name);
-  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+export const USerInfoModal = ({
+	handleModalClose,
+	handleBackdropClick,
+	handleLogoutModalOpen,
+}) => {
+	const dispatch = useDispatch();
+	const { name, avatarURL = defaultPhoto } = useSelector(selectUser);
 
-  const userInfoFormSubmit = (e) => {
-    e.preventDefault();
+	const [userName, setUserName] = useState(name);
+	const [image, setImage] = useState(null);
+	const [imgURL, setImgURL] = useState(null);
+	const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
-    if (userName === name && !image.data) {
-      setIsButtonEnabled(false);
+	const userInfoFormSubmit = (values) => {
+		if (!isButtonEnabled) {
+			setIsButtonEnabled(false);
+			return;
+		}
 
-      return;
-    }
-    const updatedUserName = e.target.elements.user_name.value;
-    setUserName(updatedUserName);
+		const formData = new FormData();
+		formData.append("name", values.name);
 
-    const formData = new FormData();
-    formData.append("file", image.data);
-    formData.append("userName", userName);
+		if (image) {
+			formData.append("avatarURL", image);
+		}
 
-    // dispatch(update(formData));
+		dispatch(updateAvatar(file));
 
-    // handlerEditProfileClick();
-  };
+		handleLogoutModalOpen();
+	};
 
-  const onImageChange = (e) => {
-    const img = {
-      preview: URL.createObjectURL(e.target.files[0]),
-      data: e.target.files[0],
-    };
-    setImage(img);
-    setIsButtonEnabled(true);
-  };
+	const onImageChange = (e) => {
+		const [_file] = e.target.files;
+		setImgURL(URL.createObjectURL(_file));
+		setImage(_file);
+		setIsButtonEnabled(true);
+	};
 
-  const onNameChange = (e) => {
-    if (userName !== e.target.value) {
-      setIsButtonEnabled(true);
-    }
-  };
+	const onNameChange = (e) => {
+		setUserName(e.target.value);
+		if (name !== e.target.value) {
+			setIsButtonEnabled(true);
+		}
+		if (name === e.target.value && imgURL === null) {
+			setIsButtonEnabled(false);
+		}
+	};
 
-  useEffect(() => {
-    if (userName !== name) {
-      setIsButtonEnabled(true);
-    }
-  }, [userName, name]);
+	useEffect(() => {
+		const userImage = document.getElementById("user_image");
+		if (imgURL) {
+			userImage.src = imgURL;
+		}
+		return () => {
+			if (imgURL) {
+				URL.revokeObjectURL(imgURL);
+			}
+		};
+	}, [imgURL]);
 
-  useEffect(() => {
-    const userImage = document.getElementById("user_image");
-    if (image.preview) {
-      userImage.src = image.preview;
-    }
-    return () => {
-      if (image.preview) {
-        URL.revokeObjectURL(image.preview);
-      }
-    };
-  }, [image.preview]);
-
-  // const handleUploadClick = (event) => {
-  // 	const file = event.target.files[0];
-
-  // 	const reader = new FileReader();
-  // 	if (file) {
-  // 		reader.readAsDataURL(file);
-  // 		reader.onloadend = () => {
-  // 			setImage(reader.result);
-  // 			getFile(file);
-  // 		};
-  // 	}
-  // };
-
-  return createPortal(
-    <BackDrop onClick={handleBackdropClick}>
-      <Modal>
-        <CloseBtn onClick={handleModalClose} type="button">
-          {StyledCloseIcon}
-        </CloseBtn>
-        <form onSubmit={userInfoFormSubmit}>
-          <AvatarWrapper>
-            <Avatar src={avatarURL} alt="user photo" id="user_image" />
-            <AvatarInput
-              type="file"
-              id="file_upload"
-              name="avatarURL"
-              onChange={onImageChange}
-            />
-            <label htmlFor="file_upload">
-              <AvatarIcon>
-                <use href={StyledPlusSvg}></use>
-              </AvatarIcon>
-            </label>
-          </AvatarWrapper>
-          <InputWrapper>
-            <Input
-              type="text"
-              id="user_name"
-              name="user_name"
-              onChange={onNameChange}
-            />
-            <InputIcon>
-              <use href={StyledEditSvg}></use>
-            </InputIcon>
-          </InputWrapper>
-          <SaveButton disabled={!isButtonEnabled}>Save changes</SaveButton>
-        </form>
-      </Modal>
-    </BackDrop>,
-    modalRoot
-  );
+	return createPortal(
+		<BackDrop onClick={handleBackdropClick}>
+			<Modal>
+				<CloseBtn onClick={handleModalClose} type="button">
+					{cross}
+				</CloseBtn>
+				<form onSubmit={userInfoFormSubmit}>
+					<AvatarWrapper>
+						<Avatar src={avatarURL} alt="" id="user_image" />
+						<AvatarInput
+							type="file"
+							id="file_upload"
+							name="avatarURL"
+							onChange={onImageChange}
+						/>
+						<label htmlFor="file_upload">
+							<AvatarIcon>
+								<use href={plus}></use>
+							</AvatarIcon>
+						</label>
+					</AvatarWrapper>
+					<InputWrapper>
+						<Input type="text" id="name" name="name" onChange={onNameChange} />
+						<InputIcon>
+							<use href={editSVG}></use>
+						</InputIcon>
+					</InputWrapper>
+					<SaveButton disabled={!isButtonEnabled}>Save changes</SaveButton>
+				</form>
+			</Modal>
+		</BackDrop>,
+		logoutRoot
+	);
 };

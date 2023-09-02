@@ -1,4 +1,3 @@
-import { dividerClasses } from "@mui/material";
 import { createPortal } from "react-dom";
 import { ReactComponent as Cross } from "../../images/svg/close.svg";
 import {
@@ -11,9 +10,8 @@ import {
 	CanceltBtn,
 	getStyledCloseIcon,
 } from "./LogoutBtn.styled";
-import { useEffect } from "react";
 
-const modalRoot = document.querySelector("#logout-root");
+const modalRoot = document.querySelector("#modal-root");
 const StyledCloseIcon = getStyledCloseIcon(Cross);
 
 export const LogoutBtn = ({

@@ -1,26 +1,26 @@
 import styled from "@emotion/styled";
 
-export const getStyledCloseIcon = (component) => styled(component)`
-	width: 38px;
-	height: 38px;
-	fill: ${(props) => props.theme.colors.white};
-`;
+// export const getStyledCloseIcon = (component) => styled(component)`
+// 	width: 38px;
+// 	height: 38px;
+// 	fill: ${(props) => props.theme.colors.white};
+// `;
 
-export const getStyledEdit = (component) => styled(component)`
-	width: 20px;
-	height: 20px;
-`;
+// export const getStyledEdit = (component) => styled(component)`
+// 	width: 20px;
+// 	height: 20px;
+// `;
 
-export const getStyledPlus = (component) => styled(component)`
-	width: 28px;
-	height: 28px;
-	fill: ${(props) => props.theme.colors.white};
+// export const getStyledPlus = (component) => styled(component)`
+// 	width: 28px;
+// 	height: 28px;
+// 	fill: ${(props) => props.theme.colors.white};
 
-	@media (min-width: 768px) {
-		width: 32px;
-		height: 32px;
-	}
-`;
+// 	@media (min-width: 768px) {
+// 		width: 32px;
+// 		height: 32px;
+// 	}
+// `;
 
 export const BackDrop = styled.div`
 	position: fixed;
@@ -32,6 +32,7 @@ export const BackDrop = styled.div`
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(0, 0, 0, 0.8);
+	z-index: 800;
 `;
 
 export const Modal = styled.div`
@@ -163,7 +164,7 @@ export const InputIcon = styled.svg`
 
 export const SaveButton = styled.button`
 	width: 285px;
-	padding: 18px 96px;
+	padding: 18px 90px;
 
 	border-radius: 42px;
 	border: 2px solid transparent;
@@ -176,7 +177,7 @@ export const SaveButton = styled.button`
 
 	&:hover {
 		color: ${(props) => props.theme.colors.white};
-		background-color: ${(props) => props.theme.colors.идгу};
+		background-color: ${(props) => props.theme.colors.blue};
 	}
 
 	&:active {
