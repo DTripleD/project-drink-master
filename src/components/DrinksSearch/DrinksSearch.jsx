@@ -92,7 +92,6 @@ const DrinksSearch = () => {
 			.catch((error) => {
 				setError(error.message);
 			});
-		console.log(data);
 	}, [searchParams]);
 
 	const optionCategories = categories.map((category) => ({
@@ -104,6 +103,7 @@ const DrinksSearch = () => {
 		value: ingredient,
 		label: ingredient,
 	}));
+	optionIngredients.push({ value: "Ingredients", label: "Ingredients" });
 
 	const onSubmit = (data) => {
 		setSearchParams({
@@ -152,7 +152,7 @@ const DrinksSearch = () => {
 					name="ingredients"
 					render={({ field: { onChange, value } }) => (
 						<StyledSelect
-							defaultValue={optionIngredients[0]}
+							defaultValue={optionIngredients[100]}
 							options={optionIngredients}
 							value={value}
 							onChange={onChange}
