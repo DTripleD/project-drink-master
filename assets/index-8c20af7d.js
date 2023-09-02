@@ -1985,6 +1985,11 @@ attempted value: ${s}
 `,hV=_.img`
 	margin-bottom: 14px;
 	border-radius: 8px;
+	transition: transform 600ms ease;
+	&:hover,
+	&:focus {
+		transform: scale(1.03);
+	}
 `,mV=_.div`
 	display: flex;
 	justify-content: space-between;
@@ -2311,6 +2316,9 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 	li {
 		margin-right: 24px;
 	}
+	div {
+		color: ${e=>e.theme.colors.white};
+	}
 	button {
 		color: ${e=>e.theme.colors.white};
 		font-size: 12px;
@@ -2321,7 +2329,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 	button.Mui-selected {
 		background-color: rgba(64, 112, 205, 0.5);
 	}
-`,aH=()=>{const{state:e}=hn(),t=An(),{register:n,handleSubmit:r,control:i}=wg(),[o,s]=w.useState(1),[a,l]=w.useState(1),[u,c]=w.useState([]),[d,f]=w.useState(""),[p,v]=w.useState(()=>window.innerWidth>=1440?9:10),[m,b]=TT({search:"",category:e!=null&&e.category?e==null?void 0:e.category:"Cocktail",ingredients:"",page:o,limit:p}),g=new URLSearchParams(m.toString());w.useEffect(()=>{t(n0()),t(r0())},[]),w.useEffect(()=>{const k=()=>{window.innerWidth>=1440?v(9):v(10)};return window.addEventListener("resize",k),()=>window.removeEventListener("resize",k)},[]);const h=ct(lC),y=ct(PV);w.useEffect(()=>{const k=parseInt(m.get("page"))||1;k!==o&&s(k),oH(m).then(O=>{c(O),l(Math.ceil(O.totalHits/p))}).catch(O=>{f(O.message)}),console.log(u)},[m]);const S=h.map(k=>({value:k,label:k})),E=y.map(k=>({value:k,label:k})),C=k=>{var O,$;b({search:(k==null?void 0:k.search)||"",category:((O=k==null?void 0:k.category)==null?void 0:O.label)||(e==null?void 0:e.category)||"",ingredients:(($=k==null?void 0:k.ingredients)==null?void 0:$.label)||"",page:"1",limit:p})},T=(k,O)=>{g.set("page",O.toString()),b(g),s(O)};return x.jsxs(x.Fragment,{children:[x.jsxs(tH,{onSubmit:r(C),children:[x.jsxs(nH,{children:[x.jsx(rH,{type:"text",...n("search"),placeholder:"Enter the text"}),x.jsx(iH,{type:"submit",children:x.jsx(dV,{style:{width:20,height:20}})})]}),x.jsx(Hu,{control:i,name:"category",render:({field:{onChange:k,value:O}})=>x.jsx(lx,{defaultValue:S[1],options:S,value:O,onChange:k,classNamePrefix:"select"})}),x.jsx(Hu,{control:i,name:"ingredients",render:({field:{onChange:k,value:O}})=>x.jsx(lx,{defaultValue:E[0],options:E,value:O,onChange:k,classNamePrefix:"select"})})]}),d&&x.jsxs("p",{children:["Sorry. ",d," 😭"]}),x.jsx(aC,{drinks:u.drinks}),a>1&&x.jsx(sH,{children:x.jsx(C8,{children:x.jsx(O8,{spacing:5,children:x.jsx(W8,{count:a,page:o,onChange:T,siblingCount:1,sx:{marginY:3,marginX:"auto"}})})})})]})},lH=()=>x.jsx("div",{children:x.jsxs(_n,{children:[x.jsx(us,{title:"Drinks"}),x.jsx(aH,{})]})}),uH=_.div`
+`,aH=()=>{const{state:e}=hn(),t=An(),{register:n,handleSubmit:r,control:i}=wg(),[o,s]=w.useState(1),[a,l]=w.useState(1),[u,c]=w.useState([]),[d,f]=w.useState(""),[p,v]=w.useState(()=>window.innerWidth>=1440?9:10),[m,b]=TT({search:"",category:e!=null&&e.category?e==null?void 0:e.category:"Cocktail",ingredients:"",page:o,limit:p}),g=new URLSearchParams(m.toString());w.useEffect(()=>{t(n0()),t(r0())},[]),w.useEffect(()=>{const k=()=>{window.innerWidth>=1440?v(9):v(10)};return window.addEventListener("resize",k),()=>window.removeEventListener("resize",k)},[]);const h=ct(lC),y=ct(PV);w.useEffect(()=>{const k=parseInt(m.get("page"))||1;k!==o&&s(k),oH(m).then(O=>{c(O),l(Math.ceil(O.totalHits/p))}).catch(O=>{f(O.message)})},[m]);const S=h.map(k=>({value:k,label:k})),E=y.map(k=>({value:k,label:k}));E.push({value:"Ingredients",label:"Ingredients"});const C=k=>{var O,$;b({search:(k==null?void 0:k.search)||"",category:((O=k==null?void 0:k.category)==null?void 0:O.label)||(e==null?void 0:e.category)||"",ingredients:(($=k==null?void 0:k.ingredients)==null?void 0:$.label)||"",page:"1",limit:p})},T=(k,O)=>{g.set("page",O.toString()),b(g),s(O)};return x.jsxs(x.Fragment,{children:[x.jsxs(tH,{onSubmit:r(C),children:[x.jsxs(nH,{children:[x.jsx(rH,{type:"text",...n("search"),placeholder:"Enter the text"}),x.jsx(iH,{type:"submit",children:x.jsx(dV,{style:{width:20,height:20}})})]}),x.jsx(Hu,{control:i,name:"category",render:({field:{onChange:k,value:O}})=>x.jsx(lx,{defaultValue:S[1],options:S,value:O,onChange:k,classNamePrefix:"select"})}),x.jsx(Hu,{control:i,name:"ingredients",render:({field:{onChange:k,value:O}})=>x.jsx(lx,{defaultValue:E[100],options:E,value:O,onChange:k,classNamePrefix:"select"})})]}),d&&x.jsxs("p",{children:["Sorry. ",d," 😭"]}),x.jsx(aC,{drinks:u.drinks}),a>1&&x.jsx(sH,{children:x.jsx(C8,{children:x.jsx(O8,{spacing:5,children:x.jsx(W8,{count:a,page:o,onChange:T,siblingCount:1,sx:{marginY:3,marginX:"auto"}})})})})]})},lH=()=>x.jsx("div",{children:x.jsxs(_n,{children:[x.jsx(us,{title:"Drinks"}),x.jsx(aH,{})]})}),uH=_.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
