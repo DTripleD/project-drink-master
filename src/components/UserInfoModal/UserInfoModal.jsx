@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
 import { selectUser } from "../../redux/auth/selectors";
 import { updateAvatar, updateUserName } from "../../redux/auth/operations";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,9 +54,7 @@ export const UserInfoModal = ({
 
 		if (name !== userName) {
 			dispatch(updateUserName(userName));
-    }
-    
-  
+		}
 
 		// const formData = new FormData();
 
@@ -73,7 +72,6 @@ export const UserInfoModal = ({
 		handleModalClose();
 	};
 
-  
 	const onImageChange = (event) => {
 		const file = event.target.files[0];
 		setImgURL(URL.createObjectURL(file));
@@ -154,4 +152,10 @@ export const UserInfoModal = ({
 		</BackDrop>,
 		logoutRoot
 	);
+};
+
+UserInfoModal.propTypes = {
+	handleModalClose: PropTypes.func,
+	handleBackdropClick: PropTypes.func,
+	handleLogoutModalOpen: PropTypes.func,
 };

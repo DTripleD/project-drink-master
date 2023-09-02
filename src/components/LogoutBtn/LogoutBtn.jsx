@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import PropTypes from "prop-types";
 import { ReactComponent as Cross } from "../../images/svg/close.svg";
 import {
 	BackDrop,
@@ -38,4 +39,10 @@ export const LogoutBtn = ({
 		</BackDrop>,
 		modalRoot
 	);
+};
+
+LogoutBtn.propTypes = {
+	handleModalClose: PropTypes.func,
+	handleBackdropClick: PropTypes.func,
+	handleLogout: PropTypes.func,
 };

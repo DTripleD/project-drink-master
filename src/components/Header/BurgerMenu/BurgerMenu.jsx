@@ -1,7 +1,9 @@
+import PropTypes from "prop-types";
 import { ReactComponent as OpenMenuIcon } from "../../../images/svg/align-justify.svg";
 import { ReactComponent as CloseMenuIcon } from "../../../images/svg/close.svg";
 import {
 	StyledMenu,
+	StyledMenuBtn,
 	StyledBurger,
 	getStyledOpenIcon,
 	getStyledCloseIcon,
@@ -23,6 +25,9 @@ export const Menu = ({ open, setOpen }) => {
 
 	return (
 		<StyledMenu open={open}>
+			<StyledMenuBtn type="button" onClick={() => setOpen(!open)}>
+				{<StyledCloseIcon />}
+			</StyledMenuBtn>
 			<Navigation />
 		</StyledMenu>
 	);
@@ -31,7 +36,17 @@ export const Menu = ({ open, setOpen }) => {
 export const Burger = ({ open, setOpen }) => {
 	return (
 		<StyledBurger open={open} onClick={() => setOpen(!open)}>
-			{!open ? <StyledOpenIcon /> : <StyledCloseIcon />}
+			{<StyledOpenIcon />}
 		</StyledBurger>
 	);
+};
+
+Burger.propTypes = {
+	open: PropTypes.bool,
+	setOpen: PropTypes.func,
+};
+
+Menu.propTypes = {
+	open: PropTypes.bool,
+	setOpen: PropTypes.func,
 };
