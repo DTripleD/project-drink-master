@@ -73,37 +73,39 @@ const UserMenu = () => {
   }, [handleModalClose]);
 
   return (
-    <>
-      <MenuWrapper open={openDrop} onClick={() => setOpenDrop(!openDrop)}>
-        <UserPhotoWrapper>
-          <UserPhoto src={avatarURL ? avatarURL : User} alt="" />
-        </UserPhotoWrapper>
-        <UserName>{name}</UserName>
-        {openDrop && (
-          <UserLogoModal
-            handleInfoModalOpen={handleInfoModalOpen}
-            handleLogoutModalOpen={handleLogoutModalOpen}
-          />
-        )}
-      </MenuWrapper>
+		<>
+			<MenuWrapper open={openDrop} onClick={() => setOpenDrop(!openDrop)}>
+				<UserPhotoWrapper>
+					<UserPhoto src={avatarURL ? avatarURL : User} alt="" />
+				</UserPhotoWrapper>
+				<UserName>{name}</UserName>
+				{openDrop && (
+					<UserLogoModal
+						handleInfoModalOpen={handleInfoModalOpen}
+						handleLogoutModalOpen={handleLogoutModalOpen}
+					/>
+				)}
+			</MenuWrapper>
 
-      {showInfoModal && (
-        <UserInfoModal
-          handleInfoModalOpen={handleInfoModalOpen}
-          handleBackdropClick={handleBackdropClick}
-        />
-      )}
+			{showInfoModal && (
+				<UserInfoModal
+					handleInfoModalOpen={handleInfoModalOpen}
+					handleBackdropClick={handleBackdropClick}
+					handleLogoutModalOpen={handleLogoutModalOpen}
+					handleModalClose={handleModalClose}
+				/>
+			)}
 
-      {showLogoutModal && (
-        <LogoutBtn
-          handleInfoModalOpen={handleInfoModalOpen}
-          handleModalClose={handleModalClose}
-          handleLogout={handleLogout}
-          handleBackdropClick={handleBackdropClick}
-        />
-      )}
-    </>
-  );
+			{showLogoutModal && (
+				<LogoutBtn
+					handleInfoModalOpen={handleInfoModalOpen}
+					handleModalClose={handleModalClose}
+					handleLogout={handleLogout}
+					handleBackdropClick={handleBackdropClick}
+				/>
+			)}
+		</>
+	);
 };
 
 export default UserMenu;

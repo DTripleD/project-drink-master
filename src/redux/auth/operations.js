@@ -81,6 +81,7 @@ export const updateAvatar = createAsyncThunk(
       });
       return data;
     } catch (error) {
+      console.log(error)
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -89,10 +90,12 @@ export const updateAvatar = createAsyncThunk(
 export const updateUserName = createAsyncThunk(
   "auth/updateUserName",
   async (credentials, thunkAPI) => {
+    console.log(credentials);
     try {
-      const { data } = await instance.patch("users", credentials);
+      const { data } = await instance.patch("users", {name: credentials});
       return data;
     } catch (error) {
+      console.log(error)
       return thunkAPI.rejectWithValue(error.message);
     }
   }
