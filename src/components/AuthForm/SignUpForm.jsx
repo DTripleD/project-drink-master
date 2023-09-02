@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { useEffect } from 'react';
 // import { useSearchParams } from 'react-router-dom';
 // import { verifyThunk } from '../../redux/auth/operations';
@@ -24,12 +24,15 @@ import {
   StyledAiOutlineEyeInvisible,
   StyledPasswordDiv,
 } from "./AuthForm.styled";
-import { theme } from "../../main";
+import theme from "../../shared/theme";
+import { selectTheme } from "../../redux/theme/selectors";
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
   //   const isClicked = useSelector(selectIsClicked);
   const [isClicked, setIsClicked] = useState(false);
+  const currentTheme = useSelector(selectTheme);
+  const theme = theme(currentTheme);
 
   //   const [searchParams] = useSearchParams();
   //   const verificationToken = searchParams.get('verificationToken');

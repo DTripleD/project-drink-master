@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import toast, { Toaster } from "react-hot-toast";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signin, refreshUser } from "../../redux/auth/operations";
 import { AuthNavigate } from "../AuthNav/AuthNav";
 import { useState } from "react";
@@ -23,13 +23,16 @@ import {
   StyledAiOutlineEyeInvisible,
   StyledPasswordDiv,
 } from "./AuthForm.styled";
-import { theme } from "../../main";
+import { selectTheme } from "../../redux/theme/selectors";
+import theme from "../../shared/theme";
 
 export const SignInForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   //   const isClicked = useSelector(selectIsClicked);
   const [isClicked, setIsClicked] = useState(false);
+  const currentTheme = useSelector(selectTheme);
+  const themes = theme(currentTheme);
 
   const openPassword = () => {
     setIsClicked((prevIsClicked) => !prevIsClicked);
@@ -133,12 +136,12 @@ export const SignInForm = () => {
                   />
                   {touched.password && !isClicked ? (
                     <StyledAiOutlineEyeInvisible
-                      color={theme.colors.white}
+                      color={themes.colors.white}
                       onClick={openPassword}
                     />
                   ) : touched.password && isClicked ? (
                     <StyledAiOutlineEye
-                      color={theme.colors.white}
+                      color={themes.colors.white}
                       onClick={openPassword}
                     />
                   ) : (
