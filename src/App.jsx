@@ -22,6 +22,7 @@ import { Toaster } from "react-hot-toast";
 import { toastOptions } from "./shared/toasterOptions/toasterOptions";
 import { ThemeProvider } from "@mui/material/styles";
 import { createTheme } from "@mui/material/styles";
+import { CircularProgress } from "@mui/material";
 const theme = createTheme();
 
 function App() {
@@ -32,7 +33,9 @@ function App() {
     dispatch(refreshUser());
   }, [dispatch]);
   return isRefreshing ? (
-    <h2>Loading</h2>
+    <ThemeProvider theme={theme}>
+      <CircularProgress size={100} />
+    </ThemeProvider>
   ) : (
     <ThemeProvider theme={theme}>
       <AppWrapper>

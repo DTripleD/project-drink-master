@@ -4,12 +4,13 @@ import { HeroSection } from "../../components/HeroSection/HeroSection";
 import { OtherDrinksButton } from "../../components/Button/OtherDrinksButton/OtherDrinks";
 import { getMainPage } from "../../shared/api/addRecipePageQuery";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
+import { CircularProgress } from "@mui/material";
 
 const MainPage = () => {
   // const dispatch = useDispatch();
 
-  const [categories, setCategories] = useState([]);
-  const [object, setObject] = useState([]);
+  const [categories, setCategories] = useState(null);
+  const [object, setObject] = useState(null);
 
   useEffect(() => {
     getMainPage().then((data) => {
@@ -34,13 +35,18 @@ const MainPage = () => {
     <>
       <HeroSection />
       <MainContainer>
-        {categories.map((f) => (
-          <PreviewDrinks
-            title={f}
-            key={f}
-            data={object.filter((da) => da.category === f)}
-          />
-        ))}
+        {categories ? (
+          categories.map((f) => (
+            <PreviewDrinks
+              title={f}
+              key={f}
+              data={object.filter((da) => da.category === f)}
+            />
+          ))
+        ) : (
+          <CircularProgress size={100} />
+        )}
+
         <OtherDrinksButton />
       </MainContainer>
     </>
