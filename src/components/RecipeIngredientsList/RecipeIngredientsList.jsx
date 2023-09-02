@@ -1,4 +1,4 @@
-import { IMG,P1,P2,List,DIV,IngredientTitle,Wrapper } from './RecipeIngredientsList.styled';
+import { IMG,P1,P2,Li,List,DIV,IngredientTitle,Wrapper } from './RecipeIngredientsList.styled';
 
 
 const RecipeIngredientsList = ({ ingridients }) => {
@@ -12,7 +12,7 @@ const RecipeIngredientsList = ({ ingridients }) => {
       <P1>Ingredients</P1>
       <List>
       {ingredientItems.map((ingredient, index) => (
-        <li key={index}>
+        <Li key={index}>
           <IMG
             src={ingredient['thumb-small']||'/plug-m.png'}
             srcSet={`
@@ -27,7 +27,7 @@ const RecipeIngredientsList = ({ ingridients }) => {
           <IngredientTitle>{ingredient.title}</IngredientTitle>
           <P2>{ingredient.measure}</P2>
           </DIV>
-          </li>
+          </Li>
           ))}
           </List>
       

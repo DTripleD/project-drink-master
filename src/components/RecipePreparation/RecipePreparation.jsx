@@ -8,9 +8,7 @@ import {
   DIV1,
   DIV2,
   DIV3,
-  DIV4,
-  IMG,
-  DOT, // Додано компонент для декоративної крапки
+  IMG, 
 } from './RecipePreparation.styled';
 
 const RecipePreparation = ({ ingridients: { description, instructions, drinkThumb, drink } }) => {
@@ -28,13 +26,10 @@ const RecipePreparation = ({ ingridients: { description, instructions, drinkThum
             temporibus vel dolore similique, suscipit amet.</P1>
           <UL>
             {sentences.map((sentence, index) => (
-              <Li key={index}>
-                <DIV4>
-                <DOT>•</DOT>
+               <Li key={index}>
                 <P2>{sentence.trim()}</P2>
-                </DIV4>
-              </Li>
-            ))}
+                </Li>
+              ))}
           </UL>
         </DIV2>
         <DIV3>

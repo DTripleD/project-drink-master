@@ -26,14 +26,14 @@ line-height: calc(24/16);
 
 export const IMG = styled.img`
  border-radius:8px;
-  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: auto;
 `
 export const DIV = styled.div`
 width:335px;
-border-radius: 15px;
+border-radius:8px;
+height:400px;
+overflow:hidden;
 @media ${(props)=> props.theme.device.tablet}{
     width:704px;
 }
