@@ -33,14 +33,14 @@ const FavoriteButton = () => {
     <div>
        {!isAddFavorite ? (
           <StyledButton type="button" onClick={() => dispatch(addFavorite(recipeId))}>
-            Add favorite recipe
+            Add to favorite recipe
           </StyledButton>
         ) : (
           <StyledButton
             type="button"
             onClick={() => dispatch(deleteFavorite(recipeId))}
           >
-            Delete favorite recipe
+            Remove from favorites 
           </StyledButton>
         )}
     </div>

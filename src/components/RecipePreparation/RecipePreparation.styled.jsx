@@ -65,23 +65,24 @@ export const UL = styled.ul`
 margin-top:60px;
 display:flex;
 flex-direction:column;
-gap:8px;
+gap:14px;
+list-style-type: disc;
 `
 export const Li = styled.li`
-padding-bottom:8px;
 border-bottom: 1px solid rgba(243, 243, 243, 0.2);
-vertical-align: middle;
+padding-bottom:14px;
 
 `
 export const IMG = styled.img`
-border-radius: 15px;
- display: block;
- object-fit:contain;
+ border-radius:8px;
+  width: 100%;
+  height: auto;
 `
 export const DIV3 = styled.div`
-width: 100%;
- height: 100%;
-
+width:335px;
+border-radius:8px;
+height:430px;
+overflow:hidden;
 @media ${(props)=> props.theme.device.tablet}{
     width:704px;
 }
@@ -89,13 +90,3 @@ width: 100%;
     width:400px;
 
 `
-export const DIV4 = styled.div`
-display:flex;
-`
-export const DOT = styled.span`
-font-weight: bold;
-margin-right: 8px; 
-vertical-align: middle; 
-display: inline-block;
-  color: ${(props) => props.theme.colors.white}; 
-`;

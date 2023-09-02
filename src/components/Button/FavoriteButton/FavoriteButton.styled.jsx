@@ -9,7 +9,7 @@ margin-top:40px;
 margin-bottom:80px;
 font-size: 14px;
 font-weight: 600;
-line-height: (18/14);
+line-height: calc(18/14);
 transition: 0.3s ease;
 &:hover,
 &focus,
@@ -19,7 +19,7 @@ transition: 0.3s ease;
   border-color:${(props) => props.theme.colors.white};
 }
 @media ${(props)=> props.theme.device.tablet}{
-  fonst-size:16px;
-  line-height:calc(18/16);
+  fonst-size: 16px;
+  line-height: calc(18/16);
 }
 `
