@@ -5,19 +5,14 @@ export const ItemCard = styled.div`
   flex-direction: column;
   border: none;
   gap: 24px;
-  /* max-width: 100%; */
 
   @media screen and (min-width: 768px) {
-    display: flex;
-    /* justify-content: flex-start; */
     justify-content: space-between;
     max-width: 342px;
   }
 
   @media screen and (min-width: 1440px) {
-    display: flex;
     max-width: 400px;
-    justify-content: space-between;
   }
 `;
 
@@ -31,13 +26,12 @@ export const ItemImg = styled.img`
 
   border-radius: 8px;
   box-shadow: 5px 4px 8px 0px rgba(34, 60, 80, 0.2);
-  /* margin-bottom: 18px; */
+
   @media screen and (min-width: 768px) {
-    /* margin-bottom: 24px; */
   }
 
   @media screen and (min-width: 1440px) {
-    width: 400px;
+    height: 400px;
   }
 `;
 
@@ -73,7 +67,7 @@ export const ItemTitle = styled.h3`
   letter-spacing: 0em;
   text-align: left;
 
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
 
   @media screen and (min-width: 768px) {
     font-family: Manrope;
@@ -91,7 +85,7 @@ export const ItemGlass = styled.h3`
   letter-spacing: 0em;
   text-align: left;
 
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
 
   @media screen and (min-width: 768px) {
     font-family: Manrope;
@@ -104,15 +98,15 @@ export const ItemGlass = styled.h3`
 `;
 export const ItemDescription = styled.p`
   display: inline-block;
-  height: 75px;
+  height: 45px;
   font-family: Manrope;
   font-size: 14px;
   font-weight: 400;
   line-height: 18px;
   letter-spacing: 0em;
   text-align: left;
-
-  color: #f3f3f3;
+  overflow: hidden;
+  color: ${(props) => props.theme.colors.white};
 
   @media screen and (min-width: 768px) {
     display: inline-block;
@@ -122,18 +116,26 @@ export const ItemDescription = styled.p`
     line-height: 22px;
     letter-spacing: 0em;
     text-align: left;
-
-    height: 110px;
   }
 
   @media screen and (min-width: 1440px) {
     display: inline-block;
-    height: 96px;
+
     font-family: Manrope;
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
     letter-spacing: 0em;
     text-align: left;
+  }
+`;
+export const ButtonSection = styled.p`
+  display: flex;
+  gap: 18px;
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
   }
 `;

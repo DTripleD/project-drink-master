@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { selectUser } from "../../redux/auth/selectors";
 import { updateAvatar, updateUserName } from "../../redux/auth/operations";
@@ -10,17 +10,20 @@ import editSVG from "../../images/svg/edit.svg";
 import defaultPhoto from "../../images/user@2x.png";
 
 import {
-	BackDrop,
-	Modal,
-	CloseBtn,
-	AvatarWrapper,
-	Avatar,
-	AvatarInput,
-	AvatarIcon,
-	InputWrapper,
-	Input,
-	InputIcon,
-	SaveButton,
+  BackDrop,
+  Modal,
+  CloseBtn,
+  getStyledEdit,
+  getStyledCloseIcon,
+  getStyledPlus,
+  AvatarWrapper,
+  Avatar,
+  AvatarInput,
+  AvatarIcon,
+  InputWrapper,
+  Input,
+  InputIcon,
+  SaveButton,
 } from "./UserInfoModal.styled";
 
 const logoutRoot = document.querySelector("#logout-root");

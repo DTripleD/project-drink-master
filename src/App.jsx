@@ -18,6 +18,8 @@ import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
 import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
+import { Toaster } from "react-hot-toast";
+import { toastOptions } from "./shared/toasterOptions/toasterOptions";
 
 function App() {
   const dispatch = useDispatch();
@@ -78,6 +80,7 @@ function App() {
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
+      <Toaster toastOptions={toastOptions} />
     </AppWrapper>
   );
 }

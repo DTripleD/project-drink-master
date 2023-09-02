@@ -52,3 +52,19 @@ export const getMyOwnRecipies = async () => {
     return error.response.data.message;
   }
 };
+
+export const addReciept = async (formData) => {
+  try {
+ const { data } = await instance.post('own', formData, {
+        headers: {
+          'content-type': 'multipart/form-data',
+        },
+      });
+      return data;
+  }
+  catch (error) {
+    console.log(error);
+		return error.response.data.message;
+	}
+};
+

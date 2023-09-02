@@ -1,10 +1,47 @@
-// eslint-disable-next-line react/prop-types
-const RecipePreparation = ({ ingridients: { instructions } }) => {
+import {
+  Title,
+  Wrapper,
+  UL,
+  Li,
+  P1,
+  P2,
+  DIV1,
+  DIV2,
+  DIV3,
+  DIV4,
+  IMG,
+  DOT, // Додано компонент для декоративної крапки
+} from './RecipePreparation.styled';
+
+const RecipePreparation = ({ ingridients: { description, instructions, drinkThumb, drink } }) => {
+  const sentences = instructions.split(/(?<=[.!?])\s+/).filter(Boolean);
+
   return (
-    <div className="recipe-preparation">
-      <p className="preparation-description">Recipe Preparation:</p>
-      <p>{instructions}</p>
-    </div>
+    <Wrapper>
+      <Title>Recipe Preparation</Title>
+      <DIV1>
+        <DIV2>
+          <P1>{description} || Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Praesentium debitis optio deserunt dignissimos commodi nisi
+            expedita itaque dolor provident. Atque labore, corrupti totam
+            accusantium omnis alias vero. Itaque eos ullam aut rerum quam. Non
+            temporibus vel dolore similique, suscipit amet.</P1>
+          <UL>
+            {sentences.map((sentence, index) => (
+              <Li key={index}>
+                <DIV4>
+                <DOT>•</DOT>
+                <P2>{sentence.trim()}</P2>
+                </DIV4>
+              </Li>
+            ))}
+          </UL>
+        </DIV2>
+        <DIV3>
+          <IMG src={drinkThumb} alt={drink} />
+        </DIV3>
+      </DIV1>
+    </Wrapper>
   );
 };
 

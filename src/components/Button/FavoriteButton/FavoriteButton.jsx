@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { StyledButton } from "./FavoriteButton.styled";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addFavorite,
@@ -8,8 +8,6 @@ import {
   fetchFavorites
 } from "../../../redux/favorite/favorite-operation";
 import {
-  selectIsLoading,
-  selectError,
   selectFavorites,
 } from "../../../redux/favorite/favorite-selector";
 
@@ -34,16 +32,16 @@ const FavoriteButton = () => {
   return (
     <div>
        {!isAddFavorite ? (
-          <button type="button" onClick={() => dispatch(addFavorite(recipeId))}>
+          <StyledButton type="button" onClick={() => dispatch(addFavorite(recipeId))}>
             Add favorite recipe
-          </button>
+          </StyledButton>
         ) : (
-          <button
+          <StyledButton
             type="button"
             onClick={() => dispatch(deleteFavorite(recipeId))}
           >
             Delete favorite recipe
-          </button>
+          </StyledButton>
         )}
     </div>
   );
