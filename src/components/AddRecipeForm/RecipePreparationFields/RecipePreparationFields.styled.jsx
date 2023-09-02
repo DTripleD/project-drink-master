@@ -23,5 +23,14 @@ export const Textarea = styled.textarea`
 		font-family: Manrope;
 		font-size: 14px;
 		line-height: ${18 / 14};
+		@media (min-width: 768px) {
+			font-size: 17px;
+			line-height: 156%;
+		}
+	}
+	@media (min-width: 768px) {
+		width: 480px;
+		font-size: 17px;
+		line-height: 156%;
 	}
 `;

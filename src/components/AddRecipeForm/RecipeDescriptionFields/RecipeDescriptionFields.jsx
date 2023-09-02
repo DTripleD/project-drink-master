@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import { Controller } from "react-hook-form";
 
@@ -7,6 +7,9 @@ import {
 	AddImageButtonContainer,
 	Image,
 	StyledImageInput,
+	ErrorContainer,
+	Error,
+	ErrorImg,
 	AddImageButton,
 	AddImageTitle,
 	InputContainer,
@@ -21,13 +24,11 @@ import {
 	selectGlasses,
 } from "../../../redux/drinks/drinksSelectors";
 
-
-
-const RecipeDescriptionFields = ({ getFile, register, control }) => {
+const RecipeDescriptionFields = ({ getFile, register, control, errors }) => {
 	const [image, setImage] = useState(null);
 
 	const categories = useSelector(selectCategories);
-	const glasses = useSelector(selectGlasses)
+	const glasses = useSelector(selectGlasses);
 
 	const optionCategories = categories.map((category) => ({
 		value: category.toLowerCase(),
@@ -77,27 +78,34 @@ const RecipeDescriptionFields = ({ getFile, register, control }) => {
 					</AddImageButton>
 					<AddImageTitle>Add image</AddImageTitle>
 				</AddImageButtonContainer>
+				{errors.drinkThumb && <ErrorImg>{errors.drinkThumb.message}</ErrorImg>}
 			</StyledImageInput>
 			<InputContainer>
-				<StyledInput
-					{...register("drink", {
-						required: { value: true, message: "Please fill the title field" },
-					})}
-					type="text"
-					placeholder="Enter item title"
-					autoComplete="off"
-				/>
-				<StyledInput
-					{...register("description", {
-						required: {
-							value: true,
-							message: "Please fill the description field",
-						},
-					})}
-					type="text"
-					placeholder="Enter about recipe"
-					autoComplete="off"
-				/>
+				<ErrorContainer>
+					<StyledInput
+						{...register("drink", {
+							required: { value: true, message: "Please fill the title field" },
+						})}
+						type="text"
+						placeholder="Enter item title"
+						autoComplete="off"
+					/>
+					{errors.drink && <Error>{errors.drink.message}</Error>}
+				</ErrorContainer>
+				<ErrorContainer>
+					<StyledInput
+						{...register("description", {
+							required: {
+								value: true,
+								message: "Please fill the description field",
+							},
+						})}
+						type="text"
+						placeholder="Enter about recipe"
+						autoComplete="off"
+					/>
+					{errors.description && <Error>{errors.description.message}</Error>}
+				</ErrorContainer>
 				<SelectContainer>
 					<StyledInput disabled={true} type="text" placeholder="Category" />
 					<Controller
@@ -106,16 +114,15 @@ const RecipeDescriptionFields = ({ getFile, register, control }) => {
 						rules={{ required: "Please choose a category" }}
 						render={({ field: { onChange, value } }) => (
 							<StyledSelect
-								// {...field}
-								// defaultValue={optionCategories[1]}
+								defaultValue={optionCategories[1]}
 								options={optionCategories}
 								value={getValue(value, optionCategories)}
 								onChange={(newValue) => onChange(newValue.label)}
-								placeholder="Cocktail"
 								classNamePrefix={"select"}
 							/>
 						)}
 					/>
+					{errors.category && <Error>{errors.category.message}</Error>}
 				</SelectContainer>
 				<SelectContainer>
 					<StyledInput disabled={true} type="text" placeholder="Glass" />
@@ -126,15 +133,15 @@ const RecipeDescriptionFields = ({ getFile, register, control }) => {
 						render={({ field: { onChange, value } }) => (
 							<StyledSelect
 								// {...field}
-								// defaultValue={glasses[1]}
+								defaultValue={optionGlasses[0]}
 								options={optionGlasses}
 								value={getValue(value, optionGlasses)}
 								onChange={(newValue) => onChange(newValue.label)}
-								placeholder="Highball glass"
 								classNamePrefix={"select"}
 							/>
 						)}
 					/>
+					{errors.glass && <Error>{errors.glass.message}</Error>}
 				</SelectContainer>
 			</InputContainer>
 		</Container>
@@ -145,6 +152,7 @@ RecipeDescriptionFields.propTypes = {
 	register: PropTypes.func.isRequired,
 	getFile: PropTypes.func.isRequired,
 	control: PropTypes.shape({}).isRequired,
+	errors: PropTypes.shape({}).isRequired,
 };
 
 export default RecipeDescriptionFields;
