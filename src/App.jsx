@@ -25,68 +25,68 @@ import { createTheme } from "@mui/material/styles";
 const theme = createTheme();
 
 function App() {
-	const dispatch = useDispatch();
-	const isRefreshing = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
-	useEffect(() => {
-		dispatch(refreshUser());
-	}, [dispatch]);
-	return isRefreshing ? (
-		<h2>Loading</h2>
-	) : (
-		<ThemeProvider theme={theme}>
-			<AppWrapper>
-				<Routes>
-					<Route
-						index
-						element={
-							<RestrictedRoute component={<WelcomePage />} redirectTo="/main" />
-						}
-					/>
-					<Route
-						path="/signin"
-						element={
-							<RestrictedRoute component={<SignInPage />} redirectTo="/main" />
-						}
-					/>
-					<Route
-						path="/signup"
-						element={
-							<RestrictedRoute component={<SignUpPage />} redirectTo="/main" />
-						}
-					/>
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+  return isRefreshing ? (
+    <h2>Loading</h2>
+  ) : (
+    <ThemeProvider theme={theme}>
+      <AppWrapper>
+        <Routes>
+          <Route
+            index
+            element={
+              <RestrictedRoute component={<WelcomePage />} redirectTo="/main" />
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <RestrictedRoute component={<SignInPage />} redirectTo="/main" />
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <RestrictedRoute component={<SignUpPage />} redirectTo="/main" />
+            }
+          />
 
-					<Route path="/" element={<SharedLayout />}>
-						<Route
-							path="/main"
-							element={<PrivateRoute component={<MainPage />} />}
-						/>
-						<Route
-							path="/drinks"
-							element={<PrivateRoute component={<DrinksPage />} />}
-						/>
-						<Route
-							path="/add"
-							element={<PrivateRoute component={<AddRecipePage />} />}
-						/>
-						<Route
-							path="/recipe/:recipeId"
-							element={<PrivateRoute component={<RecipePage />} />}
-						/>
-						<Route
-							path="/my"
-							element={<PrivateRoute component={<MyCoctailsPage />} />}
-						/>
-						<Route
-							path="/favorite"
-							element={<PrivateRoute component={<FavoritePage />} />}
-						/>
-						<Route path="*" element={<ErrorPage />} />
-					</Route>
-				</Routes>
-				<Toaster toastOptions={toastOptions} />
-			</AppWrapper>
-		</ThemeProvider>
-	);
+          <Route path="/" element={<SharedLayout />}>
+            <Route
+              path="/main"
+              element={<PrivateRoute component={<MainPage />} />}
+            />
+            <Route
+              path="/drinks"
+              element={<PrivateRoute component={<DrinksPage />} />}
+            />
+            <Route
+              path="/add"
+              element={<PrivateRoute component={<AddRecipePage />} />}
+            />
+            <Route
+              path="/recipe/:recipeId"
+              element={<PrivateRoute component={<RecipePage />} />}
+            />
+            <Route
+              path="/my"
+              element={<PrivateRoute component={<MyCoctailsPage />} />}
+            />
+            <Route
+              path="/favorite"
+              element={<PrivateRoute component={<FavoritePage />} />}
+            />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+        </Routes>
+        <Toaster toastOptions={toastOptions} />
+      </AppWrapper>
+    </ThemeProvider>
+  );
 }
 export default App;
