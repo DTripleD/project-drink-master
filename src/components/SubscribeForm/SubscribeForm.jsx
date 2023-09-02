@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-
+import React, { useState } from "react";
 import { selectSubscribe } from "../../redux/subscribe/selector";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
@@ -16,6 +16,8 @@ import {
 
 const SubscribeForm = () => {
   const user = useSelector(selectSubscribe);
+  const [isButtonDisabled, setButtonDisabled] = useState(true);
+  const [emailValue, setEmailValue] = useState('');
 
   const { register, handleSubmit, formState, reset } = useForm();
 
@@ -35,6 +37,12 @@ const SubscribeForm = () => {
     }
   };
 
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+    setEmailValue(inputValue); 
+    setButtonDisabled(inputValue === ''); 
+  };
+
   return (
     <FooterSubscribeWrapper onSubmit={handleSubmit(onSubmit)}>
       <FooterSubscribetext>
@@ -49,12 +57,14 @@ const SubscribeForm = () => {
           name="email"
           placeholder="Enter the email"
           {...register("email", {
-            required: true,
+            required: "Email is required",
           })}
+          value={emailValue} 
+          onChange={handleInputChange} 
         />
       </FooterSubscribeLabel>
 
-      <FooterSubscribeButton type="submit" disabled={!formState.isValid}>
+      <FooterSubscribeButton type="submit" disabled={isButtonDisabled}>
         Subscribe
       </FooterSubscribeButton>
     </FooterSubscribeWrapper>
@@ -62,51 +72,3 @@ const SubscribeForm = () => {
 };
 
 export default SubscribeForm;
-
-//  const SubscribeForm = () => {
-
-//          const dispatch = useDispatch();
-//          const user = useSelector(selectSubscribe);
-
-//          const { register, setValue, handleSubmit } = useForm();
-
-//          const [subscribeState, setSubscribeState] = useState('');
-
-//          const onSubmit = (data) => {
-//              dispatch(fetchSubscribe({ email: data.email }));
-//          };
-
-//          useEffect(() => {
-//              if (user?.email) {
-//                  setValue('email', user.email);
-//                  setSubscribeState(user.email);
-//              }
-//          }, [user, setValue]);
-
-//     return (
-//         <FooterSubscribeWrapper onSubmit={handleSubmit(onSubmit)}>
-
-//                 <FooterSubscribetext>
-//                 Subscribe up to our newsletter. Be in touch with latest news and special offers, etc.
-//                 </FooterSubscribetext>
-
-//             <FooterSubscribeLabel>
-//                 <FooterSubscribeInput
-//                     onChange={e => setSubscribeState(e.currentTarget.value)}
-//                     value={subscribeState}
-//                     type="email"
-//                     name="email"
-//                     placeholder="Enter the email"
-
-//                 />
-
-//             </FooterSubscribeLabel>
-
-//             <FooterSubscribeButton type="submit" disabled={!subscribeState}>
-//                 Subscribe
-//             </FooterSubscribeButton>
-//         </FooterSubscribeWrapper>
-//     );
-// };
-
-//export default SubscribeForm;
