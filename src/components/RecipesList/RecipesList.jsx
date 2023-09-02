@@ -20,10 +20,10 @@ export const RecipesList = () => {
   // const page = useSelector(selectPage);
   // const limit = isDesktop ? 9 : 8;
 
-  const [own, setOwn] = useState(null);
+  const [own, setOwn] = useState([]);
 
   useEffect(() => {
-    getMyCoctails().then((data) => setOwn(data));
+    getMyCoctails().then((data) => setOwn(data.cocktails));
   }, []);
 
   // useEffect(() => {
@@ -32,7 +32,7 @@ export const RecipesList = () => {
 
   return (
     <Section>
-      {own ? (
+      {own.length > 0 ? (
         <MyRecipesListStyled>
           {own.map((ownCocktail) => (
             <DrinkCard

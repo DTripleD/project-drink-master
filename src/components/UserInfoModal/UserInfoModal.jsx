@@ -8,6 +8,7 @@ import plus from "../../images/svg/add-photo.svg";
 import cross from "../../images/svg/close.svg";
 import editSVG from "../../images/svg/edit.svg";
 import defaultPhoto from "../../images/user@2x.png";
+import User from "../../images/user.png";
 
 import {
   BackDrop,
@@ -93,7 +94,7 @@ export const UserInfoModal = ({
         </CloseBtn>
         <form onSubmit={userInfoFormSubmit}>
           <AvatarWrapper>
-            <Avatar src={avatarURL} alt="" id="user_image" />
+            <Avatar src={avatarURL ? avatarURL : User} alt="" id="user_image" />
             <AvatarInput
               type="file"
               id="file_upload"
