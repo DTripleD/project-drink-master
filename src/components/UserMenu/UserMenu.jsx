@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import { LogoutBtn } from "../LogoutBtn/LogoutBtn";
 import { UserInfoModal } from "../UserInfoModal/UserInfoModal";
 
+import User from "../../images/user.png";
+
 import { selectUser } from "../../redux/auth/selectors";
 import {
   MenuWrapper,
@@ -74,7 +76,7 @@ const UserMenu = () => {
     <>
       <MenuWrapper open={openDrop} onClick={() => setOpenDrop(!openDrop)}>
         <UserPhotoWrapper>
-          <UserPhoto src={avatarURL} alt="" />
+          <UserPhoto src={avatarURL ? avatarURL : User} alt="" />
         </UserPhotoWrapper>
         <UserName>{name}</UserName>
         {openDrop && (
