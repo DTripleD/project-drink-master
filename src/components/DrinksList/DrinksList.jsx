@@ -1,14 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Li, Img, Div, P, P2, Ul, P3 } from "./DrinksList.styled";
-import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
+import { Li, Img, Div, P, P2, Ul } from "./DrinksList.styled";
 
 const DrinksList = ({ drinks }) => {
 	const location = useLocation();
 
 	return (
 		<>
-			{drinks && Array.isArray(drinks) && drinks.length > 0 ? (
+			{drinks && Array.isArray(drinks) && drinks.length > 0 && (
 				<Ul>
 					{drinks.map(({ _id, drink, drinkThumb, instructions }) => (
 						<Li key={_id}>
@@ -26,11 +25,6 @@ const DrinksList = ({ drinks }) => {
 						</Li>
 					))}
 				</Ul>
-			) : (
-				<>
-					<ErrorPageWrapper></ErrorPageWrapper>
-					<P3>Unfortunately, there is no such cocktails.... 😭</P3>
-				</>
 			)}
 		</>
 	);
