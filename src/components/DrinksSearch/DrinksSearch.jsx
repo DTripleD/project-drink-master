@@ -22,9 +22,7 @@ import {
 } from "./DrinksSearch.styled";
 import { getDrinksList } from "../../shared/api/drinksSearch";
 import { useDispatch, useSelector } from "react-redux";
-// import Pagination from "../Pagination/Pagination";
-import { PaginationWrapper } from "../Pagination/Pagination.styled";
-import { Container, Pagination, Stack } from "@mui/material";
+import PaginationComponent from "../Pagination/Pagination";
 import Loader from "../Loader/Loader";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import { P3 } from "../DrinksList/DrinksList.styled";
@@ -174,20 +172,11 @@ const DrinksSearch = () => {
 				</>
 			)}
 			{totalPages > 1 && (
-				// <Pagination totalPages={totalPages} page={page} changeNum={changeNum} />
-				<PaginationWrapper>
-					<Container>
-						<Stack spacing={5}>
-							<Pagination
-								count={totalPages}
-								page={page}
-								onChange={changeNum}
-								siblingCount={1}
-								sx={{ marginY: 3, marginX: "auto" }}
-							/>
-						</Stack>
-					</Container>
-				</PaginationWrapper>
+				<PaginationComponent
+					totalPages={totalPages}
+					page={page}
+					changeNum={changeNum}
+				/>
 			)}
 		</>
 	);
