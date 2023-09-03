@@ -62,9 +62,9 @@ const RecipeDescriptionFields = ({ getFile, register, control, errors }) => {
 			<StyledImageInput>
 				{image && <Image src={image} alt="photo" />}
 				<input
-					{...register("drinkThumb", {
-						required: { value: true, message: "Please add a photo" },
-					})}
+					// {...register("drinkThumb", {
+					// 	required: { value: true, message: "Please add a photo" },
+					// })}
 					// name="drinkThumb"
 					id="drinkThumb"
 					type="file"
@@ -78,7 +78,7 @@ const RecipeDescriptionFields = ({ getFile, register, control, errors }) => {
 					</AddImageButton>
 					<AddImageTitle>Add image</AddImageTitle>
 				</AddImageButtonContainer>
-				{errors.drinkThumb && <ErrorImg>{errors.drinkThumb.message}</ErrorImg>}
+				{/* {errors.drinkThumb && <ErrorImg>{errors.drinkThumb.message}</ErrorImg>} */}
 			</StyledImageInput>
 			<InputContainer>
 				<ErrorContainer>

@@ -41,7 +41,10 @@ const FavoriteItem = ({ recipe, searchParams }) => {
           text={"Delete"}
           ariaLabel={"button for click"}
           onClick={() => {
-            dispatch(deleteFavorite(recipe._id));
+            dispatch(deleteFavorite(recipe._id)).then(
+              dispatch(fetchFavorites(searchParams))
+            );
+            // dispatch(deleteFavorite(recipe._id));
             // dispatch(fetchFavorites(searchParams));
           }}
           type={"button"}

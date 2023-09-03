@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import RecipeTitle from "./RecipePageTitle.styled";
 
+
 const RecipePageTitle = ({ title }) => {
   return (
     <div>
@@ -9,7 +10,7 @@ const RecipePageTitle = ({ title }) => {
   );
 };
 RecipePageTitle.propTypes = {
-    title: PropTypes.string.isRequired,
+    title: PropTypes.string,
   };
   
 

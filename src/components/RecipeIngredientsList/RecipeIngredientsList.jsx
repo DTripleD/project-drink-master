@@ -1,9 +1,9 @@
 import { IMG,P1,P2,Li,List,DIV,IngredientTitle,Wrapper } from './RecipeIngredientsList.styled';
-
+import PropTypes from "prop-types";
 
 const RecipeIngredientsList = ({ ingridients }) => {
   if (!ingridients) {
-    return <p>Something went wrong,try again...</p>;
+    return <P1>Something went wrong,try again...</P1>;
   }
   const ingredientItems = ingridients.ingredients;
 
@@ -34,5 +34,13 @@ const RecipeIngredientsList = ({ ingridients }) => {
     </Wrapper>
   );
 };
+
+RecipeIngredientsList.propTypes = {
+  ingridients: PropTypes.object,
+  ingredients: PropTypes.array,
+  title: PropTypes.string,
+  measure: PropTypes.string,
+  ingredientThumb: PropTypes.string,
+}
 
 export default RecipeIngredientsList;

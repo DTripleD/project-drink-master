@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { logout } from "../../redux/auth/operations";
 import { useNavigate } from "react-router";
 import { LogoutBtn } from "../LogoutBtn/LogoutBtn";
 import { UserInfoModal } from "../UserInfoModal/UserInfoModal";
-
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import User from "../../images/user.png";
 
 import { selectUser } from "../../redux/auth/selectors";
@@ -24,6 +24,9 @@ const UserMenu = () => {
 	const [openDrop, setOpenDrop] = useState(false);
 	const [showInfoModal, setShowInfoModal] = useState(false);
 	const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+	const node = useRef();
+	useOnClickOutside(node, () => setOpenDrop(false));
 
 	const handleLogoutModalOpen = () => {
 		setShowLogoutModal(true);
@@ -84,10 +87,12 @@ const UserMenu = () => {
 				</UserPhotoWrapper>
 				<UserName>{name}</UserName>
 				{openDrop && (
-					<UserLogoModal
-						handleInfoModalOpen={handleInfoModalOpen}
-						handleLogoutModalOpen={handleLogoutModalOpen}
-					/>
+					<div ref={node}>
+						<UserLogoModal
+							handleInfoModalOpen={handleInfoModalOpen}
+							handleLogoutModalOpen={handleLogoutModalOpen}
+						/>
+					</div>
 				)}
 			</MenuWrapper>
 

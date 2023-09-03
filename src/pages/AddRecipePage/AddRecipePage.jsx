@@ -4,8 +4,11 @@ import FollowUs from "../../components/FollowUs/FollowUs";
 import PopularRecipe from "../../components/PopularRecipe/PopularRecipe";
 import {MainContainer} from '../../components/MainContainer/MainContainer'
 import {
-	GridContainer, FollowUsConatiner,
-	FollowUsTitle,
+	GridContainer,
+	GridSecondContainer,
+	GridThirdConatiner,
+	GridFourthConatiner,
+	Title,
 } from "./AddRecipePage.styled";
 
 const AddRecipePage = () => {
@@ -14,11 +17,16 @@ const AddRecipePage = () => {
 			<MainPageTitle title="Add recipe"></MainPageTitle>
 			<GridContainer>
 				<AddRecipeForm />
-				<FollowUsConatiner>
-					<FollowUsTitle>Follow Us</FollowUsTitle>
-					<FollowUs />
-				</FollowUsConatiner>
-				<PopularRecipe/>
+				<GridSecondContainer>
+					<GridThirdConatiner>
+						<Title>Follow Us</Title>
+						<FollowUs />
+					</GridThirdConatiner>
+					<GridFourthConatiner>
+						<Title>Popular recipe</Title>
+						<PopularRecipe />
+					</GridFourthConatiner>
+				</GridSecondContainer>
 			</GridContainer>
 		</MainContainer>
 	);

@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 
 export const SubContainer = styled.div`
 	margin-top: 80px;
+	position: relative;
 `;
 
 export const Textarea = styled.textarea`
@@ -33,4 +34,12 @@ export const Textarea = styled.textarea`
 		font-size: 17px;
 		line-height: 156%;
 	}
+`;
+
+export const Error = styled.p`
+	color: red;
+	font-size: 14px;
+	position: absolute;
+	bottom: 40px;
+	left: 18px;
 `;
