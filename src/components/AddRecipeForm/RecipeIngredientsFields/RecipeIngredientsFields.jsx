@@ -48,7 +48,7 @@ const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 
 	const handleIngredientAdd = () => {
 		setIngredientsList((prevState) => {
-			return [...prevState, { ingredient: "", amount: "", unit: "ml" }];
+			return [...prevState, { ingredient: "Light rum", amount: "", unit: "ml" }];
 		});
 		setCount(count + 1);
 	};
