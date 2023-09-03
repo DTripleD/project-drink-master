@@ -43,10 +43,20 @@ const AddRecipeForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
+    if (file === null) {
+      toast.error("Please add an image");
+    }
+    console.log(ingredientsList);
+    if (ingredientsList.length === 0) {
+			toast.error("Please add at least 2 ingredient");
+		}
+
     const newIngredientsList = ingredientsList.map((ingredient) => ({
       ...ingredient.ingredient,
       measure: ingredient.amount.concat(` ${ingredient.unit}`),
     }));
+
+    console.log(newIngredientsList);
 
     formData.append("drink", data.drink);
     formData.append("description", data.description);
@@ -89,25 +99,26 @@ const AddRecipeForm = () => {
   }, [errors]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <RecipeDescriptionFields
-        getFile={getFile}
-        register={register}
-        control={control}
-        errors={errors}
-      />
-      <RecipeIngredientsFields
-        register={register}
-        control={control}
-        ingredientsList={ingredientsList}
-        setIngredientsList={setIngredientsList}
-      />
-      <RecipePreparationFields register={register} />
-      <AddButton type="submit">Add</AddButton>
-    </form>
-  );
+		<form onSubmit={handleSubmit(onSubmit)}>
+			<RecipeDescriptionFields
+				getFile={getFile}
+				register={register}
+				control={control}
+				errors={errors}
+			/>
+			<RecipeIngredientsFields
+				register={register}
+				errors={errors}
+				ingredientsList={ingredientsList}
+				setIngredientsList={setIngredientsList}
+			/>
+			<RecipePreparationFields register={register} errors={errors} />
+			<AddButton type="submit">Add</AddButton>
+		</form>
+	);
 };
 
-AddRecipeForm.propTypes = {};
+AddRecipeForm.propTypes = {
+};
 
 export default AddRecipeForm;
