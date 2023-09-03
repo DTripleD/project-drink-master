@@ -13,7 +13,8 @@ export const StyledOtherButton = styled(Link)`
 
   border-radius: 42px;
   color: ${(props) => props.theme.colors.blue};
-  background: ${(props) => props.theme.colors.white};
+  background: ${({ theme }) =>
+    theme.currentTheme === "light" ? theme.colors.black : theme.colors.white};
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);
@@ -21,14 +22,18 @@ export const StyledOtherButton = styled(Link)`
   padding: 14px 40px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  border: 1px solid transparent;
+  border: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light" ? theme.colors.white : "transparent"};
   margin-bottom: 94px;
   transition: background-color 400ms ease, border-color 400ms ease,
     color 400ms ease;
   &:hover {
-    background-color: transparent;
+    background-color: ${({ theme }) =>
+      theme.currentTheme === "light" ? theme.colors.white : "transparent"};
     border-color: ${(props) => props.theme.colors.white};
-    color: ${(props) => props.theme.colors.white};
+    color: ${({ theme }) =>
+      theme.currentTheme === "light" ? theme.colors.black : theme.colors.white};
   }
 
   &:active {

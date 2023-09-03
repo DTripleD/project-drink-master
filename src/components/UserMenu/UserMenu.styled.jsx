@@ -4,7 +4,10 @@ export const UserPhotoWrapper = styled.div`
   max-width: 32px;
   max-height: 32px;
   border-radius: 50%;
-  background: ${(props) => props.theme.colors.white};
+  background: ${({ theme }) =>
+    theme.currentTheme === "light"
+      ? theme.colors.backgroundLight
+      : theme.colors.white};
   overflow: hidden;
   @media (min-width: 768px) {
     max-width: 44px;

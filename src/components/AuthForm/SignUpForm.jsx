@@ -33,7 +33,7 @@ export const SignUpForm = () => {
   //   const isClicked = useSelector(selectIsClicked);
   const [isClicked, setIsClicked] = useState(false);
   const currentTheme = useSelector(selectTheme);
-  const theme = theme(currentTheme);
+  const selectedTheme = theme(currentTheme);
 
   //   const [searchParams] = useSearchParams();
   //   const verificationToken = searchParams.get('verificationToken');
@@ -155,12 +155,12 @@ export const SignUpForm = () => {
                 />
                 {touched.password && !isClicked ? (
                   <StyledAiOutlineEyeInvisible
-                    color={theme.colors.white}
+                    color={selectedTheme.colors.white}
                     onClick={openPassword}
                   />
                 ) : touched.password && isClicked ? (
                   <StyledAiOutlineEye
-                    color={theme.colors.white}
+                    color={selectedTheme.colors.white}
                     onClick={openPassword}
                   />
                 ) : (

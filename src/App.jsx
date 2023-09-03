@@ -20,10 +20,11 @@ import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "./shared/toasterOptions/toasterOptions";
-import { ThemeProvider } from "@mui/material/styles";
 import { selectTheme } from "./redux/theme/selectors";
 import theme from "./shared/theme";
 
+// import Loader from "./components/Loader/Loader";
+import { ThemeProvider } from "@emotion/react";
 import Loader from "./components/Loader/Loader";
 
 function App() {

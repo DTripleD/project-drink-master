@@ -5,7 +5,11 @@ export const SeeButtonStyled = styled.button`
   height: 46px;
   border-radius: 42px;
   background-color: ${(props) => props.theme.colors.blue};
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
   color: ${(props) => props.theme.colors.white};
   font-size: 14px;
   font-weight: 600;

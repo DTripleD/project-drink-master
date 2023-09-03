@@ -4,7 +4,7 @@ export const Backdrop = styled.div`
   width: 100%;
   height: 100%;
 
-  background-color: #0a0a11;
+  background-color: ${({ theme }) => theme.colors.black};
   /* background-image: linear-gradient(
     to right,
     rgba(47, 48, 58, 0.4),

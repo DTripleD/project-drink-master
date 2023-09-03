@@ -4,7 +4,7 @@ import { HeroSection } from "../../components/HeroSection/HeroSection";
 import { OtherDrinksButton } from "../../components/Button/OtherDrinksButton/OtherDrinks";
 import { getMainPage } from "../../shared/api/addRecipePageQuery";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
-import { CircularProgress } from "@mui/material";
+import Loader from "../../components/Loader/Loader";
 
 const MainPage = () => {
   // const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const MainPage = () => {
             />
           ))
         ) : (
-          <CircularProgress size={100} />
+          <Loader />
         )}
 
         <OtherDrinksButton />

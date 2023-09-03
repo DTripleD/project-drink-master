@@ -67,7 +67,11 @@ export const StyledInput = styled(Field)`
   box-sizing: border-box;
   height: 54px;
   border-radius: 200px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
   opacity: 0.800000011920929;
   background-color: transparent;
   padding: 18px 24px;
@@ -135,7 +139,7 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledError = styled(ErrorMessage)`
- position: absolute;
+  position: absolute;
   margin-top: 8px;
   font-size: 12px;
   font-weight: 400;

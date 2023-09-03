@@ -1,11 +1,12 @@
 const theme = (currentTheme) => ({
   colors: {
-    black: currentTheme === "dark" ? "#0A0A11" : "#F3F3F3",
+    black: currentTheme === "dark" ? "#0A0A11" : "#f3f3f3",
     blue: "#161F37",
-    grey: currentTheme === "dark" ? "#434D67" : "#0cc20c",
+    grey: "#434D67",
     lightBlue: "#4070CD",
     green: "#BCE6D2",
-    white: currentTheme === "dark" ? "#F3F3F3" : "#0A0A11",
+    white: currentTheme === "dark" ? "#f3f3f3" : "#0A0A11",
+    backgroundLight: "#dee4e7",
   },
   fonst: {},
   breakpoint: {
@@ -18,6 +19,7 @@ const theme = (currentTheme) => ({
     tablet: "screen and (min-width: 768px)",
     desktop: "screen and (min-width: 1440px)",
   },
+  currentTheme,
 });
 
 export default theme;

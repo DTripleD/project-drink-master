@@ -2,7 +2,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectTheme } from "../../redux/theme/selectors";
 import { toggleTheme } from "../../redux/theme/themeSlice";
-import { Slider, SwitchInput, SwitchLabel } from "./ThemeToggler.styled";
+import {
+  Slider,
+  SwitchInput,
+  SwitchLabel,
+  SliderBefore,
+} from "./ThemeToggler.styled";
 
 const ThemeToggler = () => {
   const dispatch = useDispatch();
@@ -20,7 +25,9 @@ const ThemeToggler = () => {
         checked={isChecked}
         onChange={handleToggleTheme}
       />
-      <Slider className={`slider ${isChecked ? "active" : ""}`} />
+      <Slider className={`slider ${isChecked ? "active" : ""}`}>
+        <SliderBefore className={`slider ${isChecked ? "active" : ""}`} />
+      </Slider>
     </SwitchLabel>
   );
 };
