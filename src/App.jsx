@@ -20,23 +20,27 @@ import PrivateRoute from "./components/PrivateRoute";
 import RestrictedRoute from "./components/RestrictedRoute";
 import { Toaster } from "react-hot-toast";
 import { toastOptions } from "./shared/toasterOptions/toasterOptions";
-import { ThemeProvider } from "@mui/material/styles";
-import { createTheme } from "@mui/material/styles";
+import { selectTheme } from "./redux/theme/selectors";
+import theme from "./shared/theme";
 
+// import Loader from "./components/Loader/Loader";
+import { ThemeProvider } from "@emotion/react";
 import Loader from "./components/Loader/Loader";
-const theme = createTheme();
 
 function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
+  const currentTheme = useSelector(selectTheme);
 
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  useEffect(() => {}, [currentTheme]);
   return isRefreshing ? (
     <Loader />
   ) : (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme(currentTheme)}>
       <AppWrapper>
         <Routes>
           <Route

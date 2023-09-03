@@ -2,27 +2,26 @@ import styled from "@emotion/styled";
 
 export const StyledFooter = styled.footer`
   padding-top: 40px;
-  border-top: 1px solid rgba(243, 243, 243, 0.2);
-  
+  border-top: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
 
   @media screen and (min-width: 768px) {
-    
     padding-top: 80px;
     padding-bottom: 24px;
-   
+
     width: 100%;
     box-sizing: border-box;
-
-    
   }
 
-  @media screen and (min-width: 1440px){
+  @media screen and (min-width: 1440px) {
     align-items: center;
-	  justify-content: space-between;
-	 
-	  width: 100%;
-	  box-sizing: border-box;
-    
+    justify-content: space-between;
+
+    width: 100%;
+    box-sizing: border-box;
   }
 `;
 
@@ -30,9 +29,9 @@ export const StyledWrapper = styled.div`
   @media screen and (min-width: 768px) {
     margin: 0 auto 80px auto;
     display: flex;
-    
+
     justify-content: space-between;
-    
+
     width: 100%;
   }
 
@@ -46,14 +45,13 @@ export const StyledContainer = styled.div`
     width: 100%;
     // margin: 0 auto;
     display: flex;
-     margin-bottom: 40px;
+    margin-bottom: 40px;
     justify-content: space-between;
   }
 
   @media screen and (min-width: 768px) {
     display: flex;
     flex-direction: column;
-    
   }
 
   @media screen and (min-width: 1440px) {
@@ -67,25 +65,24 @@ export const StyledContainer = styled.div`
 
 export const StyledBox = styled.div`
   padding-top: 0;
-  
-   @media screen and (min-width: 768px) {
-     margin-bottom: 40px;
-    
+
+  @media screen and (min-width: 768px) {
+    margin-bottom: 40px;
   }
-  
 `;
 
 export const StyledBottomWrapper = styled.div`
   * {
     font-size: 12px;
     margin: 0;
-    color: rgba(243, 243, 243, 0.2);
+    color: ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
   }
 
   display: flex;
   flex-direction: column;
-  
-  
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
@@ -98,7 +95,10 @@ export const StyledFlexWrapper = styled.div`
   display: flex;
   gap: 14px;
   margin-top: 8px;
-  color: rgba(243, 243, 243, 0.2);
+  color: ${({ theme }) =>
+    theme.currentTheme === "light"
+      ? theme.colors.white
+      : "rgba(243, 243, 243, 0.2)"};
 
   @media screen and (min-width: 768px) {
     gap: 18px;

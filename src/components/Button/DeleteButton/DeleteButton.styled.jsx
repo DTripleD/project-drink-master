@@ -10,7 +10,11 @@ export const StyledButton = styled.button`
     scale 400ms ease;
 
   background: ${(props) => props.theme.colors.blue};
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
   color: ${(props) => props.theme.colors.white};
 
   margin-top: ${(props) => (props.margintop ? props.margintop : "0px")};

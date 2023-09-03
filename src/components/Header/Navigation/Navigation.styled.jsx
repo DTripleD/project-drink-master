@@ -4,7 +4,11 @@ import { NavLink } from "react-router-dom";
 export const StyledLink = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 40px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
   text-decoration: none;
   color: ${(props) => props.theme.colors.white};
   background-color: transparent;
@@ -15,7 +19,8 @@ export const StyledLink = styled(NavLink)`
 
   &.active {
     background-color: ${(props) => props.theme.colors.blue};
-    color: ${(props) => props.theme.colors.white};
+    color: ${({ theme }) =>
+      theme.currentTheme === "light" ? theme.colors.black : theme.colors.white};
 
     & :hover {
       color: ${(props) => props.theme.colors.white};
