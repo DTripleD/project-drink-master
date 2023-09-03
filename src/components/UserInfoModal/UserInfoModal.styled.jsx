@@ -1,26 +1,26 @@
 import styled from "@emotion/styled";
 
-// export const getStyledCloseIcon = (component) => styled(component)`
-// 	width: 38px;
-// 	height: 38px;
-// 	fill: ${(props) => props.theme.colors.white};
-// `;
+export const getStyledCloseIcon = (component) => styled(component)`
+	width: 38px;
+	height: 38px;
+	fill: ${(props) => props.theme.colors.white};
+`;
 
-// export const getStyledEdit = (component) => styled(component)`
-// 	width: 20px;
-// 	height: 20px;
-// `;
+export const getStyledEdit = (component) => styled(component)`
+	width: 20px;
+	height: 20px;
+`;
 
-// export const getStyledPlus = (component) => styled(component)`
-// 	width: 28px;
-// 	height: 28px;
-// 	fill: ${(props) => props.theme.colors.white};
+export const getStyledPlus = (component) => styled(component)`
+	width: 28px;
+	height: 28px;
+	fill: ${(props) => props.theme.colors.white};
 
-// 	@media (min-width: 768px) {
-// 		width: 32px;
-// 		height: 32px;
-// 	}
-// `;
+	@media (min-width: 768px) {
+		width: 32px;
+		height: 32px;
+	}
+`;
 
 export const BackDrop = styled.div`
 	position: fixed;
@@ -32,10 +32,10 @@ export const BackDrop = styled.div`
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(0, 0, 0, 0.8);
-	z-index: 800;
 `;
 
 export const Modal = styled.div`
+	position: relative;
 	width: 335px;
 	padding: 50px 25px;
 	background: ${(props) => props.theme.colors.blue};
@@ -99,15 +99,14 @@ export const AvatarInput = styled.input`
 	display: none;
 `;
 
-export const AvatarIcon = styled.svg`
+export const AvatarIcon = styled.label`
 	position: absolute;
 	bottom: -15%;
 	left: 46%;
 	width: 28px;
 	height: 28px;
-
-	stroke: ${(props) => props.theme.colors.white};
 	background-color: #546081;
+	border: none;
 	border-radius: 50%;
 
 	@media (min-width: 768px) {
@@ -147,9 +146,9 @@ export const Input = styled.input`
 	}
 `;
 
-export const InputIcon = styled.svg`
+export const InputIcon = styled.div`
 	position: absolute;
-	top: 5px;
+	top: 0;
 	right: 24px;
 
 	display: none;
