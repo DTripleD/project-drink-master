@@ -9,11 +9,10 @@ export const Section = styled.section`
   }
 `;
 export const MyRecipesListStyled = styled.ul`
-  /* position: relative;
-  z-index: 1; */
   display: grid;
   row-gap: 28px;
   grid-template-columns: repeat(1, 1fr);
+  margin-bottom: 80px;
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 20px;
