@@ -10,7 +10,6 @@ const RecipePreparationFields = ({ register, errors }) => {
 				{...register("instructions", {
 					required: { value: true, message: "Please add instructions" },
 				})}
-				// name="instructions"
 				placeholder="Enter the recipe"
 			/>
 			{errors.instructions && <Error>{errors.instructions.message}</Error>}

@@ -172,6 +172,7 @@ export const StyledSelect = styled(Select)`
 	}
 
 	.select__control {
+		cursor: pointer;
 		position: relative;
 		width: 190px;
 		height: 34px;
