@@ -117,6 +117,24 @@ const DrinksSearch = () => {
 		});
 	};
 
+	const handleCategoryChange = (selectedCategory) => {
+		setSearchParams((prevSearchParams) => ({
+			...prevSearchParams,
+			category: selectedCategory?.label || "",
+			page: "1",
+			limit: itemsPerPage,
+		}));
+	};
+
+	const handleIngridientChange = (selectedIngridient) => {
+		setSearchParams((prevSearchParams) => ({
+			...prevSearchParams,
+			ingredients: selectedIngridient?.label || "",
+			page: "1",
+			limit: itemsPerPage,
+		}));
+	};
+
 	const changeNum = (_, num) => {
 		updatedParams.set("page", num.toString());
 		setSearchParams(updatedParams);
@@ -144,7 +162,10 @@ const DrinksSearch = () => {
 							defaultValue={optionCategories[0]}
 							options={optionCategories}
 							value={value}
-							onChange={onChange}
+							onChange={(selectedOption) => {
+								onChange(selectedOption);
+								handleCategoryChange(selectedOption);
+							}}
 							classNamePrefix={"select"}
 						/>
 					)}
@@ -157,7 +178,10 @@ const DrinksSearch = () => {
 							defaultValue={optionIngredients[0]}
 							options={optionIngredients}
 							value={value}
-							onChange={onChange}
+							onChange={(selectedOption) => {
+								onChange(selectedOption);
+								handleIngridientChange(selectedOption);
+							}}
 							classNamePrefix={"select"}
 						/>
 					)}
