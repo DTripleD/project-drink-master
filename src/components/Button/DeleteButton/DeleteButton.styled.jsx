@@ -5,7 +5,9 @@ export const StyledButton = styled.button`
   height: 54px;
   border-radius: 50%;
   padding: 0px;
-  transition: 0.3s ease;
+  /* transition: 0.3s ease; */
+  transition: background-color 0.3s ease, box-shadow 400ms ease,
+    scale 400ms ease;
 
   background: ${(props) => props.theme.colors.blue};
   border: 1px solid rgba(243, 243, 243, 0.2);
@@ -17,6 +19,8 @@ export const StyledButton = styled.button`
 
   &:hover,
   :focus {
+    transform: scale(0.98);
+    box-shadow: 0 0 12px rgba(243, 243, 243, 0.5);
     background: ${(props) => props.theme.colors.white};
     color: ${(props) => props.theme.colors.black};
   }
