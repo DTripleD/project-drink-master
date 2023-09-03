@@ -44,8 +44,8 @@ export const SignInForm = () => {
       }
 
       toast.success("Authentication successful");
-      dispatch(refreshUser());
-      return;
+      // dispatch(refreshUser());
+      return res;
     } catch (error) {
       console.log(error);
     }
