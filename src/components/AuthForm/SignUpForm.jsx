@@ -24,8 +24,9 @@ import {
   StyledAiOutlineEyeInvisible,
   StyledPasswordDiv,
 } from "./AuthForm.styled";
-import theme from "../../shared/theme";
+import { toast } from "react-hot-toast";
 import { selectTheme } from "../../redux/theme/selectors";
+import theme from "../../shared/theme";
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -54,8 +55,18 @@ export const SignUpForm = () => {
         password: "",
       }}
       validationSchema={SignUpSchema}
-      onSubmit={(values) => {
-        dispatch(signup(values));
+      onSubmit={async (values) => {
+        try {
+          const res = await dispatch(signup(values));
+          if (res.payload.status === 409) {
+            toast.error(res.payload.data.message);
+            throw new Error(res.payload.data.message);
+          }
+          toast.success("Registration success");
+          return res;
+        } catch (error) {
+          console.log(error);
+        }
       }}
     >
       {({ errors, touched, handleChange, setFieldTouched }) => (

@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const getStyledCloseIcon = (component) => styled(component)`
 	width: 38px;
 	height: 38px;
-	fill: #ffffff;
+	fill: ${(props) => props.theme.colors.white};
 `;
 
 export const BackDrop = styled.div`

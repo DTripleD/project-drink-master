@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { PaginationWrapper } from "./Pagination.styled";
-import { Container, Stack } from "@mui/material";
+import { Container, Pagination, Stack } from "@mui/material";
 
-const Pagination = ({ totalPages, page, changeNum }) => {
+const PaginationComponent = ({ totalPages, page, changeNum }) => {
 	return (
 		<PaginationWrapper>
 			<Container>
@@ -21,10 +21,10 @@ const Pagination = ({ totalPages, page, changeNum }) => {
 	);
 };
 
-Pagination.propTypes = {
+PaginationComponent.propTypes = {
 	totalPages: PropTypes.number.isRequired,
 	page: PropTypes.number.isRequired,
 	changeNum: PropTypes.func.isRequired,
 };
 
-export default Pagination;
+export default PaginationComponent;
