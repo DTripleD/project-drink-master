@@ -119,6 +119,7 @@ export const SelectsContainer = styled.div`
 `;
 
 export const SelectContainer = styled.div`
+	position: relative;
 	padding: 16px 18px;
 	display: flex;
 	justify-content: space-between;
@@ -132,6 +133,14 @@ export const SelectContainer = styled.div`
 		height: 56px;
 		padding: 14px 24px;
 	}
+`;
+
+export const Error = styled.p`
+	color: red;
+	font-size: 14px;
+	position: absolute;
+	bottom: -17px;
+	left: 16px;
 `;
 
 export const StyledSelect = styled(Select)`

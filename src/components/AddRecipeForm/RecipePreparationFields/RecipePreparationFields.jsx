@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import SubTitle from "../SubTitle/SubTitle";
-import { SubContainer, Textarea } from "./RecipePreparationFields.styled";
+import { SubContainer, Textarea, Error } from "./RecipePreparationFields.styled";
 
-const RecipePreparationFields = ({ register }) => {
+const RecipePreparationFields = ({ register, errors }) => {
 	return (
 		<SubContainer>
 			<SubTitle title="Recipe Preparation"></SubTitle>
@@ -13,12 +13,14 @@ const RecipePreparationFields = ({ register }) => {
 				// name="instructions"
 				placeholder="Enter the recipe"
 			/>
+			{errors.instructions && <Error>{errors.instructions.message}</Error>}
 		</SubContainer>
 	);
 };
 
 RecipePreparationFields.propTypes = {
-	register: PropTypes.func.isRequired
+	register: PropTypes.func.isRequired,
+	errors: PropTypes.shape({}).isRequired,
 };
 
 export default RecipePreparationFields;

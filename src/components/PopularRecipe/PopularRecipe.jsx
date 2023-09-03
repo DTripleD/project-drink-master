@@ -1,7 +1,15 @@
 import PropTypes from "prop-types";
 import { getPopularReceipts } from "../../shared/api/addRecipePageQuery";
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import {
+  PopularList,
+  PopularItem,
+	PopularLink,
+	Image,
+	PopularTitle,
+	PopularText,
+} from "./PopularRecipe.styled";
 
 const PopularRecipe = () => {
   const [popular, setPopular] = useState([]);
@@ -14,27 +22,26 @@ const PopularRecipe = () => {
 			})
 			.catch((err) => console.log(err));
   }, []);
-  console.log(popular)
 
   return (
-		<ul>
+		<PopularList>
 			{popular.length > 0 &&
 				popular.map(({ _id, drink, drinkThumb, instructions }) => (
-					<li key={_id}>
-						<Link to={`/recipe/${_id}`} state={{ from: location }}>
-							<img
+					<PopularItem key={_id}>
+						<PopularLink to={`/recipe/${_id}`} state={{ from: location }}>
+							<Image
 								src={drinkThumb ? drinkThumb : "/public/plug-b.png"}
 								alt={drink}
 								loading="lazy"
 							/>
 							<div>
-								<h4>{drink}</h4>
-								<p>{instructions}</p>
+								<PopularTitle>{drink}</PopularTitle>
+								<PopularText>{instructions}</PopularText>
 							</div>
-						</Link>
-					</li>
+						</PopularLink>
+					</PopularItem>
 				))}
-		</ul>
+		</PopularList>
 	);
 };
 

@@ -13,6 +13,7 @@ import {
 	StyledInput,
 	SelectsContainer,
 	SelectContainer,
+	Error,
 	StyledSelect,
 	StyledUnitSelect,
 	DeleteButton,
@@ -22,7 +23,12 @@ import { ReactComponent as Plus } from "../../../images/svg/add-recipe-page/plus
 import { ReactComponent as X } from "../../../images/svg/add-recipe-page/x.svg";
 import { selectIngredients } from "../../../redux/drinks/drinksSelectors";
 
-const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
+const RecipeIngredientsFields = ({
+	ingredientsList,
+	setIngredientsList,
+	register,
+	errors,
+}) => {
 	const UNITS = ["ml", "l", "oz", "cup", "qt", "tsp", "tbsp"];
 	const optionUnits = UNITS.map((unit) => ({
 		value: unit,
@@ -48,7 +54,10 @@ const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 
 	const handleIngredientAdd = () => {
 		setIngredientsList((prevState) => {
-			return [...prevState, { ingredient: "Light rum", amount: "", unit: "ml" }];
+			return [
+				...prevState,
+				{ ingredient: "Light rum", amount: "", unit: "ml" },
+			];
 		});
 		setCount(count + 1);
 	};
@@ -89,7 +98,7 @@ const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 					</CounterButton>
 					<CountValue>{count}</CountValue>
 					<CounterButton type="button" onClick={handleIngredientAdd}>
-						<Plus style={{ width: 16, height: 16}} />
+						<Plus style={{ width: 16, height: 16 }} />
 					</CounterButton>
 				</Counter>
 			</SubTitleContainer>
@@ -107,11 +116,16 @@ const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 							/>
 							<SelectContainer>
 								<StyledInput
+									// {...register("amount", {
+									// 	required: { value: true, message: "Please add amount" },
+									// })}
+									autoFocus="on"
 									type="text"
 									name="amount"
 									onChange={(e) => handleChangeAmount(e, index)}
 									autoComplete="off"
 								/>
+								{/* {errors.amount && <Error>{errors.amount.message}</Error>} */}
 								<StyledUnitSelect
 									name="unit"
 									options={optionUnits}
