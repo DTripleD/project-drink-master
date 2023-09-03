@@ -25,7 +25,6 @@ export const addFavorite = createAsyncThunk(
   async (recipeId, thunkAPI) => {
     try {
       const response = await instance.patch(`/favorite/${recipeId}`);
-      console.log(" response.data", response.data);
 
       return response.data;
     } catch (e) {
