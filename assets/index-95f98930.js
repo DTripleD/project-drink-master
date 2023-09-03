@@ -824,8 +824,6 @@ Valid keys: `+JSON.stringify(Object.keys(W),null,"  "));var A=F(M,B,ce,me,P+"."+
   padding: 0 20px;
   margin: 0 auto;
 
-  outline: 1px solid red;
-
   @media screen and (min-width: 768px) {
     max-width: none;
     width: 768px;
