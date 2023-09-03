@@ -13,6 +13,7 @@ import { useState } from "react";
 
 import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
 import { MainContainer } from "../MainContainer/MainContainer";
+import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 const Header = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -27,6 +28,8 @@ const Header = () => {
         <Logo />
 
         <MediaQuery minWidth={1440}>{isLoggedIn && <Navigation />}</MediaQuery>
+
+        <ThemeToggler />
 
         <UserMenu />
 

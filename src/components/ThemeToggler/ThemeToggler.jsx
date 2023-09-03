@@ -9,7 +9,7 @@ import {
   SliderBefore,
 } from "./ThemeToggler.styled";
 
-const ThemeToggler = () => {
+export const ThemeToggler = () => {
   const dispatch = useDispatch();
   const theme = useSelector(selectTheme);
   const isChecked = theme === "dark" ? false : true;

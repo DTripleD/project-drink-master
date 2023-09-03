@@ -6,12 +6,6 @@ export const HeaderStyled = styled.header`
   justify-content: space-between;
   padding: 20px 0;
 
-  border-bottom: 1px solid
-    ${({ theme }) =>
-      theme.currentTheme === "light"
-        ? theme.colors.white
-        : "rgba(243, 243, 243, 0.2)"};
-
   width: 100%;
   box-sizing: border-box;
 `;

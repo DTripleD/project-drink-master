@@ -2,11 +2,6 @@ import styled from "@emotion/styled";
 
 export const StyledFooter = styled.footer`
   padding-top: 40px;
-  border-top: 1px solid
-    ${({ theme }) =>
-      theme.currentTheme === "light"
-        ? theme.colors.white
-        : "rgba(243, 243, 243, 0.2)"};
 
   @media screen and (min-width: 768px) {
     padding-top: 80px;
