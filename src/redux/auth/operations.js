@@ -79,9 +79,9 @@ export const updateAvatar = createAsyncThunk(
           "content-type": "multipart/form-data",
         },
       });
-      return data;
+      return data.avatarURL;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -92,10 +92,10 @@ export const updateUserName = createAsyncThunk(
   async (credentials, thunkAPI) => {
     console.log(credentials);
     try {
-      const { data } = await instance.patch("users", {name: credentials});
-      return data;
+      const { data } = await instance.patch("users", { name: credentials });
+      return data.name;
     } catch (error) {
-      console.log(error)
+      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
