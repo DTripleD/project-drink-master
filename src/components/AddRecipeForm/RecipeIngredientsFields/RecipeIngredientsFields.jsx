@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
-// import { Controller, useForm } from "react-hook-form";
 import SubTitle from "../SubTitle/SubTitle";
 import {
 	SubTitleContainer,
@@ -26,8 +25,6 @@ import { selectIngredients } from "../../../redux/drinks/drinksSelectors";
 const RecipeIngredientsFields = ({
 	ingredientsList,
 	setIngredientsList,
-	register,
-	errors,
 }) => {
 	const UNITS = ["ml", "l", "oz", "cup", "qt", "tsp", "tbsp"];
 	const optionUnits = UNITS.map((unit) => ({
@@ -116,16 +113,12 @@ const RecipeIngredientsFields = ({
 							/>
 							<SelectContainer>
 								<StyledInput
-									// {...register("amount", {
-									// 	required: { value: true, message: "Please add amount" },
-									// })}
 									autoFocus="on"
 									type="text"
 									name="amount"
 									onChange={(e) => handleChangeAmount(e, index)}
 									autoComplete="off"
 								/>
-								{/* {errors.amount && <Error>{errors.amount.message}</Error>} */}
 								<StyledUnitSelect
 									name="unit"
 									options={optionUnits}
@@ -152,45 +145,3 @@ RecipeIngredientsFields.propTypes = {
 };
 
 export default RecipeIngredientsFields;
-
-// const getValue = (value, options) => {
-// 	value ? options.find((option) => option.value === value) : "";
-// };
-
-// const { watch } = useForm();
-
-// console.log(watch("ingredient"));
-
-// <SelectContainer>
-// 	<StyledInput
-// 		type="number"
-// 		name="amount"
-// 		onChange={handleIngredientChange}
-// 		// placeholder="Unit"
-// 		// {...register("amount", {
-// 		// 	required: {
-// 		// 		value: true,
-// 		// 		message: "Please fill the amount field",
-// 		// 	},
-// 		// })}
-// 	/>
-// 	{/* <Controller
-// 		control={control}
-// 		name="measure"
-// 		rules={{ required: "Please choose unit" }}
-// 		render={({ field: { onChange, value } }) => ( */}
-// 	<StyledSelect
-// 		name="measure"
-// 		// {...field}
-// 		// defaultValue={optionCategories[1]}
-// 		options={optionUnits}
-// 		// value={getValue(value, optionUnits)}
-// 		// onChange={(newValue) => onChange(newValue.value)}
-// 		// onChange={handleIngredientChange}
-// 		onChange={hadleSelectChangeMes}
-// 		// placeholder="Cocktail"
-// 		classNamePrefix={"select"}
-// 		isSearchable
-// 	/>
-// 	{/* // )} // /> */}
-// </SelectContainer>;
