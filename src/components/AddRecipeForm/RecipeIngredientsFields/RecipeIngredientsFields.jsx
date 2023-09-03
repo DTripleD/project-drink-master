@@ -13,6 +13,7 @@ import {
 	StyledInput,
 	SelectsContainer,
 	SelectContainer,
+	Error,
 	StyledSelect,
 	StyledUnitSelect,
 	DeleteButton,
@@ -25,6 +26,8 @@ import { selectIngredients } from "../../../redux/drinks/drinksSelectors";
 const RecipeIngredientsFields = ({
 	ingredientsList,
 	setIngredientsList,
+	register,
+	errors,
 }) => {
 	const UNITS = ["ml", "l", "oz", "cup", "qt", "tsp", "tbsp"];
 	const optionUnits = UNITS.map((unit) => ({
@@ -51,13 +54,15 @@ const RecipeIngredientsFields = ({
 
 	const handleIngredientAdd = () => {
 		setIngredientsList((prevState) => {
-			return [...prevState, { ingredient: "", amount: "", unit: "ml" }];
+			return [
+				...prevState,
+				{ ingredient: "Light rum", amount: "", unit: "ml" },
+			];
 		});
 		setCount(count + 1);
 	};
 
 	const handleChangeIngredient = (e, index) => {
-	
 		const newIngredientsList = [...ingredientsList];
 		newIngredientsList[index] = {
 			...newIngredientsList[index],
@@ -67,21 +72,21 @@ const RecipeIngredientsFields = ({
 	};
 
 	const handleChangeAmount = (e, index) => {
-			let amount = e.currentTarget.value;
-			if (amount < 0) {
-				amount = 0;
-				e.currentTarget.value = 0;
-			}
-			const newIngredientsList = [...ingredientsList];
-			newIngredientsList[index].amount = amount;
-			setIngredientsList(newIngredientsList);
-		};
+		let amount = e.currentTarget.value;
+		if (amount < 0) {
+			amount = 0;
+			e.currentTarget.value = 0;
+		}
+		const newIngredientsList = [...ingredientsList];
+		newIngredientsList[index].amount = amount;
+		setIngredientsList(newIngredientsList);
+	};
 
 	const handleChangeUnit = (e, index) => {
-			const newIngredientsList = [...ingredientsList];
-			newIngredientsList[index].unit = e.value;
+		const newIngredientsList = [...ingredientsList];
+		newIngredientsList[index].unit = e.value;
 		setIngredientsList(newIngredientsList);
-		};
+	};
 
 	return (
 		<div>
@@ -93,7 +98,7 @@ const RecipeIngredientsFields = ({
 					</CounterButton>
 					<CountValue>{count}</CountValue>
 					<CounterButton type="button" onClick={handleIngredientAdd}>
-						<Plus style={{ width: 16, height: 16, stroke: "white" }} />
+						<Plus style={{ width: 16, height: 16 }} />
 					</CounterButton>
 				</Counter>
 			</SubTitleContainer>
@@ -111,11 +116,16 @@ const RecipeIngredientsFields = ({
 							/>
 							<SelectContainer>
 								<StyledInput
+									// {...register("amount", {
+									// 	required: { value: true, message: "Please add amount" },
+									// })}
+									autoFocus="on"
 									type="text"
 									name="amount"
 									onChange={(e) => handleChangeAmount(e, index)}
 									autoComplete="off"
 								/>
+								{/* {errors.amount && <Error>{errors.amount.message}</Error>} */}
 								<StyledUnitSelect
 									name="unit"
 									options={optionUnits}
@@ -143,15 +153,13 @@ RecipeIngredientsFields.propTypes = {
 
 export default RecipeIngredientsFields;
 
+// const getValue = (value, options) => {
+// 	value ? options.find((option) => option.value === value) : "";
+// };
 
-	// const getValue = (value, options) => {
-	// 	value ? options.find((option) => option.value === value) : "";
-	// };
+// const { watch } = useForm();
 
-	// const { watch } = useForm();
-
-	// console.log(watch("ingredient"));
-
+// console.log(watch("ingredient"));
 
 // <SelectContainer>
 // 	<StyledInput

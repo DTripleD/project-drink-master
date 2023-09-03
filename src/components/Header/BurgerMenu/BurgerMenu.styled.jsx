@@ -27,7 +27,7 @@ export const StyledMenu = styled.div`
 	transition: transform 0.3s ease-in-out;
 `;
 
-export const StyledBurger = styled.button`
+export const StyledMenuBtn = styled.button`
 	position: fixed;
 	top: 20px;
 	right: 20px;
@@ -51,6 +51,28 @@ export const StyledBurger = styled.button`
 		top: 23px;
 		right: 22px;
 
+		width: 38px;
+		height: 38px;
+	}
+`;
+
+export const StyledBurger = styled.button`
+	display: flex;
+
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	z-index: 10;
+
+	&:focus {
+		outline: none;
+	}
+
+	@media (min-width: 768px) {
 		width: 38px;
 		height: 38px;
 	}

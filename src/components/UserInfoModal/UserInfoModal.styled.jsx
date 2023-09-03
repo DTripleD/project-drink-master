@@ -1,41 +1,45 @@
 import styled from "@emotion/styled";
 
-// export const getStyledCloseIcon = (component) => styled(component)`
-// 	width: 38px;
-// 	height: 38px;
-// 	fill: ${(props) => props.theme.colors.white};
-// `;
-
-// export const getStyledEdit = (component) => styled(component)`
-// 	width: 20px;
-// 	height: 20px;
-// `;
-
-// export const getStyledPlus = (component) => styled(component)`
-// 	width: 28px;
-// 	height: 28px;
-// 	fill: ${(props) => props.theme.colors.white};
-
-// 	@media (min-width: 768px) {
-// 		width: 32px;
-// 		height: 32px;
-// 	}
-// `;
-
-export const BackDrop = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
-  z-index: 800;
+export const getStyledCloseIcon = (component) => styled(component)`
+	width: 38px;
+	height: 38px;
+	fill: ${(props) => props.theme.colors.white};
 `;
 
+export const getStyledEdit = (component) => styled(component)`
+	width: 20px;
+	height: 20px;
+`;
+
+export const getStyledPlus = (component) => styled(component)`
+	width: 28px;
+	height: 28px;
+	fill: ${(props) => props.theme.colors.white};
+
+	@media (min-width: 768px) {
+		width: 32px;
+		height: 32px;
+	}
+`;
+
+export const BackDrop = styled.div`
+
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.8);
+
+`;
+
+
+
 export const Modal = styled.div`
+position: relative;
   width: 335px;
   padding: 50px 25px;
   background: ${(props) => props.theme.colors.blue};
@@ -45,6 +49,7 @@ export const Modal = styled.div`
     width: 500px;
     padding: 50px 50px 75px 50px;
   }
+
 `;
 export const CloseBtn = styled.button`
   position: absolute;
@@ -99,21 +104,21 @@ export const AvatarInput = styled.input`
   display: none;
 `;
 
-export const AvatarIcon = styled.svg`
-  position: absolute;
-  bottom: -15%;
-  left: 46%;
-  width: 28px;
-  height: 28px;
 
-  stroke: ${(props) => props.theme.colors.white};
-  background-color: #546081;
-  border-radius: 50%;
+export const AvatarIcon = styled.label`
+	position: absolute;
+	bottom: -15%;
+	left: 46%;
+	width: 28px;
+	height: 28px;
+	background-color: #546081;
+	border: none;
+	border-radius: 50%;
 
-  @media (min-width: 768px) {
-    width: 32px;
-    height: 32px;
-  }
+	@media (min-width: 768px) {
+		width: 32px;
+		height: 32px;
+
 `;
 
 export const InputWrapper = styled.label`
@@ -147,10 +152,12 @@ export const Input = styled.input`
   }
 `;
 
-export const InputIcon = styled.svg`
-  position: absolute;
-  top: 5px;
-  right: 24px;
+
+export const InputIcon = styled.div`
+	position: absolute;
+	top: 0;
+	right: 24px;
+
 
   display: none;
 

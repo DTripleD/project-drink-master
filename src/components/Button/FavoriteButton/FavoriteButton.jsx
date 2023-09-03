@@ -5,11 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addFavorite,
   deleteFavorite,
-  fetchFavorites
+  fetchFavorites,
 } from "../../../redux/favorite/favorite-operation";
-import {
-  selectFavorites,
-} from "../../../redux/favorite/favorite-selector";
+import { selectFavorites } from "../../../redux/favorite/favorite-selector";
 
 const FavoriteButton = () => {
   const { recipeId } = useParams();
@@ -18,6 +16,9 @@ const FavoriteButton = () => {
   const favoriteRecipe = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchFavorites());
+  }, [dispatch]);
 
   useEffect(() => {
     // Проверяем, находится ли recipeId в favoriteRecipe
@@ -25,24 +26,23 @@ const FavoriteButton = () => {
     setIsAddFavorite(isFavorite);
   }, [favoriteRecipe, recipeId]);
 
-  useEffect(() => {
-    dispatch(fetchFavorites());
-  }, [dispatch]);
-
   return (
     <div>
-       {!isAddFavorite ? (
-          <StyledButton type="button" onClick={() => dispatch(addFavorite(recipeId))}>
-            Add to favorite recipe
-          </StyledButton>
-        ) : (
-          <StyledButton
-            type="button"
-            onClick={() => dispatch(deleteFavorite(recipeId))}
-          >
-            Remove from favorites 
-          </StyledButton>
-        )}
+      {!isAddFavorite ? (
+        <StyledButton
+          type="button"
+          onClick={() => dispatch(addFavorite(recipeId))}
+        >
+          Add to favorite recipe
+        </StyledButton>
+      ) : (
+        <StyledButton
+          type="button"
+          onClick={() => dispatch(deleteFavorite(recipeId))}
+        >
+          Remove from favorites
+        </StyledButton>
+      )}
     </div>
   );
 };

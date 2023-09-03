@@ -63,8 +63,16 @@ export const addReciept = async (formData) => {
       return data;
   }
   catch (error) {
-    console.log(error);
-		return error.response.data.message;
+		return error;
 	}
 };
+
+export const getPopularReceipts = async () => {
+    try {
+      const { data } = await instance.get("/popular-recipe");
+			return data;
+    } catch (err) {
+			return err.response.data.message;
+		}
+}
 

@@ -5,8 +5,6 @@ export const Main = styled.div`
   padding: 0 20px;
   margin: 0 auto;
 
-  outline: 1px solid red;
-
   @media screen and (min-width: 768px) {
     max-width: none;
     width: 768px;
