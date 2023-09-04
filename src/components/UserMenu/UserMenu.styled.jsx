@@ -4,6 +4,10 @@ export const UserPhotoWrapper = styled.div`
   max-width: 32px;
   max-height: 32px;
   border-radius: 50%;
+  ${({ theme }) =>
+    theme.currentTheme === "light"
+      ? `border: 1px solid ${theme.colors.white}`
+      : ""};
   background: ${({ theme }) =>
     theme.currentTheme === "light"
       ? theme.colors.backgroundLight
