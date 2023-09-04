@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { DrinkCard } from "../DrinkCard/DrinkCard";
-import { selectOwn, selectPage } from "../../redux/Cocktails/coctailsSelectors";
 
-import { getAllOwnDrinksThunk } from "../../redux/Cocktails/cocktailsOperations";
-import useMediaRules from "../../hooks/useMediaRules";
+import { DrinkCard } from "../DrinkCard/DrinkCard";
+
 import {
   MyRecipesListStyled,
   Section,
@@ -14,21 +11,11 @@ import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import { getMyCoctails } from "../../shared/api/getMyCoctails";
 
 export const RecipesList = () => {
-  // const dispatch = useDispatch();
-  // const { isDesktop } = useMediaRules();
-  // const ownCocktails = useSelector(selectOwn);
-  // const page = useSelector(selectPage);
-  // const limit = isDesktop ? 9 : 8;
-
   const [own, setOwn] = useState([]);
 
   useEffect(() => {
     getMyCoctails().then((res) => setOwn(res.data.cocktails));
   }, []);
-
-  // useEffect(() => {
-  //   // dispatch(getAllOwnDrinksThunk({ page, limit }));
-  // }, [page, limit, dispatch]);
 
   return (
     <Section>

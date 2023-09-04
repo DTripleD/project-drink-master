@@ -4,7 +4,6 @@ import { ReactComponent as TrashIcon } from "../../../assets/trash.svg";
 
 const StyledTrashIcon = getStyledIcon(TrashIcon);
 export const DeleteButton = ({
-  text = "I am a button",
   ariaLabel = "button for click",
   marginbottom = "0px",
   margintop = "0px",
@@ -25,11 +24,9 @@ export const DeleteButton = ({
 };
 
 DeleteButton.propTypes = {
-  text: PropTypes.string.isRequired,
-
-  ariaLabel: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string,
   marginbottom: PropTypes.number,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   type: PropTypes.string,
   margintop: PropTypes.number,
 };
