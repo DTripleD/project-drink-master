@@ -171,7 +171,9 @@ import {
 import { theme } from '../../main';
 
 export const SignInForm = () => {
-  const { register, handleSubmit,formState: { errors,isValid, dirtyFields }, } = useForm({
+    const { register, handleSubmit, formState: { errors, isValid, dirtyFields }, } = useForm({
+      mode: 'onChange',
+    defaultValues: { email: '', password: '' },
       resolver: yupResolver(SignInSchema),
   });
   const dispatch = useDispatch();
@@ -198,7 +200,7 @@ export const SignInForm = () => {
 
     return (
       <>
-     <StyledForm onSubmit={handleSubmit(onSubmit)} 
+     <StyledForm  autoComplete="off" onSubmit={handleSubmit(onSubmit)} 
       >
         <StyledFormInsight>
           <StyledTitle>Sign In</StyledTitle>
