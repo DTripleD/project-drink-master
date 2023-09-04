@@ -13,14 +13,14 @@ import {
 import { DeleteButton } from "../../components/Button/DeleteButton/DeleteButton";
 import { SeeButton } from "../../components/Button/SeeButton/SeeButton";
 import defaultImg from "../../images/plug-m.png";
-import { useDispatch } from "react-redux";
-import {
-  deleteFavorite,
-  fetchFavorites,
-} from "../../redux/favorite/favorite-operation";
+// import { useDispatch } from "react-redux";
+// import {
+//   deleteFavorite,
+//   fetchFavorites,
+// } from "../../redux/favorite/favorite-operation";
 
-const FavoriteItem = ({ recipe, searchParams }) => {
-  const dispatch = useDispatch();
+const FavoriteItem = ({ recipe, removeCocktail }) => {
+  // const dispatch = useDispatch();
   return (
     <ItemCard>
       <ItemImg
@@ -40,13 +40,7 @@ const FavoriteItem = ({ recipe, searchParams }) => {
           id={recipe._id}
           text={"Delete"}
           ariaLabel={"button for click"}
-          onClick={() => {
-            dispatch(deleteFavorite(recipe._id)).then(
-              dispatch(fetchFavorites(searchParams))
-            );
-            // dispatch(deleteFavorite(recipe._id));
-            // dispatch(fetchFavorites(searchParams));
-          }}
+          onClick={() => removeCocktail(recipe._id)}
           type={"button"}
         />
       </ButtonSection>
