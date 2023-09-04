@@ -22,10 +22,7 @@ import { ReactComponent as Plus } from "../../../images/svg/add-recipe-page/plus
 import { ReactComponent as X } from "../../../images/svg/add-recipe-page/x.svg";
 import { selectIngredients } from "../../../redux/drinks/drinksSelectors";
 
-const RecipeIngredientsFields = ({
-	ingredientsList,
-	setIngredientsList,
-}) => {
+const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 	const UNITS = ["ml", "l", "oz", "cup", "qt", "tsp", "tbsp"];
 	const optionUnits = UNITS.map((unit) => ({
 		value: unit,
@@ -53,7 +50,20 @@ const RecipeIngredientsFields = ({
 		setIngredientsList((prevState) => {
 			return [
 				...prevState,
-				{ ingredient: "Light rum", amount: "", unit: "ml" },
+				{
+					ingredient: {
+						_id: "64f5bcc8c175b57075cf2bf2",
+						title: "Light rum",
+						ingredientThumb:
+							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum.png",
+						"thumb-medium":
+							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum-Medium.png",
+						"thumb-small":
+							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum-Small.png",
+					},
+					amount: "",
+					unit: "ml",
+				},
 			];
 		});
 		setCount(count + 1);
@@ -84,6 +94,8 @@ const RecipeIngredientsFields = ({
 		newIngredientsList[index].unit = e.value;
 		setIngredientsList(newIngredientsList);
 	};
+
+	console.log(ingredientsList);
 
 	return (
 		<div>

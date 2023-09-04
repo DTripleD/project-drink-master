@@ -3,13 +3,10 @@
 
 <img src="src/images/banner.jpg">
 
-This project was created with the help of 
-[Vite + React](https://github.com/vitejs/vite).
-To familiarize yourself with and configure additional features [refer to documentation.](https://vitejs.dev/guide/)
 
 ## About this project
 
-Drink Master is a SPA for those who wants to mix some cocktails. The site allows:
+Drink Master is a SPA for those who wants to mix cocktails and create own reciepts. The site allows:
 * user registration and authorization
 * sharing your recipes
 * searching recipes by categories, ingredients or querry
@@ -19,24 +16,28 @@ Drink Master is a SPA for those who wants to mix some cocktails. The site allows
 
 The aplication has an adaptive design and can be used on desktops, tablets and mobile devices.
 
-### Backend
+## Backend
 
 The project interacts with **Drink Master API**, the documentation for which can be accessed [via this link](https://drink-master-backend.onrender.com/api-docs/)
 
-## Installing and launching the app
+## Technologies and libraries used to create the project:
 
-1. Make sure you have the LTS version of Node.js installed on your computer.
-   [Download and install here](https://nodejs.org/en/) if necessary.
-2. Install the basic dependencies of the project with the `npm install` command.
-3. Start development mode by executing `npm run dev` command.
-4. Go to the browser at [http://localhost:5173/project-drink-master/](http://localhost:5173/project-drink-master/).
-   This page will automatically reload after saving changes to project files.
+* This project was created with the help of [Vite + React](https://github.com/vitejs/vite)
+* [React Redux](https://react-redux.js.org)
+* [Redux Toolkit](https://redux-toolkit.js.org)
+* [Redux Persist](https://github.com/rt2zz/redux-persist)
+* [React Router Dom](https://reactrouter.com/en/main)
+* [Emotion Styled](https://emotion.sh/docs/styled)
+* [Mui](https://mui.com)
+* [Axios](https://axios-http.com/ru/docs/intro)
+* [React Hook Form](https://react-hook-form.com)
+* [React Select](https://react-select.com)
+* [Swiper](https://swiperjs.com)
+* [Yup](https://github.com/jquense/yup)
+* HTML
+* CSS
 
-## Deploy
-
-The production version of the project will automatically be linted, compiled and deployed to GitHub Pages, in the `gh-pages` branch, whenever the `main` branch is updated. For example, after a direct push or an accepted pull request.
-
-### Live page
+## Live page
 
 Live page can be accessed via [https://dtripled.github.io/project-drink-master/](https://dtripled.github.io/project-drink-master/)
 
@@ -54,7 +55,5 @@ This project was created by:
 * [Alexon7](https://github.com/Alexon7) - developer
 * [andreas7500](https://github.com/andreas7500) - developer
 * [vladvl1](https://github.com/vladvl1) - developer
-
-
 
 
