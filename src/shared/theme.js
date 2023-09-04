@@ -7,6 +7,7 @@ const theme = (currentTheme) => ({
     green: "#BCE6D2",
     white: currentTheme === "dark" ? "#f3f3f3" : "#0A0A11",
     backgroundLight: "#dee4e7",
+    lightGrey: "rgba(243, 243, 243, 0.5)",
   },
   fonst: {},
   breakpoint: {

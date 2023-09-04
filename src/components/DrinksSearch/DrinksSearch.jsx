@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as Search } from "../../images/svg/search.svg";
 import DrinksList from "../../components/DrinksList/DrinksList";
 import { useLocation, useSearchParams } from "react-router-dom";
