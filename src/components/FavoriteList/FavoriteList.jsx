@@ -9,7 +9,6 @@ import {
 } from "../../redux/favorite/favorite-selector";
 
 import FavoriteItem from "../FavoriteItem/FavoriteItem";
-import { PaginationWrapper } from "../Pagination/Pagination.styled";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import {
   MyRecipesListStyled,
@@ -129,8 +128,6 @@ const FavoriteList = () => {
           changeNum={changeNum}
         />
       )}
-
-      {error && <p>Sorry. {error} 😭</p>}
     </Section>
   );
 };
