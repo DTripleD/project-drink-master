@@ -47,9 +47,9 @@ const favoritesSlice = createSlice({
       state.isLoading = false;
       state.error = null;
 
-      state.items = state.items.filter(
-        (favorite) => favorite._id !== action.payload.recipeId
-      );
+      // state.items = state.items.filter(
+      //   (favorite) => favorite._id !== action.payload.recipeId
+      // );
     },
   },
 });
