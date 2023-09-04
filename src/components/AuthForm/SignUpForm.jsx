@@ -169,7 +169,6 @@
 //   );
 // };
 
-
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
@@ -180,9 +179,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../../redux/auth/operations";
 import { AuthNavigate } from "../AuthNav/AuthNav";
 import { SignUpSchema } from "./SignUpAndSignInSchema";
-import { yupResolver } from "@hookform/resolvers/yup"; 
-import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
-import { FiEyeOff, FiEye } from 'react-icons/fi';
+import { yupResolver } from "@hookform/resolvers/yup";
+import { BiCheckCircle, BiErrorCircle } from "react-icons/bi";
+import { FiEyeOff, FiEye } from "react-icons/fi";
 import {
   StyledForm,
   StyledTitle,
@@ -200,10 +199,14 @@ import theme from "../../shared/theme";
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
-  const { register, handleSubmit, formState: { errors, isValid, dirtyFields } } = useForm({
-     mode: 'onChange',
-    defaultValues: { name: '', email: '', password: '' },
-      resolver: yupResolver(SignUpSchema), 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid, dirtyFields },
+  } = useForm({
+    mode: "onChange",
+    defaultValues: { name: "", email: "", password: "" },
+    resolver: yupResolver(SignUpSchema),
   });
   const [isClicked, setIsClicked] = useState(false);
   const currentTheme = useSelector(selectTheme);
@@ -218,8 +221,7 @@ export const SignUpForm = () => {
   };
 
   return (
-
-    <StyledForm  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
+    <StyledForm autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <StyledTitle>Registration</StyledTitle>
       <StyledInnerDiv>
         <StyledInputWrap>
@@ -227,22 +229,27 @@ export const SignUpForm = () => {
             type="text"
             name="name"
             placeholder="Name"
-                      {...register("name")}
-                        className={errors.name ? "invalid-border" : dirtyFields.name ? "valid-border" : ""}
+            {...register("name")}
+            className={
+              errors.name
+                ? "invalid-border"
+                : dirtyFields.name
+                ? "valid-border"
+                : ""
+            }
           />
           {errors.name && (
             <div>
-                         <BiErrorCircle
+              <BiErrorCircle
                 style={{
-                  width: '24px',
-                  height: '24px',
-                    color: 'red',
-                  display: 'flex',
-                position: 'absolute',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                right: '24px',
-
+                  width: "24px",
+                  height: "24px",
+                  color: "red",
+                  display: "flex",
+                  position: "absolute",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  right: "24px",
                 }}
               />
               <StyledError>{errors.name.message}</StyledError>
@@ -250,16 +257,16 @@ export const SignUpForm = () => {
           )}
           {!errors.name && dirtyFields.name && (
             <div>
-                         <BiCheckCircle
+              <BiCheckCircle
                 style={{
-                  width: '24px',
-                  height: '24px',
-                  color: '#3CBC81',
-                  display: 'flex',
-                  position: 'absolute',
-                 top: '50%',
-                 transform: 'translateY(-50%)',
-                 right: '24px',
+                  width: "24px",
+                  height: "24px",
+                  color: "#3CBC81",
+                  display: "flex",
+                  position: "absolute",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  right: "24px",
                 }}
               />
 
@@ -273,38 +280,44 @@ export const SignUpForm = () => {
             type="email"
             name="email"
             placeholder="Email"
-             {...register("email")}
-           className={errors.email ? "invalid-border" : dirtyFields.email ? "valid-border" : ""}
+            {...register("email")}
+            className={
+              errors.email
+                ? "invalid-border"
+                : dirtyFields.email
+                ? "valid-border"
+                : ""
+            }
           />
           {errors.email && (
             <div>
-               <BiErrorCircle
+              <BiErrorCircle
                 style={{
-                  width: '24px',
-                  height: '24px',
-                    color: 'red',
-                  display: 'flex',
-                position: 'absolute',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                right: '24px',
+                  width: "24px",
+                  height: "24px",
+                  color: "red",
+                  display: "flex",
+                  position: "absolute",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  right: "24px",
                 }}
               />
               <StyledError>{errors.email.message}</StyledError>
             </div>
           )}
-          {!errors.email && dirtyFields.email &&(
+          {!errors.email && dirtyFields.email && (
             <div>
-             <BiCheckCircle
+              <BiCheckCircle
                 style={{
-                  width: '24px',
-                  height: '24px',
-                  color: '#3CBC81',
-                  display: 'flex',
-                  position: 'absolute',
-                 top: '50%',
-                 transform: 'translateY(-50%)',
-                 right: '24px',
+                  width: "24px",
+                  height: "24px",
+                  color: "#3CBC81",
+                  display: "flex",
+                  position: "absolute",
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  right: "24px",
                 }}
               />
               <StyledMessage>This is a CORRECT email</StyledMessage>
@@ -318,13 +331,19 @@ export const SignUpForm = () => {
               type={isClicked ? "text" : "password"}
               name="password"
               placeholder="Password"
-               {...register("password")}
-               className={errors.password ? "invalid-border" : dirtyFields.password ? "valid-border" : ""}
+              {...register("password")}
+              className={
+                errors.password
+                  ? "invalid-border"
+                  : dirtyFields.password
+                  ? "valid-border"
+                  : ""
+              }
             />
             {errors.password && (
               <StyledError>{errors.password.message}</StyledError>
             )}
-            {!errors.password && dirtyFields.password &&(
+            {!errors.password && dirtyFields.password && (
               <StyledMessage>This is a CORRECT password</StyledMessage>
             )}
 
@@ -341,15 +360,14 @@ export const SignUpForm = () => {
                 <FiEye color={theme.colors.white} />
               ) : (
                 <FiEyeOff color={theme.colors.white} />
-
               )}
             </span>
-          </Styled
-
-Div>
+          </StyledPasswordDiv>
         </StyledInputWrap>
       </StyledInnerDiv>
-          <StyledButton type="submit" disabled={!isValid}>Sign Up</StyledButton>
+      <StyledButton type="submit" disabled={!isValid}>
+        Sign Up
+      </StyledButton>
       <AuthNavigate />
     </StyledForm>
   );
