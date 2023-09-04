@@ -1,4 +1,4 @@
-import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u as D,_ as v,L as V,b as O,M as W,F as H}from"./index-cc31af0b.js";import{M as J}from"./MainPageTitle-0fe0bcea.js";import{S as z,s as X,b as Y,c as K}from"./react-select.esm-ecd0567b.js";import{a as Q,b as Z}from"./addRecipePageQuery-d668b7cd.js";import"./assertThisInitialized-e0631a7b.js";const ee=i.div`
+import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u as D,_ as v,L as V,b as O,M as W,F as H}from"./index-8a5e167a.js";import{M as J}from"./MainPageTitle-e591f316.js";import{S as z,s as X,b as Y,c as K}from"./react-select.esm-4490195f.js";import{a as Q,b as Z}from"./addRecipePageQuery-a558412a.js";import"./assertThisInitialized-a5e7f661.js";const ee=i.div`
 	display: flex;
 	flex-direction: column;
 	gap: 40px;
@@ -265,7 +265,7 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 			padding-bottom: 17px;
 		}
 	}
-`,le=e=>p.createElement("svg",{width:29,height:28,viewBox:"0 0 29 28",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},p.createElement("path",{d:"M14.5 5.83334V22.1667",stroke:"#161F37",strokeWidth:1.8,strokeLinecap:"round",strokeLinejoin:"round"}),p.createElement("path",{d:"M6.33203 14H22.6654",stroke:"#161F37",strokeWidth:1.8,strokeLinecap:"round",strokeLinejoin:"round"})),R=({getFile:e,register:a,control:f,errors:s})=>{const[c,x]=p.useState(null),u=$(X),w=$(Y),m=u.map(l=>({value:l.toLowerCase(),label:l})),g=w.map(l=>({value:l.toLowerCase(),label:l})),d=l=>{const o=l.target.files[0],r=new FileReader;o&&(r.readAsDataURL(o),r.onloadend=()=>{x(r.result),e(o)})},b=(l,o)=>{l&&o.find(r=>r.value===l)};return t.jsxs(ee,{children:[t.jsxs(oe,{children:[c&&t.jsx(ie,{src:c,alt:"photo"}),t.jsx("input",{id:"drinkThumb",type:"file",placeholder:"Add image",onChange:d,hidden:!0}),t.jsxs(te,{children:[t.jsx(ne,{htmlFor:"drinkThumb",children:t.jsx(le,{style:{width:28,height:28}})}),t.jsx(re,{children:"Add image"})]})]}),t.jsxs(se,{children:[t.jsxs(S,{children:[t.jsx(j,{...a("drink",{required:{value:!0,message:"Please fill the title field"}}),type:"text",placeholder:"Enter item title",autoComplete:"off"}),s.drink&&t.jsx(_,{children:s.drink.message})]}),t.jsxs(S,{children:[t.jsx(j,{...a("description",{required:{value:!0,message:"Please fill the description field"}}),type:"text",placeholder:"Enter about recipe",autoComplete:"off"}),s.description&&t.jsx(_,{children:s.description.message})]}),t.jsxs(M,{children:[t.jsx(j,{disabled:!0,type:"text",placeholder:"Category"}),t.jsx(C,{control:f,name:"category",rules:{required:"Please choose a category"},render:({field:{onChange:l,value:o}})=>t.jsx(I,{defaultValue:m[1],options:m,value:b(o,m),onChange:r=>l(r.label),classNamePrefix:"select"})}),s.category&&t.jsx(_,{children:s.category.message})]}),t.jsxs(M,{children:[t.jsx(j,{disabled:!0,type:"text",placeholder:"Glass"}),t.jsx(C,{control:f,name:"glass",rules:{required:"Please choose a glass"},render:({field:{onChange:l,value:o}})=>t.jsx(I,{defaultValue:g[0],options:g,value:b(o,g),onChange:r=>l(r.label),classNamePrefix:"select"})}),s.glass&&t.jsx(_,{children:s.glass.message})]})]})]})};R.propTypes={register:h.func.isRequired,getFile:h.func.isRequired,control:h.shape({}).isRequired,errors:h.shape({}).isRequired};const ae=i.h2`
+`,le=e=>p.createElement("svg",{width:29,height:28,viewBox:"0 0 29 28",fill:"none",xmlns:"http://www.w3.org/2000/svg",...e},p.createElement("path",{d:"M14.5 5.83334V22.1667",stroke:"#161F37",strokeWidth:1.8,strokeLinecap:"round",strokeLinejoin:"round"}),p.createElement("path",{d:"M6.33203 14H22.6654",stroke:"#161F37",strokeWidth:1.8,strokeLinecap:"round",strokeLinejoin:"round"})),R=({getFile:e,register:a,control:u,errors:s})=>{const[c,m]=p.useState(null),f=$(X),w=$(Y),x=f.map(l=>({value:l.toLowerCase(),label:l})),g=w.map(l=>({value:l.toLowerCase(),label:l})),d=l=>{const o=l.target.files[0],r=new FileReader;o&&(r.readAsDataURL(o),r.onloadend=()=>{m(r.result),e(o)})},b=(l,o)=>{l&&o.find(r=>r.value===l)};return t.jsxs(ee,{children:[t.jsxs(oe,{children:[c&&t.jsx(ie,{src:c,alt:"photo"}),t.jsx("input",{id:"drinkThumb",type:"file",placeholder:"Add image",onChange:d,hidden:!0}),t.jsxs(te,{children:[t.jsx(ne,{htmlFor:"drinkThumb",children:t.jsx(le,{style:{width:28,height:28}})}),t.jsx(re,{children:"Add image"})]})]}),t.jsxs(se,{children:[t.jsxs(S,{children:[t.jsx(j,{...a("drink",{required:{value:!0,message:"Please fill the title field"}}),type:"text",placeholder:"Enter item title",autoComplete:"off"}),s.drink&&t.jsx(_,{children:s.drink.message})]}),t.jsxs(S,{children:[t.jsx(j,{...a("description",{required:{value:!0,message:"Please fill the description field"}}),type:"text",placeholder:"Enter about recipe",autoComplete:"off"}),s.description&&t.jsx(_,{children:s.description.message})]}),t.jsxs(M,{children:[t.jsx(j,{disabled:!0,type:"text",placeholder:"Category"}),t.jsx(C,{control:u,name:"category",rules:{required:"Please choose a category"},render:({field:{onChange:l,value:o}})=>t.jsx(I,{defaultValue:x[1],options:x,value:b(o,x),onChange:r=>l(r.label),classNamePrefix:"select"})}),s.category&&t.jsx(_,{children:s.category.message})]}),t.jsxs(M,{children:[t.jsx(j,{disabled:!0,type:"text",placeholder:"Glass"}),t.jsx(C,{control:u,name:"glass",rules:{required:"Please choose a glass"},render:({field:{onChange:l,value:o}})=>t.jsx(I,{defaultValue:g[0],options:g,value:b(o,g),onChange:r=>l(r.label),classNamePrefix:"select"})}),s.glass&&t.jsx(_,{children:s.glass.message})]})]})]})};R.propTypes={register:h.func.isRequired,getFile:h.func.isRequired,control:h.shape({}).isRequired,errors:h.shape({}).isRequired};const ae=i.h2`
 	display: block;
 	color: #f3f3f3;
 	font-family: Manrope;
@@ -344,13 +344,13 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 	@media (min-width: 1440px) {
 		max-width: 540px;
 	}
-`,xe=i.li`
+`,me=i.li`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 8px;
 	width: 100%;
-`,me=i.input`
+`,xe=i.input`
 	width: 100%;
 	min-width: 20px;
 	padding: 0;
@@ -377,7 +377,7 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 	justify-content: space-between;
 	align-items: flex-start;
 	gap: 8px;
-`,fe=i.div`
+`,ue=i.div`
 	position: relative;
 	padding: 16px 18px;
 	display: flex;
@@ -398,7 +398,7 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 	position: absolute;
 	bottom: -17px;
 	left: 16px;
-`;const ue=i(z)`
+`;const fe=i(z)`
 	.select__menu {
 		background-color: ${e=>e.theme.colors.blue};
 		border-radius: 20px;
@@ -707,7 +707,7 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 			transform: rotate(180deg);
 		}
 	}
-`,ye=e=>p.createElement("svg",{id:"icon-minus",viewBox:"0 0 32 32",...e},p.createElement("path",{d:"M27 17.6h-22c-0.8 0-1.4-0.8-1.4-1.6s0.6-1.6 1.6-1.6h22c0.8 0 1.6 0.6 1.6 1.6s-1 1.6-1.8 1.6z"})),ve=e=>p.createElement("svg",{id:"icon-plus",viewBox:"0 0 32 32",...e},p.createElement("path",{d:"M16 28.4c-0.8 0-1.6-0.6-1.6-1.6v-9.2h-9.4c-0.8 0-1.4-0.8-1.4-1.6s0.6-1.6 1.6-1.6h9.6v-9.4c0-0.8 0.6-1.6 1.6-1.6s1.6 0.6 1.6 1.6v9.6h9.6c0.8 0 1.6 0.6 1.6 1.6s-0.6 1.6-1.6 1.6h-10v9.6c0 0.4-0.8 1-1.6 1z"})),je=e=>p.createElement("svg",{id:"icon-x",viewBox:"0 0 32 32",...e},p.createElement("path",{d:"M25.067 26.311c-0.356 0-0.711-0.178-0.889-0.356l-8.178-8-8 8c-0.533 0.533-1.422 0.533-1.956 0s-0.533-1.422 0-1.956l8-8-8-8c-0.533-0.533-0.533-1.422 0-1.956s1.422-0.533 1.956 0l8 8 8-8c0.533-0.533 1.422-0.533 1.956 0s0.533 1.422 0 1.956l-8 8 8 8c0.533 0.533 0.533 1.422 0 1.956-0.356 0.178-0.533 0.356-0.889 0.356z"})),E=({ingredientsList:e,setIngredientsList:a})=>{const s=["ml","l","oz","cup","qt","tsp","tbsp"].map(o=>({value:o,label:o})),[c,x]=p.useState(0),w=$(K).map(o=>({value:o,label:o.title})),m=()=>{if(e.length>0){const o=[...e];o.pop(),a(o),x(c-1)}},g=()=>{a(o=>[...o,{ingredient:"Light rum",amount:"",unit:"ml"}]),x(c+1)},d=(o,r)=>{const n=[...e];n[r]={...n[r],ingredient:o.value},a(n)},b=(o,r)=>{let n=o.currentTarget.value;n<0&&(n=0,o.currentTarget.value=0);const y=[...e];y[r].amount=n,a(y)},l=(o,r)=>{const n=[...e];n[r].unit=o.value,a(n)};return t.jsxs("div",{children:[t.jsxs(pe,{children:[t.jsx(k,{title:"Ingredients"}),t.jsxs(ce,{children:[t.jsx(P,{type:"button",onClick:m,children:t.jsx(ye,{style:{width:16,height:16}})}),t.jsx(de,{children:c}),t.jsx(P,{type:"button",onClick:g,children:t.jsx(ve,{style:{width:16,height:16}})})]})]}),t.jsx(he,{children:e.map((o,r)=>t.jsxs(xe,{children:[t.jsxs(ge,{children:[t.jsx(ue,{name:"ingredient",options:w,onChange:n=>d(n,r),classNamePrefix:"select",isSearchable:!0,defaultValue:w[0]}),t.jsxs(fe,{children:[t.jsx(me,{autoFocus:"on",type:"text",name:"amount",onChange:n=>b(n,r),autoComplete:"off"}),t.jsx(we,{name:"unit",options:s,onChange:n=>l(n,r),classNamePrefix:"select",isSearchable:!0,defaultValue:s[0]})]})]}),t.jsx(be,{type:"button",onClick:m,children:t.jsx(je,{style:{width:18,height:18}})})]},r))})]})};E.propTypes={ingredientsList:h.arrayOf(h.shape({})).isRequired,setIngredientsList:h.func.isRequired};const _e=i.div`
+`,ye=e=>p.createElement("svg",{id:"icon-minus",viewBox:"0 0 32 32",...e},p.createElement("path",{d:"M27 17.6h-22c-0.8 0-1.4-0.8-1.4-1.6s0.6-1.6 1.6-1.6h22c0.8 0 1.6 0.6 1.6 1.6s-1 1.6-1.8 1.6z"})),ve=e=>p.createElement("svg",{id:"icon-plus",viewBox:"0 0 32 32",...e},p.createElement("path",{d:"M16 28.4c-0.8 0-1.6-0.6-1.6-1.6v-9.2h-9.4c-0.8 0-1.4-0.8-1.4-1.6s0.6-1.6 1.6-1.6h9.6v-9.4c0-0.8 0.6-1.6 1.6-1.6s1.6 0.6 1.6 1.6v9.6h9.6c0.8 0 1.6 0.6 1.6 1.6s-0.6 1.6-1.6 1.6h-10v9.6c0 0.4-0.8 1-1.6 1z"})),je=e=>p.createElement("svg",{id:"icon-x",viewBox:"0 0 32 32",...e},p.createElement("path",{d:"M25.067 26.311c-0.356 0-0.711-0.178-0.889-0.356l-8.178-8-8 8c-0.533 0.533-1.422 0.533-1.956 0s-0.533-1.422 0-1.956l8-8-8-8c-0.533-0.533-0.533-1.422 0-1.956s1.422-0.533 1.956 0l8 8 8-8c0.533-0.533 1.422-0.533 1.956 0s0.533 1.422 0 1.956l-8 8 8 8c0.533 0.533 0.533 1.422 0 1.956-0.356 0.178-0.533 0.356-0.889 0.356z"})),E=({ingredientsList:e,setIngredientsList:a})=>{const s=["ml","l","oz","cup","qt","tsp","tbsp"].map(o=>({value:o,label:o})),[c,m]=p.useState(0),w=$(K).map(o=>({value:o,label:o.title})),x=()=>{if(e.length>0){const o=[...e];o.pop(),a(o),m(c-1)}},g=()=>{a(o=>[...o,{ingredient:{_id:"64f5bcc8c175b57075cf2bf2",title:"Light rum",ingredientThumb:"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum.png","thumb-medium":"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum-Medium.png","thumb-small":"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum-Small.png"},amount:"",unit:"ml"}]),m(c+1)},d=(o,r)=>{const n=[...e];n[r]={...n[r],ingredient:o.value},a(n)},b=(o,r)=>{let n=o.currentTarget.value;n<0&&(n=0,o.currentTarget.value=0);const y=[...e];y[r].amount=n,a(y)},l=(o,r)=>{const n=[...e];n[r].unit=o.value,a(n)};return t.jsxs("div",{children:[t.jsxs(pe,{children:[t.jsx(k,{title:"Ingredients"}),t.jsxs(ce,{children:[t.jsx(P,{type:"button",onClick:x,children:t.jsx(ye,{style:{width:16,height:16}})}),t.jsx(de,{children:c}),t.jsx(P,{type:"button",onClick:g,children:t.jsx(ve,{style:{width:16,height:16}})})]})]}),t.jsx(he,{children:e.map((o,r)=>t.jsxs(me,{children:[t.jsxs(ge,{children:[t.jsx(fe,{name:"ingredient",options:w,onChange:n=>d(n,r),classNamePrefix:"select",isSearchable:!0,defaultValue:w[0]}),t.jsxs(ue,{children:[t.jsx(xe,{autoFocus:"on",type:"text",name:"amount",onChange:n=>b(n,r),autoComplete:"off"}),t.jsx(we,{name:"unit",options:s,onChange:n=>l(n,r),classNamePrefix:"select",isSearchable:!0,defaultValue:s[0]})]})]}),t.jsx(be,{type:"button",onClick:x,children:t.jsx(je,{style:{width:18,height:18}})})]},r))})]})};E.propTypes={ingredientsList:h.arrayOf(h.shape({})).isRequired,setIngredientsList:h.func.isRequired};const _e=i.div`
 	margin-top: 80px;
 	position: relative;
 `,$e=i.textarea`
@@ -767,7 +767,7 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 		font-size: 16px;
 		padding: 18px 44px;
 	}
-`,q=()=>{const e=A();p.useEffect(()=>{e(B()),e(U()),e(G())},[e]);const[a,f]=p.useState(null),s=o=>{f(o)},[c,x]=p.useState([]),{register:u,handleSubmit:w,control:m,formState:{errors:g}}=N(),d=new FormData,b=D(),l=o=>{a===null&&v.error("Please add an image"),c.length===0&&v.error("Please add at least 2 ingredient");const r=c.map(n=>({...n.ingredient,measure:n.amount.concat(` ${n.unit}`)}));d.append("drink",o.drink),d.append("description",o.description),d.append("category",o.category),d.append("glass",o.glass),d.append("instructions",o.instructions),d.append("ingredients",JSON.stringify(r)),d.append("drinkThumb",a),Q(d).then(n=>{var y;if(((y=n.response)==null?void 0:y.status)===400)throw v.error(n.response.data.message),new Error(n.response.data.message);b("/my",{replace:!0}),v.success("You have successfully added a new recipe!")}).catch(n=>{console.log(n)})};return t.jsxs("form",{onSubmit:w(l),children:[t.jsx(R,{getFile:s,register:u,control:m,errors:g}),t.jsx(E,{ingredientsList:c,setIngredientsList:x}),t.jsx(F,{register:u,errors:g}),t.jsx(ke,{type:"submit",children:"Add"})]})};q.propTypes={};const Ce=i.ul`
+`,L=()=>{const e=A();p.useEffect(()=>{e(B()),e(U()),e(G())},[e]);const[a,u]=p.useState(null),s=o=>{u(o)},[c,m]=p.useState([]),{register:f,handleSubmit:w,control:x,formState:{errors:g}}=N(),d=new FormData,b=D(),l=o=>{a===null&&v.error("Please add an image"),c.length===0&&v.error("Please add at least 2 ingredient");const r=c.map(n=>({...n.ingredient,measure:n.amount.concat(` ${n.unit}`)}));d.append("drink",o.drink),d.append("description",o.description),d.append("category",o.category),d.append("glass",o.glass),d.append("instructions",o.instructions),d.append("ingredients",JSON.stringify(r)),d.append("drinkThumb",a),Q(d).then(n=>{var y;if(((y=n.response)==null?void 0:y.status)===400)throw v.error(n.response.data.message),new Error(n.response.data.message);b("/my",{replace:!0}),v.success("You have successfully added a new recipe!")}).catch(n=>{console.log(n)})};return t.jsxs("form",{onSubmit:w(l),children:[t.jsx(R,{getFile:s,register:f,control:x,errors:g}),t.jsx(E,{ingredientsList:c,setIngredientsList:m}),t.jsx(F,{register:f,errors:g}),t.jsx(ke,{type:"submit",children:"Add"})]})};L.propTypes={};const Ce=i.ul`
 	display: flex;
 	flex-direction: column;
 	gap: 21px;
@@ -807,7 +807,7 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 	line-height: ${18/14};
 	margin-bottom: 3px;
 	height: 57px;
-`,L=()=>{const[e,a]=p.useState([]),f=O();return p.useEffect(()=>{Z().then(s=>{a(s)}).catch(s=>console.log(s))},[]),t.jsx(Ce,{children:e.length>0&&e.map(({_id:s,drink:c,drinkThumb:x,instructions:u})=>t.jsx(Se,{children:t.jsxs(Me,{to:`/recipe/${s}`,state:{from:f},children:[t.jsx(Ie,{src:x||"/public/plug-b.png",alt:c,loading:"lazy"}),t.jsxs("div",{children:[t.jsx(Pe,{children:c}),t.jsx(Te,{children:u})]})]})},s))})};L.propTypes={};const Re=i.div`
+`,q=()=>{const[e,a]=p.useState([]),u=O();return p.useEffect(()=>{Z().then(s=>{a(s)}).catch(s=>console.log(s))},[]),t.jsx(Ce,{children:e.length>0&&e.map(({_id:s,drink:c,drinkThumb:m,instructions:f})=>t.jsx(Se,{children:t.jsxs(Me,{to:`/recipe/${s}`,state:{from:u},children:[t.jsx(Ie,{src:m||"/public/plug-b.png",alt:c,loading:"lazy"}),t.jsxs("div",{children:[t.jsx(Pe,{children:c}),t.jsx(Te,{children:f})]})]})},s))})};q.propTypes={};const Re=i.div`
 	@media (min-width: 1440px) {
 		display: flex;
 		align-items: flex-start;
@@ -833,7 +833,7 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 	@media (min-width: 1440px) {
 		margin-top: 0;
 	}
-`,qe=i.div`
+`,Le=i.div`
 	margin-top: 40px;
 	display: flex;
 	aling-items: left;
@@ -859,4 +859,4 @@ import{n as i,r as p,P as h,h as $,j as t,C,c as A,g as B,k as U,f as G,d as N,u
 		font-size: 24px;
 		line-height: ${32/24};
 	}
-`,Ne=()=>t.jsxs(W,{children:[t.jsx(J,{title:"Add recipe"}),t.jsxs(Re,{children:[t.jsx(q,{}),t.jsxs(Ee,{children:[t.jsxs(Fe,{children:[t.jsx(T,{children:"Follow Us"}),t.jsx(H,{})]}),t.jsxs(qe,{children:[t.jsx(T,{children:"Popular recipe"}),t.jsx(L,{})]})]})]})]});export{Ne as default};
+`,Ne=()=>t.jsxs(W,{children:[t.jsx(J,{title:"Add recipe"}),t.jsxs(Re,{children:[t.jsx(L,{}),t.jsxs(Ee,{children:[t.jsxs(Fe,{children:[t.jsx(T,{children:"Follow Us"}),t.jsx(H,{})]}),t.jsxs(Le,{children:[t.jsx(T,{children:"Popular recipe"}),t.jsx(q,{})]})]})]})]});export{Ne as default};
