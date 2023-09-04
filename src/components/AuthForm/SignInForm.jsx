@@ -292,9 +292,9 @@ export const SignInForm = () => {
                   }}
                 >
                   {isClicked ? (
-                    <FiEye color={theme.colors.white} />
+                    <FiEye color={themes.colors.white} />
                   ) : (
-                    <FiEyeOff color={theme.colors.white} />
+                    <FiEyeOff color={themes.colors.white} />
                   )}
                 </span>
               </StyledPasswordDiv>

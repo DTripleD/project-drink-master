@@ -210,7 +210,7 @@ export const SignUpForm = () => {
   });
   const [isClicked, setIsClicked] = useState(false);
   const currentTheme = useSelector(selectTheme);
-  const selectedTheme = theme(currentTheme);
+  const themes = theme(currentTheme);
 
   const onSubmit = (data) => {
     dispatch(signup(data));
@@ -357,9 +357,9 @@ export const SignUpForm = () => {
               }}
             >
               {isClicked ? (
-                <FiEye color={theme.colors.white} />
+                <FiEye color={themes.colors.white} />
               ) : (
-                <FiEyeOff color={theme.colors.white} />
+                <FiEyeOff color={themes.colors.white} />
               )}
             </span>
           </StyledPasswordDiv>
