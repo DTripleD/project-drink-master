@@ -1,4 +1,4 @@
-import{n as i,P as s,j as t,w as h,r as a,h as v,c as f,v as w,x as $,t as j,i as y,M as z}from"./index-4037a13d.js";import{s as I}from"./favorite-selector-74da0d55.js";const k=i.h1`
+import{n as i,P as s,j as t,w as h,r as a,h as v,c as f,v as w,x as $,t as j,i as y,M as z}from"./index-50ff42ff.js";import{s as I}from"./favorite-selector-74da0d55.js";const k=i.h1`
   color: ${e=>e.theme.colors.white};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 font-size: 32px;

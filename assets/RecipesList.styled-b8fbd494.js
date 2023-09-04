@@ -1,4 +1,4 @@
-import{n as t}from"./index-4037a13d.js";const o=t.section`
+import{n as t}from"./index-50ff42ff.js";const o=t.section`
   max-width: 100%;
   margin-bottom: 40px;
   overflow: hidden;
@@ -28,4 +28,4 @@ import{n as t}from"./index-4037a13d.js";const o=t.section`
   font-style: normal;
   font-weight: 500;
   line-height: 22px;
-`;export{a as M,o as S,i as a};
+`;export{i as M,o as S,a};
