@@ -12,11 +12,11 @@ const MyCoctailsPage = () => {
   return (
     <>
       <MainContainer>
-        <StyledSection>
+        <>
           <MainPageTitle title={"My recipes"} />
           <RecipesList />
           {/* <Pagination /> */}
-        </StyledSection>
+        </>
       </MainContainer>
     </>
   );

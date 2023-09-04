@@ -17,7 +17,6 @@ import {
   MessageTitle,
 } from "../../components/RecipesList/RecipesList.styled";
 import PaginationComponent from "../Pagination/Pagination";
-// import { Container, Pagination, Stack } from "@mui/material";
 
 const FavoriteList = () => {
   const location = useLocation();
@@ -31,7 +30,7 @@ const FavoriteList = () => {
   //------------------ Pagination
 
   //определяем кол-во єлементов на странице
-  console.log("favoriteRecipe", favoriteRecipe);
+  // console.log("favoriteRecipe", favoriteRecipe);
 
   const [totalPages, setTotalPages] = useState(favoriteRecipe);
   const [page, setPage] = useState(1);

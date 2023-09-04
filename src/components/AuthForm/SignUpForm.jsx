@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import { useEffect } from 'react';
 // import { useSearchParams } from 'react-router-dom';
 // import { verifyThunk } from '../../redux/auth/operations';
@@ -24,13 +24,16 @@ import {
   StyledAiOutlineEyeInvisible,
   StyledPasswordDiv,
 } from "./AuthForm.styled";
-import { theme } from "../../main";
 import { toast } from "react-hot-toast";
+import { selectTheme } from "../../redux/theme/selectors";
+import theme from "../../shared/theme";
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
   //   const isClicked = useSelector(selectIsClicked);
   const [isClicked, setIsClicked] = useState(false);
+  const currentTheme = useSelector(selectTheme);
+  const selectedTheme = theme(currentTheme);
 
   //   const [searchParams] = useSearchParams();
   //   const verificationToken = searchParams.get('verificationToken');
@@ -152,12 +155,12 @@ export const SignUpForm = () => {
                 />
                 {touched.password && !isClicked ? (
                   <StyledAiOutlineEyeInvisible
-                    color={theme.colors.white}
+                    color={selectedTheme.colors.white}
                     onClick={openPassword}
                   />
                 ) : touched.password && isClicked ? (
                   <StyledAiOutlineEye
-                    color={theme.colors.white}
+                    color={selectedTheme.colors.white}
                     onClick={openPassword}
                   />
                 ) : (

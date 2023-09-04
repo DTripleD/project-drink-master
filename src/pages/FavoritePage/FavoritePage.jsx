@@ -11,12 +11,12 @@ const FavoritePage = () => {
   return (
     <>
       <MainContainer>
-        <StyledSection>
+        <>
           <MainPageTitle title={"Favorites"} />
           <FavoriteList />
 
           {/* <Pagination /> */}
-        </StyledSection>
+        </>
       </MainContainer>
     </>
   );

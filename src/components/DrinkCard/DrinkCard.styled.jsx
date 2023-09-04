@@ -61,7 +61,6 @@ export const Ingredientswrapper = styled.div`
 `;
 // || 'favorites'
 export const Drinkingreds = styled.p`
-  /* color: ${(props) => props.theme.colors.white}; */
   color: ${(props) => props.theme.textColor};
   font-family: Manrope, sans-serif;
   font-size: 16px;
@@ -70,7 +69,10 @@ export const Drinkingreds = styled.p`
 `;
 export const Ingredients = styled.span`
   /* color: rgba(243, 243, 243, 0.5); */
-  color: rgba(243, 243, 243, 0.5);
+  color: ${({ theme }) =>
+    theme.currentTheme === "light"
+      ? theme.colors.white
+      : "rgba(243, 243, 243, 0.5)"};
   font-family: Manrope, sans-serif;
   font-size: 14px;
   font-weight: 500;

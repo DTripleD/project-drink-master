@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-// import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -46,7 +45,7 @@ const AddRecipeForm = () => {
     if (file === null) {
       toast.error("Please add an image");
     }
-    console.log(ingredientsList);
+   
     if (ingredientsList.length === 0) {
 			toast.error("Please add at least 2 ingredient");
 		}
@@ -55,8 +54,6 @@ const AddRecipeForm = () => {
       ...ingredient.ingredient,
       measure: ingredient.amount.concat(` ${ingredient.unit}`),
     }));
-
-    console.log(newIngredientsList);
 
     formData.append("drink", data.drink);
     formData.append("description", data.description);
@@ -78,25 +75,7 @@ const AddRecipeForm = () => {
       .catch((error) => {
         console.log(error);
       });
-
-    // for (var pair of formData.entries()) {
-    // 	console.log(pair[0] + ", " + pair[1]);
-    // }
   };
-
-  const isFirtsRender = useRef(true);
-
-  useEffect(() => {
-    if (isFirtsRender.current) {
-      isFirtsRender.current = false;
-      return;
-    }
-    // console.log(errors?.drinkThumb?.message);
-    // console.log(errors?.drink?.message);
-    // console.log(errors?.description?.message);
-    // console.log(errors?.category?.message);
-    // console.log(errors?.glass?.message);
-  }, [errors]);
 
   return (
 		<form onSubmit={handleSubmit(onSubmit)}>
@@ -107,8 +86,6 @@ const AddRecipeForm = () => {
 				errors={errors}
 			/>
 			<RecipeIngredientsFields
-				register={register}
-				errors={errors}
 				ingredientsList={ingredientsList}
 				setIngredientsList={setIngredientsList}
 			/>

@@ -169,6 +169,7 @@ export const StyledSelect = styled(Select)`
 	}
 
 	.select__control {
+		cursor: pointer;
 		padding: 16px 18px;
 		border-radius: 200px;
 		border: 1px solid rgba(243, 243, 243, 0.5);
@@ -180,14 +181,6 @@ export const StyledSelect = styled(Select)`
 		color: ${(props) => props.theme.colors.white};
 		font-family: Manrope;
 		font-size: 14px;
-		// :hover {
-		// 	outline: 0;
-		// 	box-shadow: 0;
-		// 	outline: 0;
-		// 	box-shadow: none;
-		// 	border: 0;
-		// 	border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
-		// }
 		@media (min-width: 768px) {
 			padding: 14px 24px;
 			width: 332px;
@@ -322,6 +315,7 @@ export const StyledUnitSelect = styled(Select)`
 	}
 
 	.select__control {
+		cursor: pointer;
 		border: 0;
 		width: 48px;
 		position: relative;
@@ -329,14 +323,6 @@ export const StyledUnitSelect = styled(Select)`
 		color: ${(props) => props.theme.colors.white};
 		font-family: Manrope;
 		font-size: 14px;
-		// :hover {
-		// 	outline: 0;
-		// 	box-shadow: 0;
-		// 	outline: 0;
-		// 	box-shadow: none;
-		// 	border: 0;
-		// 	border-bottom: 1px rgba(243, 243, 243, 0.5) solid;
-		// }
 		@media (min-width: 768px) {
 			width: 70px;
 		}
