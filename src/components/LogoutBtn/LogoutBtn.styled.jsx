@@ -45,8 +45,8 @@ export const CloseBtn = styled.button`
 	justify-content: center;
 	background-color: transparent;
 	border: none;
-
 	cursor: pointer;
+	transition: transform 0.4s ease, outline 0.4s ease;
 
 	@media (min-width: 768px) {
 		top: 18px;
@@ -55,8 +55,10 @@ export const CloseBtn = styled.button`
 		height: 32px;
 	}
 
-	&:focus {
+	&:focus,
+	&:hover {
 		outline: none;
+		transform: translateY(-3px);
 	}
 `;
 
@@ -66,7 +68,7 @@ export const ButtonWrapper = styled.div`
 `;
 
 export const ModalText = styled.p`
-	color: fill: ${(props) => props.theme.colors.white};;
+	color: ${(props) => props.theme.colors.white};
 	font-size: 14px;
 	text-align: center;
 
@@ -77,34 +79,42 @@ export const ModalText = styled.p`
 
 export const LogoutButton = styled.button`
 	padding: 16px 41px;
-	color: #161f37;
-	background: fill: ${(props) => props.theme.colors.blue};;
+	color: ${(props) => props.theme.colors.blue};
+	background: ${(props) => props.theme.colors.white};
 	font-size: 16px;
 	border-radius: 42px;
 	cursor: pointer;
+	transition: background-color 400ms ease, color 400ms ease, outline 400ms ease;
 
 	@media (min-width: 768px) {
 		padding: 18px 69px;
 	}
 
-  &:focus,
-  &:hover {
+	&:focus,
+	&:hover {
 		outline: none;
+		color: ${(props) => props.theme.colors.white};
+		background-color: ${(props) => props.theme.colors.blue};
+	}
 `;
 
 export const CanceltBtn = styled.button`
 	padding: 16px 41px;
-	color: ${(props) => props.theme.colors.white};;
+	color: ${(props) => props.theme.colors.white};
 	background: #434d67;
 	font-size: 16px;
 	border-radius: 42px;
 	cursor: pointer;
+	transition: background-color 400ms ease, color 400ms ease, outline 400ms ease;
 
 	@media (min-width: 768px) {
 		padding: 18px 69px;
 	}
 
-  &:focus,
-  &:hover {
+	&:focus,
+	&:hover {
 		outline: none;
+		color: ${(props) => props.theme.colors.white};
+		background-color: ${(props) => props.theme.colors.blue};
+	}
 `;

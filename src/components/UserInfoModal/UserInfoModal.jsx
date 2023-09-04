@@ -8,22 +8,23 @@ import { ReactComponent as Cross } from "../../images/svg/close.svg";
 import { ReactComponent as Plus } from "../../images/svg/plus.svg";
 import { ReactComponent as editSVG } from "../../images/svg/edit.svg";
 import User from "../../images/user.png";
+import { toast } from "react-hot-toast";
 
 import {
-  BackDrop,
-  Modal,
-  CloseBtn,
-  getStyledCloseIcon,
-  AvatarWrapper,
-  Avatar,
-  AvatarInput,
-  AvatarIcon,
-  getStyledPlus,
-  InputWrapper,
-  Input,
-  InputIcon,
-  getStyledEdit,
-  SaveButton,
+	BackDrop,
+	Modal,
+	CloseBtn,
+	getStyledCloseIcon,
+	AvatarWrapper,
+	Avatar,
+	AvatarInput,
+	AvatarIcon,
+	getStyledPlus,
+	InputWrapper,
+	Input,
+	InputIcon,
+	getStyledEdit,
+	SaveButton,
 } from "./UserInfoModal.styled";
 
 const logoutRoot = document.querySelector("#logout-root");
@@ -32,132 +33,108 @@ const StyledPlusIcon = getStyledPlus(Plus);
 const StyledEditIcon = getStyledEdit(editSVG);
 
 export const UserInfoModal = ({
-  handleModalClose,
-  handleBackdropClick,
-  handleLogoutModalOpen,
+	handleModalClose,
+	handleBackdropClick,
+	handleLogoutModalOpen,
 }) => {
-  const dispatch = useDispatch();
-  const { name, avatarURL } = useSelector(selectUser);
-  const [userName, setUserName] = useState(name);
-  const [image, setImage] = useState(null);
-  const [imgURL, setImgURL] = useState(null);
-  const [isButtonEnabled, setIsButtonEnabled] = useState(false);
+	const dispatch = useDispatch();
+	const { name, avatarURL } = useSelector(selectUser);
+	const [userName, setUserName] = useState(name);
+	const [image, setImage] = useState(null);
+	const [imgURL, setImgURL] = useState(null);
+	const [isButtonEnabled, setIsButtonEnabled] = useState(false);
 
-  const userInfoFormSubmit = (e) => {
-    if (!isButtonEnabled) {
-      setIsButtonEnabled(false);
-      return;
-    }
-    e.preventDefault();
-    // const formData = new FormData();
-    if (image) {
-      // console.log(image);
-      // formData.append("avatarURL", image);
-      dispatch(updateAvatar(image));
-    }
+	const userInfoFormSubmit = (e) => {
+		if (!isButtonEnabled) {
+			setIsButtonEnabled(false);
+			toast.error("This is an error!");
+			return;
+		}
+		e.preventDefault();
 
-    if (name !== userName) {
-      dispatch(updateUserName(userName));
-    }
+		if (image) {
+			dispatch(updateAvatar(image));
+		}
 
-    // const formData = new FormData();
+		if (name !== userName) {
+			dispatch(updateUserName(userName));
+		}
 
-    // if (values?.name) {
-    // 	formData.append("name", values.name);
-    // 	dispatch(updateUserName(formData));
-    // }
+		handleModalClose();
+	};
 
-    // if (image) {
-    // 	console.log(image);
-    // 	formData.append("avatarURL", image);
-    // 	dispatch(updateAvatar(formData));
-    // }
+	const onImageChange = (event) => {
+		const file = event.target.files[0];
+		setImgURL(URL.createObjectURL(file));
+		setImage(file);
+		setIsButtonEnabled(true);
+	};
 
-    handleModalClose();
-  };
+	const onNameChange = (e) => {
+		setUserName(e.target.value);
+		if (name !== e.target.value) {
+			setIsButtonEnabled(true);
+		}
+		if (name === e.target.value && imgURL === null) {
+			setIsButtonEnabled(false);
+		}
+	};
 
-  const onImageChange = (event) => {
-    const file = event.target.files[0];
-    setImgURL(URL.createObjectURL(file));
-    setImage(file);
-    setIsButtonEnabled(true);
-  };
+	useEffect(() => {
+		const userImage = document.getElementById("user_image");
+		if (imgURL) {
+			userImage.src = imgURL;
+		}
+		return () => {
+			if (imgURL) {
+				URL.revokeObjectURL(imgURL);
+			}
+		};
+	}, [imgURL]);
 
-  const onNameChange = (e) => {
-    setUserName(e.target.value);
-    if (name !== e.target.value) {
-      setIsButtonEnabled(true);
-    }
-    if (name === e.target.value && imgURL === null) {
-      setIsButtonEnabled(false);
-    }
-  };
-
-  useEffect(() => {
-    const userImage = document.getElementById("user_image");
-    if (imgURL) {
-      userImage.src = imgURL;
-    }
-    return () => {
-      if (imgURL) {
-        URL.revokeObjectURL(imgURL);
-      }
-    };
-  }, [imgURL]);
-
-  // const saveChanges = (e) => {
-  // 	e.preventDefault();
-  // 	// const formData = new FormData();
-  // 	if (image) {
-  // 		// console.log(image);
-  // 		// formData.append("avatarURL", image);
-  // 		dispatch(updateAvatar(image));
-  // 	}
-  // };
-
-  return createPortal(
-    <BackDrop onClick={handleBackdropClick}>
-      <Modal>
-        <CloseBtn onClick={handleModalClose} type="button">
-          {<StyledCloseIcon />}
-        </CloseBtn>
-        <form onSubmit={userInfoFormSubmit}>
-          <AvatarWrapper>
-            <Avatar src={avatarURL || User} alt="" id="user_image" />
-            <AvatarInput
-              type="file"
-              id="file_upload"
-              name="avatarURL"
-              onChange={onImageChange}
-            />
-            <AvatarIcon htmlFor="file_upload">
-              <StyledPlusIcon />
-            </AvatarIcon>
-          </AvatarWrapper>
-          <InputWrapper>
-            <Input
-              type="text"
-              id="name"
-              name="name"
-              onChange={onNameChange}
-              value={userName}
-            />
-            <InputIcon>
-              <StyledEditIcon />
-            </InputIcon>
-          </InputWrapper>
-          <SaveButton type="submit" disabled={!isButtonEnabled}>
-            Save changes
-          </SaveButton>
-        </form>
-      </Modal>
-    </BackDrop>,
-    logoutRoot
-  );
+	return createPortal(
+		<BackDrop onClick={handleBackdropClick}>
+			<Modal>
+				<CloseBtn onClick={handleModalClose} type="button">
+					{<StyledCloseIcon />}
+				</CloseBtn>
+				<form onSubmit={userInfoFormSubmit}>
+					<AvatarWrapper>
+						<Avatar src={avatarURL || User} alt="" id="user_image" />
+						<AvatarInput
+							type="file"
+							id="file_upload"
+							name="avatarURL"
+							onChange={onImageChange}
+						/>
+						<AvatarIcon htmlFor="file_upload">
+							<StyledPlusIcon />
+						</AvatarIcon>
+					</AvatarWrapper>
+					<InputWrapper>
+						<Input
+							type="text"
+							id="name"
+							name="name"
+							onChange={onNameChange}
+							value={userName}
+						/>
+						<InputIcon>
+							<StyledEditIcon />
+						</InputIcon>
+					</InputWrapper>
+					<SaveButton type="submit" disabled={!isButtonEnabled}>
+						Save changes
+					</SaveButton>
+				</form>
+			</Modal>
+		</BackDrop>,
+		logoutRoot
+	);
 };
 
 UserInfoModal.propTypes = {
-  handleModalClose: PropTypes.func,
-  handleBackdropClick: PropTypes.func,
-  handleLogoutModalOpen: PropTypes.func,
+	handleModalClose: PropTypes.func,
+	handleBackdropClick: PropTypes.func,
+	handleLogoutModalOpen: PropTypes.func,
 };

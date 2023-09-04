@@ -24,7 +24,6 @@ export const StyledMenu = styled.div`
 	position: absolute;
 	top: 0;
 	right: 0;
-	transition: transform 0.3s ease-in-out;
 `;
 
 export const StyledMenuBtn = styled.button`
@@ -42,8 +41,11 @@ export const StyledMenuBtn = styled.button`
 	cursor: pointer;
 	padding: 0;
 	z-index: 10;
+	transition: transform 0.4s ease, outline 0.4s ease;
 
+	&:hover,
 	&:focus {
+		transform: translateY(-3px);
 		outline: none;
 	}
 
@@ -67,8 +69,11 @@ export const StyledBurger = styled.button`
 	cursor: pointer;
 	padding: 0;
 	z-index: 10;
+	transition: transform 0.4s ease, outline 0.4s ease;
 
+	&:hover,
 	&:focus {
+		transform: translateY(-3px);
 		outline: none;
 	}
 

@@ -4,6 +4,7 @@ import { ReactComponent as editSVG } from "../../images/svg/edit.svg";
 import {
 	getStyledEdit,
 	Drop,
+	EditWrapper,
 	EditButton,
 	SvgButton,
 	LogOutButton,
@@ -19,12 +20,10 @@ export const UserLogoModal = ({
 	return (
 		<>
 			<Drop open={setOpenDrop}>
-				<div>
-					<EditButton onClick={handleInfoModalOpen} type="button">
-						Edit profile
-					</EditButton>
+				<EditWrapper onClick={handleInfoModalOpen}>
+					<EditButton type="button">Edit profile</EditButton>
 					<SvgButton>{<StyledEditSvg />}</SvgButton>
-				</div>
+				</EditWrapper>
 				<LogOutButton onClick={handleLogoutModalOpen} type="button">
 					Log out
 				</LogOutButton>
