@@ -1,1 +1,0 @@
-import{j as r,M as s}from"./index-8a5e167a.js";import{E as a,T as n,a as e}from"./ErrorPage.styled-6c0405ee.js";const i=()=>r.jsx(s,{children:r.jsx(a,{children:r.jsxs(n,{children:[r.jsx(e,{children:"4"}),r.jsx(e,{children:"4"})]})})});export{i as default};
