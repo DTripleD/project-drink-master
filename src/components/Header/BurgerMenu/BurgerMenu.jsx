@@ -19,29 +19,17 @@ const StyledCloseIcon = getStyledCloseIcon(CloseMenuIcon);
 export const Menu = ({ open, setOpen }) => {
 	const location = useLocation();
 
-	// useEffect(() => {
-	// 	if (open) {
-	// 		window.addEventListener("click", () => {
-	// 			setOpen(true);
-	// 			document.body.style.overflow = "hidden";
-	// 		});
-	// 	}
-	// 	window.addEventListener("click", () => {
-	// 		setOpen(false);
-	// 		document.body.style.overflow = "";
-	// 	});
+	useEffect(() => {
+		if (open) {
+			document.body.style.overflow = "hidden";
+		}
 
-	// 	return () => {
-	// 		window.removeEventListener("click", () => {
-	// 			setOpen(true);
-	// 			document.body.style.overflow = "hidden";
-	// 		});
-	// 		window.removeEventListener("click", () => {
-	// 			setOpen(false);
-	// 			document.body.style.overflow = "";
-	// 		});
-	// 	};
-	// });
+		return () => {
+			if (!open) {
+				document.body.style.overflow = "";
+			}
+		};
+	});
 
 	useEffect(() => {
 		setOpen(false);
