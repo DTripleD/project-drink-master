@@ -126,8 +126,9 @@ export const RegistrationNavLink = styled(NavLink)`
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   &:hover,
   &:focus {
-    background-color: ${(props) => props.theme.colors.black};
+    background-color: ${(props) => props.theme.colors.white};
     color: ${(props) => props.theme.colors.black};
+     box-shadow: 1px 0px 3px 4px rgba(35, 93, 171, 0.4) inset; 
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;

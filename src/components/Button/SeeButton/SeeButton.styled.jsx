@@ -4,7 +4,7 @@ export const SeeButtonStyled = styled.button`
   width: 151px;
   height: 46px;
   border-radius: 42px;
-  background-color: ${(props) => props.theme.colors.blue};
+  background-color: transparent;
   border: 1px solid
     ${({ theme }) =>
       theme.currentTheme === "light"
