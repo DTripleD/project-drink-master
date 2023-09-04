@@ -6,14 +6,14 @@ import instance from "../../shared/api/instance";
 
 export const fetchFavorites = createAsyncThunk(
   "favorites/fetchAll",
-  async (_, thunkAPI) => {
+  async (query, thunkAPI) => {
     try {
-      const { data } = await instance.get(`/favorite`);
+      const { data } = await instance.get(`/favorite?${query}`);
 
       if (!data.drinks.length) {
         return [];
       }
-      return data.drinks;
+      return data;
     } catch (e) {
       return thunkAPI.rejectWithValue("Failed to load favorites");
     }

@@ -18,6 +18,7 @@ export const ItemCard = styled.div`
 
 export const ItemImg = styled.img`
   display: block;
+  transition: transform 600ms ease, box-shadow 400ms ease;
   background: linear-gradient(
     180deg,
     rgba(10, 10, 17, 0.024) 51.18%,
@@ -26,7 +27,11 @@ export const ItemImg = styled.img`
 
   border-radius: 8px;
   box-shadow: 5px 4px 8px 0px rgba(34, 60, 80, 0.2);
-
+  &:hover,
+  &:focus {
+    transform: scale(0.98);
+    box-shadow: 0 0 12px rgba(243, 243, 243, 0.5);
+  }
   @media screen and (min-width: 768px) {
   }
 

@@ -172,7 +172,11 @@
 
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+// import { useEffect } from 'react';
+// import { useSearchParams } from 'react-router-dom';
+// import { verifyThunk } from '../../redux/auth/operations';
+
 import { signup } from "../../redux/auth/operations";
 import { AuthNavigate } from "../AuthNav/AuthNav";
 import { SignUpSchema } from "./SignUpAndSignInSchema";
@@ -190,7 +194,9 @@ import {
   StyledMessage,
   StyledPasswordDiv,
 } from "./AuthForm.styled";
-import { theme } from "../../main";
+import { toast } from "react-hot-toast";
+import { selectTheme } from "../../redux/theme/selectors";
+import theme from "../../shared/theme";
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -200,6 +206,8 @@ export const SignUpForm = () => {
       resolver: yupResolver(SignUpSchema), 
   });
   const [isClicked, setIsClicked] = useState(false);
+  const currentTheme = useSelector(selectTheme);
+  const selectedTheme = theme(currentTheme);
 
   const onSubmit = (data) => {
     dispatch(signup(data));
@@ -210,6 +218,7 @@ export const SignUpForm = () => {
   };
 
   return (
+
     <StyledForm  autoComplete="off" onSubmit={handleSubmit(onSubmit)}>
       <StyledTitle>Registration</StyledTitle>
       <StyledInnerDiv>
@@ -233,6 +242,7 @@ export const SignUpForm = () => {
                 top: '50%',
                 transform: 'translateY(-50%)',
                 right: '24px',
+
                 }}
               />
               <StyledError>{errors.name.message}</StyledError>
@@ -252,6 +262,7 @@ export const SignUpForm = () => {
                  right: '24px',
                 }}
               />
+
               <StyledMessage>This is a CORRECT name</StyledMessage>
             </div>
           )}
@@ -330,9 +341,12 @@ export const SignUpForm = () => {
                 <FiEye color={theme.colors.white} />
               ) : (
                 <FiEyeOff color={theme.colors.white} />
+
               )}
             </span>
-          </StyledPasswordDiv>
+          </Styled
+
+Div>
         </StyledInputWrap>
       </StyledInnerDiv>
           <StyledButton type="submit" disabled={!isValid}>Sign Up</StyledButton>

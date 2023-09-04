@@ -24,4 +24,16 @@ export const StyledLink = styled(NavLink)`
   }
 `;
 
-export const SharedLayoutWrapper = styled.div``;
+export const SharedLayoutWrapper = styled.div`
+  border-top: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
+
+  border-bottom: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
+`;

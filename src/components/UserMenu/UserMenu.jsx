@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { logout } from "../../redux/auth/operations";
 import { useNavigate } from "react-router";
 import { LogoutBtn } from "../LogoutBtn/LogoutBtn";
 import { UserInfoModal } from "../UserInfoModal/UserInfoModal";
-
+import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import User from "../../images/user.png";
 
 import { selectUser } from "../../redux/auth/selectors";
@@ -15,10 +15,9 @@ import {
   UserPhotoWrapper,
 } from "./UserMenu.styled";
 import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
-import userDefaultPhoto from "../../images/user.png";
 
 const UserMenu = () => {
-  const { name, avatarURL = userDefaultPhoto } = useSelector(selectUser);
+  const { name, avatarURL } = useSelector(selectUser);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -26,20 +25,26 @@ const UserMenu = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
 
+  const node = useRef();
+  useOnClickOutside(node, () => setOpenDrop(false));
+
   const handleLogoutModalOpen = () => {
     setShowLogoutModal(true);
     setOpenDrop(false);
+    document.body.style.overflow = "hidden";
   };
 
   const handleInfoModalOpen = () => {
     setShowInfoModal(true);
     setOpenDrop(false);
+    document.body.style.overflow = "hidden";
   };
 
   const handleModalClose = () => {
     setShowInfoModal(false);
     setShowLogoutModal(false);
     setOpenDrop(false);
+    document.body.style.overflow = "";
   };
 
   const handleLogout = (event) => {
@@ -51,12 +56,14 @@ const UserMenu = () => {
   const handleBackdropClick = (event) => {
     if (event.currentTarget === event.target) {
       handleModalClose();
+      document.body.style.overflow = "";
     }
   };
 
   const handleKeyDown = (event) => {
     if (event.code === "Escape") {
       handleModalClose();
+      document.body.style.overflow = "";
     }
   };
 
@@ -76,14 +83,16 @@ const UserMenu = () => {
     <>
       <MenuWrapper open={openDrop} onClick={() => setOpenDrop(!openDrop)}>
         <UserPhotoWrapper>
-          <UserPhoto src={avatarURL ? avatarURL : User} alt="" />
+          <UserPhoto src={avatarURL || User} alt="" />
         </UserPhotoWrapper>
         <UserName>{name}</UserName>
         {openDrop && (
-          <UserLogoModal
-            handleInfoModalOpen={handleInfoModalOpen}
-            handleLogoutModalOpen={handleLogoutModalOpen}
-          />
+          <div ref={node}>
+            <UserLogoModal
+              handleInfoModalOpen={handleInfoModalOpen}
+              handleLogoutModalOpen={handleLogoutModalOpen}
+            />
+          </div>
         )}
       </MenuWrapper>
 
@@ -91,6 +100,8 @@ const UserMenu = () => {
         <UserInfoModal
           handleInfoModalOpen={handleInfoModalOpen}
           handleBackdropClick={handleBackdropClick}
+          handleLogoutModalOpen={handleLogoutModalOpen}
+          handleModalClose={handleModalClose}
         />
       )}
 

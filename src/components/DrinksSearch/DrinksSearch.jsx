@@ -22,9 +22,9 @@ import {
 } from "./DrinksSearch.styled";
 import { getDrinksList } from "../../shared/api/drinksSearch";
 import { useDispatch, useSelector } from "react-redux";
-// import Pagination from "../Pagination/Pagination";
-import { PaginationWrapper } from "../Pagination/Pagination.styled";
-import { Container, Pagination, Stack } from "@mui/material";
+import PaginationComponent from "../Pagination/Pagination";
+import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
+import { P3 } from "../DrinksList/DrinksList.styled";
 
 const DrinksSearch = () => {
 	const { state } = useLocation();
@@ -48,7 +48,7 @@ const DrinksSearch = () => {
 
 	const [searchParams, setSearchParams] = useSearchParams({
 		search: "",
-		category: state?.category ? state?.category : "Cocktail",
+		category: state?.category ? state?.category : "",
 		ingredients: "",
 		page: page,
 		limit: itemsPerPage,
@@ -87,10 +87,11 @@ const DrinksSearch = () => {
 		getDrinksList(searchParams)
 			.then((data) => {
 				setData(data);
+				setError(data);
 				setTotalPages(Math.ceil(data.totalHits / itemsPerPage));
 			})
 			.catch((error) => {
-				setError(error.message);
+				setError(error);
 			});
 	}, [searchParams]);
 
@@ -98,12 +99,13 @@ const DrinksSearch = () => {
 		value: category,
 		label: category,
 	}));
+	optionCategories.unshift({ value: "", label: "All categories" });
 
 	const optionIngredients = ingredients.map((ingredient) => ({
 		value: ingredient,
 		label: ingredient,
 	}));
-	optionIngredients.push({ value: "Ingredients", label: "Ingredients" });
+	optionIngredients.unshift({ value: "", label: "Ingredients" });
 
 	const onSubmit = (data) => {
 		setSearchParams({
@@ -113,6 +115,24 @@ const DrinksSearch = () => {
 			page: "1",
 			limit: itemsPerPage,
 		});
+	};
+
+	const handleCategoryChange = (selectedCategory) => {
+		setSearchParams((prevSearchParams) => ({
+			...prevSearchParams,
+			category: selectedCategory?.label || "",
+			page: "1",
+			limit: itemsPerPage,
+		}));
+	};
+
+	const handleIngridientChange = (selectedIngridient) => {
+		setSearchParams((prevSearchParams) => ({
+			...prevSearchParams,
+			ingredients: selectedIngridient?.label || "",
+			page: "1",
+			limit: itemsPerPage,
+		}));
 	};
 
 	const changeNum = (_, num) => {
@@ -139,10 +159,13 @@ const DrinksSearch = () => {
 					name="category"
 					render={({ field: { onChange, value } }) => (
 						<StyledSelect
-							defaultValue={optionCategories[1]}
+							defaultValue={optionCategories[0]}
 							options={optionCategories}
 							value={value}
-							onChange={onChange}
+							onChange={(selectedOption) => {
+								onChange(selectedOption);
+								handleCategoryChange(selectedOption);
+							}}
 							classNamePrefix={"select"}
 						/>
 					)}
@@ -152,32 +175,32 @@ const DrinksSearch = () => {
 					name="ingredients"
 					render={({ field: { onChange, value } }) => (
 						<StyledSelect
-							defaultValue={optionIngredients[100]}
+							defaultValue={optionIngredients[0]}
 							options={optionIngredients}
 							value={value}
-							onChange={onChange}
+							onChange={(selectedOption) => {
+								onChange(selectedOption);
+								handleIngridientChange(selectedOption);
+							}}
 							classNamePrefix={"select"}
 						/>
 					)}
 				/>
 			</Form>
-			{error && <p>Sorry. {error} 😭</p>}
+			{!data.drinks && !error && <h2>Loading...</h2>}
 			<DrinksList drinks={data.drinks} />
+			{error === "drinks not found" && (
+				<>
+					<ErrorPageWrapper></ErrorPageWrapper>
+					<P3>Unfortunately, there is no such cocktails.... 😭</P3>
+				</>
+			)}
 			{totalPages > 1 && (
-				// <Pagination totalPages={totalPages} page={page} changeNum={changeNum} />
-				<PaginationWrapper>
-					<Container>
-						<Stack spacing={5}>
-							<Pagination
-								count={totalPages}
-								page={page}
-								onChange={changeNum}
-								siblingCount={1}
-								sx={{ marginY: 3, marginX: "auto" }}
-							/>
-						</Stack>
-					</Container>
-				</PaginationWrapper>
+				<PaginationComponent
+					totalPages={totalPages}
+					page={page}
+					changeNum={changeNum}
+				/>
 			)}
 		</>
 	);

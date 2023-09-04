@@ -5,18 +5,18 @@ import FavoriteList from "../../components/FavoriteList/FavoriteList";
 import { StyledSection } from "./FavoritePage.styled";
 
 const FavoritePage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
   return (
     <>
       <MainContainer>
-        <StyledSection>
+        <>
           <MainPageTitle title={"Favorites"} />
           <FavoriteList />
 
           {/* <Pagination /> */}
-        </StyledSection>
+        </>
       </MainContainer>
     </>
   );

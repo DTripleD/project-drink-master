@@ -23,7 +23,7 @@ export const RecipesList = () => {
   const [own, setOwn] = useState([]);
 
   useEffect(() => {
-    getMyCoctails().then((data) => setOwn(data.cocktails));
+    getMyCoctails().then((res) => setOwn(res.data.cocktails));
   }, []);
 
   // useEffect(() => {

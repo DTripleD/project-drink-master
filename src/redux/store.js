@@ -9,6 +9,7 @@ import { persistedfavoritesReducer } from "./favorite/favoriteSlice";
 
 import { cocktailsReducer } from "./Cocktails/cocktailsSlice";
 import { persistedDrinksQueryReducer } from "./drinks/drinksSlice";
+import { persistedThemeReducer } from "./theme/themeSlice";
 
 const persistConfigForCocktails = {
   key: "cocktails",
@@ -24,6 +25,7 @@ export const store = configureStore({
     favorites: persistedfavoritesReducer,
     cocktails: persistReducer(persistConfigForCocktails, cocktailsReducer),
     drinksQuery: persistedDrinksQueryReducer,
+    theme: persistedThemeReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

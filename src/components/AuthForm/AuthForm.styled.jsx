@@ -248,7 +248,11 @@ export const StyledInput = styled.input`
   box-sizing: border-box;
   height: 54px;
   border-radius: 200px;
-  border: 1px solid rgba(243, 243, 243, 0.2);
+  border: 1px solid
+    ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.white
+        : "rgba(243, 243, 243, 0.2)"};
   opacity: 0.8;
   background-color: transparent;
   padding: 18px 24px;
@@ -317,6 +321,7 @@ export const StyledButton = styled.button`
     line-height: calc(18 / 16);
   }
 `;
+
 
 export const StyledError = styled.div`
   position: absolute;

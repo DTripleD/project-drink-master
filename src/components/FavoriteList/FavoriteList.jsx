@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchFavorites } from "../../redux/favorite/favorite-operation";
 import {
@@ -7,68 +7,86 @@ import {
   selectError,
   selectFavorites,
 } from "../../redux/favorite/favorite-selector";
-import useMediaRules from "../../hooks/useMediaRules";
 
 import FavoriteItem from "../FavoriteItem/FavoriteItem";
-
+import { PaginationWrapper } from "../Pagination/Pagination.styled";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import {
   MyRecipesListStyled,
   Section,
   MessageTitle,
 } from "../../components/RecipesList/RecipesList.styled";
-// import { Container, Pagination, Stack } from "@mui/material";
+import PaginationComponent from "../Pagination/Pagination";
 
 const FavoriteList = () => {
+  const location = useLocation();
   const dispatch = useDispatch();
-  const { isDesktop } = useMediaRules();
-  const favoriteRecipe = useSelector(selectFavorites);
 
+  const favoriteRecipe = useSelector(selectFavorites);
   const error = useSelector(selectError);
-  //   const location = useLocation();
+
   const isLoading = useSelector(selectIsLoading);
 
-  useEffect(() => {
-    dispatch(fetchFavorites());
-  }, [dispatch]);
-
-  // _________________________________
-  //   const [searchParams, setSearchParams] = useSearchParams();
   //------------------ Pagination
 
-  //   const [currentPage, setCurrentPage] = useState(1);
-  //   const [allPage, setAllPage] = useState();
-  //   const [allItem, setAllItem] = useState();
-  //   //-----------------------------------
-  //   useEffect(() => {
-  //     const handleWindowResize = () => {
-  //       const width = window.innerWidth;
+  //определяем кол-во єлементов на странице
+  // console.log("favoriteRecipe", favoriteRecipe);
 
-  //       if (width >= 1304) {
-  //         setItemsPerPage(12);
-  //       } else {
-  //         setItemsPerPage(6);
-  //       }
-  //     };
-  //     window.addEventListener("resize", handleWindowResize);
+  const [totalPages, setTotalPages] = useState(favoriteRecipe);
+  const [page, setPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(() => {
+    const width = window.innerWidth;
+    if (width >= 1440) {
+      return 9;
+    } else {
+      return 10;
+    }
+  });
 
-  //     return () => window.removeEventListener("resize", handleWindowResize);
-  //   }, []);
+  const [searchParams, setSearchParams] = useSearchParams({
+    page: page,
+    limit: itemsPerPage,
+  });
+  const updatedParams = new URLSearchParams(searchParams.toString());
 
-  //   const [itemsPerPage, setItemsPerPage] = useState(() => {
-  //     const width = window.innerWidth;
+  useEffect(() => {
+    const newPage = parseInt(searchParams.get("page")) || 1;
+    if (newPage !== page) {
+      setPage(newPage);
+    }
 
-  //     if (width >= 1440) {
-  //       return 12;
-  //     } else {
-  //       return 6;
-  //     }
-  //   });
-  //   const changeNum = (_, num) => {
-  //     updatedParams.set("page", num.toString());
-  //     setSearchParams(updatedParams);
-  //     setPage(num);
-  //   };
+    dispatch(fetchFavorites(searchParams))
+      .then(({ payload }) => {
+        window.scrollTo(0, 0);
+        setTotalPages(Math.ceil(payload.totalHits / itemsPerPage));
+      })
+      .catch((error) => {
+        console.log("error", error);
+        // setError(error.message);
+      });
+  }, [dispatch, searchParams, page, itemsPerPage]);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      const width = window.innerWidth;
+
+      if (width >= 1440) {
+        setItemsPerPage(9);
+      } else {
+        setItemsPerPage(10);
+      }
+    };
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => window.removeEventListener("resize", handleWindowResize);
+  }, []);
+
+  const changeNum = (_, num) => {
+    updatedParams.set("page", num.toString());
+
+    setSearchParams(updatedParams);
+    setPage(num);
+  };
 
   //---------------------------------------
 
@@ -82,32 +100,18 @@ const FavoriteList = () => {
       )) || (
         <>
           {favoriteRecipe?.length !== 0 ? (
-            <>
-              <MyRecipesListStyled>
-                {favoriteRecipe.map((recipe) => (
-                  <li key={recipe._id}>
-                    <FavoriteItem
-                      recipe={recipe}
-                      page={"favorite"}
-                      cocktail={recipe}
-                    />
-                  </li>
-                ))}
-              </MyRecipesListStyled>
-              {/* {totalPages > 1 && (
-                <Container>
-                  <Stack spacing={2}>
-                    <Pagination
-                      count={totalPages}
-                      page={page}
-                      onChange={changeNum}
-                      siblingCount={1}
-                      sx={{ marginY: 3, marginX: "auto" }}
-                    />
-                  </Stack>
-                </Container>
-              )} */}
-            </>
+            <MyRecipesListStyled>
+              {favoriteRecipe.map((recipe) => (
+                <li key={recipe._id}>
+                  <FavoriteItem
+                    recipe={recipe}
+                    page={"favorite"}
+                    cocktail={recipe}
+                    searchParams={searchParams}
+                  />
+                </li>
+              ))}
+            </MyRecipesListStyled>
           ) : (
             <>
               <ErrorPageWrapper />
@@ -117,6 +121,13 @@ const FavoriteList = () => {
             </>
           )}
         </>
+      )}
+      {totalPages > 1 && (
+        <PaginationComponent
+          totalPages={totalPages}
+          page={page}
+          changeNum={changeNum}
+        />
       )}
 
       {error && <p>Sorry. {error} 😭</p>}

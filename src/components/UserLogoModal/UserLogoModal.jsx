@@ -1,5 +1,5 @@
 import React from "react";
-
+import PropTypes from "prop-types";
 import { ReactComponent as editSVG } from "../../images/svg/edit.svg";
 import {
 	getStyledEdit,
@@ -31,4 +31,10 @@ export const UserLogoModal = ({
 			</Drop>
 		</>
 	);
+};
+
+UserLogoModal.propTypes = {
+	setOpenDrop: PropTypes.func,
+	handleInfoModalOpen: PropTypes.func,
+	handleLogoutModalOpen: PropTypes.func,
 };

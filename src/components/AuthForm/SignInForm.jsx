@@ -148,7 +148,7 @@
 
 import  { useState } from 'react';
 import toast from 'react-hot-toast';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signin, refreshUser } from '../../redux/auth/operations';
 import { AuthNavigate } from '../AuthNav/AuthNav';
 import { useForm } from 'react-hook-form'; // Импортируем useForm из react-hook-form
@@ -156,6 +156,9 @@ import { SignInSchema } from './SignUpAndSignInSchema';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { BiCheckCircle, BiErrorCircle } from 'react-icons/bi';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
+// import { selectIsClicked } from '../../redux/auth/selectors';
+// import { handleEyeClick } from '../../redux/auth/authSlice';
+
 import {
   StyledButton,
   StyledError,
@@ -167,15 +170,21 @@ import {
   StyledInnerDiv,
   StyledMessage,
   StyledPasswordDiv,
+
 } from './AuthForm.styled';
 import { theme } from '../../main';
+import { selectTheme } from "../../redux/theme/selectors";
+import theme from "../../shared/theme";
 
 export const SignInForm = () => {
   const { register, handleSubmit,formState: { errors,isValid, dirtyFields }, } = useForm({
       resolver: yupResolver(SignInSchema),
   });
+
   const dispatch = useDispatch();
   const [isClicked, setIsClicked] = useState(false);
+  const currentTheme = useSelector(selectTheme);
+  const themes = theme(currentTheme);
 
   const togglePasswordVisibility = () => {
     setIsClicked(!isClicked);
@@ -189,12 +198,14 @@ export const SignInForm = () => {
          throw new Error(res.payload.response.data.message);
       }
 
+
    toast.success("Authentication successful");
       dispatch(refreshUser());
     } catch (error) {
       console.error(error);
     }
   };
+
 
     return (
       <>
@@ -283,6 +294,8 @@ export const SignInForm = () => {
           <StyledButton type="submit" disabled={!isValid}>Sign In</StyledButton>
           <AuthNavigate />
         </StyledFormInsight>
+
+ 
       </StyledForm>
        </>      
   );
