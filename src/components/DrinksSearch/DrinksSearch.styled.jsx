@@ -37,6 +37,7 @@ export const StyledSelect = styled(Select)`
 	}
 
 	.select__control {
+		cursor: pointer;
 		position: relative;
 		width: 315px;
 		height: 56px;
@@ -57,6 +58,17 @@ export const StyledSelect = styled(Select)`
 			outline: 0;
 			box-shadow: none;
 			border: 0;
+
+			html,
+			body {
+				overflow: hidden;
+			}
+		}
+		:focus {
+			html,
+			body {
+				overflow: hidden;
+			}
 		}
 	}
 
@@ -124,6 +136,22 @@ export const StyledSelect = styled(Select)`
 
 	.select__indicator {
 		padding: 0;
+		svg {
+			fill: rgba(243, 243, 243, 0.5);
+			transition: transform 300ms ease;
+			:hover {
+				fill: ${(props) => props.theme.colors.white};
+				transform: rotate(180deg);
+			}
+			:focus {
+				fill: ${(props) => props.theme.colors.white};
+				transform: rotate(180deg);
+			}
+			:active {
+				fill: ${(props) => props.theme.colors.white};
+				transform: rotate(180deg);
+			}
+		}
 	}
 
 	.select__value-container {
