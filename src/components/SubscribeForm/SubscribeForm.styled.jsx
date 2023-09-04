@@ -68,27 +68,34 @@ export const FooterSubscribeButton = styled.button`
  
   height: 54px;
   width: 100%;
-  color: ${(props) => props.theme.colors.white};
-  background-color: transparent;
+  color: ${(props) => props.theme.colors.blue};
+  background-color: ${({ theme }) =>
+    theme.currentTheme === "light" ? theme.colors.black : theme.colors.white};
   text-align: center;
   font-size: 16px;
   font-weight: 600;
   line-height: calc(18 / 16);
 
   border-radius: 200px;
-  border: 1px solid ${(props) => props.theme.colors.white};
+  border: 1px solid ${({ theme }) =>
+      theme.currentTheme === "light" ? theme.colors.white : "transparent"};
   margin-bottom: 80px;
 
   transition: color 0.5s, border-color 0.5s;
 
   &:not(:disabled):hover {
-    border-color: color: ${(props) => props.theme.colors.white};;
+    background-color: ${({ theme }) =>
+      theme.currentTheme === "light" ? theme.colors.white : "transparent"};
+    border-color: ${(props) => props.theme.colors.white};
+    color: ${({ theme }) =>
+      theme.currentTheme === "light" ? theme.colors.black : theme.colors.white};
   }
 
  &:disabled {
     border-color: rgba(243, 243, 243, 0.2); 
     cursor: not-allowed; 
     color: rgba(243, 243, 243, 0.2);
+    background-color: transparent;
 
 
   @media screen and (min-width: 768px) {
