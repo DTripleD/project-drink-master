@@ -9,7 +9,8 @@ export const StyledButton = styled.button`
   transition: background-color 0.3s ease, box-shadow 400ms ease,
     scale 400ms ease;
 
-  background: ${(props) => props.theme.colors.blue};
+  background-color: transparent;
+
   border: 1px solid
     ${({ theme }) =>
       theme.currentTheme === "light"
