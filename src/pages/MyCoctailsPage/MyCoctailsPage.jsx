@@ -15,7 +15,7 @@ const MyCoctailsPage = () => {
         <>
           <MainPageTitle title={"My recipes"} />
           <RecipesList />
-          <PaginationComponent />
+          {/* <PaginationComponent /> */}
         </>
       </MainContainer>
     </>

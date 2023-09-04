@@ -15,8 +15,13 @@ export const BaseDiv = styled.div`
   justify-content: center;
   align-items: center;
   background-image: url(${coctailImgMobile}),
-  linear-gradient(to bottom, rgba(10, 10, 17, 1), rgba(10, 10, 17, 0)),
- linear-gradient(to right, rgba(10, 10, 17, 1), rgba(10, 10, 17, 0), rgba(10, 10, 17, 0.2));
+    linear-gradient(to bottom, rgba(10, 10, 17, 1), rgba(10, 10, 17, 0)),
+    linear-gradient(
+      to right,
+      rgba(10, 10, 17, 1),
+      rgba(10, 10, 17, 0),
+      rgba(10, 10, 17, 0.2)
+    );
   background-position: right;
   background-repeat: no-repeat, no-repeat;
   background-color: #07070b;
@@ -84,7 +89,7 @@ export const WelcomeTitle = styled.h1`
   line-height: 1.14;
   letter-spacing: -0.56px;
   padding-bottom: 14px;
-  z-index:1;
+  z-index: 1;
   @media screen and (min-width: 768px) {
     font-size: 40px;
     line-height: 1.1;
@@ -100,7 +105,7 @@ export const WelcomeText = styled.p`
   line-height: 1.28;
   letter-spacing: -0.28px;
   padding-bottom: 40px;
-  z-index:1;
+  z-index: 1;
   @media screen and (min-width: 768px) {
     font-size: 18px;
     line-height: 1.33;
@@ -118,7 +123,7 @@ export const RegistrationNavLink = styled(NavLink)`
   padding: 14px 40px;
   border-radius: 42px;
   border: 1px solid rgba(243, 243, 243, 0.2);
-  color: ${(props) => props.theme.colors.white};
+  color: #f3f3f3;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -126,9 +131,9 @@ export const RegistrationNavLink = styled(NavLink)`
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   &:hover,
   &:focus {
-    background-color: ${(props) => props.theme.colors.white};
-    color: ${(props) => props.theme.colors.black};
-     box-shadow: 1px 0px 3px 4px rgba(35, 93, 171, 0.4) inset; 
+    background-color: #f3f3f3;
+    color: #0a0a11;
+    box-shadow: 1px 0px 3px 4px rgba(35, 93, 171, 0.4) inset;
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -140,7 +145,7 @@ export const SignInNavLink = styled(NavLink)`
   display: block;
   padding: 14px 40px;
   border-radius: 42px;
-  color: ${(props) => props.theme.colors.white};
+  color: #f3f3f3;
   border: 1px solid rgba(243, 243, 243, 0.2);
   font-size: 14px;
   font-style: normal;
@@ -149,9 +154,9 @@ export const SignInNavLink = styled(NavLink)`
   transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
   &:hover,
   &:focus {
-    background-color: ${(props) => props.theme.colors.white};
-    color: ${(props) => props.theme.colors.black};
-    box-shadow: 1px 0px 3px 4px rgba(35, 93, 171, 0.4) inset; */
+    background-color: #f3f3f3;
+    color: #0a0a11;
+    box-shadow: 1px 0px 3px 4px rgba(35, 93, 171, 0.4) inset;
   }
   @media screen and (min-width: 768px) {
     font-size: 16px;
@@ -159,5 +164,3 @@ export const SignInNavLink = styled(NavLink)`
     padding: 18px 44px;
   }
 `;
-
-

@@ -9,17 +9,23 @@ import {
 } from "./RecipesList.styled";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import { getMyCoctails } from "../../shared/api/getMyCoctails";
+import Loader from "../Loader/Loader";
 
 export const RecipesList = () => {
   const [own, setOwn] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getMyCoctails().then((res) => setOwn(res.data.cocktails));
+    getMyCoctails()
+      .then((res) => setOwn(res.data.cocktails))
+      .then(() => setLoading(false));
   }, []);
 
   return (
     <Section>
-      {own.length > 0 ? (
+      {loading ? (
+        <Loader />
+      ) : own.length > 0 ? (
         <MyRecipesListStyled>
           {own.map((ownCocktail) => (
             <DrinkCard

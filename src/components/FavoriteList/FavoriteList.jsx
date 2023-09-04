@@ -16,6 +16,7 @@ import {
   MessageTitle,
 } from "../../components/RecipesList/RecipesList.styled";
 import PaginationComponent from "../Pagination/Pagination";
+import Loader from "../Loader/Loader";
 
 const FavoriteList = () => {
   const location = useLocation();
@@ -91,12 +92,7 @@ const FavoriteList = () => {
 
   return (
     <Section>
-      {(isLoading && (
-        <>
-          <MessageTitle>Loading...</MessageTitle>
-          <ErrorPageWrapper />
-        </>
-      )) || (
+      {(isLoading && <Loader />) || (
         <>
           {favoriteRecipe?.length !== 0 ? (
             <MyRecipesListStyled>
