@@ -95,8 +95,6 @@ const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 		setIngredientsList(newIngredientsList);
 	};
 
-	console.log(ingredientsList);
-
 	return (
 		<div>
 			<SubTitleContainer>
