@@ -188,6 +188,18 @@ export const StyledSelect = styled(Select)`
 			font-size: 17px;
 			line-height: 156%;
 		}
+		:hover {
+			html,
+			body {
+				overflow: hidden;
+			}
+		}
+		:focus {
+			html,
+			body {
+				overflow: hidden;
+			}
+		}
 	}
 
 	.select__indicator-separator {
