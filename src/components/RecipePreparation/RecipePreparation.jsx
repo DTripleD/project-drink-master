@@ -10,6 +10,7 @@ import {
   DIV3,
   IMG, 
 } from './RecipePreparation.styled';
+import PropTypes from "prop-types";
 
 const RecipePreparation = ({ ingridients: { description, instructions, drinkThumb, drink } }) => {
   const sentences = instructions.split(/(?<=[.!?])\s+/).filter(Boolean);
@@ -19,11 +20,7 @@ const RecipePreparation = ({ ingridients: { description, instructions, drinkThum
       <Title>Recipe Preparation</Title>
       <DIV1>
         <DIV2>
-          <P1>{description} || Lorem ipsum dolor sit amet consectetur adipisicing
-            elit. Praesentium debitis optio deserunt dignissimos commodi nisi
-            expedita itaque dolor provident. Atque labore, corrupti totam
-            accusantium omnis alias vero. Itaque eos ullam aut rerum quam. Non
-            temporibus vel dolore similique, suscipit amet.</P1>
+          <P1>{description || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."} </P1>
           <UL>
             {sentences.map((sentence, index) => (
                <Li key={index}>
@@ -33,11 +30,19 @@ const RecipePreparation = ({ ingridients: { description, instructions, drinkThum
           </UL>
         </DIV2>
         <DIV3>
-          <IMG src={drinkThumb} alt={drink} />
+          <IMG src={drinkThumb  || '/plug-m.png'} alt={drink} />
         </DIV3>
       </DIV1>
     </Wrapper>
   );
 };
+
+RecipePreparation.propTypes = {
+  ingridients: PropTypes.object,
+  drink: PropTypes.string,
+  drinkThumb: PropTypes.string,
+  description: PropTypes.string,
+  instructions:  PropTypes.string,
+}
 
 export default RecipePreparation;

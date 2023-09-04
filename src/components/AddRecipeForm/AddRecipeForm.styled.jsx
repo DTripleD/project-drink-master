@@ -10,7 +10,6 @@ export const AddButton = styled.button`
 	color: ${(props) => props.theme.colors.blue};
 	font-family: Manrope;
 	font-size: 14px;
-	font-style: normal;
 	font-weight: 600;
 	line-height: 18px;
 	border: 0;
@@ -18,5 +17,9 @@ export const AddButton = styled.button`
 	:hover {
 		background-color: ${(props) => props.theme.colors.blue};
 		color: ${(props) => props.theme.colors.white};
+	}
+	@media (min-width: 768px) {
+		font-size: 16px;
+		padding: 18px 44px;
 	}
 `;

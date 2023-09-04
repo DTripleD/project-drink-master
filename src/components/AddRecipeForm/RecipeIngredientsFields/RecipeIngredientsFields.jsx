@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
-// import { Controller, useForm } from "react-hook-form";
 import SubTitle from "../SubTitle/SubTitle";
 import {
 	SubTitleContainer,
@@ -13,6 +12,7 @@ import {
 	StyledInput,
 	SelectsContainer,
 	SelectContainer,
+	Error,
 	StyledSelect,
 	StyledUnitSelect,
 	DeleteButton,
@@ -22,10 +22,7 @@ import { ReactComponent as Plus } from "../../../images/svg/add-recipe-page/plus
 import { ReactComponent as X } from "../../../images/svg/add-recipe-page/x.svg";
 import { selectIngredients } from "../../../redux/drinks/drinksSelectors";
 
-const RecipeIngredientsFields = ({
-	ingredientsList,
-	setIngredientsList,
-}) => {
+const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 	const UNITS = ["ml", "l", "oz", "cup", "qt", "tsp", "tbsp"];
 	const optionUnits = UNITS.map((unit) => ({
 		value: unit,
@@ -51,13 +48,28 @@ const RecipeIngredientsFields = ({
 
 	const handleIngredientAdd = () => {
 		setIngredientsList((prevState) => {
-			return [...prevState, { ingredient: "", amount: "", unit: "ml" }];
+			return [
+				...prevState,
+				{
+					ingredient: {
+						_id: "64f5bcc8c175b57075cf2bf2",
+						title: "Light rum",
+						ingredientThumb:
+							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum.png",
+						"thumb-medium":
+							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum-Medium.png",
+						"thumb-small":
+							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum-Small.png",
+					},
+					amount: "",
+					unit: "ml",
+				},
+			];
 		});
 		setCount(count + 1);
 	};
 
 	const handleChangeIngredient = (e, index) => {
-	
 		const newIngredientsList = [...ingredientsList];
 		newIngredientsList[index] = {
 			...newIngredientsList[index],
@@ -67,21 +79,21 @@ const RecipeIngredientsFields = ({
 	};
 
 	const handleChangeAmount = (e, index) => {
-			let amount = e.currentTarget.value;
-			if (amount < 0) {
-				amount = 0;
-				e.currentTarget.value = 0;
-			}
-			const newIngredientsList = [...ingredientsList];
-			newIngredientsList[index].amount = amount;
-			setIngredientsList(newIngredientsList);
-		};
+		let amount = e.currentTarget.value;
+		if (amount < 0) {
+			amount = 0;
+			e.currentTarget.value = 0;
+		}
+		const newIngredientsList = [...ingredientsList];
+		newIngredientsList[index].amount = amount;
+		setIngredientsList(newIngredientsList);
+	};
 
 	const handleChangeUnit = (e, index) => {
-			const newIngredientsList = [...ingredientsList];
-			newIngredientsList[index].unit = e.value;
+		const newIngredientsList = [...ingredientsList];
+		newIngredientsList[index].unit = e.value;
 		setIngredientsList(newIngredientsList);
-		};
+	};
 
 	return (
 		<div>
@@ -93,7 +105,7 @@ const RecipeIngredientsFields = ({
 					</CounterButton>
 					<CountValue>{count}</CountValue>
 					<CounterButton type="button" onClick={handleIngredientAdd}>
-						<Plus style={{ width: 16, height: 16, stroke: "white" }} />
+						<Plus style={{ width: 16, height: 16 }} />
 					</CounterButton>
 				</Counter>
 			</SubTitleContainer>
@@ -111,6 +123,7 @@ const RecipeIngredientsFields = ({
 							/>
 							<SelectContainer>
 								<StyledInput
+									autoFocus="on"
 									type="text"
 									name="amount"
 									onChange={(e) => handleChangeAmount(e, index)}
@@ -142,47 +155,3 @@ RecipeIngredientsFields.propTypes = {
 };
 
 export default RecipeIngredientsFields;
-
-
-	// const getValue = (value, options) => {
-	// 	value ? options.find((option) => option.value === value) : "";
-	// };
-
-	// const { watch } = useForm();
-
-	// console.log(watch("ingredient"));
-
-
-// <SelectContainer>
-// 	<StyledInput
-// 		type="number"
-// 		name="amount"
-// 		onChange={handleIngredientChange}
-// 		// placeholder="Unit"
-// 		// {...register("amount", {
-// 		// 	required: {
-// 		// 		value: true,
-// 		// 		message: "Please fill the amount field",
-// 		// 	},
-// 		// })}
-// 	/>
-// 	{/* <Controller
-// 		control={control}
-// 		name="measure"
-// 		rules={{ required: "Please choose unit" }}
-// 		render={({ field: { onChange, value } }) => ( */}
-// 	<StyledSelect
-// 		name="measure"
-// 		// {...field}
-// 		// defaultValue={optionCategories[1]}
-// 		options={optionUnits}
-// 		// value={getValue(value, optionUnits)}
-// 		// onChange={(newValue) => onChange(newValue.value)}
-// 		// onChange={handleIngredientChange}
-// 		onChange={hadleSelectChangeMes}
-// 		// placeholder="Cocktail"
-// 		classNamePrefix={"select"}
-// 		isSearchable
-// 	/>
-// 	{/* // )} // /> */}
-// </SelectContainer>;

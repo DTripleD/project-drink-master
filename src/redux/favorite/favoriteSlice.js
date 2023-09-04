@@ -36,7 +36,7 @@ const favoritesSlice = createSlice({
     [fetchFavorites.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = action.payload;
+      state.items = action.payload.drinks;
     },
     [addFavorite.fulfilled](state, action) {
       state.isLoading = false;
@@ -46,9 +46,10 @@ const favoritesSlice = createSlice({
     [deleteFavorite.fulfilled](state, action) {
       state.isLoading = false;
       state.error = null;
-      state.items = state.items.filter(
-        (favorite) => favorite._id !== action.payload.recipeId
-      );
+
+      // state.items = state.items.filter(
+      //   (favorite) => favorite._id !== action.payload.recipeId
+      // );
     },
   },
 });

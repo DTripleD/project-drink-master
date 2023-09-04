@@ -184,15 +184,15 @@ export const StyledForm = styled.form`
 export const StyledFormInsight = styled.div`
   max-width: 375px;
   width: 100%;
-   height: auto;
+  height: auto;
 
   @media ${devices.tablet} {
-     max-width: 400px;
-   }
+    max-width: 400px;
+  }
 `;
 
 export const StyledTitle = styled.h2`
-  color: ${(props) => props.theme.colors.white};
+  color: #f3f3f3;
   font-size: 28px;
   font-weight: 600;
   line-height: calc(32 / 28);
@@ -253,7 +253,7 @@ export const StyledInput = styled.input`
   background-color: transparent;
   padding: 18px 24px;
   padding-right: 50px;
-  color: ${(props) => props.theme.colors.white};
+  color: #f3f3f3;
   font-size: 14px;
   font-weight: 400;
   line-height: calc(18 / 14);
@@ -273,7 +273,7 @@ export const StyledInput = styled.input`
   &:focus,
   &:hover {
     outline: none;
-    color: ${(props) => props.theme.colors.white};
+    color: #f3f3f3;
     border-color: rgba(243, 243, 243, 0.5);
     background-color: transparent;
   }
@@ -297,8 +297,8 @@ export const StyledButton = styled.button`
   border: none;
   justify-content: center;
   border-radius: 42px;
-  background: ${(props) => props.theme.colors.white};
-  color: ${(props) => props.theme.colors.blue};
+  background: #f3f3f3;
+  color: #161f37;
   font-size: 14px;
   font-weight: 600;
   line-height: calc(18 / 14);

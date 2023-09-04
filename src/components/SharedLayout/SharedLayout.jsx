@@ -10,15 +10,14 @@ import Loader from "../Loader/Loader";
 export const SharedLayout = () => {
   return (
     <Background>
-      <SharedLayoutWrapper>
-        <Header />
-
-        <Suspense fallback={<Loader />}>
+      <Header />
+      <Suspense fallback={<Loader />}>
+        <SharedLayoutWrapper>
           <Outlet />
-        </Suspense>
+        </SharedLayoutWrapper>
+      </Suspense>
 
-        <Footer />
-      </SharedLayoutWrapper>
+      <Footer />
     </Background>
   );
 };
