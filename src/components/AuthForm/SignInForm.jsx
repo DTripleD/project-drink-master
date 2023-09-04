@@ -173,12 +173,12 @@ import { selectTheme } from "../../redux/theme/selectors";
 import theme from "../../shared/theme";
 
 export const SignInForm = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid, dirtyFields },
-  } = useForm({
-    resolver: yupResolver(SignInSchema),
+
+    const { register, handleSubmit, formState: { errors, isValid, dirtyFields }, } = useForm({
+      mode: 'onChange',
+    defaultValues: { email: '', password: '' },
+      resolver: yupResolver(SignInSchema),
+
   });
 
   const dispatch = useDispatch();
@@ -205,9 +205,12 @@ export const SignInForm = () => {
     }
   };
 
-  return (
-    <>
-      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+
+    return (
+      <>
+     <StyledForm  autoComplete="off" onSubmit={handleSubmit(onSubmit)} 
+      >
+
         <StyledFormInsight>
           <StyledTitle>Sign In</StyledTitle>
           <StyledInnerDiv>
