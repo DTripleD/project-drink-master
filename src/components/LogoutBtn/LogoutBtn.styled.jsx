@@ -82,9 +82,11 @@ export const LogoutButton = styled.button`
 	color: ${(props) => props.theme.colors.blue};
 	background: ${(props) => props.theme.colors.white};
 	font-size: 16px;
+	font-weight: 600;
 	border-radius: 42px;
 	cursor: pointer;
-	transition: background-color 400ms ease, color 400ms ease, outline 400ms ease;
+	transition: background-color 400ms ease, color 400ms ease, outline 400ms ease,
+		border 400ms ease;
 
 	@media (min-width: 768px) {
 		padding: 18px 69px;
@@ -95,17 +97,20 @@ export const LogoutButton = styled.button`
 		outline: none;
 		color: ${(props) => props.theme.colors.white};
 		background-color: ${(props) => props.theme.colors.blue};
+		border: 1px solid rgba(243, 243, 243, 0.2);
 	}
 `;
 
 export const CanceltBtn = styled.button`
 	padding: 16px 41px;
 	color: ${(props) => props.theme.colors.white};
-	background: #434d67;
+	background: ${(props) => props.theme.colors.grey};
 	font-size: 16px;
+	font-weight: 600;
 	border-radius: 42px;
 	cursor: pointer;
-	transition: background-color 400ms ease, color 400ms ease, outline 400ms ease;
+	transition: background-color 400ms ease, color 400ms ease, outline 400ms ease,
+		border 400ms ease;
 
 	@media (min-width: 768px) {
 		padding: 18px 69px;
@@ -116,5 +121,6 @@ export const CanceltBtn = styled.button`
 		outline: none;
 		color: ${(props) => props.theme.colors.white};
 		background-color: ${(props) => props.theme.colors.blue};
+		border: 1px solid rgba(243, 243, 243, 0.2);
 	}
 `;

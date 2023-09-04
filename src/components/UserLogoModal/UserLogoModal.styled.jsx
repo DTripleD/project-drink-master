@@ -69,10 +69,11 @@ export const LogOutButton = styled.button`
 	border: none;
 	border-radius: 42px;
 	padding: 12px 40px;
-	transition: color 0.4s ease, bacground-color 0.4s ease;
+	transition: color 0.4s ease, bacground-color 0.4s ease, border 0.4s ease;
 
 	&:hover {
 		color: ${(props) => props.theme.colors.white};
-		background-color: ${(props) => props.theme.colors.black};
+		background-color: ${(props) => props.theme.colors.blue};
+		outline: 1px solid rgba(243, 243, 243, 0.2);
 	}
 `;

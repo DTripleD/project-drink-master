@@ -27,7 +27,7 @@ export const MenuWrapper = styled.div`
 	display: flex;
 
 	align-items: center;
-
+	transition: all 0.4s ease;
 	gap: 8px;
 `;
 

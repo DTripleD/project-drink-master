@@ -191,11 +191,12 @@ export const SaveButton = styled.button`
 	color: ${(props) => props.theme.colors.blue};
 	font-size: 14px;
 	font-weight: 600;
-	transition: color 0.4s ease, background-color 0.4s ease;
+	transition: color 0.4s ease, background-color 0.4s ease, border 0.4s ease;
 
 	&:hover {
 		color: ${(props) => props.theme.colors.white};
 		background-color: ${(props) => props.theme.colors.blue};
+		border: 1px solid rgba(243, 243, 243, 0.2);
 	}
 
 	&:active {
@@ -203,7 +204,7 @@ export const SaveButton = styled.button`
 	}
 
 	&:disabled {
-		color: ${(props) => props.theme.colors.white};
+		color: rgba(243, 243, 243, 0.2);
 		background-color: ${(props) => props.theme.colors.grey};
 		border: 2px solid ${(props) => props.theme.colors.grey};
 	}
