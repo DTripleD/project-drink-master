@@ -14,9 +14,9 @@ transition: 0.3s ease;
 &:hover,
 &focus,
 &:active {
-  background-color: ${(props) => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.blue};
   color: ${(props) => props.theme.colors.white};
-  border-color:${(props) => props.theme.colors.white};
+  border-color:${(props) => props.theme.colors.blue};
 }
 @media ${(props)=> props.theme.device.tablet}{
   fonst-size: 16px;
