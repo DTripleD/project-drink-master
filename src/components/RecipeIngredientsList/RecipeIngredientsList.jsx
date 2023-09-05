@@ -17,7 +17,7 @@ const RecipeIngredientsList = ({ ingridients }) => {
             src={ingredient['thumb-small'] || '/plug-m.png'}
             srcSet={`
               ${ingredient['thumb-medium'] || '/plug-m.png'} 480w,
-              ${ingredient.ingredientThumb || '/plug-b.png'} 748w
+              ${ingredient.ingredientThumb || '/plug-m.png'} 748w
             `}
             sizes="(min-width: 1440px) 450px, (min-width:768px) 354px, (min-width:375px) 270px, 100vw" 
             alt={ingredient.title}
