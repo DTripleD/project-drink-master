@@ -35,21 +35,19 @@ export const BackDrop = styled.div`
 `;
 
 export const Modal = styled.div`
-
 	position: relative;
 	width: 335px;
 	padding: 50px 25px;
-	  background: ${({ theme }) =>
-    theme.currentTheme === "light"
-      ? theme.colors.backgroundLight
-      : theme.colors.blue};
+	background: ${({ theme }) =>
+		theme.currentTheme === "light"
+			? theme.colors.backgroundLight
+			: theme.colors.blue};
 	border-radius: 16px;
 
 	@media (min-width: 768px) {
 		width: 500px;
 		padding: 50px 50px 75px 50px;
 	}
-
 `;
 export const CloseBtn = styled.button`
 	position: absolute;
@@ -190,20 +188,21 @@ export const SaveButton = styled.button`
 	padding: 18px 90px;
 
 	border-radius: 42px;
-	border: 2px solid  ${({ theme }) =>
-      theme.currentTheme === "light" ? theme.colors.white : "transparent"};;
-	 background-color: ${({ theme }) =>
-    theme.currentTheme === "light" ? theme.colors.black : theme.colors.white};
-
+	border: 2px solid
+		${({ theme }) =>
+			theme.currentTheme === "light" ? theme.colors.white : "transparent"};
+	background-color: ${({ theme }) =>
+		theme.currentTheme === "light" ? theme.colors.black : theme.colors.white};
+	cursor: pointer;
 	color: ${(props) => props.theme.colors.blue};
 	font-size: 14px;
 	font-weight: 600;
 	transition: color 0.4s ease, background-color 0.4s ease, border 0.4s ease;
 
 	&:hover {
-    color: ${(props) => props.theme.colors.white};
-    background-color: ${({ theme }) =>
-      theme.currentTheme === "light" ? theme.colors.green : theme.colors.blue};
+		color: ${(props) => props.theme.colors.white};
+		background-color: ${({ theme }) =>
+			theme.currentTheme === "light" ? theme.colors.green : theme.colors.blue};
 		border: 1px solid rgba(243, 243, 243, 0.2);
 	}
 
@@ -212,12 +211,13 @@ export const SaveButton = styled.button`
 	}
 
 	&:disabled {
-		color: ${(props) => props.theme.colors.white};
-		 background-color: ${({ theme }) =>
-      theme.currentTheme === "light"
-        ? theme.colors.backgroundLight
-        : theme.colors.grey};
-    border: 2px solid ${(props) => props.theme.colors.grey};
+		color: rgba(243, 243, 243, 0.2);
+		cursor: no-drop;
+		background-color: ${({ theme }) =>
+			theme.currentTheme === "light"
+				? theme.colors.backgroundLight
+				: theme.colors.grey};
+		border: 2px solid ${(props) => props.theme.colors.grey};
 	}
 
 	@media (min-width: 768px) {
@@ -225,5 +225,4 @@ export const SaveButton = styled.button`
 		width: 400px;
 		font-size: 16px;
 	}
-
 `;

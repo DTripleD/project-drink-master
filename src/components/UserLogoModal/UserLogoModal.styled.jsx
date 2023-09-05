@@ -1,24 +1,25 @@
 import styled from "@emotion/styled";
 
 export const getStyledEdit = (component) => styled(component)`
-  width: 14px;
-  height: 14px;
+	width: 14px;
+	height: 14px;
 `;
 
 export const Drop = styled.div`
-  position: absolute;
-  bottom: -10px;
-  right: 0;
-  width: 177px;
-  padding: 18px;
-  background: ${({ theme }) =>
-    theme.currentTheme === "light"
-      ? theme.colors.backgroundLight
-      : theme.colors.blue};
-  border-radius: 8px;
-  transform: ${({ setOpenDrop }) =>
-    setOpenDrop ? "translateX(0)" : "translateY(100%)"};
-  z-index: 500;
+	position: absolute;
+	bottom: -22px;
+	right: 0;
+	width: 177px;
+	padding: 18px;
+	background: ${({ theme }) =>
+		theme.currentTheme === "light"
+			? theme.colors.backgroundLight
+			: theme.colors.blue};
+	border-radius: 8px;
+	transform: ${({ setOpenDrop }) =>
+		setOpenDrop ? "translateX(0)" : "translateY(100%)"};
+	z-index: 500;
+	margin: 0;
 `;
 
 export const EditWrapper = styled.div`
@@ -51,7 +52,6 @@ export const EditButton = styled.button`
 `;
 
 export const SvgButton = styled.div`
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -67,7 +67,7 @@ export const LogOutButton = styled.button`
 	line-height: 1.28;
 	background-color: ${(props) => props.theme.colors.white};
 	color: ${({ theme }) =>
-    theme.currentTheme === "light" ? theme.colors.black : theme.colors.blue};
+		theme.currentTheme === "light" ? theme.colors.black : theme.colors.blue};
 	font-size: 14px;
 	font-weight: 600;
 	text-align: center;
@@ -81,7 +81,4 @@ export const LogOutButton = styled.button`
 		background-color: ${(props) => props.theme.colors.blue};
 		outline: 1px solid rgba(243, 243, 243, 0.2);
 	}
-
 `;
-
-;
