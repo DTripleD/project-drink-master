@@ -187,7 +187,6 @@ export const ErrorText = styled.h2`
     theme.currentTheme === "light"
       ? `color:  rgba(19, 17, 17, 0.884);`
       : `color:  rgba(243, 243, 243, 0.1);`}
-  color:;
   margin: 0;
 
   @media (min-width: 768px) {
@@ -198,6 +197,3 @@ export const ErrorText = styled.h2`
     font-size: 150px;
   }
 `;
-
-// Size
-// 120px
