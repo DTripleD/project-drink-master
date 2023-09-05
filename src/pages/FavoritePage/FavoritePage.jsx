@@ -22,6 +22,7 @@ import {
   MessageTitle,
 } from "../../components/RecipesList/RecipesList.styled";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
+import { toast } from "react-hot-toast";
 
 const FavoritePage = () => {
   // useEffect(() => {
@@ -75,11 +76,13 @@ const FavoritePage = () => {
   // console.log("favoriteRecipe", favoriteRecipe);
 
   const handleDeleteFavorite = (id) => {
+    toast.success("Deleting...");
     dispatch(deleteFavorite(id))
       .unwrap()
       .then((res) => {
         setTotalPages(Math.ceil(res.totalHits / itemsPerPage));
-      });
+      })
+      .then(() => toast.success("Delete success!"));
   };
 
   const changeNum = (_, num) => {
