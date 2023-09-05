@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import PropTypes from "prop-types";
 import SubTitle from "../SubTitle/SubTitle";
+import { Controller } from "react-hook-form";
 import {
 	SubTitleContainer,
 	Counter,
@@ -13,6 +14,7 @@ import {
 	SelectsContainer,
 	SelectContainer,
 	Error,
+	ErrorContainer,
 	StyledSelect,
 	StyledUnitSelect,
 	DeleteButton,
@@ -22,7 +24,14 @@ import { ReactComponent as Plus } from "../../../images/svg/add-recipe-page/plus
 import { ReactComponent as X } from "../../../images/svg/add-recipe-page/x.svg";
 import { selectIngredients } from "../../../redux/drinks/drinksSelectors";
 
-const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
+const RecipeIngredientsFields = ({
+	errors,
+	control,
+	register,
+	fields,
+	append,
+	remove,
+}) => {
 	const UNITS = ["ml", "l", "oz", "cup", "qt", "tsp", "tbsp"];
 	const optionUnits = UNITS.map((unit) => ({
 		value: unit,
@@ -37,62 +46,22 @@ const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 		label: ingredient.title,
 	}));
 
-	const handleIngredientDelete = () => {
-		if (ingredientsList.length > 0) {
-			const newIngredientsList = [...ingredientsList];
-			newIngredientsList.pop();
-			setIngredientsList(newIngredientsList);
-			setCount(count - 1);
-		}
+	const handleIngredientDelete = (index) => {
+		remove(index);
+		setCount(count - 1);
 	};
 
 	const handleIngredientAdd = () => {
-		setIngredientsList((prevState) => {
-			return [
-				...prevState,
-				{
-					ingredient: {
-						_id: "64f5bcc8c175b57075cf2bf2",
-						title: "Light rum",
-						ingredientThumb:
-							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum.png",
-						"thumb-medium":
-							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum-Medium.png",
-						"thumb-small":
-							"https://res.cloudinary.com/dec1shvoo/image/upload/v1689169605/cocktails-v1/ingredient/Light%20rum-Small.png",
-					},
-					amount: "",
-					unit: "ml",
-				},
-			];
+		append({
+			ingredient: "",
+			amount: "",
+			unit: "ml",
 		});
 		setCount(count + 1);
 	};
 
-	const handleChangeIngredient = (e, index) => {
-		const newIngredientsList = [...ingredientsList];
-		newIngredientsList[index] = {
-			...newIngredientsList[index],
-			ingredient: e.value,
-		};
-		setIngredientsList(newIngredientsList);
-	};
-
-	const handleChangeAmount = (e, index) => {
-		let amount = e.currentTarget.value;
-		if (amount < 0) {
-			amount = 0;
-			e.currentTarget.value = 0;
-		}
-		const newIngredientsList = [...ingredientsList];
-		newIngredientsList[index].amount = amount;
-		setIngredientsList(newIngredientsList);
-	};
-
-	const handleChangeUnit = (e, index) => {
-		const newIngredientsList = [...ingredientsList];
-		newIngredientsList[index].unit = e.value;
-		setIngredientsList(newIngredientsList);
+	const getValue = (value, options) => {
+		value ? options.find((option) => option.value === value) : "";
 	};
 
 	return (
@@ -110,32 +79,55 @@ const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 				</Counter>
 			</SubTitleContainer>
 			<IngredientsList>
-				{ingredientsList.map((el, index) => (
-					<IngredientsListItem key={index}>
+				{fields.map((field, index) => (
+					<IngredientsListItem key={field.id}>
 						<SelectsContainer>
-							<StyledSelect
-								name="ingredient"
-								options={optionIngredients}
-								onChange={(e) => handleChangeIngredient(e, index)}
-								classNamePrefix={"select"}
-								isSearchable
-								defaultValue={optionIngredients[0]}
-							/>
+							<ErrorContainer>
+								<Controller
+									control={control}
+									name={`ingredients.${index}.ingredient`}
+									rules={{ required: "Please choose an ingredient" }}
+									render={({ field: { onChange, value } }) => (
+										<StyledSelect
+											options={optionIngredients}
+											onChange={(newValue) => onChange(newValue.value)}
+											classNamePrefix={"select"}
+											isSearchable
+											value={getValue(value, optionIngredients)}
+											placeholder="Choose an ingredient"
+										/>
+									)}
+								/>
+								<Error>{errors?.["ingredients"]?.[index]?.["ingredient"]?.["message"]}</Error>
+							</ErrorContainer>
 							<SelectContainer>
 								<StyledInput
-									autoFocus="on"
 									type="text"
-									name="amount"
-									onChange={(e) => handleChangeAmount(e, index)}
+									{...register(`ingredients.${index}.amount`, {
+										required: {
+											value: true,
+											message: "Please add amount",
+										},
+									})}
 									autoComplete="off"
 								/>
-								<StyledUnitSelect
-									name="unit"
-									options={optionUnits}
-									onChange={(e) => handleChangeUnit(e, index)}
-									classNamePrefix={"select"}
-									isSearchable
-									defaultValue={optionUnits[0]}
+								<Error>
+									{errors?.["ingredients"]?.[index]?.["amount"]?.["message"]}
+								</Error>
+								<Controller
+									control={control}
+									name={`ingredients.${index}.unit`}
+									rules={{ required: "Please choose a unit" }}
+									render={({ field: { onChange, value } }) => (
+										<StyledUnitSelect
+											options={optionUnits}
+											onChange={(newValue) => onChange(newValue.label)}
+											classNamePrefix={"select"}
+											isSearchable
+											defaultValue={optionUnits[0]}
+											value={getValue(value, optionUnits)}
+										/>
+									)}
 								/>
 							</SelectContainer>
 						</SelectsContainer>
@@ -150,8 +142,12 @@ const RecipeIngredientsFields = ({ ingredientsList, setIngredientsList }) => {
 };
 
 RecipeIngredientsFields.propTypes = {
-	ingredientsList: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-	setIngredientsList: PropTypes.func.isRequired,
+	register: PropTypes.func.isRequired,
+	control: PropTypes.shape({}).isRequired,
+	errors: PropTypes.shape({}).isRequired,
+	fields: PropTypes.array.isRequired,
+	append: PropTypes.func.isRequired,
+	remove: PropTypes.func.isRequired,
 };
 
 export default RecipeIngredientsFields;
