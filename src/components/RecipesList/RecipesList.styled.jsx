@@ -26,7 +26,7 @@ export const MyRecipesListStyled = styled.ul`
 `;
 
 export const MessageTitle = styled.h3`
-  color: #f3f3f3;
+  color: ${(props) => props.theme.colors.white};
   text-align: center;
   font-family: Manrope;
   font-size: 16px;
