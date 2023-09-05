@@ -71,9 +71,13 @@ const FavoritePage = () => {
   useEffect(() => {
     dispatch(fetchFavorites());
     setTotalPages(Math.ceil(favoriteRecipe.length / itemsPerPage));
-  }, []);
+  }, [dispatch]);
 
-  // console.log("favoriteRecipe", favoriteRecipe);
+  useEffect(() => {
+    if (currentItems.length === 0 && currentPage !== 1) {
+      setCurrentPage((prev) => prev - 1);
+    }
+  }, [totalPages, currentPage]);
 
   const handleDeleteFavorite = (id) => {
     toast.success("Deleting...");
@@ -94,6 +98,7 @@ const FavoritePage = () => {
       <MainContainer>
         <>
           <MainPageTitle title={"Favorites"} />
+          {/* {currentItems.length === 0 } */}
           {currentItems?.length !== 0 ? (
             <FavoriteList
               handleDeleteFavorite={handleDeleteFavorite}
