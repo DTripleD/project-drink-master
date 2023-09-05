@@ -1,4 +1,4 @@
-import{n as t,P as d,j as e,h as l,a as y,b as J,c as j,r as c,t as k,M as z,v as x,w as T}from"./index-886b8fb1.js";import{M as K}from"./MainPageTitle-bf253618.js";import{s as h,a as v}from"./favorite-selector-94e92a4d.js";import{S as F,D as L}from"./DeleteButton-71880cfb.js";import{S as M,M as Z,a as B}from"./RecipesList.styled-2459f058.js";import{P as H}from"./Pagination-876f39d0.js";import{E as R}from"./ErrorPage.styled-78726890.js";import"./assertThisInitialized-81dfd380.js";const G=t.div`
+import{n as t,P as d,j as e,h as l,a as y,b as J,c as j,r as c,t as k,M as z,v as x,w as T}from"./index-fed2c0c3.js";import{M as K}from"./MainPageTitle-bff4df4f.js";import{s as h,a as v}from"./favorite-selector-94e92a4d.js";import{S as F,D as L}from"./DeleteButton-7f6c14fc.js";import{S as M,M as Z,a as B}from"./RecipesList.styled-03ffb904.js";import{P as H}from"./Pagination-2983fa83.js";import{E as R}from"./ErrorPage.styled-452f6e48.js";import"./assertThisInitialized-85b66fac.js";const G=t.div`
   display: flex;
   flex-direction: column;
   border: none;
