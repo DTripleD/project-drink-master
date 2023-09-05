@@ -10,36 +10,33 @@ import { Burger, Menu } from "./BurgerMenu/BurgerMenu";
 import MediaQuery from "react-responsive";
 import { useNavigate } from "react-router";
 import { useState } from "react";
-
-import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
 import { MainContainer } from "../MainContainer/MainContainer";
 import ThemeToggler from "../ThemeToggler/ThemeToggler";
 
 const Header = () => {
-  const isLoggedIn = useSelector(selectIsLoggedIn);
-  const [open, setOpen] = useState(false);
+	const isLoggedIn = useSelector(selectIsLoggedIn);
+	const [open, setOpen] = useState(false);
 
-  // const node = useRef();
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  return (
-    <MainContainer>
-      <HeaderStyled>
-        <Logo />
+	return (
+		<MainContainer>
+			<HeaderStyled>
+				<Logo />
 
-        <MediaQuery minWidth={1440}>{isLoggedIn && <Navigation />}</MediaQuery>
+				<MediaQuery minWidth={1440}>{isLoggedIn && <Navigation />}</MediaQuery>
 
-        <ThemeToggler />
+				<ThemeToggler />
 
-        <UserMenu />
+				<UserMenu />
 
-        <MenuWrepper>
-          <Burger open={open} setOpen={setOpen} />
-          <Menu open={open} setOpen={setOpen} />
-        </MenuWrepper>
-      </HeaderStyled>
-    </MainContainer>
-  );
+				<MenuWrepper>
+					<Burger open={open} setOpen={setOpen} />
+					<Menu open={open} setOpen={setOpen} />
+				</MenuWrepper>
+			</HeaderStyled>
+		</MainContainer>
+	);
 };
 
 export default Header;

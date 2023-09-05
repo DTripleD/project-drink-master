@@ -20,11 +20,10 @@ export const StyledMenu = styled.div`
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+	position: absolute;
+	top: 0;
+	right: 0;
 
-  position: absolute;
-  top: 0;
-  right: 0;
-  transition: transform 0.3s ease-in-out;
 `;
 
 export const StyledMenuBtn = styled.button`
@@ -34,18 +33,22 @@ export const StyledMenuBtn = styled.button`
 
   display: flex;
 
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
 
-  &:focus {
-    outline: none;
-  }
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	z-index: 10;
+	transition: transform 0.4s ease, outline 0.4s ease;
+
+	&:hover,
+	&:focus {
+		transform: translateY(-3px);
+		outline: none;
+	}
 
   @media (min-width: 768px) {
     top: 23px;
@@ -59,18 +62,22 @@ export const StyledMenuBtn = styled.button`
 export const StyledBurger = styled.button`
   display: flex;
 
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 10;
 
-  &:focus {
-    outline: none;
-  }
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	z-index: 10;
+	transition: transform 0.4s ease, outline 0.4s ease;
+
+	&:hover,
+	&:focus {
+		transform: translateY(-3px);
+		outline: none;
+	}
 
   @media (min-width: 768px) {
     width: 38px;
