@@ -1,4 +1,4 @@
-import{n,P as r,j as i,L as o}from"./index-fed2c0c3.js";import{S as a,D as d}from"./DeleteButton-7f6c14fc.js";const p="/project-drink-master/assets/coctails-6f30eaa9.jpg",x=n.div`
+import{n,P as r,j as i,L as o}from"./index-426c15a0.js";import{S as a,D as d}from"./DeleteButton-3c5ddc20.js";const p="/project-drink-master/assets/coctails-6f30eaa9.jpg",x=n.div`
   display: flex;
   flex-direction: column;
   border: none;
@@ -110,4 +110,4 @@ import{n,P as r,j as i,L as o}from"./index-fed2c0c3.js";import{S as a,D as d}fro
   display: flex;
   gap: 8px;
   position: relative;
-`,b=n.div``,j=({cocktail:e,page:t})=>(console.log(e),i.jsx(o,{to:`/recipe/${e._id}`,children:i.jsxs(x,{children:[i.jsx(l,{children:i.jsx(h,{src:e.drinkThumb,alt:e.drink,onError:s=>{s.currentTarget.src=p}})}),i.jsx(b,{children:i.jsxs(c,{position:t,children:[i.jsx(m,{children:e.drink}),i.jsx(g,{children:"Ingredients"})]})}),i.jsx(f,{children:e.description}),i.jsxs(w,{children:[i.jsx(a,{id:e._id}),i.jsx(d,{id:e._id,page:t})]})]})}));j.propTypes={page:r.string,cocktail:r.object};export{j as D};
+`,b=n.div``,j=({cocktail:e,page:t})=>i.jsx(o,{to:`/recipe/${e._id}`,children:i.jsxs(x,{children:[i.jsx(l,{children:i.jsx(h,{src:e.drinkThumb,alt:e.drink,onError:s=>{s.currentTarget.src=p}})}),i.jsx(b,{children:i.jsxs(c,{position:t,children:[i.jsx(m,{children:e.drink}),i.jsx(g,{children:"Ingredients"})]})}),i.jsx(f,{children:e.description}),i.jsxs(w,{children:[i.jsx(a,{id:e._id}),i.jsx(d,{id:e._id,page:t})]})]})});j.propTypes={page:r.string,cocktail:r.object};export{j as D};
