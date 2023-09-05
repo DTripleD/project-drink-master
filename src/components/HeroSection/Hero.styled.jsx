@@ -7,10 +7,13 @@ import bg_image_m1 from "../../images/hero-bg/hero_bg_m@1x.jpg";
 import bg_image_l2 from "../../images/hero-bg/hero_bg_l@2x.jpg";
 import bg_image_l1 from "../../images/hero-bg/hero_bg_l@1x.jpg";
 
+import bg_white_1 from "../../images/bg-white/white-bg@1x.png";
+import bg_white_2 from "../../images/bg-white/white-bg@2x.png";
+
 export const Hero = styled.section`
   ${({ theme }) =>
     theme.currentTheme === "light"
-      ? `background-image: url();`
+      ? `background-image: url(${bg_white_1});`
       : `background-image: linear-gradient(
       0.95deg,
       #0a0a11 -0.56%,
@@ -30,7 +33,7 @@ export const Hero = styled.section`
     (min-resolution: 2dppx) {
     ${({ theme }) =>
       theme.currentTheme === "light"
-        ? `background-image: url();`
+        ? `background-image: url(${bg_white_2});`
         : `background-image: linear-gradient(
         0.95deg,
         #0a0a11 -0.56%,
@@ -44,7 +47,7 @@ export const Hero = styled.section`
     margin-right: -64px;
     ${({ theme }) =>
       theme.currentTheme === "light"
-        ? `background-image: url();`
+        ? `background-image: url(${bg_white_1});`
         : `background-image: linear-gradient(
         0.95deg,
         #0a0a11 -0.56%,
@@ -58,7 +61,7 @@ export const Hero = styled.section`
       (min-resolution: 2dppx) {
       ${({ theme }) =>
         theme.currentTheme === "light"
-          ? `background-image: url();`
+          ? `background-image: url(${bg_white_2});`
           : `background-image: linear-gradient(
           0.95deg,
           #0a0a11 -0.56%,
@@ -72,7 +75,7 @@ export const Hero = styled.section`
   @media screen and (min-width: 1440px) {
     ${({ theme }) =>
       theme.currentTheme === "light"
-        ? `background-image: url();`
+        ? `background-image: url(${bg_white_1});`
         : `background-image: linear-gradient(
         0.95deg,
         #0a0a11 -0.56%,
@@ -87,7 +90,7 @@ export const Hero = styled.section`
       (min-resolution: 2dppx) {
       ${({ theme }) =>
         theme.currentTheme === "light"
-          ? `background-image: url();`
+          ? `background-image: url(${bg_white_2});`
           : `background-image: linear-gradient(
           0.95deg,
           #0a0a11 -0.56%,
