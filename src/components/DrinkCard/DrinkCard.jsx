@@ -20,7 +20,6 @@ import {
 } from "./DrinkCard.styled";
 
 export const DrinkCard = ({ cocktail, page }) => {
-  console.log(cocktail);
   return (
     <Link to={`/recipe/${cocktail._id}`}>
       <Card>
