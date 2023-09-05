@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { SeeButton } from "../Button/SeeButton/SeeButton";
 
 import { DeleteButton } from "../Button/DeleteButton/DeleteButton";
+import { AddButton } from "../Button/AddButton/AddButton";
 
 import drink from "../../images/coctails.jpg";
 import {
@@ -21,34 +22,41 @@ import {
 
 export const DrinkCard = ({ cocktail, page }) => {
   return (
-    <Link to={`/recipe/${cocktail._id}`}>
-      <Card>
-        <ImageWrapper>
-          <Image
-            src={cocktail.drinkThumb}
-            alt={cocktail.drink}
-            onError={(e) => {
-              e.currentTarget.src = drink;
-            }}
-          />
-        </ImageWrapper>
-
-        <Wrapper>
-          <Ingredientswrapper position={page}>
+    <Card>
+      <Link to={`/recipe/${cocktail._id}`}>
+        <OneMoreWrapper>
+          <ImageWrapper>
+            <Image
+              src={cocktail.drinkThumb}
+              alt={cocktail.drink}
+              onError={(e) => {
+                e.currentTarget.src = drink;
+              }}
+            />
+          </ImageWrapper>
+        </OneMoreWrapper>
+      </Link>
+      <Wrapper>
+        <Ingredientswrapper position={page}>
+          <Link to={`/recipe/${cocktail._id}`}>
             <Drinkingreds>{cocktail.drink}</Drinkingreds>
-
-            <Ingredients>Ingredients</Ingredients>
-          </Ingredientswrapper>
-        </Wrapper>
-        <AboutStyled>{cocktail.description}</AboutStyled>
-
-        <ButtonsWrapper>
+          </Link>
+          <Ingredients>Ingredients</Ingredients>
+        </Ingredientswrapper>
+      </Wrapper>
+      {(page === "my" || page === "favorite") && (
+        <AboutStyled>{cocktail.about}</AboutStyled>
+      )}
+      <ButtonsWrapper>
+        {(page === "my" || page === "favorite") && (
           <SeeButton id={cocktail._id} />
+        )}
 
+        {(page === "my" || page === "favorite") && (
           <DeleteButton id={cocktail._id} page={page} />
-        </ButtonsWrapper>
-      </Card>
-    </Link>
+        )}
+      </ButtonsWrapper>
+    </Card>
   );
 };
 
