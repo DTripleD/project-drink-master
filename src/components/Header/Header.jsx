@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { selectIsLoggedIn } from "../../redux/auth/selectors";
 import { HeaderStyled, MenuWrepper } from "./Header.styled";
-import WelcomePage from "../../pages/WellcomPage/WellcomPage";
+import WelcomePage from "../../pages/WelcomePage/WelcomePage";
 import { Logo } from "./Logo/Logo";
 import { Navigation } from "./Navigation/Navigation";
 import UserMenu from "../UserMenu/UserMenu";

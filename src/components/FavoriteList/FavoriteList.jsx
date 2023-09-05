@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFavorites } from "../../redux/favorite/favorite-operation";
+import {
+  fetchFavorites,
+  deleteFavorite,
+} from "../../redux/favorite/favorite-operation";
 import {
   selectIsLoading,
   selectError,
@@ -9,7 +12,6 @@ import {
 } from "../../redux/favorite/favorite-selector";
 
 import FavoriteItem from "../FavoriteItem/FavoriteItem";
-import { PaginationWrapper } from "../Pagination/Pagination.styled";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import {
   MyRecipesListStyled,
@@ -17,54 +19,24 @@ import {
   MessageTitle,
 } from "../../components/RecipesList/RecipesList.styled";
 import PaginationComponent from "../Pagination/Pagination";
+import Loader from "../Loader/Loader";
 
 const FavoriteList = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-
   const favoriteRecipe = useSelector(selectFavorites);
-  const error = useSelector(selectError);
-
   const isLoading = useSelector(selectIsLoading);
 
   //------------------ Pagination
-
-  //определяем кол-во єлементов на странице
-  // console.log("favoriteRecipe", favoriteRecipe);
-
-  const [totalPages, setTotalPages] = useState(favoriteRecipe);
-  const [page, setPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(() => {
     const width = window.innerWidth;
+
     if (width >= 1440) {
       return 9;
     } else {
-      return 10;
+      return 8;
     }
   });
-
-  const [searchParams, setSearchParams] = useSearchParams({
-    page: page,
-    limit: itemsPerPage,
-  });
-  const updatedParams = new URLSearchParams(searchParams.toString());
-
-  useEffect(() => {
-    const newPage = parseInt(searchParams.get("page")) || 1;
-    if (newPage !== page) {
-      setPage(newPage);
-    }
-
-    dispatch(fetchFavorites(searchParams))
-      .then(({ payload }) => {
-        window.scrollTo(0, 0);
-        setTotalPages(Math.ceil(payload.totalHits / itemsPerPage));
-      })
-      .catch((error) => {
-        console.log("error", error);
-        // setError(error.message);
-      });
-  }, [dispatch, searchParams, page, itemsPerPage]);
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -73,41 +45,57 @@ const FavoriteList = () => {
       if (width >= 1440) {
         setItemsPerPage(9);
       } else {
-        setItemsPerPage(10);
+        setItemsPerPage(8);
       }
     };
     window.addEventListener("resize", handleWindowResize);
 
     return () => window.removeEventListener("resize", handleWindowResize);
   }, []);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  //определяем кол-во єлементов на странице
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = favoriteRecipe.slice(indexOfFirstItem, indexOfLastItem);
+
+  const [totalPages, setTotalPages] = useState(1);
+
+  useEffect(() => {
+    dispatch(fetchFavorites());
+    setTotalPages(Math.ceil(favoriteRecipe.length / itemsPerPage));
+  }, []);
+
+  // console.log("favoriteRecipe", favoriteRecipe);
+
+  const handleDeleteFavorite = (id) => {
+    dispatch(deleteFavorite(id))
+      .unwrap()
+      .then((res) => {
+        setTotalPages(Math.ceil(res.totalHits / itemsPerPage));
+      });
+  };
 
   const changeNum = (_, num) => {
-    updatedParams.set("page", num.toString());
-
-    setSearchParams(updatedParams);
-    setPage(num);
+    setCurrentPage(num);
   };
 
   //---------------------------------------
 
   return (
     <Section>
-      {(isLoading && (
+      {(isLoading && <Loader />) || (
         <>
-          <MessageTitle>Loading...</MessageTitle>
-          <ErrorPageWrapper />
-        </>
-      )) || (
-        <>
-          {favoriteRecipe?.length !== 0 ? (
+          {currentItems?.length !== 0 ? (
             <MyRecipesListStyled>
-              {favoriteRecipe.map((recipe) => (
+              {currentItems.map((recipe) => (
                 <li key={recipe._id}>
                   <FavoriteItem
                     recipe={recipe}
                     page={"favorite"}
                     cocktail={recipe}
-                    searchParams={searchParams}
+                    removeCocktail={handleDeleteFavorite}
                   />
                 </li>
               ))}
@@ -125,12 +113,10 @@ const FavoriteList = () => {
       {totalPages > 1 && (
         <PaginationComponent
           totalPages={totalPages}
-          page={page}
+          page={currentPage}
           changeNum={changeNum}
         />
       )}
-
-      {error && <p>Sorry. {error} 😭</p>}
     </Section>
   );
 };

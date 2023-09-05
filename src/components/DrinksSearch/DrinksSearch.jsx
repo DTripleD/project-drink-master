@@ -1,4 +1,3 @@
-import React from "react";
 import { ReactComponent as Search } from "../../images/svg/search.svg";
 import DrinksList from "../../components/DrinksList/DrinksList";
 import { useLocation, useSearchParams } from "react-router-dom";
@@ -25,6 +24,7 @@ import { useDispatch, useSelector } from "react-redux";
 import PaginationComponent from "../Pagination/Pagination";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import { P3 } from "../DrinksList/DrinksList.styled";
+import Loader from "../Loader/Loader";
 
 const DrinksSearch = () => {
 	const { state } = useLocation();
@@ -110,8 +110,8 @@ const DrinksSearch = () => {
 	const onSubmit = (data) => {
 		setSearchParams({
 			search: data?.search || "",
-			category: data?.category?.label || state?.category || "",
-			ingredients: data?.ingredients?.label || "",
+			category: data?.category?.value || state?.category || "",
+			ingredients: data?.ingredients?.value || "",
 			page: "1",
 			limit: itemsPerPage,
 		});
@@ -120,7 +120,7 @@ const DrinksSearch = () => {
 	const handleCategoryChange = (selectedCategory) => {
 		setSearchParams((prevSearchParams) => ({
 			...prevSearchParams,
-			category: selectedCategory?.label || "",
+			category: selectedCategory?.value || "",
 			page: "1",
 			limit: itemsPerPage,
 		}));
@@ -129,7 +129,7 @@ const DrinksSearch = () => {
 	const handleIngridientChange = (selectedIngridient) => {
 		setSearchParams((prevSearchParams) => ({
 			...prevSearchParams,
-			ingredients: selectedIngridient?.label || "",
+			ingredients: selectedIngridient?.value || "",
 			page: "1",
 			limit: itemsPerPage,
 		}));
@@ -159,7 +159,11 @@ const DrinksSearch = () => {
 					name="category"
 					render={({ field: { onChange, value } }) => (
 						<StyledSelect
-							defaultValue={optionCategories[0]}
+							defaultValue={
+								updatedParams.get("category") === ""
+									? optionCategories[0]
+									: { value: "", label: updatedParams.get("category") }
+							}
 							options={optionCategories}
 							value={value}
 							onChange={(selectedOption) => {
@@ -175,7 +179,11 @@ const DrinksSearch = () => {
 					name="ingredients"
 					render={({ field: { onChange, value } }) => (
 						<StyledSelect
-							defaultValue={optionIngredients[0]}
+							defaultValue={
+								updatedParams.get("ingredients") === ""
+									? optionIngredients[0]
+									: { value: "", label: updatedParams.get("ingredients") }
+							}
 							options={optionIngredients}
 							value={value}
 							onChange={(selectedOption) => {
@@ -187,7 +195,7 @@ const DrinksSearch = () => {
 					)}
 				/>
 			</Form>
-			{!data.drinks && !error && <h2>Loading...</h2>}
+			{!data.drinks && !error && <Loader />}
 			<DrinksList drinks={data.drinks} />
 			{error === "drinks not found" && (
 				<>

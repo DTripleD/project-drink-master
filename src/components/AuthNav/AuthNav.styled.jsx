@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 import { NavLink } from "react-router-dom";
 
 export const StyledNavLink = styled(NavLink)`
-  color: ${(props) => props.theme.colors.white};
   font-size: 12px;
   font-weight: 600;
   line-height: calc(16 / 12);
@@ -13,6 +12,7 @@ export const StyledNavLink = styled(NavLink)`
   margin: 0 auto;
 
   position: relative;
+  color: #f3f3f3;
 
   &:after {
     background: none repeat scroll 0 0 transparent;
@@ -22,13 +22,18 @@ export const StyledNavLink = styled(NavLink)`
     height: 1px;
     left: 50%;
     position: absolute;
-    background: ${(props) => props.theme.colors.white};
+    background: #f3f3f3;
+
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
   }
   &:hover:after {
     width: 100%;
     left: 0;
+  }
+
+  &:hover {
+    color: #f3f3f3;
   }
 
   @media screen and (min-width: 768px) {

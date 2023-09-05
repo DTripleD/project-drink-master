@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 
 import { refreshUser } from "./redux/auth/operations";
 import { selectIsRefreshing } from "./redux/auth/selectors";
@@ -21,14 +21,17 @@ import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 
 import SignInPage from "./pages/SignInPage/SignInPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
-import MainPage from "./pages/MainPage/MainPage";
-import DrinksPage from "./pages/DrinksPage/DrinksPage";
-import AddRecipePage from "./pages/AddRecipePage/AddRecipePage";
-import FavoritePage from "./pages/FavoritePage/FavoritePage";
-import WelcomePage from "./pages/WellcomPage/WellcomPage";
-import RecipePage from "./pages/RecipePage/RecipePage";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import MyCoctailsPage from "./pages/MyCoctailsPage/MyCoctailsPage";
+import WelcomePage from "./pages/WelcomePage/WelcomePage";
+
+const MainPage = lazy(() => import("./pages/MainPage/MainPage"));
+const DrinksPage = lazy(() => import("./pages/DrinksPage/DrinksPage"));
+const AddRecipePage = lazy(() => import("./pages/AddRecipePage/AddRecipePage"));
+const FavoritePage = lazy(() => import("./pages/FavoritePage/FavoritePage"));
+const RecipePage = lazy(() => import("./pages/RecipePage/RecipePage"));
+const ErrorPage = lazy(() => import("./pages/ErrorPage/ErrorPage"));
+const MyCoctailsPage = lazy(() =>
+  import("./pages/MyCoctailsPage/MyCoctailsPage")
+);
 
 function App() {
   const dispatch = useDispatch();
