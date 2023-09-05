@@ -1,14 +1,18 @@
 import styled from "@emotion/styled";
 
 export const Card = styled.div`
-  width: 335px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  gap: 24px;
 
-  @media (min-width: 768px) {
-    width: 342px;
+  @media screen and (min-width: 768px) {
+    justify-content: space-between;
+    max-width: 342px;
   }
 
-  @media (min-width: 1440px) {
-    width: 400px;
+  @media screen and (min-width: 1440px) {
+    max-width: 400px;
   }
 `;
 export const OneMoreWrapper = styled.div`
@@ -37,16 +41,26 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  /* background-image: url("./defaultimg.jpg"); */
-  border-radius: 15px;
   display: block;
-  max-width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 600ms ease;
+  transition: transform 600ms ease, box-shadow 400ms ease;
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 17, 0.024) 51.18%,
+    rgba(10, 10, 17, 0.768) 97.66%
+  );
+
+  border-radius: 8px;
+  box-shadow: 5px 4px 8px 0px rgba(34, 60, 80, 0.2);
   &:hover,
   &:focus {
-    transform: scale(1.03);
+    transform: scale(0.98);
+    box-shadow: 0 0 12px rgba(243, 243, 243, 0.5);
+  }
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1440px) {
+    height: 400px;
   }
 `;
 
@@ -80,34 +94,36 @@ export const Ingredients = styled.span`
 `;
 
 export const AboutStyled = styled.p`
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 335px;
-  /* text-justify: distribute; */
-  height: 75px;
-  /* color: ${(props) => props.theme.colors.white}; */
-  color: ${(props) => props.theme.colors.white};
+  display: inline-block;
+  height: 45px;
+  font-family: Manrope;
   font-size: 14px;
   font-weight: 400;
-  line-height: calc(18 / 14);
-  margin-bottom: 18px;
-  margin-top: 18px;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-align: left;
+  overflow: hidden;
+  color: ${(props) => props.theme.colors.white};
 
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    font-family: Manrope;
     font-size: 16px;
     font-weight: 400;
-    line-height: calc(22 / 16);
-    margin-bottom: 24px;
-    margin-top: 24px;
-    height: 110px;
-    -webkit-line-clamp: 5;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
   }
-  @media (min-width: 1440px) {
-    height: 93px;
-    -webkit-line-clamp: 4;
+
+  @media screen and (min-width: 1440px) {
+    display: inline-block;
+
+    font-family: Manrope;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
   }
 `;
 
