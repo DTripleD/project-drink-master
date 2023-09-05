@@ -4,7 +4,7 @@ export const UserPhotoWrapper = styled.div`
 	max-width: 32px;
 	max-height: 32px;
 	border-radius: 50%;
-	margin-left: 10px;
+
 	background: ${({ theme }) =>
 		theme.currentTheme === "light"
 			? theme.colors.backgroundLight
@@ -25,10 +25,14 @@ export const UserName = styled.p`
 export const MenuWrapper = styled.div`
 	position: relative;
 	display: flex;
-
 	align-items: center;
-	transition: all 0.4s ease;
 	gap: 8px;
+	width: 91px;
+
+	@media (min-width: 768px) {
+		width: 116px;
+		gap: 14px;
+	}
 `;
 
 export const UserPhoto = styled.img`

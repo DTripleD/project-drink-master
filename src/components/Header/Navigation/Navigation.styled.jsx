@@ -38,5 +38,6 @@ export const Nav = styled.nav`
 
 	@media (min-width: 1440px) {
 		flex-direction: row;
+		width: 526px;
 	}
 `;
