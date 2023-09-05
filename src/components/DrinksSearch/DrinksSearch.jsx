@@ -1,17 +1,20 @@
-import { ReactComponent as Search } from "../../images/svg/search.svg";
-import DrinksList from "../../components/DrinksList/DrinksList";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { Controller } from "react-hook-form";
+//----------------Selectors---------------------
 import {
 	selectCategories,
 	selectIngredientsListSorted,
 } from "../../redux/drinks/drinksSelectors";
+//----------------Functions---------------------
 import {
 	getCategories,
 	getIngredients,
 } from "../../redux/drinks/drinksOperations";
+import { getDrinksList } from "../../shared/api/drinksSearch";
+//-----------------Styles------------------------
 import {
 	StyledSelect,
 	Form,
@@ -19,12 +22,13 @@ import {
 	InputContainer,
 	Input,
 } from "./DrinksSearch.styled";
-import { getDrinksList } from "../../shared/api/drinksSearch";
-import { useDispatch, useSelector } from "react-redux";
-import PaginationComponent from "../Pagination/Pagination";
 import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import { P3 } from "../DrinksList/DrinksList.styled";
+//-----------------Components--------------------
+import PaginationComponent from "../Pagination/Pagination";
+import DrinksList from "../../components/DrinksList/DrinksList";
 import Loader from "../Loader/Loader";
+import { ReactComponent as Search } from "../../images/svg/search.svg";
 
 const DrinksSearch = () => {
 	const { state } = useLocation();
@@ -32,10 +36,8 @@ const DrinksSearch = () => {
 	const { register, handleSubmit, control } = useForm();
 	const [page, setPage] = useState(1);
 	const [totalPages, setTotalPages] = useState(1);
-
 	const [data, setData] = useState([]);
 	const [error, setError] = useState("");
-
 	const [itemsPerPage, setItemsPerPage] = useState(() => {
 		const width = window.innerWidth;
 
@@ -45,7 +47,6 @@ const DrinksSearch = () => {
 			return 10;
 		}
 	});
-
 	const [searchParams, setSearchParams] = useSearchParams({
 		search: "",
 		category: state?.category ? state?.category : "",
@@ -58,6 +59,10 @@ const DrinksSearch = () => {
 	useEffect(() => {
 		dispatch(getCategories());
 		dispatch(getIngredients());
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
 	}, []);
 
 	useEffect(() => {
@@ -75,9 +80,6 @@ const DrinksSearch = () => {
 		return () => window.removeEventListener("resize", handleWindowResize);
 	}, []);
 
-	const categories = useSelector(selectCategories);
-	const ingredients = useSelector(selectIngredientsListSorted);
-
 	useEffect(() => {
 		const newPage = parseInt(searchParams.get("page")) || 1;
 		if (newPage !== page) {
@@ -94,6 +96,9 @@ const DrinksSearch = () => {
 				setError(error);
 			});
 	}, [searchParams]);
+
+	const categories = useSelector(selectCategories);
+	const ingredients = useSelector(selectIngredientsListSorted);
 
 	const optionCategories = categories.map((category) => ({
 		value: category,
@@ -121,6 +126,7 @@ const DrinksSearch = () => {
 		setSearchParams((prevSearchParams) => ({
 			...prevSearchParams,
 			category: selectedCategory?.value || "",
+			search: "",
 			page: "1",
 			limit: itemsPerPage,
 		}));
@@ -130,6 +136,7 @@ const DrinksSearch = () => {
 		setSearchParams((prevSearchParams) => ({
 			...prevSearchParams,
 			ingredients: selectedIngridient?.value || "",
+			search: "",
 			page: "1",
 			limit: itemsPerPage,
 		}));
@@ -139,6 +146,10 @@ const DrinksSearch = () => {
 		updatedParams.set("page", num.toString());
 		setSearchParams(updatedParams);
 		setPage(num);
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
 	};
 
 	return (
@@ -148,7 +159,11 @@ const DrinksSearch = () => {
 					<Input
 						type="text"
 						{...register("search")}
-						placeholder="Enter the text"
+						placeholder={
+							updatedParams.get("search") === ""
+								? "Enter the text"
+								: updatedParams.get("search")
+						}
 					/>
 					<Button type="submit">
 						<Search style={{ width: 20, height: 20 }} />
