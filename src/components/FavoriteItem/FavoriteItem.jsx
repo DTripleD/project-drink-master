@@ -1,5 +1,3 @@
-// import { Link } from "react-router-dom";
-
 import PropTypes from "prop-types";
 import {
   ItemCard,
@@ -13,14 +11,8 @@ import {
 import { DeleteButton } from "../../components/Button/DeleteButton/DeleteButton";
 import { SeeButton } from "../../components/Button/SeeButton/SeeButton";
 import defaultImg from "../../images/plug-m.png";
-// import { useDispatch } from "react-redux";
-// import {
-//   deleteFavorite,
-//   fetchFavorites,
-// } from "../../redux/favorite/favorite-operation";
 
 const FavoriteItem = ({ recipe, removeCocktail }) => {
-  // const dispatch = useDispatch();
   return (
     <ItemCard>
       <ItemImg
@@ -49,5 +41,6 @@ const FavoriteItem = ({ recipe, removeCocktail }) => {
 };
 FavoriteItem.propTypes = {
   recipe: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  // removeCocktail: PropTypes.func(),
 };
 export default FavoriteItem;
