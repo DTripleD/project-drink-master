@@ -1,4 +1,4 @@
-import{n as t,P as r,j as i,L as s}from"./index-0c6649d0.js";import{S as x,D as l}from"./DeleteButton-2911eada.js";const c=t.button`
+import{n as t,P as r,j as i,L as s}from"./index-a20318f6.js";import{S as x,D as l}from"./DeleteButton-18779da0.js";const c=t.button`
   border-radius: 42px;
   padding: 14px 40px;
   font-size: 14px;

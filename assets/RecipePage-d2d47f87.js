@@ -1,4 +1,4 @@
-import{n as i,P as s,j as t,x as h,r as d,h as f,c as v,t as w,y as $,w as j,i as y,M as z,a as I}from"./index-0c6649d0.js";import{a as k}from"./favorite-selector-94e92a4d.js";const P=i.h1`
+import{n as i,P as s,j as t,y as h,r as d,h as v,c as f,v as w,z as $,x as j,i as y,M as z,a as I}from"./index-a20318f6.js";import{a as k}from"./favorite-selector-94e92a4d.js";const P=i.h1`
   color: ${e=>e.theme.colors.white};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 font-size: 32px;
@@ -87,7 +87,7 @@ transition: 0.3s ease;
   fonst-size: 16px;
   line-height: calc(18/16);
 }
-`,S=()=>{const{recipeId:e}=h();d.useState(null);const[o,n]=d.useState(!1),r=f(k),a=v();return d.useEffect(()=>{a(w())},[a]),d.useEffect(()=>{const c=r.some(p=>p._id===e);n(c)},[r,e]),t.jsx("div",{children:o?t.jsx(l,{type:"button",onClick:()=>a(j(e)),children:"Remove from favorites"}):t.jsx(l,{type:"button",onClick:()=>a($(e)),children:"Add to favorite recipe"})})},g=({ingridients:{drink:e,glass:o,drinkThumb:n,description:r}})=>t.jsxs(L,{children:[t.jsxs("div",{children:[t.jsx(T,{children:o}),t.jsx(x,{title:e}),t.jsx(q,{children:r||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."}),t.jsx(S,{})]}),t.jsx(F,{children:t.jsx(R,{src:n||"/plug-m.png",alt:e})})]});g.propTypes={ingridients:s.object,drink:s.string,glass:s.string,drinkThumb:s.string,description:s.string};const m=i.p`
+`,S=()=>{const{recipeId:e}=h();d.useState(null);const[o,n]=d.useState(!1),r=v(k),a=f();return d.useEffect(()=>{a(w())},[a]),d.useEffect(()=>{const c=r.some(p=>p._id===e);n(c)},[r,e]),t.jsx("div",{children:o?t.jsx(l,{type:"button",onClick:()=>a(j(e)),children:"Remove from favorites"}):t.jsx(l,{type:"button",onClick:()=>a($(e)),children:"Add to favorite recipe"})})},g=({ingridients:{drink:e,glass:o,drinkThumb:n,description:r}})=>t.jsxs(L,{children:[t.jsxs("div",{children:[t.jsx(T,{children:o}),t.jsx(x,{title:e}),t.jsx(q,{children:r||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."}),t.jsx(S,{})]}),t.jsx(F,{children:t.jsx(R,{src:n||"/plug-m.png",alt:e})})]});g.propTypes={ingridients:s.object,drink:s.string,glass:s.string,drinkThumb:s.string,description:s.string};const m=i.p`
   font-size: 16px;
   color: rgba(243, 243, 243, 0.5);
   line-height: calc(20/16);
