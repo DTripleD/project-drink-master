@@ -27,7 +27,7 @@ const favoritesSlice = createSlice({
   extraReducers: {
     [fetchFavorites.pending]: handlePending,
     [addFavorite.pending]: handlePending,
-    [deleteFavorite.pending]: handlePending,
+    // [deleteFavorite.pending]: handlePending,
 
     [fetchFavorites.rejected]: handleRejected,
     [addFavorite.rejected]: handleRejected,
@@ -47,9 +47,9 @@ const favoritesSlice = createSlice({
       state.isLoading = false;
       state.error = null;
 
-      // state.items = state.items.filter(
-      //   (favorite) => favorite._id !== action.payload.recipeId
-      // );
+      state.items = state.items.filter(
+        (favorite) => favorite._id !== action.payload.recipeId
+      );
     },
   },
 });

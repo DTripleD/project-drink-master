@@ -8,6 +8,7 @@ import { MainContainer } from "../../components/MainContainer/MainContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { selectFavorites } from "../../redux/favorite/favorite-selector";
 import { fetchFavorites } from "../../redux/favorite/favorite-operation";
+import Loader from "../../components/Loader/Loader";
 
 const RecipePage = () => {
   const { recipeId } = useParams();
@@ -17,13 +18,21 @@ const RecipePage = () => {
     getIngredients(recipeId).then((data) => setIngridients(data));
   }, [recipeId]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
-      <MainContainer>
-        {ingridients && <RecipePageHero ingridients={ingridients} />}
-        {ingridients && <RecipeIngredientsList ingridients={ingridients} />}
-        {ingridients && <RecipePreparation ingridients={ingridients} />}
-      </MainContainer>
+      {ingridients ? (
+        <MainContainer>
+          <RecipePageHero ingridients={ingridients} />
+          <RecipeIngredientsList ingridients={ingridients} />
+          <RecipePreparation ingridients={ingridients} />
+        </MainContainer>
+      ) : (
+        <Loader />
+      )}
     </div>
   );
 };

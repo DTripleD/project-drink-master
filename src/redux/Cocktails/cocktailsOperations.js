@@ -78,7 +78,6 @@ export const getAllOwnDrinksThunk = createAsyncThunk(
       const res = await instance.get("/own", {
         params,
       });
-      console.log(res);
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response.status);

@@ -10,10 +10,11 @@ import instance from "./instance";
 //     }
 // };
 
-
-
-export const subscribeUser = async body => {
-    const { data } = await instance.post('/subscribe', body);
+export const subscribeUser = async (body) => {
+  try {
+    const { data } = await instance.post("/subscribe", body);
     return data;
-    console.log(data)
+  } catch (error) {
+    return error;
+  }
 };

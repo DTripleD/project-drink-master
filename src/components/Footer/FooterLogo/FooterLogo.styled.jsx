@@ -16,15 +16,15 @@ export const LogoText = styled.p`
 `;
 
 export const LogoWrapper = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 14px;
-	margin: 0
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 0;
 
-	@media (min-width: 768px) {
-		gap: 14px;
-		
+  @media (min-width: 768px) {
+    gap: 14px;
+  }
 `;
 
 export const getStyledIcon = (component) => styled(component)`

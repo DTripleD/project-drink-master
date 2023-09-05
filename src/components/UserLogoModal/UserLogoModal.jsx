@@ -1,9 +1,9 @@
-import React from "react";
 import PropTypes from "prop-types";
 import { ReactComponent as editSVG } from "../../images/svg/edit.svg";
 import {
 	getStyledEdit,
 	Drop,
+	EditWrapper,
 	EditButton,
 	SvgButton,
 	LogOutButton,
@@ -12,29 +12,28 @@ import {
 const StyledEditSvg = getStyledEdit(editSVG);
 
 export const UserLogoModal = ({
-	setOpenDrop,
-	handleInfoModalOpen,
-	handleLogoutModalOpen,
+  setOpenDrop,
+  handleInfoModalOpen,
+  handleLogoutModalOpen,
 }) => {
 	return (
 		<>
 			<Drop open={setOpenDrop}>
-				<div>
-					<EditButton onClick={handleInfoModalOpen} type="button">
-						Edit profile
-					</EditButton>
+				<EditWrapper onClick={handleInfoModalOpen}>
+					<EditButton type="button">Edit profile</EditButton>
 					<SvgButton>{<StyledEditSvg />}</SvgButton>
-				</div>
+				</EditWrapper>
 				<LogOutButton onClick={handleLogoutModalOpen} type="button">
 					Log out
 				</LogOutButton>
 			</Drop>
 		</>
 	);
+
 };
 
 UserLogoModal.propTypes = {
-	setOpenDrop: PropTypes.func,
-	handleInfoModalOpen: PropTypes.func,
-	handleLogoutModalOpen: PropTypes.func,
+  setOpenDrop: PropTypes.func,
+  handleInfoModalOpen: PropTypes.func,
+  handleLogoutModalOpen: PropTypes.func,
 };

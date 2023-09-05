@@ -33,8 +33,6 @@ export const signin = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
-      console.log("словили");
-      console.log("error.response", error.response);
       return thunkAPI.rejectWithValue(error);
     }
   }
@@ -81,7 +79,6 @@ export const updateAvatar = createAsyncThunk(
       });
       return data.avatarURL;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -90,12 +87,10 @@ export const updateAvatar = createAsyncThunk(
 export const updateUserName = createAsyncThunk(
   "auth/updateUserName",
   async (credentials, thunkAPI) => {
-    console.log(credentials);
     try {
       const { data } = await instance.patch("users", { name: credentials });
       return data.name;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

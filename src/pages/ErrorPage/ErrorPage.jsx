@@ -10,6 +10,7 @@ const ErrorPage = () => {
           <ErrorText>4</ErrorText>
           <ErrorText>4</ErrorText>
         </TextWrapper>
+
         {/* <img src={glass} alt="" /> */}
       </ErrorPageWrapper>
     </MainContainer>

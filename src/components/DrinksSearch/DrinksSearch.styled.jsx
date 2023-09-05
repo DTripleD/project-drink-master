@@ -2,7 +2,10 @@ import styled from "@emotion/styled";
 import Select from "react-select";
 
 export const StyledSelect = styled(Select)`
-	background-color: ${(props) => props.theme.colors.blue};
+ background-color: ${({ theme }) =>
+    theme.currentTheme === "light"
+      ? theme.colors.backgroundLight
+      : theme.colors.blue};
 	border-radius: 200px;
 	max-width: 335px;
 	max-height: 54px;
@@ -13,7 +16,10 @@ export const StyledSelect = styled(Select)`
 	}
 
 	.select__menu {
-		background-color: ${(props) => props.theme.colors.blue};
+		 background-color: ${({ theme }) =>
+      theme.currentTheme === "light"
+        ? theme.colors.backgroundLight
+        : theme.colors.blue};
 		border-radius: 20px;
 		outline: 0;
 		border: 0;
@@ -37,6 +43,7 @@ export const StyledSelect = styled(Select)`
 	}
 
 	.select__control {
+		cursor: pointer;
 		position: relative;
 		width: 315px;
 		height: 56px;
@@ -57,6 +64,17 @@ export const StyledSelect = styled(Select)`
 			outline: 0;
 			box-shadow: none;
 			border: 0;
+
+			html,
+			body {
+				overflow: hidden;
+			}
+		}
+		:focus {
+			html,
+			body {
+				overflow: hidden;
+			}
 		}
 	}
 
@@ -124,6 +142,22 @@ export const StyledSelect = styled(Select)`
 
 	.select__indicator {
 		padding: 0;
+		svg {
+			fill: rgba(243, 243, 243, 0.5);
+			transition: transform 300ms ease;
+			:hover {
+				fill: ${(props) => props.theme.colors.white};
+				transform: rotate(180deg);
+			}
+			:focus {
+				fill: ${(props) => props.theme.colors.white};
+				transform: rotate(180deg);
+			}
+			:active {
+				fill: ${(props) => props.theme.colors.white};
+				transform: rotate(180deg);
+			}
+		}
 	}
 
 	.select__value-container {
@@ -151,58 +185,59 @@ export const StyledSelect = styled(Select)`
 		background: ${(props) => props.theme.colors.grey};
 		border-radius: 20px;
 	}
+
 `;
 
 export const Form = styled.form`
-	display: flex;
-	flex-direction: column;
-	gap: 14px;
-	margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 40px;
 
-	@media screen and (min-width: 768px) {
-		flex-direction: row;
-	}
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 export const InputContainer = styled.div`
-	max-width: 335px;
-	max-height: 54px;
-	border: 1px solid ${(props) => props.theme.colors.white};
-	border-radius: 200px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+  max-width: 335px;
+  max-height: 54px;
+  border: 1px solid ${(props) => props.theme.colors.white};
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-	@media screen and (min-width: 768px) {
-		width: 264px;
-		height: 56px;
-	}
+  @media screen and (min-width: 768px) {
+    width: 264px;
+    height: 56px;
+  }
 `;
 
 export const Input = styled.input`
-	background-color: transparent;
-	max-width: 170px;
-	border: none;
-	color: ${(props) => props.theme.colors.white};
-	margin-left: 24px;
-	height: 35px;
-	font-size: 17px;
-	::placeholder {
-		color: ${(props) => props.theme.colors.white};
-		font-size: 17px;
-	}
+  background-color: transparent;
+  max-width: 170px;
+  border: none;
+  color: ${(props) => props.theme.colors.white};
+  margin-left: 24px;
+  height: 35px;
+  font-size: 17px;
+  ::placeholder {
+    color: ${(props) => props.theme.colors.white};
+    font-size: 17px;
+  }
 `;
 
 export const Button = styled.button`
-	background-color: transparent;
-	outline: none;
-	border: none;
-	:hover {
-		outline: none;
-		border: none;
-	}
-	:focus {
-		outline: none;
-		border: none;
-	}
+  background-color: transparent;
+  outline: none;
+  border: none;
+  :hover {
+    outline: none;
+    border: none;
+  }
+  :focus {
+    outline: none;
+    border: none;
+  }
 `;
