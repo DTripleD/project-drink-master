@@ -15,7 +15,9 @@ const MainPage = () => {
   useEffect(() => {
     getMainPage().then((data) => {
       setObject(data);
-      uniqueCategoties(data);
+      if (data) {
+        uniqueCategoties(data);
+      }
     });
   }, []);
 
