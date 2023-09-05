@@ -58,6 +58,10 @@ const DrinksSearch = () => {
 	useEffect(() => {
 		dispatch(getCategories());
 		dispatch(getIngredients());
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
 	}, []);
 
 	useEffect(() => {
@@ -139,6 +143,10 @@ const DrinksSearch = () => {
 		updatedParams.set("page", num.toString());
 		setSearchParams(updatedParams);
 		setPage(num);
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
 	};
 
 	return (
