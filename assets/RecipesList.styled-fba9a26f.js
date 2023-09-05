@@ -1,11 +1,11 @@
-import{n as t}from"./index-cf29e232.js";const o=t.section`
+import{n as t}from"./index-677cd142.js";const i=t.section`
   max-width: 100%;
   margin-bottom: 40px;
   overflow: hidden;
   @media (min-width: 768px) {
     margin-bottom: 80px;
   }
-`,i=t.ul`
+`,a=t.ul`
   display: grid;
   row-gap: 28px;
   grid-template-columns: repeat(1, 1fr);
@@ -20,12 +20,12 @@ import{n as t}from"./index-cf29e232.js";const o=t.section`
     column-gap: 20px;
     row-gap: 80px;
   }
-`,a=t.h3`
-  color: #f3f3f3;
+`,p=t.h3`
+  color: ${e=>e.theme.colors.white};
   text-align: center;
   font-family: Manrope;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
   line-height: 22px;
-`;export{i as M,o as S,a};
+`;export{a as M,i as S,p as a};
