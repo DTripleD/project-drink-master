@@ -21,7 +21,6 @@ const FavoriteButton = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    // Проверяем, находится ли recipeId в favoriteRecipe
     const isFavorite = favoriteRecipe.some((recipe) => recipe._id === recipeId);
     setIsAddFavorite(isFavorite);
   }, [favoriteRecipe, recipeId]);

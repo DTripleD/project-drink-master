@@ -14,12 +14,12 @@ const RecipeIngredientsList = ({ ingridients }) => {
       {ingredientItems.map((ingredient, index) => (
         <Li key={index}>
           <IMG
-            src={ingredient['thumb-small']||'/plug-m.png'}
+            src={ingredient['thumb-small'] || '/plug-m.png'}
             srcSet={`
-              ${ingredient['thumb-medium']||'/plug-m.png'} 480w,
-              ${ingredient.ingredientThumb||'/plug-b.png'} 748w
+              ${ingredient['thumb-medium'] || '/plug-m.png'} 480w,
+              ${ingredient.ingredientThumb || '/plug-m.png'} 748w
             `}
-            sizes="(min-width: 1200px) 270px, (min-width:768px) 354px, (min-width:480px) 450px, 100vw" 
+            sizes="(min-width: 1440px) 450px, (min-width:768px) 354px, (min-width:375px) 270px, 100vw" 
             alt={ingredient.title}
             loading='lazy'
           />
