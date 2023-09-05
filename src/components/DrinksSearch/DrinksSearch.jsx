@@ -126,6 +126,7 @@ const DrinksSearch = () => {
 		setSearchParams((prevSearchParams) => ({
 			...prevSearchParams,
 			category: selectedCategory?.value || "",
+			search: "",
 			page: "1",
 			limit: itemsPerPage,
 		}));
@@ -135,6 +136,7 @@ const DrinksSearch = () => {
 		setSearchParams((prevSearchParams) => ({
 			...prevSearchParams,
 			ingredients: selectedIngridient?.value || "",
+			search: "",
 			page: "1",
 			limit: itemsPerPage,
 		}));
@@ -157,7 +159,11 @@ const DrinksSearch = () => {
 					<Input
 						type="text"
 						{...register("search")}
-						placeholder="Enter the text"
+						placeholder={
+							updatedParams.get("search") === ""
+								? "Enter the text"
+								: updatedParams.get("search")
+						}
 					/>
 					<Button type="submit">
 						<Search style={{ width: 20, height: 20 }} />
