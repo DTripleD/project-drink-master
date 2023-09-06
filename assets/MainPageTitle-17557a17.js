@@ -1,4 +1,4 @@
-import{n as e,P as n,j as t}from"./index-4442cba9.js";const o=e.h1`
+import{n as e,P as n,j as t}from"./index-3b61abd1.js";const o=e.h1`
 	color: ${i=>i.theme.colors.white};
 	font-size: 32px;
 	font-weight: 600;
