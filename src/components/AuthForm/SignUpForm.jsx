@@ -1,10 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
-// import { useEffect } from 'react';
-// import { useSearchParams } from 'react-router-dom';
-// import { verifyThunk } from '../../redux/auth/operations';
-
 import { signup } from "../../redux/auth/operations";
 import { AuthNavigate } from "../AuthNav/AuthNav";
 import { SignUpSchema } from "./SignUpAndSignInSchema";
@@ -22,7 +18,6 @@ import {
   StyledMessage,
   StyledPasswordDiv,
 } from "./AuthForm.styled";
-import { toast } from "react-hot-toast";
 import { selectTheme } from "../../redux/theme/selectors";
 import theme from "../../shared/theme";
 
@@ -186,9 +181,15 @@ export const SignUpForm = () => {
               }}
             >
               {isClicked ? (
-                <FiEye color={themes.colors.white} />
+                <FiEye color={themes.colors.white} style={{
+                  width: '24px',
+                  height: '24px',
+                }}/>
               ) : (
-                <FiEyeOff color={themes.colors.white} />
+                <FiEyeOff color={themes.colors.white} style={{
+                  width: '24px',
+                  height: '24px',
+                }}/>
               )}
             </span>
           </StyledPasswordDiv>
