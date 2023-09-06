@@ -4,8 +4,7 @@ import axios from "axios";
 
 const instance = axios.create({
   // baseURL: VITE_API_URL,
-  // baseURL: "https://drink-master-backend.onrender.com",
-  baseURL: "http://localhost:8000",
+  baseURL: "https://drink-master-backend.onrender.com",
 });
 
 export default instance;
