@@ -1,4 +1,4 @@
-import{n as i,r as l,P as h,h as M,j as t,C as k,c as O,g as X,k as Y,f as K,d as Q,l as Z,u as ee,_ as $,L as te,b as ie,M as oe,F as ne}from"./index-779b5341.js";import{M as re}from"./MainPageTitle-c3093ad3.js";import{S as P,s as se,b as le,c as ae}from"./react-select.esm-81e42ae4.js";import{a as ce,b as de}from"./addRecipePageQuery-8f71b166.js";import"./assertThisInitialized-143d8acb.js";const pe=i.div`
+import{n as i,r as l,P as h,h as M,j as t,C as k,c as O,g as X,k as Y,f as K,d as Q,l as Z,u as ee,_ as $,L as te,b as ie,M as oe,F as ne}from"./index-466e7060.js";import{M as re}from"./MainPageTitle-510de147.js";import{S as P,s as se,b as le,c as ae}from"./react-select.esm-26dac10e.js";import{a as ce,b as de}from"./addRecipePageQuery-81a5ea0b.js";import"./assertThisInitialized-dcfe99bd.js";const pe=i.div`
   display: flex;
   flex-direction: column;
   gap: 40px;

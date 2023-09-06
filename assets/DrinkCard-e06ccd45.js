@@ -1,4 +1,4 @@
-import{n,P as r,j as i,L as s}from"./index-779b5341.js";import{S as d,D as p}from"./DeleteButton-903200d3.js";const x="/project-drink-master/assets/coctails-6f30eaa9.jpg",l=n.div`
+import{n,P as r,j as i,L as s}from"./index-466e7060.js";import{S as a,D as p}from"./DeleteButton-9aa23800.js";const x="/project-drink-master/assets/coctails-6f30eaa9.jpg",l=n.div`
   display: flex;
   flex-direction: column;
   border: none;
@@ -35,6 +35,8 @@ import{n,P as r,j as i,L as s}from"./index-779b5341.js";import{S as d,D as p}fro
     height: 400px;
   }
 `,m=n.img`
+  width: 100%;
+  height: 100%;
   display: block;
   transition: transform 600ms ease, box-shadow 400ms ease;
   background: linear-gradient(
@@ -110,4 +112,4 @@ import{n,P as r,j as i,L as s}from"./index-779b5341.js";import{S as d,D as p}fro
   display: flex;
   gap: 8px;
   position: relative;
-`,j=n.div``,u=({cocktail:e,page:t,removeCocktail:o})=>i.jsxs(l,{children:[i.jsx(s,{to:`/recipe/${e._id}`,children:i.jsx(h,{children:i.jsx(c,{children:i.jsx(m,{src:e.drinkThumb,alt:e.drink,onError:a=>{a.currentTarget.src=x}})})})}),i.jsx(j,{children:i.jsxs(f,{position:t,children:[i.jsx(s,{to:`/recipe/${e._id}`,children:i.jsx(g,{children:e.drink})}),i.jsx(w,{children:"Ingredients"})]})}),(t==="my"||t==="favorite")&&i.jsx(b,{children:e.description}),i.jsxs(y,{children:[(t==="my"||t==="favorite")&&i.jsx(d,{id:e._id}),(t==="my"||t==="favorite")&&i.jsx(p,{id:e._id,page:t,onClick:()=>o(e._id)})]})]});u.propTypes={page:r.string,removeCocktail:r.func,cocktail:r.object};export{u as D};
+`,j=n.div``,u=({cocktail:e,page:t,removeCocktail:o})=>i.jsxs(l,{children:[i.jsx(s,{to:`/recipe/${e._id}`,children:i.jsx(h,{children:i.jsx(c,{children:i.jsx(m,{src:e.drinkThumb,alt:e.drink,onError:d=>{d.currentTarget.src=x}})})})}),i.jsx(j,{children:i.jsxs(f,{position:t,children:[i.jsx(s,{to:`/recipe/${e._id}`,children:i.jsx(g,{children:e.drink})}),i.jsx(w,{children:"Ingredients"})]})}),(t==="my"||t==="favorite")&&i.jsx(b,{children:e.description}),i.jsxs(y,{children:[(t==="my"||t==="favorite")&&i.jsx(a,{id:e._id}),(t==="my"||t==="favorite")&&i.jsx(p,{id:e._id,page:t,onClick:()=>o(e._id)})]})]});u.propTypes={page:r.string,removeCocktail:r.func,cocktail:r.object};export{u as D};
