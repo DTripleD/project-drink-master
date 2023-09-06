@@ -1,4 +1,4 @@
-import{n as i,P as s,j as t,y as h,r as d,h as v,c as f,v as w,z as $,x as j,i as y,M as z,a as I}from"./index-466e7060.js";import{a as k}from"./favorite-selector-94e92a4d.js";const P=i.h1`
+import{n as i,P as s,j as t,y as h,r as d,h as v,c as f,v as w,z as $,x as j,i as y,M as z,a as I}from"./index-dae4b03d.js";import{a as k}from"./favorite-selector-94e92a4d.js";const P=i.h1`
   color: ${e=>e.theme.colors.white};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 font-size: 32px;
@@ -144,9 +144,9 @@ width:157px;
 @media ${e=>e.theme.device.tablet}{
   width:220px;
 }
-`,u=({ingridients:e})=>{if(!e)return t.jsx(m,{children:"Something went wrong,try again..."});const o=e.ingredients;return t.jsxs(B,{children:[t.jsx(m,{children:"Ingredients"}),t.jsx(A,{children:o.map((n,r)=>t.jsxs(C,{children:[t.jsx(E,{src:n["thumb-small"]||"/plug-m.png",srcSet:`
-              ${n["thumb-medium"]||"/plug-m.png"} 480w,
-              ${n.ingredientThumb||"/plug-m.png"} 748w
+`,u=({ingridients:e})=>{if(!e)return t.jsx(m,{children:"Something went wrong,try again..."});const o=e.ingredients;return t.jsxs(B,{children:[t.jsx(m,{children:"Ingredients"}),t.jsx(A,{children:o.map((n,r)=>t.jsxs(C,{children:[t.jsx(E,{src:n["thumb-small"]||"../../../public/plug-m.png",srcSet:`
+              ${n["thumb-medium"]||"../../../public/plug-m.png"} 480w,
+              ${n.ingredientThumb||"../../../public/plug-m.png"} 748w
             `,sizes:"(min-width: 1440px) 450px, (min-width:768px) 354px, (min-width:375px) 270px, 100vw",alt:n.title,loading:"lazy"}),t.jsxs(M,{children:[t.jsx(V,{children:n.title}),t.jsx(D,{children:n.measure})]})]},r))})]})};u.propTypes={ingridients:s.object,ingredients:s.array,title:s.string,measure:s.string,ingredientThumb:s.string};const G=i.div`
 padding-top:40px;
 padding-bottom:80px;

@@ -1,4 +1,4 @@
-import{n,P as p,j as e,h as A,a as y,b as J,c as j,r as c,v as k,M as z,w as f,x as T}from"./index-466e7060.js";import{M as K}from"./MainPageTitle-510de147.js";import{s as h,a as v}from"./favorite-selector-94e92a4d.js";import{S as F,D as L}from"./DeleteButton-9aa23800.js";import{S as M,M as Z,a as B}from"./RecipesList.styled-866f4fb7.js";import{P as H}from"./Pagination-68c9e3a5.js";import{E as R}from"./ErrorPage.styled-23b5090e.js";import"./assertThisInitialized-dcfe99bd.js";import"./white-bg@2x-60be6de5.js";const G=n.div`
+import{n,P as p,j as e,h as A,a as y,b as J,c as j,r as c,v as k,M as z,w as f,x as T}from"./index-dae4b03d.js";import{M as K}from"./MainPageTitle-5a1c1f37.js";import{s as h,a as v}from"./favorite-selector-94e92a4d.js";import{S as F,D as L}from"./DeleteButton-25e09be3.js";import{S as M,M as Z,a as B}from"./RecipesList.styled-2048cc85.js";import{P as H}from"./Pagination-33949043.js";import{E as R}from"./ErrorPage.styled-24ebb3b3.js";import"./assertThisInitialized-ccfbe62a.js";import"./white-bg@2x-60be6de5.js";const G=n.div`
   display: flex;
   flex-direction: column;
   border: none;
