@@ -1,4 +1,4 @@
-import{n,P as r,j as i,L as s}from"./index-17076e49.js";import{S as a,D as p}from"./DeleteButton-8001f37c.js";const x="/project-drink-master/assets/coctails-6f30eaa9.jpg",l=n.div`
+import{n,P as r,j as i,L as s}from"./index-0ed355f5.js";import{S as a,D as p}from"./DeleteButton-b7ccea24.js";const x="/project-drink-master/assets/coctails-6f30eaa9.jpg",l=n.div`
   display: flex;
   flex-direction: column;
   border: none;
