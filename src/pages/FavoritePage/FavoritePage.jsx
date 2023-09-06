@@ -25,9 +25,9 @@ import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import { toast } from "react-hot-toast";
 
 const FavoritePage = () => {
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const location = useLocation();
   const dispatch = useDispatch();
   const favoriteRecipe = useSelector(selectFavorites);
@@ -99,7 +99,7 @@ const FavoritePage = () => {
         <>
           <MainPageTitle title={"Favorites"} />
           {/* {currentItems.length === 0 } */}
-          {currentItems?.length !== 0 ? (
+          {favoriteRecipe?.length !== 0 ? (
             <FavoriteList
               handleDeleteFavorite={handleDeleteFavorite}
               currentItems={currentItems}
