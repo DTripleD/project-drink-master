@@ -11,6 +11,7 @@ import bg_white_1 from "../../images/bg-white/white-bg@1x.png";
 import bg_white_2 from "../../images/bg-white/white-bg@2x.png";
 
 export const Hero = styled.section`
+  height: 700px;
   ${({ theme }) =>
     theme.currentTheme === "light"
       ? `background-image: url(${bg_white_1});`
@@ -44,6 +45,7 @@ export const Hero = styled.section`
   }
 
   @media screen and (min-width: 768px) {
+    height: 1001px;
     margin-right: -64px;
     ${({ theme }) =>
       theme.currentTheme === "light"
@@ -73,6 +75,7 @@ export const Hero = styled.section`
   }
 
   @media screen and (min-width: 1440px) {
+    height: 790px;
     ${({ theme }) =>
       theme.currentTheme === "light"
         ? `background-image: url(${bg_white_1});`
@@ -104,29 +107,27 @@ export const Hero = styled.section`
 
 export const Herowrapper = styled.div`
   max-width: 279px;
-  padding: 164px 0px 100px 0px;
+
   width: 68%;
   overflow: hidden;
 
   @media (min-width: 768px) {
-    padding: 184px 0px 100px 0px;
     max-width: 483px;
   }
 
   @media (min-width: 1440px) {
-    padding: 244px 0px 200px 0px;
     max-width: 715px;
   }
 `;
 
 export const Herodescription = styled.div`
-  width: 319px;
-
   /* height: 72px, auto; */
   color: ${(props) => props.theme.colors.white};
   font-size: 18px;
   line-height: 1.33;
   margin-bottom: 40px;
+
+  width: 319px;
 
   @media (min-width: 768px) {
     width: 470px;

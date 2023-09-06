@@ -1,6 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import React, { useState } from "react";
-import { selectSubscribe } from "../../redux/subscribe/selector";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { subscripbeValidationSchema } from "./subscripbeValidationSchema";
@@ -15,32 +13,31 @@ import {
 } from "./SubscribeForm.styled";
 
 const SubscribeForm = () => {
-  const user = useSelector(selectSubscribe);
   const [isButtonDisabled, setButtonDisabled] = useState(true);
-  const [emailValue, setEmailValue] = useState('');
+  const [emailValue, setEmailValue] = useState("");
 
-  const { register, handleSubmit, formState, reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async ({ email }) => {
     try {
-      await subscribeUser({ email });
+      const res = await subscribeUser({ email });
+
+      if (res.status === 409) {
+        throw new Error("Email already subscribed");
+      } else if (res.status === 400) {
+        throw new Error("Error. User is not registered");
+      }
       toast.success("Subscribe success");
       reset();
     } catch (error) {
-      if (error.response.status === 409) {
-        toast.error("Email already subscribed");
-        reset();
-      } else {
-        toast.error("Error. User is not registered");
-        reset();
-      }
+      toast.error(error.message);
     }
   };
 
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
-    setEmailValue(inputValue); 
-    setButtonDisabled(inputValue === ''); 
+    setEmailValue(inputValue);
+    setButtonDisabled(inputValue === "");
   };
 
   return (
@@ -59,8 +56,8 @@ const SubscribeForm = () => {
           {...register("email", {
             required: "Email is required",
           })}
-          value={emailValue} 
-          onChange={handleInputChange} 
+          value={emailValue}
+          onChange={handleInputChange}
         />
       </FooterSubscribeLabel>
 

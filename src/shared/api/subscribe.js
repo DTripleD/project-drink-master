@@ -15,6 +15,6 @@ export const subscribeUser = async (body) => {
     const { data } = await instance.post("/subscribe", body);
     return data;
   } catch (error) {
-    return error;
+    return error.response;
   }
 };

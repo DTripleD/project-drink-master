@@ -66,7 +66,7 @@ export const FooterSubscribeInput = styled.input`
 
 export const FooterSubscribeButton = styled.button`
  
-  height: 54px;
+  height: 56px;
   width: 100%;
   color: ${(props) => props.theme.colors.blue};
   background-color: ${({ theme }) =>
@@ -78,7 +78,7 @@ export const FooterSubscribeButton = styled.button`
 
   border-radius: 200px;
   border: 1px solid ${({ theme }) =>
-      theme.currentTheme === "light" ? theme.colors.white : "transparent"};
+    theme.currentTheme === "light" ? theme.colors.white : "transparent"};
   margin-bottom: 80px;
 
   transition: color 0.5s, border-color 0.5s;

@@ -1,4 +1,3 @@
-import React from "react";
 import SubscribeForm from "../SubscribeForm/SubscribeForm";
 import Nav from "../Nav/Nav";
 import FollowUs from "../FollowUs/FollowUs";
