@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { SeeButton } from "../Button/SeeButton/SeeButton";
+// import { removeRecipeThunk } from "../../redux/Cocktails/cocktailsOperations";
 
 import { DeleteButton } from "../Button/DeleteButton/DeleteButton";
-import { AddButton } from "../Button/AddButton/AddButton";
+// import { useDispatch } from "react-redux";
 
 import drink from "../../images/coctails.jpg";
 import {
@@ -20,7 +21,8 @@ import {
   Wrapper,
 } from "./DrinkCard.styled";
 
-export const DrinkCard = ({ cocktail, page }) => {
+export const DrinkCard = ({ cocktail, page, removeCocktail }) => {
+  // const dispatch = useDispatch();
   return (
     <Card>
       <Link to={`/recipe/${cocktail._id}`}>
@@ -45,7 +47,7 @@ export const DrinkCard = ({ cocktail, page }) => {
         </Ingredientswrapper>
       </Wrapper>
       {(page === "my" || page === "favorite") && (
-        <AboutStyled>{cocktail.about}</AboutStyled>
+        <AboutStyled>{cocktail.description}</AboutStyled>
       )}
       <ButtonsWrapper>
         {(page === "my" || page === "favorite") && (
@@ -53,7 +55,11 @@ export const DrinkCard = ({ cocktail, page }) => {
         )}
 
         {(page === "my" || page === "favorite") && (
-          <DeleteButton id={cocktail._id} page={page} />
+          <DeleteButton
+            id={cocktail._id}
+            page={page}
+            onClick={() => removeCocktail(cocktail._id)}
+          />
         )}
       </ButtonsWrapper>
     </Card>
@@ -62,6 +68,7 @@ export const DrinkCard = ({ cocktail, page }) => {
 
 DrinkCard.propTypes = {
   page: PropTypes.string,
+  removeCocktail: PropTypes.func,
 
   cocktail: PropTypes.object,
 };

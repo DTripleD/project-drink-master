@@ -2,7 +2,6 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { setAuthHeader } from "../auth/operations";
 import { selectAuthAccessToken } from "../auth/selectors";
 import instance from "../../shared/api/instance";
-// import Notiflix from "notiflix";
 
 // Cocktails
 
@@ -84,3 +83,49 @@ export const getAllOwnDrinksThunk = createAsyncThunk(
     }
   }
 );
+
+export const removeRecipeThunk = createAsyncThunk(
+  "cocktails/deleteCocktail",
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await instance.delete(`own/${id}`);
+
+      if (response.status === 200) {
+        return id;
+      } else {
+        return rejectWithValue("Failed to delete cocktail");
+      }
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchMyCoctails = createAsyncThunk(
+  "mycoktails/fetchAll",
+  async (query, thunkAPI) => {
+    try {
+      const { data } = await instance.get(`/own?${query}`);
+
+      if (!data.drinks.length) {
+        return [];
+      }
+      return data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue("Failed to load favorites");
+    }
+  }
+);
+
+// export const removeRecipeThunk = createAsyncThunk(
+//   "cocktails/deleteCocktail",
+//   async (id, thunkAPI) => {
+//     try {
+//       const response = await instance.delete(`/own/${id}`);
+
+//       return { id, ...response.data };
+//     } catch (e) {
+//       return thunkAPI.rejectWithValue(e.message);
+//     }
+//   }
+// );
