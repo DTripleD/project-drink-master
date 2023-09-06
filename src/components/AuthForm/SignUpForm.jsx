@@ -151,13 +151,20 @@ export const SignUpForm = () => {
                 position: "absolute",
                 right: "24px",
                 top: "50%",
-                transform: "translateY(-50%)",
+                  transform: "translateY(-50%)",
+                
               }}
             >
               {isClicked ? (
-                <FiEye color={theme.colors.white} />
+                <FiEye color={theme.colors.white}  style={{
+                  width: '24px',
+                  height: '24px',
+                }}/>
               ) : (
-                <FiEyeOff color={theme.colors.white} />
+                <FiEyeOff color={theme.colors.white} style={{
+                  width: '24px',
+                  height: '24px',
+                }}/>
               )}
             </span>
           </StyledPasswordDiv>
