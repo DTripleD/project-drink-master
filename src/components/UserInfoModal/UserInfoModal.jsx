@@ -47,7 +47,7 @@ export const UserInfoModal = ({
 	const userInfoFormSubmit = (e) => {
 		if (!isButtonEnabled) {
 			setIsButtonEnabled(false);
-			toast.error("No change!");
+
 			return;
 		}
 		e.preventDefault();

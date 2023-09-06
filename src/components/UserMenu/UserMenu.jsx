@@ -11,6 +11,7 @@ import { selectUser } from "../../redux/auth/selectors";
 import {
 	MenuWrapper,
 	UserName,
+	NameWrapper,
 	UserPhoto,
 	UserPhotoWrapper,
 } from "./UserMenu.styled";
@@ -48,7 +49,6 @@ const UserMenu = () => {
 	};
 
 	const handleLogout = (event) => {
-		// event.preventDefault();
 		dispatch(logout());
 		navigate("/");
 	};
@@ -109,7 +109,10 @@ const UserMenu = () => {
 				<UserPhotoWrapper>
 					<UserPhoto src={avatarURL || User} alt="" />
 				</UserPhotoWrapper>
-				<UserName>{name}</UserName>
+				<NameWrapper>
+					<UserName>{name}</UserName>
+				</NameWrapper>
+
 				{openDrop && (
 					<div ref={node}>
 						<UserLogoModal
