@@ -29,7 +29,7 @@ const authSlice = createSlice({
         state.user = action.payload.user;
 
         state.accessToken = action.payload.accessToken;
-        // state.refreshToken = action.payload.refreshToken;
+        state.refreshToken = action.payload.refreshToken;
 
         state.isLoggedIn = true;
         state.isRefreshing = false;
@@ -52,15 +52,12 @@ const authSlice = createSlice({
       .addCase(logout.fulfilled, (state) => {
         state.user = { name: null, email: null };
         state.accessToken = null;
-        // state.refreshToken = null;
+        state.refreshToken = null;
         state.isLoggedIn = false;
         state.isRefreshing = false;
-        // state.isRefreshing = true; От Иветы
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
-        state.accessToken = localStorage.getItem("accessToken");
-        state.refreshToken = localStorage.getItem("refreshToken");
       })
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
