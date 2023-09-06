@@ -65,6 +65,9 @@ export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
   try {
     await instance.post("/users/logout");
     clearAuthHeader();
+    localStorage.setItem("accessToken", "");
+
+    localStorage.setItem("refreshToken", "");
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
