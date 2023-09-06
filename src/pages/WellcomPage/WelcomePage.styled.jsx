@@ -8,8 +8,7 @@ import coctailImgDesc from "../../images/WelcomePage/cocktailMainDesc.jpg";
 import coctailImgDescR from "../../images/WelcomePage/cocktailMainDesc@2x.png";
 
 export const BaseDiv = styled.div`
-  // width: 100%;
-  height: 100vh;
+   height: 100vh;
   display: flex;
   background-size: contain;
   justify-content: center;
