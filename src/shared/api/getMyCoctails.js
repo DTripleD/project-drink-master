@@ -1,8 +1,8 @@
 import instance from "./instance";
 
-export const getMyCoctails = async () => {
+export const getMyCoctails = async (query) => {
   try {
-    const data = await instance.get(`/own`);
+    const data = await instance.get(`/own?${query}`);
 
     return data;
   } catch (err) {
