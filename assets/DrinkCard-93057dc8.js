@@ -1,36 +1,4 @@
-import{n as t,P as r,j as i,L as s}from"./index-a20318f6.js";import{S as x,D as l}from"./DeleteButton-18779da0.js";const c=t.button`
-  border-radius: 42px;
-  padding: 14px 40px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: calc(18 / 14);
-  transition: 0.3s ease;
-
-  background: transparent;
-  border: 1px solid
-    ${({theme:e})=>e.currentTheme==="light"?e.colors.white:"rgba(243, 243, 243, 0.2)"};
-  color: ${e=>e.theme.colors.white};
-
-  margin-top: ${e=>e.margintop?e.margintop:"0px"};
-  margin-bottom: ${e=>e.marginbottom?e.marginbottom:"0px"};
-
-  &:hover,
-  :focus {
-    background: ${e=>e.theme.colors.white};
-    color: ${e=>e.theme.colors.black};
-  }
-
-  @media (min-width: 768px) {
-    padding: 18px 44px;
-
-    font-size: 16px;
-    line-height: calc(18 / 16);
-  }
-
-  @media (min-width: 1440px) {
-    // empty.....for now
-  }
-`,h=({text:e="I am a button",ariaLabel:n="button for click",marginbottom:o="0px",margintop:a="0px",onClick:d,type:p="button"})=>i.jsx(c,{type:p,"aria-label":n,marginbottom:o,margintop:a,onClick:d,children:e});h.propTypes={text:r.string.isRequired,ariaLabel:r.string.isRequired,marginbottom:r.number,onClick:r.func.isRequired,type:r.string,margintop:r.number};const m="/project-drink-master/assets/coctails-6f30eaa9.jpg",g=t.div`
+import{n,P as r,j as i,L as s}from"./index-6e0bd04a.js";import{S as d,D as p}from"./DeleteButton-dfd67c31.js";const x="/project-drink-master/assets/coctails-6f30eaa9.jpg",l=n.div`
   display: flex;
   flex-direction: column;
   border: none;
@@ -44,7 +12,7 @@ import{n as t,P as r,j as i,L as s}from"./index-a20318f6.js";import{S as x,D as 
   @media screen and (min-width: 1440px) {
     max-width: 400px;
   }
-`,f=t.div`
+`,h=n.div`
   border-radius: 15px;
   transition: scale 400ms ease, box-shadow 400ms ease;
   &:hover,
@@ -53,7 +21,7 @@ import{n as t,P as r,j as i,L as s}from"./index-a20318f6.js";import{S as x,D as 
     /* scale: 1.02; */
     box-shadow: 0 0 12px rgba(243, 243, 243, 0.5);
   }
-`,b=t.div`
+`,c=n.div`
   width: 335px;
   height: 360px;
   border-radius: 15px;
@@ -66,7 +34,7 @@ import{n as t,P as r,j as i,L as s}from"./index-a20318f6.js";import{S as x,D as 
     width: 400px;
     height: 400px;
   }
-`,w=t.img`
+`,m=n.img`
   display: block;
   transition: transform 600ms ease, box-shadow 400ms ease;
   background: linear-gradient(
@@ -88,25 +56,25 @@ import{n as t,P as r,j as i,L as s}from"./index-a20318f6.js";import{S as x,D as 
   @media screen and (min-width: 1440px) {
     height: 400px;
   }
-`,u=t.div`
+`,f=n.div`
   margin-top: 14px;
   display: flex;
   justify-content: space-between;
   ${e=>e.position==="my"||e.position==="favorite"?"flex-direction: column; gap: 4px;":"flex-direction: row"}
-`,y=t.p`
+`,g=n.p`
   color: ${e=>e.theme.textColor};
   font-family: Manrope, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 18px;
-`,j=t.span`
+`,w=n.span`
   /* color: rgba(243, 243, 243, 0.5); */
   color: ${({theme:e})=>e.currentTheme==="light"?e.colors.white:"rgba(243, 243, 243, 0.5)"};
   font-family: Manrope, sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-`,v=t.p`
+`,b=n.p`
   display: inline-block;
   height: 45px;
   font-family: Manrope;
@@ -138,8 +106,8 @@ import{n as t,P as r,j as i,L as s}from"./index-a20318f6.js";import{S as x,D as 
     letter-spacing: 0em;
     text-align: left;
   }
-`,k=t.div`
+`,y=n.div`
   display: flex;
   gap: 8px;
   position: relative;
-`,$=t.div``,z=({cocktail:e,page:n})=>i.jsxs(g,{children:[i.jsx(s,{to:`/recipe/${e._id}`,children:i.jsx(f,{children:i.jsx(b,{children:i.jsx(w,{src:e.drinkThumb,alt:e.drink,onError:o=>{o.currentTarget.src=m}})})})}),i.jsx($,{children:i.jsxs(u,{position:n,children:[i.jsx(s,{to:`/recipe/${e._id}`,children:i.jsx(y,{children:e.drink})}),i.jsx(j,{children:"Ingredients"})]})}),(n==="my"||n==="favorite")&&i.jsx(v,{children:e.about}),i.jsxs(k,{children:[(n==="my"||n==="favorite")&&i.jsx(x,{id:e._id}),(n==="my"||n==="favorite")&&i.jsx(l,{id:e._id,page:n})]})]});z.propTypes={page:r.string,cocktail:r.object};export{h as A,z as D};
+`,j=n.div``,u=({cocktail:e,page:t,removeCocktail:o})=>i.jsxs(l,{children:[i.jsx(s,{to:`/recipe/${e._id}`,children:i.jsx(h,{children:i.jsx(c,{children:i.jsx(m,{src:e.drinkThumb,alt:e.drink,onError:a=>{a.currentTarget.src=x}})})})}),i.jsx(j,{children:i.jsxs(f,{position:t,children:[i.jsx(s,{to:`/recipe/${e._id}`,children:i.jsx(g,{children:e.drink})}),i.jsx(w,{children:"Ingredients"})]})}),(t==="my"||t==="favorite")&&i.jsx(b,{children:e.description}),i.jsxs(y,{children:[(t==="my"||t==="favorite")&&i.jsx(d,{id:e._id}),(t==="my"||t==="favorite")&&i.jsx(p,{id:e._id,page:t,onClick:()=>o(e._id)})]})]});u.propTypes={page:r.string,removeCocktail:r.func,cocktail:r.object};export{u as D};
