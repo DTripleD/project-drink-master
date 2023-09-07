@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectIsLoading } from "../../redux/favorite/favorite-selector";
-
+import PropTypes from "prop-types";
 import FavoriteItem from "../FavoriteItem/FavoriteItem";
 
 import {
@@ -31,5 +31,8 @@ const FavoriteList = ({ currentItems, handleDeleteFavorite }) => {
     </Section>
   );
 };
-
+FavoriteList.propTypes = {
+  currentItems: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  handleDeleteFavorite: PropTypes.func,
+};
 export default FavoriteList;

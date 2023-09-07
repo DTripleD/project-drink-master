@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import MainPageTitle from "../../components/MainPageTitle/MainPageTitle";
 import { MainContainer } from "../../components/MainContainer/MainContainer";
 import FavoriteList from "../../components/FavoriteList/FavoriteList";
-import { StyledSection } from "./FavoritePage.styled";
 import { useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -17,7 +16,6 @@ import {
 } from "../../redux/favorite/favorite-selector";
 import PaginationComponent from "../../components/Pagination/Pagination";
 import {
-  MyRecipesListStyled,
   Section,
   MessageTitle,
 } from "../../components/RecipesList/RecipesList.styled";
@@ -105,12 +103,12 @@ const FavoritePage = () => {
               currentItems={currentItems}
             />
           ) : (
-            <>
+            <Section>
               <ErrorPageWrapper />
               <MessageTitle>
                 You havent added any favorite cocktails yet
               </MessageTitle>
-            </>
+            </Section>
           )}
           {totalPages > 1 && (
             <PaginationComponent
