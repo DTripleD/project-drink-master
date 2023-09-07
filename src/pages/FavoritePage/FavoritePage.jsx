@@ -105,12 +105,12 @@ const FavoritePage = () => {
               currentItems={currentItems}
             />
           ) : (
-            <>
+            <Section>
               <ErrorPageWrapper />
               <MessageTitle>
                 You havent added any favorite cocktails yet
               </MessageTitle>
-            </>
+            </Section>
           )}
           {totalPages > 1 && (
             <PaginationComponent
