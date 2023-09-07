@@ -69,3 +69,15 @@ export const P3 = styled.p`
   font-size: 30px;
   color: ${(props) => props.theme.colors.white};
 `;
+
+export const IMGWrapper = styled.div`
+width:335px;
+height:360px;
+@media ${(props)=>props.theme.device.tablet}{
+  width:342px;
+}
+@media ${(props)=>props.theme.device.desktop}{
+  width:400px;
+  height:400px;
+}
+`
