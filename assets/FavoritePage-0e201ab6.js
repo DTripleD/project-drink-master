@@ -1,4 +1,4 @@
-import{n as s,P as p,j as e,h as x,a as M,r as a,b as k,c as P,v as I,M as F,w,x as S}from"./index-11619686.js";import{M as T}from"./MainPageTitle-c344abcc.js";import{d as z,s as u,a as E}from"./plug-m-b8799421.js";import{S as L,D}from"./DeleteButton-11dacaa0.js";import{S as C,M as W,a as _}from"./RecipesList.styled-feced682.js";import{P as B}from"./Pagination-bf0b59b6.js";import{E as O}from"./ErrorPage.styled-a2d7aa6d.js";import"./assertThisInitialized-0da60a41.js";import"./white-bg@2x-60be6de5.js";const $=s.div`
+import{n as o,P as s,j as e,h as x,a as I,r as a,b as P,c as T,v as F,M as S,w as u,x as z}from"./index-72785550.js";import{M as E}from"./MainPageTitle-7b2d8f4d.js";import{d as L,s as w,a as D}from"./plug-m-b8799421.js";import{S as C,D as W}from"./DeleteButton-b90ee6ea.js";import{S as y,M as _,a as O}from"./RecipesList.styled-b337aa45.js";import{P as B}from"./Pagination-4e72fc03.js";import{E as $}from"./ErrorPage.styled-56478f30.js";import"./assertThisInitialized-169559b1.js";import"./white-bg@2x-60be6de5.js";const G=o.div`
   display: flex;
   flex-direction: column;
   border: none;
@@ -12,7 +12,7 @@ import{n as s,P as p,j as e,h as x,a as M,r as a,b as k,c as P,v as I,M as F,w,x
   @media screen and (min-width: 1440px) {
     max-width: 400px;
   }
-`,G=s.img`
+`,R=o.img`
   display: block;
   transition: transform 600ms ease, box-shadow 400ms ease;
   background: linear-gradient(
@@ -34,7 +34,7 @@ import{n as s,P as p,j as e,h as x,a as M,r as a,b as k,c as P,v as I,M as F,w,x
   @media screen and (min-width: 1440px) {
     height: 400px;
   }
-`,R=s.div`
+`,H=o.div`
   /* display: flex;
   flex-direction: column;
  
@@ -55,7 +55,7 @@ import{n as s,P as p,j as e,h as x,a as M,r as a,b as k,c as P,v as I,M as F,w,x
     justify-content: space-between; */
     /* height: 252px; */
   }
-`,H=s.h3`
+`,N=o.h3`
   /* margin-bottom: 4px; */
   font-family: Manrope;
   font-size: 18px;
@@ -72,7 +72,7 @@ import{n as s,P as p,j as e,h as x,a as M,r as a,b as k,c as P,v as I,M as F,w,x
 
     line-height: 32px;
   }
-`,N=s.h3`
+`,Y=o.h3`
   font-family: Manrope;
   font-size: 18px;
   font-weight: 500;
@@ -90,7 +90,7 @@ import{n as s,P as p,j as e,h as x,a as M,r as a,b as k,c as P,v as I,M as F,w,x
     letter-spacing: 0em;
     text-align: left;
   }
-`,Y=s.p`
+`,q=o.p`
   display: inline-block;
   height: 45px;
   font-family: Manrope;
@@ -122,7 +122,7 @@ import{n as s,P as p,j as e,h as x,a as M,r as a,b as k,c as P,v as I,M as F,w,x
     letter-spacing: 0em;
     text-align: left;
   }
-`,q=s.p`
+`,A=o.p`
   display: flex;
   gap: 18px;
 
@@ -131,17 +131,4 @@ import{n as s,P as p,j as e,h as x,a as M,r as a,b as k,c as P,v as I,M as F,w,x
 
   @media screen and (min-width: 1440px) {
   }
-`,j=({recipe:t,removeCocktail:i})=>e.jsxs($,{children:[e.jsx(G,{src:t.drinkThumb?t.drinkThumb:z,alt:t.drink}),e.jsxs(R,{children:[e.jsx(H,{children:t.drink}),e.jsx(N,{children:t.glass})]}),e.jsx(Y,{children:t.description||"Good cocktail"}),e.jsxs(q,{children:[e.jsx(L,{id:t._id}),e.jsx(D,{id:t._id,text:"Delete",ariaLabel:"button for click",onClick:()=>i(t._id),type:"button"})]})]});j.propTypes={recipe:p.oneOfType([p.object,p.array])};const A=({currentItems:t,handleDeleteFavorite:i})=>{const o=x(u);return e.jsx(C,{children:o&&e.jsx(M,{})||e.jsx(W,{children:t.map(r=>e.jsx("li",{children:e.jsx(j,{recipe:r,page:"favorite",cocktail:r,removeCocktail:i})},r._id))})})};s.section`
-  padding-top: 80px;
-  /* padding-bottom: 80px; */
-  @media (min-width: 768px) {
-    padding-top: 140px;
-    /* padding-bottom: 136px; */
-  }
-  @media (min-width: 1440px) {
-    flex-direction: row;
-    gap: 94px;
-    padding-top: 160px;
-    /* padding-bottom: 140px; */
-  }
-`;const ie=()=>{a.useEffect(()=>{window.scrollTo(0,0)},[]),k();const t=P(),i=x(E);x(u);const[o,r]=a.useState(()=>window.innerWidth>=1440?9:8);a.useEffect(()=>{const n=()=>{window.innerWidth>=1440?r(9):r(8)};return window.addEventListener("resize",n),()=>window.removeEventListener("resize",n)},[]);const[d,m]=a.useState(1),h=d*o,y=h-o,f=i.slice(y,h),[c,g]=a.useState(1);a.useEffect(()=>{t(I()),g(Math.ceil(i.length/o))},[t]),a.useEffect(()=>{f.length===0&&d!==1&&m(n=>n-1)},[c,d]);const b=n=>{w.success("Deleting..."),t(S(n)).unwrap().then(l=>{g(Math.ceil(l.totalHits/o))}).then(()=>w.success("Delete success!"))},v=(n,l)=>{m(l)};return e.jsx(e.Fragment,{children:e.jsx(F,{children:e.jsxs(e.Fragment,{children:[e.jsx(T,{title:"Favorites"}),(i==null?void 0:i.length)!==0?e.jsx(A,{handleDeleteFavorite:b,currentItems:f}):e.jsxs(e.Fragment,{children:[e.jsx(O,{}),e.jsx(_,{children:"You havent added any favorite cocktails yet"})]}),c>1&&e.jsx(B,{totalPages:c,page:d,changeNum:v})]})})})};export{ie as default};
+`,j=({recipe:t,removeCocktail:n})=>e.jsxs(G,{children:[e.jsx(R,{src:t.drinkThumb?t.drinkThumb:L,alt:t.drink}),e.jsxs(H,{children:[e.jsx(N,{children:t.drink}),e.jsx(Y,{children:t.glass})]}),e.jsx(q,{children:t.description||"Good cocktail"}),e.jsxs(A,{children:[e.jsx(C,{id:t._id}),e.jsx(W,{id:t._id,text:"Delete",ariaLabel:"button for click",onClick:()=>n(t._id),type:"button"})]})]});j.propTypes={recipe:s.oneOfType([s.object,s.array]),removeCocktail:s.func};const b=({currentItems:t,handleDeleteFavorite:n})=>{const r=x(w);return e.jsx(y,{children:r&&e.jsx(I,{})||e.jsx(_,{children:t.map(l=>e.jsx("li",{children:e.jsx(j,{recipe:l,page:"favorite",cocktail:l,removeCocktail:n})},l._id))})})};b.propTypes={currentItems:s.oneOfType([s.object,s.array]),handleDeleteFavorite:s.func};const ne=()=>{a.useEffect(()=>{window.scrollTo(0,0)},[]),P();const t=T(),n=x(D);x(w);const[r,l]=a.useState(()=>window.innerWidth>=1440?9:8);a.useEffect(()=>{const i=()=>{window.innerWidth>=1440?l(9):l(8)};return window.addEventListener("resize",i),()=>window.removeEventListener("resize",i)},[]);const[c,h]=a.useState(1),m=c*r,v=m-r,f=n.slice(v,m),[p,g]=a.useState(1);a.useEffect(()=>{t(F()),g(Math.ceil(n.length/r))},[t]),a.useEffect(()=>{f.length===0&&c!==1&&h(i=>i-1)},[p,c]);const k=i=>{u.success("Deleting..."),t(z(i)).unwrap().then(d=>{g(Math.ceil(d.totalHits/r))}).then(()=>u.success("Delete success!"))},M=(i,d)=>{h(d)};return e.jsx(e.Fragment,{children:e.jsx(S,{children:e.jsxs(e.Fragment,{children:[e.jsx(E,{title:"Favorites"}),(n==null?void 0:n.length)!==0?e.jsx(b,{handleDeleteFavorite:k,currentItems:f}):e.jsxs(y,{children:[e.jsx($,{}),e.jsx(O,{children:"You havent added any favorite cocktails yet"})]}),p>1&&e.jsx(B,{totalPages:p,page:c,changeNum:M})]})})})};export{ne as default};
