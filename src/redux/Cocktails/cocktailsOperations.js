@@ -116,16 +116,3 @@ export const fetchMyCoctails = createAsyncThunk(
     }
   }
 );
-
-// export const removeRecipeThunk = createAsyncThunk(
-//   "cocktails/deleteCocktail",
-//   async (id, thunkAPI) => {
-//     try {
-//       const response = await instance.delete(`/own/${id}`);
-
-//       return { id, ...response.data };
-//     } catch (e) {
-//       return thunkAPI.rejectWithValue(e.message);
-//     }
-//   }
-// );

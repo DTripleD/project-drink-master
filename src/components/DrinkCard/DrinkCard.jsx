@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 import { SeeButton } from "../Button/SeeButton/SeeButton";
-// import { removeRecipeThunk } from "../../redux/Cocktails/cocktailsOperations";
 
 import { DeleteButton } from "../Button/DeleteButton/DeleteButton";
-// import { useDispatch } from "react-redux";
 
 import drink from "../../images/coctails.jpg";
 import {
@@ -22,7 +20,6 @@ import {
 } from "./DrinkCard.styled";
 
 export const DrinkCard = ({ cocktail, page, removeCocktail }) => {
-  // const dispatch = useDispatch();
   return (
     <Card>
       <Link to={`/recipe/${cocktail._id}`}>
@@ -47,7 +44,7 @@ export const DrinkCard = ({ cocktail, page, removeCocktail }) => {
         </Ingredientswrapper>
       </Wrapper>
       {(page === "my" || page === "favorite") && (
-        <AboutStyled>{cocktail.description}</AboutStyled>
+        <AboutStyled>{cocktail.instructions}</AboutStyled>
       )}
       <ButtonsWrapper>
         {(page === "my" || page === "favorite") && (

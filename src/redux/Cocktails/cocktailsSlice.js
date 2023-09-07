@@ -4,7 +4,7 @@ import {
   getCocktailByIdThunk,
   getAllOwnDrinksThunk,
   removeRecipeThunk,
-  fetchMyCoctails,
+  // fetchMyCoctails,
 } from "../Cocktails/cocktailsOperations";
 
 const initialState = {
@@ -18,15 +18,15 @@ const initialState = {
   loading: false,
 };
 
-const handlePending = (state) => {
-  state.isLoading = true;
-  state.error = null;
-};
+// const handlePending = (state) => {
+//   state.isLoading = true;
+//   state.error = null;
+// };
 
-const handleRejected = (state, action) => {
-  state.isLoading = false;
-  state.error = action.payload;
-};
+// const handleRejected = (state, action) => {
+//   state.isLoading = false;
+//   state.error = action.payload;
+// };
 
 const cocktailsSlice = createSlice({
   name: "@@cocktails",
@@ -88,54 +88,54 @@ const cocktailsSlice = createSlice({
       state.error = payload;
       state.loading = false;
     },
-    // [removeRecipeThunk.pending]: (state) => {
-    //   state.loading = true;
-    // },
-    // [removeRecipeThunk.fulfilled]: (state, { payload }) => {
-    //   // state.own = state.own.filter((el) => el._id !== payload._id);
-    //   state.status = "succeeded";
-    //   state.isLoading = false;
-    //   state.error = null;
-
-    //   state.own = state.own.filter((cocktail) => cocktail._id !== payload);
-    //   console.log(payload);
-
-    //   if (state.own.length === 0) {
-    //     state.own = [];
-    //   }
-
-    //   state.loading = false;
-    // },
-    // [removeRecipeThunk.rejected]: (state, { payload }) => {
-    //   state.error = payload;
-    //   state.loading = false;
-    // },
-
-    [fetchMyCoctails.pending]: handlePending,
-
-    [fetchMyCoctails.rejected]: handleRejected,
-
-    [removeRecipeThunk.rejected]: handleRejected,
-
-    [fetchMyCoctails.fulfilled](state, action) {
-      state.isLoading = false;
-      state.error = null;
-      state.items = action.payload.drinks;
+    [removeRecipeThunk.pending]: (state) => {
+      state.loading = true;
     },
-
-    [removeRecipeThunk.fulfilled](state, action) {
+    [removeRecipeThunk.fulfilled]: (state, { payload }) => {
+      // state.own = state.own.filter((el) => el._id !== payload._id);
+      state.status = "succeeded";
       state.isLoading = false;
       state.error = null;
 
-      state.own = state.own.filter(
-        (cocktail) => cocktail._id !== action.payload
-      );
-      console.log(action.payload);
+      state.own = state.own.filter((cocktail) => cocktail._id !== payload);
+      console.log(payload);
 
       if (state.own.length === 0) {
         state.own = [];
       }
+
+      state.loading = false;
     },
+    [removeRecipeThunk.rejected]: (state, { payload }) => {
+      state.error = payload;
+      state.loading = false;
+    },
+
+    // [fetchMyCoctails.pending]: handlePending,
+
+    // [fetchMyCoctails.rejected]: handleRejected,
+
+    // [removeRecipeThunk.rejected]: handleRejected,
+
+    // [fetchMyCoctails.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.items = action.payload.drinks;
+    // },
+
+    // [removeRecipeThunk.fulfilled](state, action) {
+    //   state.isLoading = false;
+    //   state.error = null;
+
+    //   state.own = state.own.filter(
+    //     (cocktail) => cocktail._id !== action.payload
+    //   );
+    //   console.log(action.payload);
+
+    //   if (state.own.length === 0) {
+    //     state.own = [];
+    //   }
+    // },
   },
 });
 
