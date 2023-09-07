@@ -1,4 +1,4 @@
-import{n as i,P as s,j as t,y as x,r as d,h as v,c as w,v as $,z as j,x as y,i as z,M as I,a as k}from"./index-76875318.js";import{a as P,d as l}from"./plug-m-b8799421.js";const T=i.h1`
+import{n as i,P as s,j as t,y as x,r as d,h as v,c as w,v as $,z as j,x as y,i as z,M as I,a as k}from"./index-df066c04.js";import{a as P,d as l}from"./plug-m-b8799421.js";const T=i.h1`
   color: ${e=>e.theme.colors.white};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 font-size: 32px;
