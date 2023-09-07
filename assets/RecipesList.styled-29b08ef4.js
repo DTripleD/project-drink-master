@@ -1,4 +1,4 @@
-import{n as t}from"./index-df066c04.js";const i=t.section`
+import{n as t}from"./index-8fabade3.js";const i=t.section`
   max-width: 100%;
   margin-bottom: 40px;
   overflow: hidden;
