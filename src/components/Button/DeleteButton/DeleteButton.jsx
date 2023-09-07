@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { StyledButton, getStyledIcon } from "./DeleteButton.styled";
-import { ReactComponent as TrashIcon } from "../../../assets/trash.svg";
+import { ReactComponent as TrashIcon } from "../../../images/svg/trash.svg";
 
 const StyledTrashIcon = getStyledIcon(TrashIcon);
 export const DeleteButton = ({

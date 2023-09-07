@@ -1,4 +1,4 @@
-import { ReactComponent as LogoIcon } from "../../../assets/logo.svg";
+import { ReactComponent as LogoIcon } from "../../../images/svg/logo.svg";
 import { NavLink } from "react-router-dom";
 import { LogoText, LogoWrapper, getStyledIcon } from "./FooterLogo.styled";
 

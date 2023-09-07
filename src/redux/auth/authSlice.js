@@ -1,13 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
-import { signup, signin, logout, refreshUser, updateAvatar, updateUserName } from "./operations";
+import {
+  signup,
+  signin,
+  logout,
+  refreshUser,
+  updateAvatar,
+  updateUserName,
+} from "./operations";
 
 const initialState = {
   user: { name: null, email: null, avatarURL: null },
   accessToken: null,
   isLoggedIn: false,
   isRefreshing: true,
+  isChanging: false,
   error: "",
 };
 
@@ -56,28 +64,39 @@ const authSlice = createSlice({
         state.isLoggedIn = false;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.pending, (state) => {
-        state.isRefreshing = true;
-      })
+
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
 
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
+      .addCase(refreshUser.pending, (state) => {
+        state.isRefreshing = true;
+      })
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
+      })
+      .addCase(updateAvatar.pending, (state) => {
+        state.isChanging = true;
       })
       .addCase(updateAvatar.fulfilled, (state, action) => {
         state.user.avatarURL = action.payload;
         state.isRefreshing = false;
+        state.isChanging = false;
+      })
+      .addCase(updateAvatar.rejected, (state) => {
+        state.isChanging = false;
       })
       .addCase(updateUserName.fulfilled, (state, action) => {
         state.user.name = action.payload;
         state.isRefreshing = false;
       })
       .addMatcher((action) => action.type.endsWith("/pending"), handlePending)
-      .addMatcher((action) => action.type.endsWith("/rejected"), handleRejected),
+      .addMatcher(
+        (action) => action.type.endsWith("/rejected"),
+        handleRejected
+      ),
 });
 
 const authReducer = authSlice.reducer;
@@ -88,4 +107,7 @@ const authPersistConfig = {
   whitelist: ["accessToken", "refreshToken"],
 };
 
-export const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+export const persistedAuthReducer = persistReducer(
+  authPersistConfig,
+  authReducer
+);
