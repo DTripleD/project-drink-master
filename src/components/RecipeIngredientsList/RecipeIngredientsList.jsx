@@ -1,5 +1,6 @@
 import { IMG,P1,P2,Li,List,DIV,IngredientTitle,Wrapper } from './RecipeIngredientsList.styled';
 import PropTypes from "prop-types";
+import defaultImg from "../../images/plug-m.png";
 
 const RecipeIngredientsList = ({ ingridients }) => {
   if (!ingridients) {
@@ -14,10 +15,10 @@ const RecipeIngredientsList = ({ ingridients }) => {
       {ingredientItems.map((ingredient, index) => (
         <Li key={index}>
           <IMG
-            src={ingredient['thumb-small'] || '../../../public/plug-m.png'}
+            src={ingredient['thumb-small'] || defaultImg}
             srcSet={`
-              ${ingredient['thumb-medium'] || '../../../public/plug-m.png'} 480w,
-              ${ingredient.ingredientThumb || '../../../public/plug-m.png'} 748w
+              ${ingredient['thumb-medium'] || defaultImg} 480w,
+              ${ingredient.ingredientThumb || defaultImg} 748w
             `}
             sizes="(min-width: 1440px) 450px, (min-width:768px) 354px, (min-width:375px) 270px, 100vw" 
             alt={ingredient.title}
