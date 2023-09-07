@@ -19,6 +19,7 @@ import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
 import { Circles } from "react-loader-spinner";
 
 const UserMenu = () => {
+
   const { name, avatarURL } = useSelector(selectUser);
   const isChanging = useSelector(selectIsChanging);
 
