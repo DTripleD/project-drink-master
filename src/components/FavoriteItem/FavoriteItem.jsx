@@ -41,6 +41,6 @@ const FavoriteItem = ({ recipe, removeCocktail }) => {
 };
 FavoriteItem.propTypes = {
   recipe: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  // removeCocktail: PropTypes.func(),
+  removeCocktail: PropTypes.func,
 };
 export default FavoriteItem;
