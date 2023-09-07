@@ -20,6 +20,7 @@ import {
 } from "./AuthForm.styled";
 import { selectTheme } from "../../redux/theme/selectors";
 import theme from "../../shared/theme";
+import { toast } from "react-hot-toast";
 
 export const SignUpForm = () => {
   const dispatch = useDispatch();
@@ -36,8 +37,19 @@ export const SignUpForm = () => {
   const currentTheme = useSelector(selectTheme);
   const themes = theme(currentTheme);
 
-  const onSubmit = (data) => {
-    dispatch(signup(data));
+  const onSubmit = async (data) => {
+    try {
+      const res = await dispatch(signup(data));
+
+      if (res.payload.status === 409) {
+        toast.error(res.payload.data.message);
+        throw new Error(res.payload.response.data.message);
+      }
+
+      toast.success("Registration successful");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -181,15 +193,21 @@ export const SignUpForm = () => {
               }}
             >
               {isClicked ? (
-                <FiEye color={themes.colors.white} style={{
-                  width: '24px',
-                  height: '24px',
-                }}/>
+                <FiEye
+                  color={themes.colors.white}
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                  }}
+                />
               ) : (
-                <FiEyeOff color={themes.colors.white} style={{
-                  width: '24px',
-                  height: '24px',
-                }}/>
+                <FiEyeOff
+                  color={themes.colors.white}
+                  style={{
+                    width: "24px",
+                    height: "24px",
+                  }}
+                />
               )}
             </span>
           </StyledPasswordDiv>

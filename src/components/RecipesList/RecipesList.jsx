@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  removeRecipeThunk,
-  fetchMyCoctails,
-} from "../../redux/Cocktails/cocktailsOperations";
+import { removeRecipeThunk } from "../../redux/Cocktails/cocktailsOperations";
 import Loader from "../Loader/Loader";
 import { DrinkCard } from "../DrinkCard/DrinkCard";
 import {
@@ -16,7 +13,6 @@ import { ErrorPageWrapper } from "../../pages/ErrorPage/ErrorPage.styled";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { getMyCoctails } from "../../shared/api/getMyCoctails";
 import PaginationComponent from "../../components/Pagination/Pagination";
-import { selectOwn } from "../../redux/Cocktails/coctailsSelectors";
 
 export const RecipesList = () => {
   const [loading, setLoading] = useState(true);

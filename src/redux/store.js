@@ -3,7 +3,6 @@ import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 import { persistedAuthReducer } from "./auth/authSlice";
-import { subscribeReducer } from "./subscribe/subscribeSlice";
 
 import { persistedfavoritesReducer } from "./favorite/favoriteSlice";
 
@@ -21,7 +20,6 @@ const persistConfigForCocktails = {
 export const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
-    subscribe: subscribeReducer,
     favorites: persistedfavoritesReducer,
     cocktails: persistReducer(persistConfigForCocktails, cocktailsReducer),
     drinksQuery: persistedDrinksQueryReducer,
