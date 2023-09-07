@@ -1,4 +1,4 @@
-import{n as t}from"./index-3b61abd1.js";const i=t.section`
+import{n as t}from"./index-ead5f6bf.js";const i=t.section`
   max-width: 100%;
   margin-bottom: 40px;
   overflow: hidden;

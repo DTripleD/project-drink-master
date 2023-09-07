@@ -1,4 +1,4 @@
-import{n as i,P as s,j as t,y as h,r as d,h as v,c as f,v as w,z as $,x as j,i as y,M as z,a as I}from"./index-3b61abd1.js";import{a as k}from"./favorite-selector-94e92a4d.js";const P=i.h1`
+import{n as i,P as s,j as t,y as h,r as d,h as v,c as f,v as w,z as $,x as j,i as y,M as z,a as I}from"./index-ead5f6bf.js";import{a as k}from"./favorite-selector-94e92a4d.js";const P=i.h1`
   color: ${e=>e.theme.colors.white};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 font-size: 32px;
