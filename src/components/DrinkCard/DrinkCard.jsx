@@ -44,7 +44,7 @@ export const DrinkCard = ({ cocktail, page, removeCocktail }) => {
         </Ingredientswrapper>
       </Wrapper>
       {(page === "my" || page === "favorite") && (
-        <AboutStyled>{cocktail.description}</AboutStyled>
+        <AboutStyled>{cocktail.instructions}</AboutStyled>
       )}
       <ButtonsWrapper>
         {(page === "my" || page === "favorite") && (
