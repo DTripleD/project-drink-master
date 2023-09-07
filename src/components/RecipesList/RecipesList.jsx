@@ -113,34 +113,36 @@ export const RecipesList = () => {
 
   return (
     <Section>
-      {loading && <Loader />}
-      {own.length > 0 ? (
+      {(loading && <Loader />) || (
         <>
-          {" "}
-          <MyRecipesListStyled>
-            {own.map((ownCocktail) => (
-              <DrinkCard
-                key={ownCocktail._id}
-                page="my"
-                cocktail={ownCocktail}
-                removeCocktail={() => handleDeleteCocktail(ownCocktail._id)}
-              />
-            ))}
-          </MyRecipesListStyled>
-          {totalPages > 1 && (
-            <PaginationComponent
-              totalPages={totalPages}
-              page={page}
-              changeNum={changeNum}
-            />
+          {own.length > 0 ? (
+            <>
+              <MyRecipesListStyled>
+                {own.map((ownCocktail) => (
+                  <DrinkCard
+                    key={ownCocktail._id}
+                    page="my"
+                    cocktail={ownCocktail}
+                    removeCocktail={() => handleDeleteCocktail(ownCocktail._id)}
+                  />
+                ))}
+              </MyRecipesListStyled>
+              {totalPages > 1 && (
+                <PaginationComponent
+                  totalPages={totalPages}
+                  page={page}
+                  changeNum={changeNum}
+                />
+              )}
+            </>
+          ) : (
+            <>
+              <ErrorPageWrapper />
+              <MessageTitle>
+                You haven't added any cocktail recipes yet
+              </MessageTitle>
+            </>
           )}
-        </>
-      ) : (
-        <>
-          <ErrorPageWrapper />
-          <MessageTitle>
-            You haven't added any cocktail recipes yet
-          </MessageTitle>
         </>
       )}
     </Section>
