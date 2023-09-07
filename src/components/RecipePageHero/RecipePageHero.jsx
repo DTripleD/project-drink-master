@@ -2,6 +2,7 @@ import RecipePageTitle from "../RecipePageTitle/RecipePageTitle";
 import { P1, P2, IMG, Wrapper, DIV } from "./RecipePageHero.styled";
 import FavoriteButton from "../Button/FavoriteButton/FavoriteButton";
 import PropTypes from "prop-types";
+import defaultImg from "../../images/plug-b.png";
 
 const RecipePageHero = ({
   ingridients: { drink, glass, drinkThumb, description },
@@ -18,7 +19,7 @@ const RecipePageHero = ({
         <FavoriteButton />
       </div>
       <DIV>
-        <IMG src={drinkThumb || "/plug-m.png"} alt={drink} />
+        <IMG src={ drinkThumb || defaultImg} alt={drink} />
       </DIV>
     </Wrapper>
   );

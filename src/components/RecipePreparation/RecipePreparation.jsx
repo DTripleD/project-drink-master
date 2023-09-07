@@ -11,6 +11,7 @@ import {
   IMG, 
 } from './RecipePreparation.styled';
 import PropTypes from "prop-types";
+import defaultImg from "../../images/plug-b.png";
 
 const RecipePreparation = ({ ingridients: { description, instructions, drinkThumb, drink } }) => {
   const sentences = instructions.split(/(?<=[.!?])\s+/).filter(Boolean);
@@ -30,7 +31,7 @@ const RecipePreparation = ({ ingridients: { description, instructions, drinkThum
           </UL>
         </DIV2>
         <DIV3>
-          <IMG src={drinkThumb  || '/plug-m.png'} alt={drink} />
+          <IMG src={drinkThumb || defaultImg} alt={drink} />
         </DIV3>
       </DIV1>
     </Wrapper>
