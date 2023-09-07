@@ -10,6 +10,7 @@ import bg_white_1 from "../../images/bg-white/white-bg@1x.png";
 import bg_white_2 from "../../images/bg-white/white-bg@2x.png";
 
 export const ErrorPageWrapper = styled.div`
+  background-size: contain;
   ${({ theme }) =>
     theme.currentTheme === "light"
       ? `background-image: url(${bg_white_1});`
@@ -158,14 +159,11 @@ export const ErrorPageWrapper = styled.div`
   height: 476px;
   background-position: center;
 
-  background-size: cover;
   position: relative;
   background-repeat: no-repeat;
 
   margin-left: auto;
   margin-right: auto;
-  margin-top: 83px;
-  margin-bottom: 140px;
 `;
 
 export const TextWrapper = styled.div`
@@ -196,4 +194,9 @@ export const ErrorText = styled.h2`
   @media (min-width: 1440px) {
     font-size: 150px;
   }
+`;
+
+export const ErrorContainer = styled.div`
+  margin-top: 83px;
+  margin-bottom: 140px;
 `;

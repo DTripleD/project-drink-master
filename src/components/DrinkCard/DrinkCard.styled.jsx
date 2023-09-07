@@ -41,8 +41,8 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 335px;
+  height: 360px;
   display: block;
   transition: transform 600ms ease, box-shadow 400ms ease;
   background: linear-gradient(
@@ -59,9 +59,11 @@ export const Image = styled.img`
     box-shadow: 0 0 12px rgba(243, 243, 243, 0.5);
   }
   @media screen and (min-width: 768px) {
+    width: 342px;
   }
 
   @media screen and (min-width: 1440px) {
+    width: 400px;
     height: 400px;
   }
 `;
