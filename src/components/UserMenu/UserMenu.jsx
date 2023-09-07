@@ -7,7 +7,7 @@ import { UserInfoModal } from "../UserInfoModal/UserInfoModal";
 import { useOnClickOutside } from "../../hooks/useOnClickOutside";
 import User from "../../images/user.png";
 
-import { selectUser } from "../../redux/auth/selectors";
+import { selectIsChanging, selectUser } from "../../redux/auth/selectors";
 import {
 	MenuWrapper,
 	UserName,
@@ -16,9 +16,11 @@ import {
 	UserPhotoWrapper,
 } from "./UserMenu.styled";
 import { UserLogoModal } from "../UserLogoModal/UserLogoModal";
+import { Circles } from "react-loader-spinner";
 
 const UserMenu = () => {
 	const { name, avatarURL } = useSelector(selectUser);
+	const isChanging = useSelector(selectIsChanging);
 
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -48,7 +50,7 @@ const UserMenu = () => {
 		document.body.style.overflow = "";
 	};
 
-	const handleLogout = (event) => {
+	const handleLogout = () => {
 		dispatch(logout());
 		navigate("/");
 	};
@@ -107,7 +109,19 @@ const UserMenu = () => {
 		<>
 			<MenuWrapper open={openDrop} onClick={() => setOpenDrop(!openDrop)}>
 				<UserPhotoWrapper>
-					<UserPhoto src={avatarURL || User} alt="" />
+					{isChanging ? (
+						<Circles
+							height="35"
+							width="35"
+							color="#256294"
+							ariaLabel="circles-loading"
+							wrapperStyle={{}}
+							wrapperClass=""
+							visible={true}
+						/>
+					) : (
+						<UserPhoto src={avatarURL || User} alt="" />
+					)}
 				</UserPhotoWrapper>
 				<NameWrapper>
 					<UserName>{name}</UserName>

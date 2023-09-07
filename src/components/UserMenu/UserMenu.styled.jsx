@@ -5,12 +5,11 @@ export const MenuWrapper = styled.div`
 	display: flex;
 
 	align-items: center;
-	gap: 8px;
+
 	width: 91px;
 
 	@media (min-width: 768px) {
 		width: 116px;
-		gap: 14px;
 	}
 `;
 
@@ -21,7 +20,7 @@ export const UserPhotoWrapper = styled.div`
 	width: 32px;
 	height: 32px;
 	border-radius: 50%;
-
+	margin-right: 8px;
 	background: ${({ theme }) =>
 		theme.currentTheme === "light"
 			? theme.colors.backgroundLight
@@ -30,13 +29,13 @@ export const UserPhotoWrapper = styled.div`
 	@media (min-width: 768px) {
 		width: 44px;
 		height: 44px;
+		margin-right: 14px;
 	}
 `;
 
 export const UserPhoto = styled.img`
 	width: 100%;
 	height: 100%;
-	border-radius: 50%;
 `;
 
 export const NameWrapper = styled.div`
