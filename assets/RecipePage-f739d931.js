@@ -1,4 +1,4 @@
-import{n as i,P as s,j as t,y as h,r as d,h as v,c as f,v as w,z as $,x as j,i as y,M as z,a as I}from"./index-ead5f6bf.js";import{a as k}from"./favorite-selector-94e92a4d.js";const P=i.h1`
+import{n as i,P as s,j as t,y as x,r as d,h as v,c as w,v as $,z as j,x as y,i as z,M as I,a as k}from"./index-11619686.js";import{a as P,d as l}from"./plug-m-b8799421.js";const T=i.h1`
   color: ${e=>e.theme.colors.white};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 font-size: 32px;
@@ -16,7 +16,7 @@ margin-bottom: 20px;
 font-size: 64px;
 line-height: 68px;
   }
-`,x=({title:e})=>t.jsx("div",{children:t.jsx(P,{children:e})});x.propTypes={title:s.string};const T=i.p`
+`,g=({title:e})=>t.jsx("div",{children:t.jsx(T,{children:e})});g.propTypes={title:s.string};const q=i.p`
   font-size: 12px;
   color: ${e=>e.theme.colors.grey};
   line-height: calc(14/12);
@@ -26,7 +26,7 @@ line-height: 68px;
     font-size: 14px;
     line-height:calc(20/14);
   }
-`,q=i.p`
+`,R=i.p`
 color:${e=>e.theme.colors.white};
 font-size: 14px;
 font-weight: 400;
@@ -36,11 +36,11 @@ width:593px;
 font-size: 16px;
 line-height: calc(24/16);
 }
-`,R=i.img`
+`,F=i.img`
  border-radius:8px;
   width: 100%;
   height: auto;
-`,F=i.div`
+`,L=i.div`
 width:335px;
 border-radius:8px;
 height:400px;
@@ -51,7 +51,7 @@ overflow:hidden;
 @media ${e=>e.theme.device.desktop}{
     width:400px;
 
-`,L=i.div`
+`,S=i.div`
 padding-top:58px;
 padding-bottom:40px;
 @media ${e=>e.theme.device.tablet} {
@@ -65,7 +65,7 @@ padding-bottom:40px;
   display:flex;
   justify-content: space-between;
 }
-`,l=i.button`
+`,h=i.button`
 color:${e=>e.theme.colors.black};
 background-color:${e=>e.theme.colors.white};
 border-radius:42px;
@@ -87,7 +87,7 @@ transition: 0.3s ease;
   fonst-size: 16px;
   line-height: calc(18/16);
 }
-`,S=()=>{const{recipeId:e}=h();d.useState(null);const[o,n]=d.useState(!1),r=v(k),a=f();return d.useEffect(()=>{a(w())},[a]),d.useEffect(()=>{const c=r.some(p=>p._id===e);n(c)},[r,e]),t.jsx("div",{children:o?t.jsx(l,{type:"button",onClick:()=>a(j(e)),children:"Remove from favorites"}):t.jsx(l,{type:"button",onClick:()=>a($(e)),children:"Add to favorite recipe"})})},g=({ingridients:{drink:e,glass:o,drinkThumb:n,description:r}})=>t.jsxs(L,{children:[t.jsxs("div",{children:[t.jsx(T,{children:o}),t.jsx(x,{title:e}),t.jsx(q,{children:r||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."}),t.jsx(S,{})]}),t.jsx(F,{children:t.jsx(R,{src:n||"/plug-m.png",alt:e})})]});g.propTypes={ingridients:s.object,drink:s.string,glass:s.string,drinkThumb:s.string,description:s.string};const m=i.p`
+`,D=()=>{const{recipeId:e}=x();d.useState(null);const[o,n]=d.useState(!1),r=v(P),a=w();return d.useEffect(()=>{a($())},[a]),d.useEffect(()=>{const c=r.some(p=>p._id===e);n(c)},[r,e]),t.jsx("div",{children:o?t.jsx(h,{type:"button",onClick:()=>a(y(e)),children:"Remove from favorites"}):t.jsx(h,{type:"button",onClick:()=>a(j(e)),children:"Add to favorite recipe"})})},u=({ingridients:{drink:e,glass:o,drinkThumb:n,description:r}})=>t.jsxs(S,{children:[t.jsxs("div",{children:[t.jsx(q,{children:o}),t.jsx(g,{title:e}),t.jsx(R,{children:r||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."}),t.jsx(D,{})]}),t.jsx(L,{children:t.jsx(F,{src:n||"/plug-m.png",alt:e})})]});u.propTypes={ingridients:s.object,drink:s.string,glass:s.string,drinkThumb:s.string,description:s.string};const m=i.p`
   font-size: 16px;
   color: rgba(243, 243, 243, 0.5);
   line-height: calc(20/16);
@@ -95,11 +95,11 @@ transition: 0.3s ease;
   @media ${e=>e.theme.device.tablet}{
     margin-bottom:24px;
   }
-`,D=i.p`
+`,E=i.p`
 font-size: 16px;
   color: ${e=>e.theme.colors.grey};
   line-height:calc(20/16);
-`,E=i.img`
+`,A=i.img`
 padding:25px;
 background-color:${e=>e.theme.colors.blue};
 width:157px;
@@ -110,7 +110,7 @@ border-radius: 8px;
   height:220px;
   padding:32px;
 }
-`,A=i.ul`
+`,M=i.ul`
 display:flex;
 flex-wrap:wrap;
 gap:20px;
@@ -120,12 +120,12 @@ gap:20px;
 @media ${e=>e.theme.device.desktop}{
   gap:30px;
 }
-`,M=i.div`
+`,V=i.div`
 display: flex;
 	justify-content: space-between;
 	align-items: center;
   margin-top:8px;
-`,V=i.h3`
+`,B=i.h3`
 font-size: 14px;
 font-style: normal;
 font-weight: 500;
@@ -134,27 +134,27 @@ line-height: calc(18/14);
 font-size: 18px;
 line-height: calc(24 / 18);
 }
-`,B=i.div`
+`,C=i.div`
 padding-bottom:40px;
 @media ${e=>e.theme.device.tablet}{
   padding-bottom:50px;
 }
-`,C=i.li`
+`,G=i.li`
 width:157px;
 @media ${e=>e.theme.device.tablet}{
   width:220px;
 }
-`,u=({ingridients:e})=>{if(!e)return t.jsx(m,{children:"Something went wrong,try again..."});const o=e.ingredients;return t.jsxs(B,{children:[t.jsx(m,{children:"Ingredients"}),t.jsx(A,{children:o.map((n,r)=>t.jsxs(C,{children:[t.jsx(E,{src:n["thumb-small"]||"../../../public/plug-m.png",srcSet:`
-              ${n["thumb-medium"]||"../../../public/plug-m.png"} 480w,
-              ${n.ingredientThumb||"../../../public/plug-m.png"} 748w
-            `,sizes:"(min-width: 1440px) 450px, (min-width:768px) 354px, (min-width:375px) 270px, 100vw",alt:n.title,loading:"lazy"}),t.jsxs(M,{children:[t.jsx(V,{children:n.title}),t.jsx(D,{children:n.measure})]})]},r))})]})};u.propTypes={ingridients:s.object,ingredients:s.array,title:s.string,measure:s.string,ingredientThumb:s.string};const G=i.div`
+`,b=({ingridients:e})=>{if(!e)return t.jsx(m,{children:"Something went wrong,try again..."});const o=e.ingredients;return t.jsxs(C,{children:[t.jsx(m,{children:"Ingredients"}),t.jsx(M,{children:o.map((n,r)=>t.jsxs(G,{children:[t.jsx(A,{src:n["thumb-small"]||l,srcSet:`
+              ${n["thumb-medium"]||l} 480w,
+              ${n.ingredientThumb||l} 748w
+            `,sizes:"(min-width: 1440px) 450px, (min-width:768px) 354px, (min-width:375px) 270px, 100vw",alt:n.title,loading:"lazy"}),t.jsxs(V,{children:[t.jsx(B,{children:n.title}),t.jsx(E,{children:n.measure})]})]},r))})]})};b.propTypes={ingridients:s.object,ingredients:s.array,title:s.string,measure:s.string,ingredientThumb:s.string};const W=i.div`
 padding-top:40px;
 padding-bottom:80px;
 @media ${e=>e.theme.device.tablet}{
     padding-top:50px;
     padding-bottom:140px;
 }
-`,W=i.h2`
+`,N=i.h2`
 color: ${e=>e.theme.colors.white};
 font-weight: 600;
 font-size: 28px;
@@ -166,7 +166,7 @@ line-height: calc(32/28);
 @media ${e=>e.theme.device.desktop}{
 margin-bottom:60px;
 }
-`,N=i.p`
+`,H=i.p`
 color:${e=>e.theme.colors.white};
 font-size: 14px;
 font-weight: 400;
@@ -176,7 +176,7 @@ width:593px;
 font-size: 16px;
 line-height: calc(24/16);
 }
-`,H=i.p`
+`,U=i.p`
 font-size: 14px;
 font-weight: 400;
 line-height: calc(18/14);
@@ -185,7 +185,7 @@ line-height: calc(18/14);
     line-height: calc(22/16);
 }
 
-`,U=i.div`
+`,_=i.div`
 margin-top:40px;
 @media ${e=>e.theme.device.desktop}{
     margin-top:60px;
@@ -193,7 +193,7 @@ margin-top:40px;
     flex-direction:row-reverse;
     justify-content:space-between;
 }
-`,_=i.div`
+`,J=i.div`
 margin-bottom:46px;
 @media ${e=>e.theme.device.tablet}{
     margin-bottom:40px;
@@ -201,21 +201,21 @@ margin-bottom:46px;
 @media ${e=>e.theme.device.desktop}{
     margin-bottom:0;
 }
-`,J=i.ul`
+`,K=i.ul`
 margin-top:60px;
 display:flex;
 flex-direction:column;
 gap:14px;
 list-style-type: disc;
-`,K=i.li`
+`,O=i.li`
 border-bottom: 1px solid rgba(243, 243, 243, 0.2);
 padding-bottom:14px;
 
-`,O=i.img`
+`,Q=i.img`
  border-radius:8px;
   width: 100%;
   height: auto;
-`,Q=i.div`
+`,X=i.div`
 width:335px;
 border-radius:8px;
 height:430px;
@@ -226,4 +226,4 @@ overflow:hidden;
 @media ${e=>e.theme.device.desktop}{
     width:400px;
 
-`,b=({ingridients:{description:e,instructions:o,drinkThumb:n,drink:r}})=>{const a=o.split(new RegExp("(?<=[.!?])\\s+")).filter(Boolean);return t.jsxs(G,{children:[t.jsx(W,{children:"Recipe Preparation"}),t.jsxs(U,{children:[t.jsxs(_,{children:[t.jsxs(N,{children:[e||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."," "]}),t.jsx(J,{children:a.map((c,p)=>t.jsx(K,{children:t.jsx(H,{children:c.trim()})},p))})]}),t.jsx(Q,{children:t.jsx(O,{src:n||"/plug-m.png",alt:r})})]})]})};b.propTypes={ingridients:s.object,drink:s.string,drinkThumb:s.string,description:s.string,instructions:s.string};const X=async e=>{try{const{data:o}=await y.get(`/recipes/${e}`);return o}catch(o){return o.response.data.message}},ee=()=>{const{recipeId:e}=h(),[o,n]=d.useState(null);return d.useEffect(()=>{X(e).then(r=>n(r))},[e]),d.useEffect(()=>{window.scrollTo(0,0)},[]),t.jsx("div",{children:o?t.jsxs(z,{children:[t.jsx(g,{ingridients:o}),t.jsx(u,{ingridients:o}),t.jsx(b,{ingridients:o})]}):t.jsx(I,{})})};export{ee as default};
+`,f=({ingridients:{description:e,instructions:o,drinkThumb:n,drink:r}})=>{const a=o.split(new RegExp("(?<=[.!?])\\s+")).filter(Boolean);return t.jsxs(W,{children:[t.jsx(N,{children:"Recipe Preparation"}),t.jsxs(_,{children:[t.jsxs(J,{children:[t.jsxs(H,{children:[e||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."," "]}),t.jsx(K,{children:a.map((c,p)=>t.jsx(O,{children:t.jsx(U,{children:c.trim()})},p))})]}),t.jsx(X,{children:t.jsx(Q,{src:n||"/plug-m.png",alt:r})})]})]})};f.propTypes={ingridients:s.object,drink:s.string,drinkThumb:s.string,description:s.string,instructions:s.string};const Y=async e=>{try{const{data:o}=await z.get(`/recipes/${e}`);return o}catch(o){return o.response.data.message}},te=()=>{const{recipeId:e}=x(),[o,n]=d.useState(null);return d.useEffect(()=>{Y(e).then(r=>n(r))},[e]),d.useEffect(()=>{window.scrollTo(0,0)},[]),t.jsx("div",{children:o?t.jsxs(I,{children:[t.jsx(u,{ingridients:o}),t.jsx(b,{ingridients:o}),t.jsx(f,{ingridients:o})]}):t.jsx(k,{})})};export{te as default};
