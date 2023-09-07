@@ -44,7 +44,6 @@ const cocktailsSlice = createSlice({
       state.own = state.own.filter(
         (cocktail) => cocktail._id !== action.payload
       );
-      console.log(action.payload);
 
       if (state.own.length === 0) {
         state.own = [];

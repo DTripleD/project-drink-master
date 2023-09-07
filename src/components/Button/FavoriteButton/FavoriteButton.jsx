@@ -20,8 +20,6 @@ const FavoriteButton = () => {
 
   const isLoading = useSelector(selectIsLoading);
 
-  console.log(isLoading);
-
   useEffect(() => {
     dispatch(fetchFavorites());
   }, [dispatch]);
