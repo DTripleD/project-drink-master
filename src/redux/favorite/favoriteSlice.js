@@ -27,6 +27,7 @@ const favoritesSlice = createSlice({
   extraReducers: {
     [fetchFavorites.pending]: handlePending,
     [addFavorite.pending]: handlePending,
+    [deleteFavorite.pending]: handlePending,
     // [deleteFavorite.pending]: handlePending,
 
     [fetchFavorites.rejected]: handleRejected,

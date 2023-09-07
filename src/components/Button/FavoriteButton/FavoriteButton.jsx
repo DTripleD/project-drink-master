@@ -7,14 +7,20 @@ import {
   deleteFavorite,
   fetchFavorites,
 } from "../../../redux/favorite/favorite-operation";
-import { selectFavorites } from "../../../redux/favorite/favorite-selector";
+import {
+  selectFavorites,
+  selectIsLoading,
+} from "../../../redux/favorite/favorite-selector";
 
 const FavoriteButton = () => {
   const { recipeId } = useParams();
-  const [ingridients, setIngridients] = useState(null);
   const [isAddFavorite, setIsAddFavorite] = useState(false);
   const favoriteRecipe = useSelector(selectFavorites);
   const dispatch = useDispatch();
+
+  const isLoading = useSelector(selectIsLoading);
+
+  console.log(isLoading);
 
   useEffect(() => {
     dispatch(fetchFavorites());
@@ -29,6 +35,7 @@ const FavoriteButton = () => {
     <div>
       {!isAddFavorite ? (
         <StyledButton
+          disabled={isLoading}
           type="button"
           onClick={() => dispatch(addFavorite(recipeId))}
         >
@@ -36,6 +43,7 @@ const FavoriteButton = () => {
         </StyledButton>
       ) : (
         <StyledButton
+          disabled={isLoading}
           type="button"
           onClick={() => dispatch(deleteFavorite(recipeId))}
         >
