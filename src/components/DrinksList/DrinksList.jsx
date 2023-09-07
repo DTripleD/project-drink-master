@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Li, Img, Div, P, P2, Ul } from "./DrinksList.styled";
+import defaultImg from "../../images/plug-b.png";
 
 const DrinksList = ({ drinks }) => {
 	const location = useLocation();
@@ -13,7 +14,7 @@ const DrinksList = ({ drinks }) => {
 						<Li key={_id}>
 							<Link to={`/recipe/${_id}`} state={{ from: location }}>
 								<Img
-									src={drinkThumb ? drinkThumb : "/public/plug-b.png"}
+									src={drinkThumb || defaultImg}
 									alt={instructions}
 									loading="lazy"
 								/>
