@@ -1,4 +1,4 @@
-import{n as i,P as s,j as t,y as g,r as a,h as m,c as j,v as y,z,x as I,i as k,M as P,a as T}from"./index-947be848.js";import{a as q,s as L,d as l}from"./plug-m-b8799421.js";import{d as u}from"./plug-b-be3cb1ec.js";const R=i.h1`
+import{n as i,P as s,j as t,y as g,r as a,h as m,c as j,v as y,z,x as I,i as k,M as P,a as T}from"./index-a93a10b1.js";import{a as q,s as L,d as l}from"./plug-m-b8799421.js";import{d as u}from"./plug-b-be3cb1ec.js";const R=i.h1`
   color: ${e=>e.theme.colors.white};
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 font-size: 32px;
@@ -40,7 +40,7 @@ line-height: calc(24/16);
  border-radius:8px;
   width: 100%;
   height: auto;
-`,A=i.div`
+`,E=i.div`
 width:335px;
 border-radius:8px;
 height:400px;
@@ -51,7 +51,7 @@ overflow:hidden;
 @media ${e=>e.theme.device.desktop}{
     width:400px;
 
-`,E=i.div`
+`,A=i.div`
 padding-top:58px;
 padding-bottom:40px;
 @media ${e=>e.theme.device.tablet} {
@@ -93,7 +93,7 @@ padding-bottom:40px;
     fonst-size: 16px;
     line-height: calc(18 / 16);
   }
-`,M=()=>{const{recipeId:e}=g(),[o,n]=a.useState(!1),r=m(q),d=j(),c=m(L);return a.useEffect(()=>{d(y())},[d]),a.useEffect(()=>{const p=r.some(w=>w._id===e);n(p)},[r,e]),t.jsx("div",{children:o?t.jsx(h,{disabled:c,type:"button",onClick:()=>d(I(e)),children:"Remove from favorites"}):t.jsx(h,{disabled:c,type:"button",onClick:()=>d(z(e)),children:"Add to favorite recipe"})})},f=({ingridients:{drink:e,glass:o,drinkThumb:n,description:r}})=>t.jsxs(E,{children:[t.jsxs("div",{children:[t.jsx(F,{children:o}),t.jsx(b,{title:e}),t.jsx(S,{children:r||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."}),t.jsx(M,{})]}),t.jsx(A,{children:t.jsx(D,{src:n||u,alt:e})})]});f.propTypes={ingridients:s.object,drink:s.string,glass:s.string,drinkThumb:s.string,description:s.string};const x=i.p`
+`,M=()=>{const{recipeId:e}=g(),[o,n]=a.useState(!1),r=m(q),d=j(),c=m(L);return a.useEffect(()=>{d(y())},[d]),a.useEffect(()=>{const p=r.some($=>$._id===e);n(p)},[r,e]),t.jsx("div",{children:o?t.jsx(h,{disabled:c,type:"button",onClick:()=>d(I(e)),children:"Remove from favorites"}):t.jsx(h,{disabled:c,type:"button",onClick:()=>d(z(e)),children:"Add to favorite recipe"})})},f=({ingridients:{drink:e,glass:o,drinkThumb:n,description:r}})=>t.jsxs(A,{children:[t.jsxs("div",{children:[t.jsx(F,{children:o}),t.jsx(b,{title:e}),t.jsx(S,{children:r||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."}),t.jsx(M,{})]}),t.jsx(E,{children:t.jsx(D,{src:n||u,alt:e})})]});f.propTypes={ingridients:s.object,drink:s.string,glass:s.string,drinkThumb:s.string,description:s.string};const x=i.p`
   font-size: 16px;
   color: rgba(243, 243, 243, 0.5);
   line-height: calc(20/16);
@@ -232,4 +232,4 @@ overflow:hidden;
 @media ${e=>e.theme.device.desktop}{
     width:400px;
 
-`,$=({ingridients:{description:e,instructions:o,drinkThumb:n,drink:r}})=>{const d=o.split(new RegExp("(?<=[.!?])\\s+")).filter(Boolean);return t.jsxs(U,{children:[t.jsx(_,{children:"Recipe Preparation"}),t.jsxs(O,{children:[t.jsxs(Q,{children:[t.jsxs(J,{children:[e||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."," "]}),t.jsx(X,{children:d.map((c,p)=>t.jsx(Y,{children:t.jsx(K,{children:c.trim()})},p))})]}),t.jsx(ee,{children:t.jsx(Z,{src:n||u,alt:r})})]})]})};$.propTypes={ingridients:s.object,drink:s.string,drinkThumb:s.string,description:s.string,instructions:s.string};const te=async e=>{try{const{data:o}=await k.get(`/recipes/${e}`);return o}catch(o){return o.response.data.message}},ne=()=>{const{recipeId:e}=g(),[o,n]=a.useState(null);return a.useEffect(()=>{te(e).then(r=>n(r))},[e]),t.jsx("div",{children:o?t.jsxs(P,{children:[t.jsx(f,{ingridients:o}),t.jsx(v,{ingridients:o}),t.jsx($,{ingridients:o})]}):t.jsx(T,{})})};export{ne as default};
+`,w=({ingridients:{description:e,instructions:o,drinkThumb:n,drink:r}})=>{const d=o.split(new RegExp("(?<=[.!?])\\s+")).filter(Boolean);return t.jsxs(U,{children:[t.jsx(_,{children:"Recipe Preparation"}),t.jsxs(O,{children:[t.jsxs(Q,{children:[t.jsxs(J,{children:[e||"Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium debitis optio deserunt dignissimos commodi nisi expedita itaque dolor provident. Atque labore, corrupti totamaccusantium omnis alias vero. Itaque eos ullam aut rerum quam. Nontemporibus vel dolore similique, suscipit amet."," "]}),t.jsx(X,{children:d.map((c,p)=>t.jsx(Y,{children:t.jsx(K,{children:c.trim()})},p))})]}),t.jsx(ee,{children:t.jsx(Z,{src:n||u,alt:r})})]})]})};w.propTypes={ingridients:s.object,drink:s.string,drinkThumb:s.string,description:s.string,instructions:s.string};const te=async e=>{try{const{data:o}=await k.get(`/recipes/${e}`);return o}catch(o){return o.response.data.message}},ne=()=>{const{recipeId:e}=g(),[o,n]=a.useState(null);return a.useEffect(()=>{te(e).then(r=>n(r))},[e]),a.useEffect(()=>{window.scrollTo(0,0)},[]),t.jsx("div",{children:o?t.jsxs(P,{children:[t.jsx(f,{ingridients:o}),t.jsx(v,{ingridients:o}),t.jsx(w,{ingridients:o})]}):t.jsx(T,{})})};export{ne as default};
