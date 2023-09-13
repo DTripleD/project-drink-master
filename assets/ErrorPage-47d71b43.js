@@ -1,1 +1,0 @@
-import{j as r,M as s}from"./index-a93a10b1.js";import{a,E as n,T as o,b as e}from"./ErrorPage.styled-33a59839.js";import"./white-bg@2x-60be6de5.js";const p=()=>r.jsx(s,{children:r.jsx(a,{children:r.jsx(n,{children:r.jsxs(o,{children:[r.jsx(e,{children:"4"}),r.jsx(e,{children:"4"})]})})})});export{p as default};
