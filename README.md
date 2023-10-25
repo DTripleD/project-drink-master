@@ -9,12 +9,12 @@
 Drink Master is a SPA for those who wants to mix cocktails and create own reciepts. The site allows:
 * user registration and authorization
 * sharing your recipes
-* searching recipes by categories, ingredients or querry
+* searching recipes by categories, ingredients or query
 * adding recipes to the list of favorites
 * subscribing to the newsletters
 * changing the color theme (light / dark)
 
-The aplication has an adaptive design and can be used on desktops, tablets and mobile devices.
+The application has an adaptive design and can be used on desktops, tablets and mobile devices.
 
 ## Backend
 
